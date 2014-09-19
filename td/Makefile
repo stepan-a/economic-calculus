@@ -7,4 +7,5 @@ td1-clean:
 	$(MAKE) -C $(ROOT_PATH)/1 clean-all
 
 all: td1-build
+
 clean-all: td1-clean

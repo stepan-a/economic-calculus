@@ -1,0 +1,232 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique\\ \small{(Fiche de TD n°1)}}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} Soit une proposition $P$. Montrer, à l'aide d'un tableau
+de vérité, que $P \land P \Leftrightarrow P$ et $P \lor P
+\Leftrightarrow P$.
+
+\bigskip
+
+\exercice{2} Soient $P$, $Q$ et $R$ trois propositions. Montrer, à l'aide d'un tableau
+de vérité, que :
+\begin{enumerate}[(i)]
+\item $P \land Q \Leftrightarrow Q \land P$
+\item $P \lor Q \Leftrightarrow Q \lor P$
+\item $(P \land Q) \land R \Leftrightarrow P \land (Q \land R)$
+\item $(P \lor Q) \lor R \Leftrightarrow P \lor (Q \lor R)$
+\item $(P \lor Q) \lor R \Leftrightarrow P \lor (Q \lor R)$
+\item $(P \land Q) \lor R \Leftrightarrow (P \lor R) \land (Q \lor R)$
+\item $(P \lor Q) \land R \Leftrightarrow (P \land R) \lor (Q \land R)$
+\end{enumerate}
+
+\bigskip
+
+\exercice{3} Montrer la transitivité de l'implication logique, c'est-à-dire
+que :
+\[
+((P \Rightarrow Q) \land (Q \Rightarrow R)) \Rightarrow (P \Rightarrow R)
+\]
+avec $P$, $Q$ et $R$ trois propositions.
+
+\bigskip
+
+\exercice{4} Exprimer l'équivalence logique en termes d'implication logique, en
+établissant que :
+\[
+(P \Leftrightarrow Q) \Leftrightarrow (P \Rightarrow Q) \land (Q
+\Rightarrow P)
+\]
+avec $P$ et $Q$ deux propositions.
+
+\bigskip
+
+\exercice{5} Montrer que l'implication logique suivante :
+\[
+(10^n+1 \text{ est divisible par } 9) \Rightarrow (10^{n+1}+1 \text{
+  est divisible par 9})
+\]
+est vraie. Que pensez vous de ces propositions ?
+
+\bigskip
+
+\exercice{6} Montrer les propositions suivantes :
+\begin{enumerate}[(i)]
+\item $\sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}$
+\item $\sum_{i=0}x^{n-1} = \frac{x^{n}-1}{x-1}$, avec $x$ un réel
+  différent de 1.
+\item $1^3+2^3+3^3+\dots+n^3 = (1+2+3+\dots+n)^2$
+\item $1 \times 2 + 2\times 3 + 3\times 4 + \dots + n\times (n+1) = \frac{n(n+1)(n+2)}{3}$
+\end{enumerate}
+
+\bigskip
+
+\exercice{7} Soient les ensembles :
+\[
+A = \{x \in \mathbb N | x \text{ est un multiple de 2}\}
+\]
+\[
+B = \{x \in \mathbb N | x \text{ est un multiple de 3}\}
+\]
+\[
+C = \{x \in \mathbb N | x \text{ est un multiple de 6}\}
+\]
+\[
+D = \{x \in \mathbb N | x \text{ est un multiple de 8}\}
+\]
+Déterminer les ensembles $A \cap B$, $A \cap C$, $A \cup C$, $B\cup
+C$, $C\cap D$.
+
+\bigskip
+
+\exercice{8} Soient $A$ et $B$ deux sous ensembles de
+$\Omega$. Illustrer avec des diagrammes de Venn les deux règles de
+Morgan :
+\[
+\overline{A \cap B} = \overline{A} \cup \overline{B}
+\]
+\[
+\overline{A \cup B} = \overline{A} \cap \overline{B}
+\]
+
+\bigskip
+
+\exercice{9} Soient les ensembles $A = \{a, b\}$, $B = \{1, 3\}$ et $C
+= \{4, 5\}$. Déterminer les ensembles suivants :
+\begin{enumerate}[(i)]
+\item $A \times (B\cup C)$
+\item $(A\times B) \cup (A\times C)$
+\item $A \times (B \cap C)$
+\item $(A\times B) \cap (A\times C)$
+\end{enumerate}
+
+\bigskip
+
+\exercice{10} Soit $E$ un ensemble tel que $\mathrm{Card}(E)=30$. Si
+$A$ et $B$ sont deux sous ensembles de $E$ non disjoints (\emph{ie}
+$A\cap B \neq \emptyset$) tels que $\mathrm{Card}(A)=20$,
+$\mathrm{Card}(B)=15$ et $\mathrm{Card}(A\cap B)=6$. Déterminer
+$\mathrm{Card}(A\cup B)$.
+
+\bigskip
+
+\exercice{11} Les résultats d'une entreprise ont montré que sur 50
+employés, 30 sont obèses, 25 souffrent d'hypertension artérielle
+tandis que 20 ont un taux de cholestérol trop élevé. Parmi les 25 qui
+souffrent d'hypertension, 12 ont un taux de cholestérol trop élevé; 15
+obèses souffrent d'hypertension et 10 obèses souffrent d'un taux de
+cholestérol trop élevé; finalement, 5 employés souffrent de ces
+trois maux à la fois.  Déterminer le nombre d'employés bien portant à
+l'aide d'un diagramme de Venn.
+
+\bigskip
+
+\exercice{12}  Sur 100 étudiants, on considère les ensembles $S$ de ceux qui étudient
+la sociologie, $E$ de ceux qui étudient l'économie et $G$ de ceux qui étudient la gestion. Sur ces 100 étudiants, 55 étudient la sociologie, 9 la
+sociologie et la gestion, 7 la sociologie et l'économie, 8 l'économie et la
+gestion, 6 la sociologie et la gestion mais pas l'économie, 80 la sociologie
+ou la gestion et 12 l'économie seulement.
+\begin{enumerate}[(i)]
+\item Combien d'étudiants suivent les trois matières ?
+\item Combien sont-ils a étudier la gestion ?
+\item Combien sont-ils a étudier l'économie ?
+\item Combien n'étudient aucune de ces trois matières ?
+\end{enumerate}
+
+\bigskip
+
+\exercice{13} Soient les ensembles :
+\[
+\mathcal E_1 = \{(1;2), (2;8), (2;3)\}
+\]
+\[
+\mathcal E_2 = \{ (x;y) | x \in \mathbb R \land x\leq y \}
+\]
+\[
+\mathcal E_3 = \{ (x;y) | x \in \mathbb R \land y = x^2 \}
+\]
+\[
+\mathcal E_4 = \{ (x;y) | y = x^2 \text{ si } 0\leq x\leq 2,\quad
+y=3-x  \text{ si } 2<x<3, \quad y=3 \text{ si } x=3\}
+\]
+Déterminez quels ensembles représentent une fonction.
+
+\bigskip
+
+\exercice{14} Soit la fonction :
+\[
+\begin{split}
+  f: &\mathbb R \rightarrow \mathbb R\\
+  &x \mapsto f(x) = x^2 + 2x + 4
+\end{split}
+\]
+Calculer:
+\[
+\frac{f(x+h)-f(x)}{h}
+\]
+Interpréter cette expression.
+
+\bigskip
+
+\exercice{15} La fonction suivante est-elle injective ?
+\[
+\begin{split}
+  f: &\mathbb R \rightarrow \mathbb R\\
+  &x \mapsto f(x) = x^2 + x - 2
+\end{split}
+\]
+
+\bigskip
+
+\exercice{16} Soient les fonctions $f(x) = x+2$ et $g(x) = 2x + 5$.
+\begin{enumerate}[(i)]
+\item Calculer $h(x) = (g \circ f)(x) = g\left(f(x)\right)$ et $m(x) = (f \circ g)(x) = f\left(g(x)\right)$.
+\item Calculer $f^{-1}(x)$ et $g^{-1}(x)$.
+\item Calculer $h^{-1}(x)$ et $m^{-1}(x)$.
+\item Calculer $\left(f^{-1} \circ g^{-1}\right)(x)$ et $\left(g^{-1} \circ f^{-1}\right)(x)$
+\end{enumerate}
+Comparer les résultats des deux dernières questions.
+
+\bigskip
+
+\exercice{17} Exprimer à l'aide de quantificateurs les propositions
+suivantes :
+\begin{enumerate}
+\item La fonction $f: \mathbb R \rightarrow \mathbb R$ n'est pas
+  nulle.
+\item La fonction $f: \mathbb R \rightarrow \mathbb R$ ne s'annule pas
+sur $\mathbb R$.
+\item La fonction $f: \mathbb R \rightarrow \mathbb R$ n'est pas
+  l'identité de $\mathbb R$.
+\item La fonction $f: \mathbb R \rightarrow \mathbb R$ est croissante
+  sur $\mathbb R$.
+\item La fonction $f: \mathbb R \rightarrow \mathbb R$ n'est pas croissante
+  sur $\mathbb R$.
+\end{enumerate}
+
+
+\end{document}

@@ -1,0 +1,157 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique\\ \small{(Fiche de TD n°2)}}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} La demande de montres SLOUK est de 10 unités si le prix est
+égal à 160 euros et elle est de 20 unités si le prix est 120
+euros. Calculer la fonction de demande supposée linéaire.
+
+\bigskip
+
+\exercice{2} Quand le prix est de 100 euros la quantité d'appareils
+photos de marque PISTOL offerte sur le marché est 50 unités. Quand le
+prix est 50\% plus élevé le nombre d'unités offertes est de
+100. Calculer la fonction d'offre supposée linéaire.
+
+\bigskip
+
+\exercice{3} Sur un marché, la demande et l'offre pour un bien sont
+caractérisés par :
+\[
+\begin{split}
+  D(p): q &= -2 p  + 6\\
+  S(p): q &= \frac{1}{2} p  + 1
+\end{split}
+\]
+où $p$ est le prix du bien et $q$ sa quantité. Calculer la quantité
+d'équilibre et le prix d'équilibre.
+
+\bigskip
+
+\exercice{4} Supposons que la consommation agrégée dans une économie,
+notée $C$, soit une fonction linéaire du revenu disponible (hors
+taxes), noté $Y$. Supposons qu'il existe un niveau de consommation
+incompressible, noté $C_0$. Il s'agit du niveau de consommation
+observé même si le revenu disponible est nul. On supposera que lorsque
+le revenu augmente de x\%, la consommation en écart à son niveau
+incompressible, \emph{ie} $C-C_0$, augmente de 0.8x\%. Déterminer la
+forme de la fonction de consommation.
+
+\bigskip
+
+\exercice{5} Montrer que la fonction $f(x) = x^2+2x+1$ admet un unique
+minimum en $x=-1$.
+
+\bigskip
+
+\exercice{6} Sur un marché, la demande et l'offre pour un bien sont
+caractérisés par :
+\[
+\begin{split}
+  D(p): q &= -2 p^2  + 3\\
+  S(p): q &= p^2 + 5p +2
+\end{split}
+\]
+où $p$ est le prix du bien et $q$ sa quantité (on s'intéresse aux
+valeurs positives de $p$ et $q$). Calculer la quantité
+d'équilibre et le prix d'équilibre.
+
+\bigskip
+
+\exercice{7} Chercher les solutions des équations suivantes :
+\begin{enumerate}[(i)]
+\item $x^2-2x+2 = 0$
+\item $x^3-2x^2+2x = 0$
+\item $x^3+2x^2-x-2 = 0$
+\item $x^4-5x^2+4 = 0$
+\item $x^2 - 2\sqrt{2}x + 2$
+\end{enumerate}
+
+\bigskip
+
+\exercice{8} Représenter graphiquement à l'aide d'un tableur les
+fonctions suivantes :
+\begin{enumerate}[(i)]
+\item $f(x) = x^5- 5x^3 + 4x$
+\item $f(x) = \frac{x-\frac{1}{2}}{x^3-x}$
+\end{enumerate}
+Et déterminer graphiquement les valeurs de $x$ telles que $f(x)=0$
+dans chaque cas.
+
+\bigskip
+
+\exercice{9} Soit un ménage disposant d'un revenu de 100. On suppose
+qu'il vit dans un monde où il ne peut acheter que des bananes et des
+carottes et que les prix de ces deux biens sont respectivement $p_B=
+1$ et $p_C = \frac{1}{2}$ (l'unité dans les deux cas est le
+kilogramme). \textbf{(1)} Supposons que le ménage décide de consommer
+la totalité de son revenu en achetant ces deux biens (on admet qu'il
+ne peut pas consommer une quantité négative de banane ou de
+carotte). Déterminer l'ensemble des couples de quantités $(q_B, q_C)$
+cohérents avec cette hypothèse. \textbf{(2)} Comment cet ensemble est-il
+modifié si le ménage peut décider de ne pas consommer la totalité de
+son revenu. \textbf{(3)} Représenter graphiquement ces deux ensembles.
+
+\bigskip
+
+\exercice{10} (Suite de l'exercice 9) Supposons que l'on puisse
+quantifier la satisfaction du ménage à l'aide de la fonction :
+\[
+u(q_B, q_C) = q_B + q_C
+\]
+la satisfaction (ou l'utilité) du ménage est d'autant plus élevée que
+celui-ci consomme plus. \textbf{(0)} Interpréter cette
+fonction. \textbf{(1)} Supposons que le ménage souhaite atteindre un
+niveau de satisfaction égal à 300. Déterminer l'ensemble des couples
+$(q_B, q_C)$ compatibles avec cet objectif. \textbf{(2)} Compléter le
+graphique construit dans l'exercice 9 en représentant cet ensemble.
+\textbf{(3)} Étant donnée la contrainte de revenu définie dans
+l'exercice 9, déterminer si le ménage peut atteindre ce niveau de
+satisfaction. \textbf{(4)} Déterminer le choix du ménage (en termes de
+quantités demandées pour les bananes et les carottes) en supposant que
+celui-ci cherche à atteindre le niveau de satisfaction le plus élevé
+possible. \textbf{(5)} On adopte maintenant une fonction de
+satisfaction plus générale de la forme :
+\[
+u(q_B, q_C) = \alpha q_B + \beta q_C
+\]
+où $\alpha$ et $\beta$ sont deux réels positifs. Déterminer les choix
+du ménage en fonction de $\alpha$ et $\beta$. Commenter le résultat.
+
+\exercice{11} On reprend les exercices 9 et 10 en supposant que $p_B =
+p_C = 1$ et que $u(q_B, q_C) = \sqrt{q_Bq_C}$. \textbf{(1)} Exprimer
+$q_C$ en fonction du niveau d'utilité, $\bar u$ par exemple, et de
+$q_B$. La fonction ainsi construite est la fonction d'iso-utilité :
+l'ensemble des points $(q_C,q_B)$ vérifiant la contrainte définie par
+cette fonction fournissent un même niveau d'utilité. \textbf{(2)}
+Représenter graphiquement la contrainte budgétaire du ménage et les
+fonctions d'iso-utilité. \textbf{(3)} Identifier les demandes optimales
+du ménage.
+
+
+
+\end{document}

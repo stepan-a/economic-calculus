@@ -1,0 +1,232 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique\\ \small{(Fiche de TD n°3)}}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} Soit la suite de terme général $u_n = u_{n-1} + 1$ pour
+$n \geq 1$, avec la condition initiale $u_1 = 1$. \textbf{(1)} Donner
+une expression de $u_n$ en fonction du rang $n$ et de sa condition
+initiale. \textbf{(2)} Soit la suite $v_n = \sum_{i=1}^n u_i$ pour
+$n\geq 1$. Quelle est la condition initiale de cette suite ?
+Déterminer $v_n$.
+
+\bigskip
+
+\exercice{2} Soit la suite de terme général $u_n = \rho u_{n-1}$ pour
+$n \geq 1$ avec la condition initiale $u_1 = 1$ et $\rho$ un paramètre
+réel non nul. \textbf{(1)} Donner une expression de $u_n$ en fonction
+du rang $n$ et de sa condition initiale. \textbf{(2)} Discuter le
+comportement asymptotique de $u_n$ en fonction de la valeur de
+$\rho$. \textbf{(3)} Dans le cas où la suite admet une limite, combien
+de temps faut-il pour réduire de moitié la distance à la limite ?
+
+\bigskip
+
+\exercice{3} Soit la suite de terme général $u_n =
+\frac{n+2}{n}$. \textbf{(1)} Donner les premiers termes de cette suite
+et montrer que la suite est monotone décroissante. \textbf{(2)}
+Montrer que cette suite a pour limite 1.
+
+\bigskip
+
+\exercice{4} Soit la suite de terme général $u_n =
+\frac{n+2}{n}$. \textbf{(1)} Donner les premiers termes de cette suite
+et montrer que la suite est monotone décroissante. \textbf{(2)}
+Montrer que cette suite a pour limite 1.
+
+\bigskip
+
+\exercice{5} Quel est le comportement asymptotique de la suite de
+terme général $u_n = -n$.
+
+\bigskip
+
+\exercice{6} La suite de terme général $u_n = \frac{(-1)^{n+1}}{n^2}$
+est-elle monotone ? Montrer que cette suite admet 0 pour limite.
+
+\bigskip
+
+\exercice{7} Sur un marché l'offre et la demande sont caractérisées
+par :
+\[
+\begin{split}
+  S(p): &\quad q = 1+p\\
+  D(p): &\quad q = 2-p\\
+\end{split}
+\]
+\textbf{(1)} Calculer le prix d'équilibre $p^{\star}$ et les quantités échangées à
+l'équilibre, $q^{\star}$. \textbf{(2)} Supposons que le marché ne soit pas
+équilibré. On admet que dans une situation de déséquilibre le prix
+augmente si et seulement si la demande est supérieure à l'offre. Plus
+formellement on admet que le prix est mis à jour à l'aide de la
+récurrence suivante :
+\[
+p_{t+1} = p_t + \alpha (D(p_t)-S(p_t))
+\]
+Déterminer le point fixe de cette récurrence, le prix $\bar p$ tel que
+$\bar p = \bar p + \alpha (D(\bar p)-S(\bar p))$. Comparer $\bar p$ et
+$p^{\star}$. \textbf{(3)} Supposons que le prix initial $p_1$ soit
+différent de $\bar p$. Exprimer $p_t$ en fonction de $p_0$,
+et $\alpha$. \textbf{(4)} Montrer que la chronique de prix converge de
+façon monotone vers $\bar p$ si $0<\alpha<\frac{1}{2}$. \textbf{(5)}
+Quelles sont les prédictions du modèle si $\alpha$ est en dehors de
+cet intervalle ?
+
+\bigskip
+
+\exercice{8} Identifier les limites suivantes :
+\begin{enumerate}
+\item $\lim_{x\rightarrow\infty} \frac{2x+5}{x^2-3}$
+\item $\lim_{x\rightarrow\infty} \frac{x^3-4x^2+8}{x^2+6}$
+\item $\lim_{x\rightarrow\infty} \frac{ax^2+bx+c}{kx^2+lx+m}$
+\item $\lim_{x\rightarrow -4} \frac{x^2-16}{x+4}$
+\item $\lim_{x\rightarrow 0^+} \frac{|x|}{x}$ et $\lim_{x\rightarrow 0^-} \frac{|x|}{x}$
+\end{enumerate}
+
+\bigskip
+
+\exercice{9} En utilisant la définition de la dérivée, calculer les
+dérivées des fonctions suivantes :
+\begin{enumerate}
+\item $f(x) = 4x^2+3$
+\item $g(x) = x^n$
+\item $h(x) = \frac{1}{x}$
+\end{enumerate}
+Pour $g(x)$ vous utiliserez la formule du binôme de Newton (une
+généralisation de l'identité remarquable bien connue) :
+\[
+(a+b)^n = \sum_{k=0}^n C_n^ka^{n-k}b^k
+\]
+avec
+\[
+C_n^k = \frac{n!}{k!(n-k)!}
+\]
+où $m! = m\times(m-1)\times(m-2)\times\dots\times 3\times 2\times 1$
+la fonction factorielle.
+
+
+\end{document}
+
+
+
+% Exo. 7 (1)
+2q = 3
+q = 3/2
+p = 1/2
+
+% Exo.7 (2)-(3)-(4)
+
+\[
+p_{t+1} = p_t  + \alpha \left(2-p_t-1-p_t\right)
+\]
+
+\[
+\Leftrightarrow p_{t+1} = (1-2\alpha)p_t  + \alpha
+\]
+En 1, on a :
+\[
+p_{1} = (1-2\alpha)p_0  + \alpha
+\]
+En 2, on a :
+\[
+p_{2} = (1-2\alpha)p_1  + \alpha
+\]
+Soit par substitution :
+\[
+p_{2} = (1-2\alpha)\left((1-2\alpha)p_0  + \alpha\right)  + \alpha
+\]
+\[
+\Leftrightarrow p_{2} = (1-2\alpha)^2 p_0   + \alpha (1 + (1-2\alpha))
+\]
+Supposons qu'à la date $t$, nous avons:
+\[
+p_{t} = (1-2\alpha)^t p_0   + \alpha \sum_{i=0}^{t-1}(1-2\alpha)^i
+\]
+et montrons que l'on a nécessairement
+\[
+\Leftrightarrow p_{t+1} = (1-2\alpha)^{t+1} p_0   + \alpha \sum_{i=0}^{t}(1-2\alpha)^i
+\]
+Il s'agit d'une preuve par récurrence. Nous avons:
+\[
+p_{t+1} = (1-2\alpha)p_t  + \alpha
+\]
+En substituant l'expression au rang $t$:
+\[
+p_{t+1} = (1-2\alpha)(1-2\alpha)^t p_0   + (1-2\alpha)\alpha\sum_{i=0}^{t-1}(1-2\alpha)^i + \alpha
+\]
+\[
+\Leftrightarrow p_{t+1} = (1-2\alpha)^{t+1} p_0   + \alpha\sum_{i=0}^{t-1}(1-2\alpha)^{i+1} + \alpha
+\]
+\[
+\Leftrightarrow p_{t+1} = (1-2\alpha)^{t+1} p_0   + \alpha\sum_{i=1}^{t}(1-2\alpha)^{i} + \alpha
+\]
+\[
+\Leftrightarrow p_{t+1} = (1-2\alpha)^{t+1} p_0   + \alpha\sum_{i=0}^{t}(1-2\alpha)^{i}
+\]
+Ainsi, si l'expression du prix est vraie au rang $t$ elle est
+nécessairement vraie au rang $t+1$.
+
+Nous avons donc :
+\[
+p_{t} = (1-2\alpha)^t p_0   + \alpha \sum_{i=0}^{t-1}(1-2\alpha)^i
+\]
+
+Si $\alpha$ est positif et plus petit que $\frac{1}{2}$ le premier
+terme converge vers zéro de façon monotone (car le nombre sous la
+puissance $t$ est positif et inférieur à un). On reconnaît une série
+géométrique dans le second terme (ie les sommes des termes d'une suite
+géométrique). Nous avons vu dans la première fiche de TD que:
+\[
+\sum_{i=0}^{n-1}q^i = \frac{1-q^{n}}{1-q}
+\]
+Clairement, si $|q|<1$ on a :
+\[
+\lim_{n\rightarrow\infty}\sum_{i=0}^{n-1}q^i = \frac{1}{1-q}
+\]
+Dans notre cas $q = 1-2\alpha$ vérifie $0<q<1$, nous avons la limite
+du second terme :
+\[
+\lim_{t\rightarrow\infty} \alpha \sum_{i=0}^{t-1}(1-2\alpha)^i =
+\alpha \lim_{t\rightarrow\infty} \sum_{i=0}^{t-1}(1-2\alpha)^i =
+\alpha \lim_{t\rightarrow\infty} \frac{1-(1-2\alpha)^t}{1-(1-2\alpha)}
+= \frac{\alpha}{2\alpha} = \frac{1}{2}
+\]
+Si $\alpha\in ]0,.5[$ la dynamique d'ajustement du prix nous ramène de
+façon monotone au prix d'équilibre.
+
+Si $\alpha$ est négatif, c'est-à-dire si les prix diminuent lorsque la
+demande est supérieure à l'offre, la dynamique des prix diverge
+puisque $(1-2\alpha)^t$ tend vers l'infini.
+
+Si $\alpha=\frac{1}{2}$ le prix à la date $t$ est indépendant du prix
+à la date $t-1$. Il est toujours égal à $1/2$.
+
+Si $\alpha>\frac{1}{2}$ mais inférieur à 1, on obtient une dynamique
+oscillante vers l'équilibre.
+
+Si $\alpha> 1$ la dynamique d'ajustement diverge (avec des
+oscillations).
+

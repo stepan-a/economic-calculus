@@ -1,0 +1,104 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique\\ \small{(Fiche de TD n°3)}}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} Calculer les dérivées des fonctions suivantes :
+\begin{enumerate}[(i)]
+\item $f(x) = \log (x^2+x^4+1)$
+\item $g(x) = x^2\log (x^2+x^4+1)$
+\item $h(x) = e^{2x}$
+\item $j(x) = \log \left(\frac{x^3-2}{x^2+1}\right)$
+\item $k(x) = \cos(\theta x)$
+\end{enumerate}
+
+\bigskip
+
+\exercice{2} Trouver l'expression générale de la dérivée d'ordre $n$ des
+fonctions suivantes :
+\begin{enumerate}[(i)]
+\item $f(x) = e^{\theta x}$
+\item $g(x) = \frac{1}{x}$
+\item $h(x) = \log (x)$
+\end{enumerate}
+
+\bigskip
+
+\exercice{3} Montrer qu'il est possible d'écrire la fonction
+exponentielle sous la forme :
+\[
+e^{x} = \sum_{i=0}^{\infty} \frac{x^n}{n!}
+\]
+En déduire une approximation de la constante $e$.
+
+\bigskip
+
+\exercice{4} Montrer l'égalité suivante dans un voisinage de 0 :
+\[
+\frac{1}{1-x} = \sum_{i=0}^{\infty} x^n
+\]
+Quel est le radius de convergence ?.
+
+\bigskip
+
+\exercice{5} Faire une étude de la fonction (en identifiant les optima) :
+\[
+f(x) = -x^3+x^2+2x
+\]
+
+\bigskip
+
+\exercice{6} Faire une étude de la fonction :
+\[
+f(x) = \frac{(\log x)^2}{x}
+\]
+
+\bigskip
+
+\exercice{7} Montrer que si la fonction $f(x)=ax^3+bx^2+cx+d$ admet
+deux extrema, alors l'un est un maximum et l'autre un minimum.
+
+\bigskip
+
+\exercice{8} Déterminer les limites des fonctions suivantes :
+\begin{enumerate}
+\item $\lim_{x\rightarrow\infty} \frac{x^2}{e^x}$
+\item $\lim_{x\rightarrow\infty} \frac{\log x}{x}$
+\item $\lim_{x\rightarrow\infty} \frac{e^x+3x^2}{4e^x+2x^2}$
+\item $\lim_{x\rightarrow 1} \frac{3x\log x}{x^2-x}$
+\end{enumerate}
+
+\bigskip
+
+\exercice{9} La somme de deux nombres positifs est égale à
+100. Trouver les couples de nombres tels que :
+\begin{enumerate}
+\item Le produit de ces nombres est maximal.
+\item La somme des carrés est minimale.
+\end{enumerate}
+
+
+\end{document}

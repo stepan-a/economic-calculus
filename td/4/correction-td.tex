@@ -1,0 +1,218 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+\usepackage{nicefrac}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique\\ \small{Éléments de correction (Fiche de TD n°4)}}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} \textbf{(1)} On sait que $(\log u)' = $. $f'(x) =
+\nicefrac{u'}{u}$. $f'(x) =
+\nicefrac{(2x+4x^3)}{(x^2+x^4+1)}$. \textbf{(2)} En utilisant le
+résultat précédant et la règle $(uv)'=u'v+uv'$, on obtient $g'(x) =
+2x\log(x^2+x^4+1)+\nicefrac{(2x^3+4x^5)}{(x^2+x^4+1)}$. \textbf{(3)}
+En utilisation la règle de dérivation des fonctions composées, on
+obtient $h'(x) = 2e^x$. \textbf{(4)} En utilisant la règle de la
+dérivée logarithmique, on sait que :
+\[
+j'(x) = \frac{\mathrm d}{\mathrm dx}\left(\frac{x^3-2}{x^2+1}\right)\left(\frac{x^3-2}{x^2+1}\right)^{-1}
+\]
+en utilisant la règle $(u/v)' = \nicefrac{(u'v-uv')}{v^2}$, il vient :
+\[
+j'(x) = \frac{3x^2(x^2+1)-2x(x^3-2)}{\left(\frac{x^3-2}{x^2+1}\right)^2}\left(\frac{x^3-2}{x^2+1}\right)^{-1}
+\]
+\[
+j'(x) = x\frac{x^3+3x-2}{\left(\frac{x^3-2}{x^2+1}\right)^3}
+\]
+\textbf{(5)} En utilisant la règle de dérivation des fonctions
+composées : $k'(x) = -\theta\sin(\theta x)$.
+
+\bigskip
+
+\exercice{2} \textbf{(1)} On a $f'(x) = \theta e^{\theta x}$, $f''(x)
+= \theta^2 e^{\theta x}$, $f'''(x) = \theta^3 e^{\theta x}$ et plus généralement
+on admet que $f^{(n)}(x) = \theta^n e^{\theta x}$. On peut montrer
+que ce résultat est correcte en raisonnant par récurrence. On sait que
+la formule est correcte au rang 1 (aussi au rangs 2 et 3). On postule qu'elle est
+vraie au rang $n$. Montrons que l'on retrouve nécessairement le même
+résultat au rang $n+1$. On a :
+\[
+f^{(n+1)}(x) = \left(f^{(n)}(x)\right)'
+\]
+En substituant la formule au rang $n$, il vient :
+\[
+f^{(n+1)}(x) = \left(\theta^n e^{\theta x}\right)'
+\]
+\[
+\Leftrightarrow f^{(n+1)}(x) = \theta^n \left( e^{\theta x}\right)'
+\]
+\[
+\Leftrightarrow f^{(n+1)}(x) = \theta^n \theta e^{\theta x}
+\]
+\[
+\Leftrightarrow f^{(n+1)}(x) = \theta^{n+1} e^{\theta x}
+\]
+On retrouve le même résultat qu'au rang $n$ (en remplaçant $n$ par
+$n+1$). Le résultat énoncé plus haut est donc correcte. \textbf{(2)}
+On a $g'(x) = -\nicefrac{1}{x^2}$, $g''(x) = 2 \times \nicefrac{1}{x^3}$,
+$g'''(x) = -3 \times 2 \times\nicefrac{1}{x^4}$, $g'''(x) = 4\times 3
+\times 2 \times \nicefrac{1}{x^5}$. Plus généralement, on a :
+\[
+g^{(n)}(x) = (-1)^n \times n! \times \nicefrac{1}{x^{(n+1)}}
+\]
+On peut montrer ce résultat en utilisant un argument par
+récurrence. \textbf{(3)} On a $h'(x) = 1/x$ et plus généralement
+$h^{(n)}(x) = g^{(n-1)}(x)$ par définition de la fonction $g$.
+
+\bigskip
+
+\exercice{3} On établit le résultat en utilisant le théorème de Taylor
+dans un voisinage de 0 et en notant que la dérivée d'ordre $n$ de
+$e^x$ est $e^x$. On a :
+\[
+e^{x} = \sum_{i=0}^{\infty} \frac{1}{n!}e^0(x-0)^n = \sum_{i=0}^{\infty} \frac{x^n}{n!}
+\]
+Le radius de convergence est infini pour la fonction exponentielle. En
+évaluant l'égalité en $x=1$, on obtient :
+\[
+e = \sum_{i=0}^{\infty} \frac{1}{n!}
+\]
+
+\bigskip
+
+\exercice{4} En utilisant le théorème de Taylor dans un voisinage de 0
+et en notant que les dérivées de $\nicefrac{1}{1-x}$ sont :
+\[
+\left(\frac{1}{1-x}\right)' = \frac{1}{(1-x)^2} 
+\]
+\[
+\left(\frac{1}{1-x}\right)'' = \frac{1}{(1-x)^3} 
+\]
+\[
+\left(\frac{1}{1-x}\right)^{(n)} = \frac{1}{(1-x)^{n+1}} 
+\]
+il vient:
+\[
+\frac{1}{1-x} = \sum_{n=0}^{\infty} \frac{1}{n!}\frac{1}{1-0}(x-0)^n = \sum_{n=0}^{\infty} x^n
+\]
+On retrouve la série géométrique. Puisque la série n'est définie que
+si $|x|<1$ il faut que le radius de convergence soit un.
+
+\bigskip
+
+\exercice{5} Puisque le coefficient devant $x^3$ est négatif, on sait
+que $\lim_{x\rightarrow\infty}f(x)=-\infty$ et $\lim_{x\rightarrow
+  -\infty}f(x)=\infty$. La dérivée de la fonction $f$ est donnée par :
+\[
+f'(x) = -3x^2+2x+2
+\]
+Puisque le discriminant associé est positif :
+\[
+\Delta = 4+4\times 3 \times 2 = 4 \times 7
+\]
+On sait qu'il existe $\underline x$ et $\overline x$ tels que
+$f'(\underline x) = f'(\overline x) = 0$ :
+\[
+\begin{split}
+\underline x &= \frac{2-2\sqrt{7}}{3}\\
+\overline x &= \frac{2+2\sqrt{7}}{3}\\
+\end{split}
+\]
+Puisque la parabole est tournée vers le bas (le coefficient sur $x^2$
+est négatif), on sait que la dérivée $f'(x)$ est positive si et
+seulement si $x\in]\underline x, \overline x[$. Puisque la dérivée
+change de signe autour de $\underline x$ et $\overline x$ on sait que
+ces deux points sont des optima locaux. La dérivée seconde,
+$f''(x)=-6x+2$, est négative (\emph{ie} $f$ est concave) si et
+seulement si
+$x>\nicefrac{1}{3}$. On a donc $f''(\underline{x})>0$ et
+$f''(\overline{x})<0$, $\underline{x}$ est un maximum local et   
+$\overline{x}$ est un minimum local.
+
+\bigskip
+
+\exercice{6} On commence en notant que le domaine de définition est
+$\mathbb R_+$. La limite en zéro est :
+\[
+\lim_{x\rightarrow 0} f(x) = \infty
+\]
+et pour la limite en l'infini on a une forme indéterminée que l'on
+peut lever avec la règle de l'Hospital :
+\[
+\lim_{x\rightarrow \infty} f(x) = \lim_{x\rightarrow \infty}
+\frac{\frac{\mathrm d}{\mathrm dx} (\log x)^2}{\frac{\mathrm
+    d}{\mathrm dx} x} = 2\lim_{x\rightarrow \infty} \frac{\log x}{x}
+\]
+qui est encore une forme indéterminée. En appliquant une seconde fois
+la règle de l'Hospital, il  vient :
+\[
+\lim_{x\rightarrow \infty} f(x) =  2\lim_{x\rightarrow \infty}
+\frac{1}{x} = 0
+\]
+La dérivée de la fonction $f$ est :
+\[
+f'(x) = \frac{\log (2-\log x)}{x^2}
+\]
+Cette dérivée est nulle si $x=1$ ou si $x=e^2$, elle est positive si
+et seulement si $x\in]1,e^2[$. La fonction $f$ est donc décroissante
+entre 0 (asymptote verticale) et 1 (minimum) où elle atteint zéro,
+puis croissante entre 1 et $e^2$ (maximum local) où elle atteint
+$4e^{-2}$, et à nouveau décroissante entre $e^2$ et $\infty$ où elle
+retourne vers zéro.
+
+\bigskip
+
+\exercice{7} Trivial. Calculer $f'(x)$. C'est un polynôme d'ordre
+2. Calculer le discriminant, exclure le cas où celui-ci est négatif
+($f$ est alors monotone puisque $f'$ ne change pas de signe). Calculer
+$f''(x)$, il s'agit d'un polynôme d'ordre 1 (une droite). Montrer que
+le point $x^{\star}$ tel que $f''(x^{\star})=0$ est entre les deux
+racines du polynôme d'ordre 2 ($f'$).
+
+\bigskip
+
+\exercice{8} On utilise la règle de l'Hospital.
+
+\bigskip
+
+\exercice{9} \textbf{(a)} On cherche à résoudre le problème suivant :
+\[
+\begin{split}
+(x^{\star},y^{\star}) = &\arg\max_{\{x,y\}}xy\\
+&\underline{sc}\quad x+y=100
+\end{split}
+\]
+En substituant la contrainte dans l'objectif, on résoudre le problème
+par rapport à $x$ (puis déduire $y$ optimal avec la contrainte) :
+\[
+x^{\star} = \arg\max_{\{x,y\}}x(100-x)
+\]
+$x^{\star}$ annuler la dérivée de l'objectif, et donc vérifier :
+\[
+-2x^{\star}+100 = 0
+\]
+On a donc $x^{\star}$, et donc $y^{\star}$. \textbf{(b)} On procède de
+la même façon (on trouve aussi $x^{\star}=y^{\star}=50$).
+
+\end{document}

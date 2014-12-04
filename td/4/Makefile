@@ -1,6 +1,6 @@
 LATEX = pdflatex
 
-all: td.pdf clean
+all: td.pdf correction-td.pdf clean
 
 td.pdf: td.tex
 	while ($(LATEX) td.tex ; \

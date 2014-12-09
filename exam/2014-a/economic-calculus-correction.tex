@@ -1,0 +1,350 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+\usepackage[active]{srcltx}
+\usepackage{scrtime}
+\usepackage{nicefrac}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique}\\\textbf{(Éléments de correction)}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} Il faut faire une table de vérité.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{cc|ccccc}
+    $P$ & $Q$ & $P \land Q$ & $\overline{P \land Q}$ & $\overline{P}$
+    & $\overline{Q}$ & $\overline{P} \lor \overline{Q}$\\ \hline
+    V & V & V & F & F & F & F \\
+    V & F & F & V & F & V & V \\
+    F & V & F & V & V & F & V \\
+    F & F & F & V & V & V & V \\
+  \end{tabular}
+\end{table}
+Les valeurs dans la quatrième et la septième colonnes sont identiques,
+nous avons donc bien :  
+\[
+\overline{P \land Q} \Leftrightarrow \overline{P} \lor \overline{Q}
+\]
+
+\bigskip
+
+\exercice{2} \textbf{(1)} La dérivée d'une fonction $f$ est définie
+par la limite suivante :
+\[
+f'(x) = \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h}
+\]
+\textbf{(2)} Pour $n=1$ on a $f(x) = x$. La formule nous dit alors que
+$f'(x) = 1\times x^0 = 1$ pour tout $x$. Montrons que c'est bien le
+cas, en utilisant la définition de la dérivée :
+\[
+f'(x) = \lim_{h\rightarrow 0} \frac{x+h-x}{h} = \lim_{h\rightarrow 0}
+\frac{h}{h} = 1 
+\]
+La formule est donc correcte au rang $n=1$. On suppose maintenant que
+la formule est correcte à un rang $n$ quelconque, montrons qu'elle est
+alors nécessairement vraie au rang $n+1$, c'est-à-dire que nous avons
+bien :
+\[
+\frac{\mathrm d}{\mathrm dx}x^{n+1} = (n+1)x^n
+\]
+Nous avons :
+\[
+\frac{\mathrm d}{\mathrm dx} x^{n+1} = \frac{\mathrm d}{\mathrm dx} x
+\times x^n
+\]
+En appliquant la règle $(uv)'=u'v+uv'$ il vient :
+\[
+\frac{\mathrm d}{\mathrm dx} x^{n+1} = 1 \times x^n + x \frac{\mathrm
+  d}{\mathrm dx} x^n
+\]
+En substituant la formule supposée vraie au rang $n$ :
+\[
+\frac{\mathrm d}{\mathrm dx} x^{n+1} = x^n + x \times n \times x^{n-1}
+\]
+soit de façon équivalente :
+\[
+\frac{\mathrm d}{\mathrm dx} x^{n+1} = x^n + n \times x^{n}
+\]
+ou encore :
+\[
+\frac{\mathrm d}{\mathrm dx} x^{n+1} = (n+1) x^{n}
+\]
+ce qu'il fallait démontrer.
+
+\bigskip
+
+\exercice{3} On note $y_t$ le PIB de la France à la date $t$ et on
+suppose que cette variable est déterminée par  l'équation :
+\[
+y_t = 1,02 y_{t-1}
+\]
+avec une condition initiale $y_0 = 1$. \textbf{(1)} Notons $g_{y,t}$
+le taux de croissance du PIB entre les dates $t-1$ et $t$. Par
+définition du taux de croissance on a :
+\[
+g_{y,t} = \frac{y_{t}-y_{t-1}}{y_{t-1}} = \frac{y_{t}}{y_{t-1}}-1 
+\]
+En appliquant cette formule on trouve directement que le taux de
+croissance du PIB est constant :
+\[
+g_{y,t} = 1,02-1 = 0,02
+\]
+soit 2\%. \textbf{(2)} À la date 1, nous avons :
+\[
+y_1 = 1,02 y_0 = 1,02
+\]
+À la date 2, nous avons :
+\[
+y_2 = 1,02 y_1 = 1,02^2
+\]
+À la date 3 :
+\[
+y_3 = 1,02 y_2 = 1,02^3
+\]
+Plus généralement, on peut montrer par récurrence que l'on a :
+\[
+y_t = 1,02^t
+\]
+\textbf{(3)} Plaçons nous à la date $t$, on cherche $s$ tel que :
+\[
+\frac{y_{t+s}}{y_t} = 2 
+\]
+En substituant le résultat à la question précédente :
+\[
+\frac{1,02^{t+s}}{1,02^t} = 2 
+\]
+\[
+\Leftrightarrow 1,02^s = 2 
+\]
+En appliquant le logarithme népérien sur les deux membres de l'égalité
+il vient :
+\[
+s \log 1,02 = \log 2
+\]
+soit de façon équivalente :
+\[
+s = \frac{\log 2}{\log 1.02}
+\]
+Le logarithme de 2 est approximativement égal à 0.69. Le logarithme de
+$\log (1+x)$ peut être approximer par $1+x$ pour des petites valeurs
+de $x$ (approximation de Taylor à l'ordre un). On a donc
+\[
+s \approx \frac{0,69}{0,02} = 34,5
+\]
+Il faut donc de l'ordre de 35 périodes pour doubler le niveau du PIB
+si le taux de croissance est égale à 2\%. \textbf{(4)} On peut montrer
+que lorsque $t$ tend vers l'infini, le niveau du PIB diverge vers
+l'infini. Il suffit de remarquer que la suite est monotone croissante
+(en effet $y_t-y_{t-1} = 0,02\times y_{t-1} > 0 $ pour tout
+$t$). Ainsi pour tout $t$ les termes suivants (en $t+1$, $t+2$, ...)
+sont toujours plus grands. On peut remarquer aussi que $y_t$ est une
+suite géométrique de raison (1,02) supérieure à 1 en valeur absolue.
+
+\bigskip
+
+\exercice{4} Sur un marché la demande pour un bien à la date $t$ est linéaire par
+rapport au prix du bien :
+\[
+q_t = a - b p_t
+\]
+où $a$ et $b$ sont deux paramètres réels strictement positifs. Sur le même marché,
+la quantité offerte à la date $t$ dépend du prix anticipé (à la date
+$t-1$) pour la date $t$ :
+\[
+q_t = c + d \hat p_t
+\]
+où $c$ et $d$ sont deux paramètres réels positifs, $\hat p_t$ est le
+prix anticipé pour la période $t$. On supposera que les anticipations
+sont naïves dans le sens où :
+\[
+\hat p_t = p_{t-1}
+\]
+Les offreurs anticipent que le prix à la date $t$ sera le prix observé
+à la date $t-1$. \textbf{(1)} Si l'offre est égale à la demande, alors
+on doit avoir :
+\[
+a - b p_t = c + d \hat p_t
+\]
+en substituant l'anticipation naïve, il vient :
+\[
+a - b p_t = c + d p_{t-1}
+\]
+soit de façon équivalente :
+\[
+p_t = \frac{a-c}{b} - \frac{d}{b}p_{t-1}
+\]
+\textbf{(2)} $p^{\star}$ doit satisfaire :
+\[
+a - b p^{\star} = c + d p^{\star}
+\]
+\[
+\Leftrightarrow a - c = (b+d) p^{\star}
+\]
+\[
+\Leftrightarrow  p^{\star} = \frac{a-c}{b+d}
+\]
+Si $p_t = p^{\star}$ alors $p_{t+s} = p^{\star}$ pour tout $s\in
+\mathbb N$. Pour que ce point fixe puisse être interprété comme un
+prix il faut qu'il soit positif, c'est-à-dire que $a>c$. \textbf{(3)}
+En substituant le point fixe $p^{\star}$ dans les fonctions d'offre et
+de demande, on remarque que :
+\[
+D(p^{\star}) = S(p^{\star}) = \frac{da+bc}{b+d}
+\]
+% a - b (a-c)/(b+d) = (ab + da - ba + bc)(b+d) = 
+% c + d (a-c)/(b+d) = (bc+dc+da-cd)/(b+d) = 
+La quantité offerte égalise la quantité demandée. $p^{\star}$ est
+donc bien un prix d'équilibre. \textbf{(4)}
+Supposons que  le prix à la date 0 soit $p_0\neq p^{\star}$. On omet
+le cas où le prix est initialement à l'équilibre car on sait que le
+prix est alors à l'équilibre pour toute date $t>0$. À la date 1, nous
+avons :
+\[
+p_1 = \frac{a-c}{b} - \frac{d}{b}p_0
+\]
+À la date 2 :
+\[
+p_2 = \frac{a-c}{b} - \frac{d}{b}p_1 =
+\frac{a-c}{b}\left(1-\frac{d}{b}\right) + \left(\frac{d}{b}\right)^2p_0
+\]
+À la date 3 :
+\[
+p_3 = \frac{a-c}{b} - \frac{d}{b}p_2 =
+\frac{a-c}{b}\left(1-\frac{d}{b}+\left(\frac{d}{b}\right)^2\right) - \left(\frac{d}{b}\right)^3p_0
+\]
+Plus généralement nous devrions avoir :
+\[
+p_t =
+\frac{a-c}{b}\left(1-\frac{d}{b}+\left(\frac{d}{b}\right)^2+\dots+\left(-\frac{d}{b}\right)^{t-1}\right)
++ \left(-\frac{d}{b}\right)^{t}p_0
+\]
+ou de façon équivalente :
+\[
+p_t = \frac{a-c}{b}\sum_{\tau=0}^{t-1}
+\left(-\frac{d}{b}\right)^{\tau} + \left(-\frac{d}{b}\right)^{t}p_0
+\]
+ou encore :
+\[
+p_t = \frac{a-c}{b}\frac{1-\left(-\frac{d}{b}\right)^{t}}{1+\frac{d}{b}} + \left(-\frac{d}{b}\right)^{t}p_0
+\]
+Admettons que cette formule soit correcte au rang $t$ et montrons que
+nous retrouvons alors nécessairement la même au rang $t+1$. Nous avons
+\[
+p_{t+1} = \frac{a-c}{b} - \frac{d}{b}p_t
+\]
+En substituant l'expression pour $p_t$, il vient :
+\[
+p_{t+1} = \frac{a-c}{b} - \frac{d}{b}\left(\frac{a-c}{b}\frac{1-\left(-\frac{d}{b}\right)^{t}}{1+\frac{d}{b}} + \left(-\frac{d}{b}\right)^{t}p_0\right)
+\]
+\[
+\Leftrightarrow p_{t+1} = \frac{a-c}{b} \left(1 - \frac{d}{b}\frac{1-\left(-\frac{d}{b}\right)^{t}}{1+\frac{d}{b}}\right)+ \left(-\frac{d}{b}\right)^{t+1}p_0
+\]
+\[
+\Leftrightarrow p_{t+1} = \frac{a-c}{b} \left(1 - \frac{\frac{d}{b}-\left(-\frac{d}{b}\right)^{t+1}}{1+\frac{d}{b}}\right)+ \left(-\frac{d}{b}\right)^{t+1}p_0
+\]
+\[
+\Leftrightarrow p_{t+1} = \frac{a-c}{b} \frac{1-\left(-\frac{d}{b}\right)^{t+1}}{1+\frac{d}{b}}+ \left(-\frac{d}{b}\right)^{t+1}p_0
+\]
+ce qu'il fallait démontrer. Nous avons donc bien obtenu l'expression
+du prix à la date $t$ comme une fonction du prix initial ($p_0$) et
+des paramètres des fonctions de demande et d'offre. \textbf{(5)}
+Clairement le prix ne diverge pas que si $b<d$ de sorte que
+$\lim_{t\rightarrow\infty}(-\nicefrac{b}{d})^t=0$. Dans ce modèle où
+les anticipations sont naïves, il faut que la demande soit moins \og
+pentue \fg\ que l'offre pour que prix ne diverge pas. Sous cette
+condition, on voit directement que :
+\[
+\lim_{t\rightarrow\infty}p_t = p^{\star}
+\]
+Le prix converge vers le prix d'équilibre du marché dès lors que
+$b<d$. Cette convergence n'est pas monotone. Pour le montrer, notons
+que nous pouvons écrire l'écart entre $p_t$ et $p^{\star}$ comme une
+fonction de l'écart entre $p_0$ et $p^{\star}$ :
+\[
+p_t - p^{\star} = \left(p_0-p^{\star}\right)\left(-\frac{b}{d}\right)^t
+\]
+Clairement le signe de $p_t-p^{\star}$ change à chaque itération, la
+suite $p_t$ oscille donc autour de $p^{\star}$.
+
+\bigskip
+
+\exercice{5} Il suffit de remarquer que $f(-1)=f(1)=1$.
+
+\bigskip
+
+\exercice{6} \textbf{(i)} Une fonction $f$ est convexe si
+sa courbe représentative se situe au dessus de ses
+tangentes. \textbf{(ii)} Une fonction $f$ est convexe si
+pour tout $x, y$ dans le domaine de définition de $f$ et tout
+$\lambda\in[0,1]$ on a $f(\lambda x + (1-\lambda)x) \leq \lambda f(x)
++ (1-\lambda)f(y)$. \textbf{(iii)} Une fonction $f$ est convexe si
+$f''(x)\geq 0$ pour tout $x$ dans le domaine de $f$. 
+
+\bigskip
+
+\exercice{7} L'équilibre, s'il existe, doit égaliser l'offre et la
+demande sur le marché. On doit donc chercher un prix tel que :
+\[
+p^2=6-p
+\]
+\[
+\Leftrightarrow p^2+p-6 = 0
+\]
+Le prix d'équilibre est une racine d'un polynôme d'ordre 2. Le
+discriminant de ce polynôme est $\Delta = 1+4\times 6 = 25$. Il existe
+donc deux racines. Il n'y a cependant pas d'incertitude sur le prix
+d'équilibre puisque les racines sont de signes opposés. L'unique prix
+d'équilibre correspond à l'unique racine positive du polynôme
+d'ordre : $p^{\star}=2$ (l'autre racine n'est pas économiquement pertinente). 
+
+\bigskip
+
+\exercice{8} \textbf{(1)} On a d'après le cours :
+\[
+\left(f(g(x))\right)' = f'(g(x))\times g'(x)
+\]
+\textbf{(2)} On obtient la dérivée d'ordre deux en dérivant à nouveau
+la dérivée d'ordre un donnée plus haut :
+\[
+\left(f(g(x))\right)'' = \left(f'(g(x))\times g'(x)\right)'
+\]
+\[
+\Leftrightarrow \left(f(g(x))\right)'' = \left(f'(g(x))\right)'g'(x) + f'(g(x))g''(x)
+\]
+\[
+\Leftrightarrow \left(f(g(x))\right)'' = f''(g(x))\left(g'(x)\right)^2 + f'(g(x))g''(x)
+\]
+\textbf{(3)} $h''(x) = 4 \times 3 x^2$. \textbf{(4)} Notons que
+$h(x)=\left(x^2\right)^2$, en appliquant la formule pour la dérivée
+d'ordre deux d'une composition de fonction, on obtient :
+\[
+h''(x) = 2 \times (2x)^2 + 2 (x^2)^3 \times 2
+\]
+\[
+h''(x) = 8 x^2 +  4 x^2
+\]
+\[
+h''(x) = 12 x^2
+\]
+Nous retrouvons bien le même résultat qu'au point (3).
+
+\end{document}

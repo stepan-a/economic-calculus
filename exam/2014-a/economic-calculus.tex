@@ -1,0 +1,124 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} Soit deux propositions $P$ et $Q$. Montrer que $\overline
+{P \land Q} \Leftrightarrow \overline{P} \lor \overline{Q}$ 
+
+\bigskip
+
+\exercice{2} \textbf{(1)} Donner la définition de la dérivée d'une
+fonction. \textbf{(2)} Soit la fonction $f(x) = x^n$ avec
+$n\in\mathbb N$. Le but de l'exercice est de montrer que la dérivée de
+cette fonction est $f'(x) = nx^{n-1}$. Montrer que cette formule est
+correcte pour $n=1$ (en utilisant la définition de la
+dérivée). \textbf{(3)} Montrer que si la formule est vraie au rang $n$
+alors elle est nécessairement vraie au rang $n+1$. Conclure.
+
+\bigskip
+
+\exercice{3} On note $y_t$ le PIB de la France à la date $t$ et on
+suppose que cette variable est déterminée par  l'équation :
+\[
+y_t = 1,02 y_{t-1}
+\]
+avec une condition initiale $y_0 = 1$. \textbf{(1)} Quel est le taux
+de croissance du PIB ? \textbf{(2)} Donner le niveau du PIB à la date
+$t$. \textbf{(3)} Calculer le nombre de périodes nécessaires pour
+doubler le niveau du PIB. \textbf{(4)} Montrer que le
+niveau du PIB tend vers l'infini lorsque $t$ tend vers l'infini.
+
+\bigskip
+
+\exercice{4} Sur un marché la demande pour un bien à la date $t$ est linéaire par
+rapport au prix du bien :
+\[
+q_t = a - b p_t
+\]
+où $a$ et $b$ sont deux paramètres réels strictement positifs. Sur le même marché,
+la quantité offerte à la date $t$ dépend du prix anticipé (à la date
+$t-1$) pour la date $t$ :
+\[
+q_t = c + d \hat p_t
+\]
+où $c$ et $d$ sont deux paramètres réels positifs, $\hat p_t$ est le
+prix anticipé pour la période $t$. On supposera que les anticipations
+sont naïves dans le sens où :
+\[
+\hat p_t = p_{t-1}
+\]
+Les offreurs anticipent que le prix à la date $t$ sera le prix observé
+à la date $t-1$. \textbf{(1)} Montrer que la quantité offerte est
+égale à la quantité demandée si et seulement si le prix à la date $t$
+est donné par :
+\[
+p_t = \frac{a-c}{b} - \frac{d}{b} p_{t-1} \equiv f(p_{t-1})
+\]
+\textbf{(2)} Calculer le point fixe (on dit aussi état stationnaire)
+de cette équation récurrente pour le prix, c'est-à-dire calculer
+$p^{\star}$ tel que $p^{\star} = f(p^{\star})$. Quelle hypothèse
+faut-il poser sur les paramètres pour que ce prix ait un sens ? \textbf{(3)}
+Montrer que $p^{\star}$ est le prix d'équilibre sur ce
+marché. Calculer la quantité échangée à l'équilibre. \textbf{(4)}
+Calculer le prix à la $t$. \textbf{(5)} Donner la condition sous
+laquelle le prix converge vers $p^{\star}$. Commenter. La convergence
+est-elle monotone ?
+
+\bigskip
+
+\exercice{5} Montrer que la fonction $f(x) = x^2$, $x\in\mathbb R$, n'est pas bijective.
+
+\bigskip
+
+\exercice{6} Donner trois conditions assurant la convexité d'une
+fonction de $\mathbb R$ dans $\mathbb R$. 
+
+\bigskip
+
+\exercice{7} Sur un marché la quantité offerte ($q$) est donnée comme
+une fonction du prix par :
+\[
+q = p^2
+\]
+et la demande est déterminée par :
+\[
+q = 6-p
+\]
+\textbf{(1)} Montrer qu'il existe un unique prix d'équilibre
+$p^{\star}>0$. \textbf{(2)} Donner une représentation graphique des
+fonctions de demande et d'offre, et de l'équilibre.     
+
+\bigskip
+
+\exercice{8} Soient $f$ et $g$ deux fonctions pour lesquelles les
+dérivées d'ordre 1 et deux sont définies. \textbf{(1)} Quelle est la
+dérivée de la composition $f(g(x))$ ? \textbf{(2)} Calculer la dérivée
+d'ordre deux de $f(g(x))$. \textbf{(3)} Quelle est la dérivée d'ordre
+deux de $h(x) = x^4$. \textbf{(4)} Vérifier que la formule
+obtenue pour la dérivée d'ordre deux donne un résultat correcte si
+$f(g(x)) = \left(x^2\right)^2$. 
+\end{document}

@@ -1,0 +1,386 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+\usepackage[active]{srcltx}
+\usepackage{scrtime}
+\usepackage{nicefrac}
+\usepackage{adjustbox}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique}\\\textbf{(Éléments de correction)}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} Il faut faire une table de vérité. Puisque nous devons
+établir une proposition faisant intervenir trois propositions ($P$,
+$Q$ et $R$) et que chacune de ces propositions peut prendre deux
+valeurs ($V$ et $F$), la table de vérité doit contenir $2^3=8$ lignes.
+
+\begin{table}[H]
+  \centering
+\adjustbox{max width=\textwidth}{
+  \begin{tabular}{ccc|ccccc}
+    $P$ & $Q$ & $R$ & $P\Rightarrow Q$ & $Q\Rightarrow R$ &
+    $P\Rightarrow Q \land Q\Rightarrow R$ & $P\Rightarrow R$ & 
+    $(P\Rightarrow Q \land Q\Rightarrow R)\Rightarrow (P\Rightarrow R)$\\ 
+    \hline
+    V & V & V & V & V & V & V & V\\
+    V & V & F & V & F & F & F & V\\
+    V & F & V & F & V & F & V & V\\
+    V & F & F & F & V & F & F & V\\
+    F & V & V & V & V & V & V & V\\
+    F & V & F & V & F & F & V & V\\
+    F & F & V & V & V & V & V & V\\
+    F & F & F & V & V & V & V & V\\
+  \end{tabular}}
+\end{table}
+
+La proposition est donc vraie puisque la dernière colonne contient la
+valeur $V$ (vraie) sur toutes les lignes.
+
+\bigskip
+
+\exercice{2} \textbf{(1)} La dérivée d'une fonction $f$ est définie
+par la limite suivante :
+\[
+f'(x) = \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h}
+\]
+\textbf{(2)} Pour $n=1$ on a $f(x) = x$. La formule nous dit alors que
+$f'(x) = 1\times x^0 = 1$ pour tout $x$. Montrons que c'est bien le
+cas, en utilisant la définition de la dérivée :
+\[
+f'(x) = \lim_{h\rightarrow 0} \frac{x+h-x}{h} = \lim_{h\rightarrow 0}
+\frac{h}{h} = 1 
+\]
+La formule est donc correcte au rang $n=1$. On suppose maintenant que
+la formule est correcte à un rang $n$ quelconque, montrons qu'elle est
+alors nécessairement vraie au rang $n+1$, c'est-à-dire que nous avons
+bien :
+\[
+\frac{\mathrm d}{\mathrm dx}x^{n+1} = (n+1)x^n
+\]
+Nous avons :
+\[
+\frac{\mathrm d}{\mathrm dx} x^{n+1} = \frac{\mathrm d}{\mathrm dx} x
+\times x^n
+\]
+En appliquant la règle $(uv)'=u'v+uv'$ il vient :
+\[
+\frac{\mathrm d}{\mathrm dx} x^{n+1} = 1 \times x^n + x \frac{\mathrm
+  d}{\mathrm dx} x^n
+\]
+En substituant la formule supposée vraie au rang $n$ :
+\[
+\frac{\mathrm d}{\mathrm dx} x^{n+1} = x^n + x \times n \times x^{n-1}
+\]
+soit de façon équivalente :
+\[
+\frac{\mathrm d}{\mathrm dx} x^{n+1} = x^n + n \times x^{n}
+\]
+ou encore :
+\[
+\frac{\mathrm d}{\mathrm dx} x^{n+1} = (n+1) x^{n}
+\]
+ce qu'il fallait démontrer.
+
+\bigskip
+
+\exercice{3} Sur un marché la demande pour un bien à la date $t$ est linéaire par
+rapport au prix du bien :
+\[
+q_t = a - b p_t
+\]
+où $a$ et $b$ sont deux paramètres réels strictement positifs. Sur le même marché,
+la quantité offerte à la date $t$ dépend du prix anticipé (à la date
+$t-1$) pour la date $t$ :
+\[
+q_t = c + d \hat p_t
+\]
+où $c$ et $d$ sont deux paramètres réels positifs, $\hat p_t$ est le
+prix anticipé pour la période $t$. On supposera que les anticipations
+sont naïves dans le sens où :
+\[
+\hat p_t = p_{t-1}
+\]
+Les offreurs anticipent que le prix à la date $t$ sera le prix observé
+à la date $t-1$. \textbf{(1)} Si l'offre est égale à la demande, alors
+on doit avoir :
+\[
+a - b p_t = c + d \hat p_t
+\]
+en substituant l'anticipation naïve, il vient :
+\[
+a - b p_t = c + d p_{t-1}
+\]
+soit de façon équivalente :
+\[
+p_t = \frac{a-c}{b} - \frac{d}{b}p_{t-1}
+\]
+\textbf{(2)} $p^{\star}$ doit satisfaire :
+\[
+a - b p^{\star} = c + d p^{\star}
+\]
+\[
+\Leftrightarrow a - c = (b+d) p^{\star}
+\]
+\[
+\Leftrightarrow  p^{\star} = \frac{a-c}{b+d}
+\]
+Si $p_t = p^{\star}$ alors $p_{t+s} = p^{\star}$ pour tout $s\in
+\mathbb N$. Pour que ce point fixe puisse être interprété comme un
+prix il faut qu'il soit positif, c'est-à-dire que $a>c$. \textbf{(3)}
+En substituant le point fixe $p^{\star}$ dans les fonctions d'offre et
+de demande, on remarque que :
+\[
+D(p^{\star}) = S(p^{\star}) = \frac{da+bc}{b+d}
+\]
+% a - b (a-c)/(b+d) = (ab + da - ba + bc)(b+d) = 
+% c + d (a-c)/(b+d) = (bc+dc+da-cd)/(b+d) = 
+La quantité offerte égalise la quantité demandée. $p^{\star}$ est
+donc bien un prix d'équilibre. \textbf{(4)}
+Supposons que  le prix à la date 0 soit $p_0\neq p^{\star}$. On omet
+le cas où le prix est initialement à l'équilibre car on sait que le
+prix est alors à l'équilibre pour toute date $t>0$. À la date 1, nous
+avons :
+\[
+p_1 = \frac{a-c}{b} - \frac{d}{b}p_0
+\]
+À la date 2 :
+\[
+p_2 = \frac{a-c}{b} - \frac{d}{b}p_1 =
+\frac{a-c}{b}\left(1-\frac{d}{b}\right) + \left(\frac{d}{b}\right)^2p_0
+\]
+À la date 3 :
+\[
+p_3 = \frac{a-c}{b} - \frac{d}{b}p_2 =
+\frac{a-c}{b}\left(1-\frac{d}{b}+\left(\frac{d}{b}\right)^2\right) - \left(\frac{d}{b}\right)^3p_0
+\]
+Plus généralement nous devrions avoir :
+\[
+p_t =
+\frac{a-c}{b}\left(1-\frac{d}{b}+\left(\frac{d}{b}\right)^2+\dots+\left(-\frac{d}{b}\right)^{t-1}\right)
++ \left(-\frac{d}{b}\right)^{t}p_0
+\]
+ou de façon équivalente :
+\[
+p_t = \frac{a-c}{b}\sum_{\tau=0}^{t-1}
+\left(-\frac{d}{b}\right)^{\tau} + \left(-\frac{d}{b}\right)^{t}p_0
+\]
+ou encore :
+\[
+p_t = \frac{a-c}{b}\frac{1-\left(-\frac{d}{b}\right)^{t}}{1+\frac{d}{b}} + \left(-\frac{d}{b}\right)^{t}p_0
+\]
+Admettons que cette formule soit correcte au rang $t$ et montrons que
+nous retrouvons alors nécessairement la même au rang $t+1$. Nous avons
+\[
+p_{t+1} = \frac{a-c}{b} - \frac{d}{b}p_t
+\]
+En substituant l'expression pour $p_t$, il vient :
+\[
+p_{t+1} = \frac{a-c}{b} - \frac{d}{b}\left(\frac{a-c}{b}\frac{1-\left(-\frac{d}{b}\right)^{t}}{1+\frac{d}{b}} + \left(-\frac{d}{b}\right)^{t}p_0\right)
+\]
+\[
+\Leftrightarrow p_{t+1} = \frac{a-c}{b} \left(1 - \frac{d}{b}\frac{1-\left(-\frac{d}{b}\right)^{t}}{1+\frac{d}{b}}\right)+ \left(-\frac{d}{b}\right)^{t+1}p_0
+\]
+\[
+\Leftrightarrow p_{t+1} = \frac{a-c}{b} \left(1 - \frac{\frac{d}{b}-\left(-\frac{d}{b}\right)^{t+1}}{1+\frac{d}{b}}\right)+ \left(-\frac{d}{b}\right)^{t+1}p_0
+\]
+\[
+\Leftrightarrow p_{t+1} = \frac{a-c}{b} \frac{1-\left(-\frac{d}{b}\right)^{t+1}}{1+\frac{d}{b}}+ \left(-\frac{d}{b}\right)^{t+1}p_0
+\]
+ce qu'il fallait démontrer. Nous avons donc bien obtenu l'expression
+du prix à la date $t$ comme une fonction du prix initial ($p_0$) et
+des paramètres des fonctions de demande et d'offre. \textbf{(5)}
+Clairement le prix ne diverge pas que si $b<d$ de sorte que
+$\lim_{t\rightarrow\infty}(-\nicefrac{b}{d})^t=0$. Dans ce modèle où
+les anticipations sont naïves, il faut que la demande soit moins \og
+pentue \fg\ que l'offre pour que prix ne diverge pas. Sous cette
+condition, on voit directement que :
+\[
+\lim_{t\rightarrow\infty}p_t = p^{\star}
+\]
+Le prix converge vers le prix d'équilibre du marché dès lors que
+$b<d$. Cette convergence n'est pas monotone. Pour le montrer, notons
+que nous pouvons écrire l'écart entre $p_t$ et $p^{\star}$ comme une
+fonction de l'écart entre $p_0$ et $p^{\star}$ :
+\[
+p_t - p^{\star} = \left(p_0-p^{\star}\right)\left(-\frac{b}{d}\right)^t
+\]
+Clairement le signe de $p_t-p^{\star}$ change à chaque itération, la
+suite $p_t$ oscille donc autour de $p^{\star}$.
+
+\bigskip
+
+\exercice{4} On note que $f(-1)=f(1)=1$, la fonction $f$ n'est donc
+pas bijective puisque deux antécédents ($1$ et $-1$) ont la même image
+($1$). On peut redéfinir la fonction valeur absolue par morceaux, de
+la façon suivante :
+\[
+f(x) = 
+\begin{cases}
+  -x& \quad\forall x\leq 0,\\
+   x& \quad \text{sinon}.
+\end{cases}
+\]
+Nous pouvons donc réécrire la fonction $f$ sous la forme de deux
+droites. Sur chaque sous intervalles (\emph{ie} pour les valeurs
+négatives puis positives de $x$) la fonction est donc continue (les
+droites sont des fonctions continues). En zéro on vérifie que la
+limite de $f$ est définie est égale à zéro. La fonction $f$ est donc
+continue sur $\mathbb R$. Elle est aussi dérivable sur $\mathbb R^*$,
+mais pas en zéro, car en ce point les dérivées à droite ($1$) et à
+gauche ($-1$) sont différentes. 
+
+\bigskip
+
+\exercice{5} \textbf{(1)} Pour la représentation graphique il faut
+remarquer que cette fonction est monotone croissante, que sa dérivée
+est monotone décroissante et qu'elle passe par les points $(0, 0)$ et
+$(1, 1)$. La représentation graphique doit ressembler à celle de
+$\sqrt{x}$. \textbf{(2)} Cette fonction est concave puisque les
+tangentes sont toutes au dessus de la courbe
+représentative. \textbf{(3)} Les dérivées d'ordre 1 et 2 sont :
+\[
+f'(x) = \alpha x^{\alpha-1}
+\]
+et
+\[
+f''(x) = -\alpha(1-\alpha) x^{\alpha-2}
+\]
+Clairement, la dérivée d'ordre deux est négative pour tout $x$ puisque
+$0<\alpha<1$. La fonction de production $f$ est donc bien
+concave. \textbf{(4)} $\Pi(x)$ représente le profit de la firme comme
+une fonction de la quantité de facteur de production. Ce profit est
+exprimé en termes de quantité produite. \textbf{(5)} La fonction est
+définie pour les valeurs positive de $x$. Elle passe pas le point
+$(0,0)$, est croissante pour des petites valeurs de $x$ puis devient
+décroissante, lorsque la variation du coût (c'est-à-dire le coût
+marginal, $p$) domine la variation de la production (c'est-à-dire la
+productivité marginal, $f'(x)$). Cette fonction est concave, puisque
+toutes les tangentes sont au dessus de la courbe représentative, on aussi
+peut vérifier que la dérivée d'ordre 2 est négative :
+\[
+\Pi''(x) = f''(x)
+\]
+\textbf{(6)} La dérivée d'ordre un de la fonction de profit est donnée
+par :
+\[
+\Pi''(x) = f'(x)-p
+\]
+\textbf{(7)} Nous savons que $f'(x)$ est une fonction continue (pour $x>0$) positive et monotone
+décroissante, on peut aussi vérifier que $\lim_{x\rightarrow 0} f'(x)
+= \infty$. Par construction, la fonction $\Pi'(x)$ hérite de ces
+propriétés. Ainsi nous savons que la fonction $\Pi'(x)$ ne s'annule
+qu'en un unique point que nous noterons $x^{\star}$ (\emph{ie} il
+s'agit du point ou la courbe représentative de $\Pi'$ croise l'axe des
+abscisses). Nous avons :
+\[
+  \begin{split}
+    \Pi'(x^{\star}) = 0\\
+    \Leftrightarrow \alpha \left. x^{\star} \right. ^{\alpha-1} - p = 0\\
+    \Leftrightarrow \left. x^{\star} \right. ^{\alpha-1} = \frac{p}{\alpha} \\
+    \Leftrightarrow \left. x^{\star} \right. ^{1-\alpha} = \frac{\alpha}{p} \\
+    \Leftrightarrow x^{\star} = \left(\frac{\alpha}{p}\right)^{\frac{1}{1-\alpha}} \\
+  \end{split}
+\] 
+Il vient :
+\[
+y^{\star} = \left(\frac{\alpha}{p}\right)^{\frac{\alpha}{1-\alpha}}
+\]
+et
+\[
+y^{\star} = \left(\frac{\alpha}{p}\right)^{\frac{\alpha}{1-\alpha}}-p\left(\frac{\alpha}{p}\right)^{\frac{1}{1-\alpha}}
+\]
+\textbf{(8)} Puisque la fonction $\Pi$ est concave, la valeur
+$x^{\star}$ qui annule la dérivée première de $\Pi$, est la quantité
+de facteur de production qui maximise le profit. Pour tout $x\neq
+x^{\star}$, on a $\Pi(x)<\Pi^{\star}$. Ainsi $Pi^{\star}$ est
+la valeur maximale du profit. La condition d'optimalité du profit est
+l'égalisation du coût marginal ($p$) et de la productivité marginale
+($\alpha x^{alpha-1}$). Pour comprendre cette condition, supposons que
+$x$ soit tel que la productivité marginale est supérieur au coût
+marginal. Dans ce cas la firme a intérêt à augmenter la quantité de
+facteur de production (et donc à augmenter la quantité produite)
+puisque le gain lié à une augmentation de $x$ est supérieur au coût
+induit. Cette augmentation contribue à réduire l'excès de la
+productivité marginale relativement au coût marginal, puisque la
+productivité marginal décroît lorsque $x$ augmente. Dans une situation
+où la productivité marginale est différente du coût marginal, la firme
+a toujours intérêt à dévier (en augmentant ou diminuant la quantité de
+facteur de production, $x$).
+
+\bigskip
+
+\exercice{(7)} On note que $1$ est une racine évidente, puisque $P(1)=1-\frac{1}{6}-\frac{4}{6}-\frac{1}{6}=0$. On peut réécrire
+le polynôme sous la forme\footnote{Il est évident que le coefficient
+  associé à $x^2$ doit être égal à 1.} :
+\[
+P(x) = (x-1)(x^2+bx+c)
+\]
+En développant, on a aussi :
+\[
+P(x) = x^3 + (b-1)x^2 + (c-b)x - c
+\]
+Par identification, nous devons donc avoir :
+\[
+  \begin{cases}
+    -\frac{1}{6} &= b-1\\
+    -\frac{4}{6} &= c-b\\
+    \frac{1}{6} &= c
+  \end{cases}
+\]
+Nous avons donc $c =\nicefrac{1}{6}$ et $b=\nicefrac{5}{6}$, et
+donc :
+\[
+P(x) = (x-1)\left(x^2+\frac{5}{6}x+\frac{1}{6}\right)
+\]
+Pour calculer les racines du polynôme d'ordre deux on calcule le
+discriminant associé :
+\[
+\Delta = \frac{25}{36}-\frac{2}{3} = \frac{1}{36}
+\]
+Ainsi les racines du polynôme d'ordre deux sont :
+\[
+x_{1,2} = \frac{-\frac{5}{6} \pm\sqrt{\Delta}}{2} =
+\frac{-\frac{5}{6}\pm \frac{1}{6}}{2} = 
+\frac{-5 \pm 1}{12}
+\]
+Au total, les racines de $P(x)$ sont donc $1$, $-\nicefrac{1}{2}$ et
+$-\nicefrac{1}{3}$.
+
+\bigskip
+
+\exercice{8} Soit $f$ une fonction bijective. D'après la définition,
+la fonction réciproque $f^{-1}$ est définie implicitement par :
+\[
+f^{-1}(f(x)) = x
+\]
+En appliquant la formule de dérivation en chaîne sur les deux membres
+de cette égalité il vient :
+\[
+\left. f^{-1} \right.' (f(x)) f'(x) = 1
+\]
+soit de façon équivalente :
+\[
+\left. f^{-1} \right.' (f(x)) = \frac{1}{f'(x)}
+\]
+La dérivée de la fonction réciproque est donnée par l'inverse de la
+fonction dérivée.
+\end{document}

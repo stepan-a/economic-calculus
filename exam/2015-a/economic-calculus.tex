@@ -1,0 +1,128 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} Soient $P$, $Q$ et $R$ trois propositions. Montrer que :
+	\[
+		(P \Rightarrow Q) \land (Q \Rightarrow R) \Rightarrow (P \Rightarrow R)
+	\]
+	Interpréter ce résultat.
+	
+\bigskip
+
+\exercice{2} \textbf{(1)} Donner la définition de la dérivée d'une
+fonction. \textbf{(2)} Soit la fonction $f(x) = x^n$ avec
+$n\in\mathbb N$. Le but de l'exercice est de montrer que la dérivée de
+cette fonction est $f'(x) = nx^{n-1}$. Montrer que cette formule est
+correcte pour $n=1$ (en utilisant la définition de la
+dérivée). \textbf{(3)} Montrer que si la formule est vraie au rang $n$
+alors elle est nécessairement vraie au rang $n+1$. Conclure.
+
+\bigskip
+
+\exercice{3} Sur un marché la demande pour un bien à la date $t$ est linéaire par
+rapport au prix du bien :
+\[
+q_t = a - b p_t
+\]
+où $a$ et $b$ sont deux paramètres réels strictement positifs. Sur le même marché,
+la quantité offerte à la date $t$ dépend du prix anticipé (à la date
+$t-1$) pour la date $t$ :
+\[
+q_t = c + d \hat p_t
+\]
+où $c$ et $d$ sont deux paramètres réels positifs, $\hat p_t$ est le
+prix anticipé pour la période $t$. On supposera que les anticipations
+sont naïves dans le sens où :
+\[
+\hat p_t = p_{t-1}
+\]
+À la date $t-1$, lorsqu'ils décident la quantité offerte en $t$, les offreurs anticipent que le prix à la date $t$ sera le prix observé
+à la date $t-1$. \textbf{(1)} Montrer que la quantité offerte est
+égale à la quantité demandée si et seulement si le prix à la date $t$
+est donné par :
+\[
+p_t = \frac{a-c}{b} - \frac{d}{b} p_{t-1} \equiv f(p_{t-1})
+\]
+\textbf{(2)} Calculer le point fixe (on dit aussi état stationnaire)
+de cette équation récurrente pour le prix, c'est-à-dire calculer le
+prix invariant $p^{\star}$ tel que $p^{\star} = f(p^{\star})$. Quelle hypothèse
+faut-il poser sur les paramètres pour que ce prix ait un sens ? \textbf{(3)}
+Montrer que $p^{\star}$ est le prix d'équilibre sur ce
+marché. Calculer la quantité échangée à l'équilibre. \textbf{(4)}
+Calculer le prix à la $t$. \textbf{(5)} Donner la condition sous
+laquelle le prix converge vers $p^{\star}$. Commenter. La convergence
+est-elle monotone ?
+
+\pagebreak
+
+\exercice{4} Soit la fonction $f(x) = |x|$, définie pour tout
+$x\in\mathbb R$.
+\begin{enumerate}
+\item La fonction $f$ est-elle bijective ? Pourquoi ?
+\item La fonction $f$ est-elle continue sur $\mathbb R$ ? Pourquoi ?
+\item La fonction $f$ est-elle dérivable sur $\mathbb R$ ? Pourquoi ?
+\end{enumerate}
+ 
+\bigskip
+
+\exercice{5} Soit la fonction $y = f(x) = x^{\alpha}$ une fonction définie
+sur $\mathbb R^+$, avec $\alpha$ un paramètre réel positif inférieur à
+un. Cette fonction représente le niveau de production
+obtenu par une firme lorsqu'elle utilise une quantité $x$ du facteur
+de production. \textbf{(1)} Représenter graphiquement cette
+fonction. \textbf{(2)} Discuter la concavité/convexité de cette
+fonction à partir d'un argument graphique. \textbf{(3)} Conclure sur
+la concavité/convexité à partir de la dérivée d'ordre 2 de
+$f$. \textbf{(4)} Cette firme doit payer la location du facteur de
+production. On note $p$ le prix d'une unité du facteur de
+production en termes de bien produit. Posons la fonction :
+\[
+\Pi(x) = x^{\alpha} - p x
+\]
+Interpréter cette fonction. Quel est le concept représenté par cette
+fonction ? \textbf{(5)}. Représenter graphiquement cette fonction. Cette fonction est-elle concave ou convexe ?
+\textbf{(6)} Calculer la dérivée d'ordre un de la fonction
+$\Pi$. \textbf{(7)} Identifier la quantité $x^{\star}$ telle que
+$\Pi'(x^{\star}) = 0$. Calculer $y^{\star}=f(x^{\star})$ et
+$\Pi^{\star} = \Pi(x^{\star})$. \textbf{(8)} Interpréter $\Pi^{\star}$
+et la condition qui détermine $x^{\star}$.
+
+\bigskip
+
+\exercice{7} Calculer les racines du polynôme :
+\[
+P(x) = x^3 - \frac{1}{6}x^2 - \frac{4}{6}x - \frac{1}{6}
+\]    
+
+\bigskip
+
+\exercice{8} Déterminer la dérivée de la réciproque d'une fonction (en supposant que celle-ci existe).
+
+\bigskip
+
+\end{document}

@@ -1,0 +1,103 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} Soient $P$, $Q$ et $R$ trois propositions. Montrer que :
+	\[
+		(P \Rightarrow Q) \land (Q \Rightarrow R) \Rightarrow (P \Rightarrow R)
+	\]
+	Interpréter.
+	
+\bigskip
+
+\exercice{2} \textbf{(1)} Donner la définition de la dérivée d'une
+fonction. \textbf{(2)} Soit la fonction $f(x) = \log x$ (le logarithme népérien). En utilisant la définition de la dérivée montrer que $f'(x)=\frac{1}{x}$\footnote{\textbf{Indice:} En utilisant une approximation de Taylor à l'ordre 1, notez que $\log (1+z) \approx z$ pour des petites valeurs de $z$.}.
+
+\bigskip
+
+\exercice{3} Sur un marché la demande pour un bien à la date $t$ est linéaire par
+rapport au prix du bien :
+\[
+q_t = a - b p_t
+\]
+où $a$ et $b$ sont deux paramètres réels strictement positifs. Sur le même marché,
+la quantité offerte à la date $t$ dépend du prix anticipé (à la date
+$t-1$) pour la date $t$ :
+\[
+q_t = c + d \hat p_t
+\]
+où $c$ et $d$ sont deux paramètres réels positifs, $\hat p_t$ est le
+prix anticipé pour la période $t$. On supposera que les anticipations
+sont naïves dans le sens où :
+\[
+\hat p_t = p_{t-1}
+\]
+Les offreurs anticipent que le prix à la date $t$ sera le prix observé
+à la date $t-1$. \textbf{(1)} Montrer que la quantité offerte est
+égale à la quantité demandée si et seulement si le prix à la date $t$
+est donné par :
+\[
+p_t = \frac{a-c}{b} - \frac{d}{b} p_{t-1} \equiv f(p_{t-1})
+\]
+\textbf{(2)} Calculer le point fixe (on dit aussi état stationnaire)
+de cette équation récurrente pour le prix, c'est-à-dire calculer
+$p^{\star}$ tel que $p^{\star} = f(p^{\star})$. Quelle hypothèse
+faut-il poser sur les paramètres pour que ce prix ait un sens ? \textbf{(3)}
+Montrer que $p^{\star}$ est le prix d'équilibre sur ce
+marché. Calculer la quantité échangée à l'équilibre. \textbf{(4)}
+Calculer le prix à la $t$. \textbf{(5)} Donner la condition sous
+laquelle le prix converge vers $p^{\star}$. Commenter. La convergence
+est-elle monotone ?
+
+\bigskip
+
+\exercice{4} La fonction $f(x) = |x|$, $x\in\mathbb R$, est-elle bijective ? Pourquoi ?
+
+\bigskip
+
+\exercice{5} Définir la notion de continuité d'une fonction. 
+
+\bigskip
+
+\exercice{6} Calculer les racines du polynôme :
+\[
+P(x) = x^3 - \frac{1}{6}x^2 - \frac{4}{6}x - \frac{1}{6}
+\]    
+
+\bigskip
+
+\exercice{7} Déterminer la dérivée de la réciproque d'une fonction (en supposant que celle-ci existe).
+
+\bigskip
+
+\exercice{8} Le taux de croissance observée d'une variable $X$ sur deux années est 10\%. On vous demande de calculer le taux de croissance annuel moyen, vous devez donc évaluer :
+\[
+g = (1,1^{\frac{1}{2}}-1)\times 100 = \left(\sqrt{1,1}-1\right)\times 100
+\]
+En supposant que vous ne ne connaissez pas la racine carrée de 1,1 par c\oe ur (c'est mon cas) et que vous ne disposez pas d'une calculatrice (c'est votre cas durant l'épreuve), proposez une approximation de $\sqrt{1,1}$ et donc du taux de croissance annuel moyen.
+ 
+\end{document}

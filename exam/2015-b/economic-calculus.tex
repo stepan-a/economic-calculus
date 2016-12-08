@@ -1,0 +1,104 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} Soient $P$ et $Q$ deux propositions. Montrer  que :
+\[
+(P \Leftrightarrow Q) \Leftrightarrow (P \Rightarrow Q) \land (Q
+\Rightarrow P)
+\]
+Interpréter ce résultat.
+
+\bigskip
+
+\exercice{2} Établir le résultat suivant :
+\[
+\sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6} 
+\]
+
+\bigskip
+
+\exercice{3} Soit une entreprise de production d'épingles. On suppose
+que le taux de croissance de sa production annuelle est $g>0$ (ce taux
+est supposé constant). La première année elle produit 1000
+unités. Calculer le nombre d'années $T$ tel que sa production
+cumulée (ie, en sommant les productions des $T$ années) atteigne
+100000 d'unités ?
+
+\bigskip
+
+\exercice{4} Montrer par récurrence que si $f(x) = x^n$, avec $n\in\mathbb N$, alors 
+$f'(x) = nx^{n-1}$.
+
+\bigskip
+
+\exercice{5} Soit la fonction de $\mathbb R$ dans $\mathbb R$ $f(x) =
+x^4$. Justifier et donner les valeurs des propositions suivantes :
+\begin{enumerate}
+\item $f$ est une fonction continue.
+\item $f$ est une fonction monotone croissante.
+\item $f$ est une fonction bijective.
+\item $f$ est une fonction concave.
+\end{enumerate}
+
+\bigskip
+
+\exercice{6} Calculer les racines du polynôme :
+\[
+P(x) = 2x^3 - 5x^2 - x - 6
+\]    
+
+\exercice{7} Soient $f$, $g$ et $h$ trois fonctions.
+\begin{enumerate}
+\item Calculer la dérivée, par rapport à $x$, de $\frac{1}{f(g(x))}$.
+\item Calculer la derivée, par rapport à $x$, de $h(f(g(x)))$.
+\item Calculer la dérivée d'ordre deux, par rapport à $x$, de $f(g(x))$.  
+\end{enumerate}
+
+\exercice{8} Soit la fonction $y = f(x) = x^{\alpha}$ une fonction définie
+sur $\mathbb R^+$, avec $\alpha$ un paramètre réel positif inférieur à
+un. Cette fonction représente le niveau de production
+obtenu par une firme lorsqu'elle utilise une quantité $x$ du facteur
+de production. \textbf{(1)} Représenter graphiquement cette
+fonction. \textbf{(2)} Discuter la concavité/convexité de cette
+fonction à partir d'un argument graphique. \textbf{(3)} Conclure sur
+la concavité/convexité à partir de la dérivée d'ordre 2 de
+$f$. \textbf{(4)} Cette firme doit payer la location du facteur de
+production. On note $p$ le prix d'une unité du facteur de
+production en termes de bien produit. Posons la fonction :
+\[
+\Pi(x) = x^{\alpha} - p x
+\]
+Interpréter cette fonction. Quel est le concept représenté par cette
+fonction ? \textbf{(5)}. Représenter graphiquement cette fonction. Cette fonction est-elle concave ou convexe ?
+\textbf{(6)} Calculer la dérivée d'ordre un de la fonction
+$\Pi$. \textbf{(7)} Identifier la quantité $x^{\star}$ telle que
+$\Pi'(x^{\star}) = 0$. Calculer $y^{\star}=f(x^{\star})$ et
+$\Pi^{\star} = \Pi(x^{\star})$. \textbf{(8)} Interpréter $\Pi^{\star}$
+et la condition qui détermine $x^{\star}$.
+
+\end{document}

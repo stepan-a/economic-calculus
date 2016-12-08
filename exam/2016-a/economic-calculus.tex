@@ -1,0 +1,92 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} Soient $P$, $Q$ et $R$ trois propositions. Montrer que :
+	\[
+		(P \Rightarrow Q) \land (Q \Rightarrow R) \Rightarrow (P \Rightarrow R)
+	\]
+	Interpréter ce résultat.
+	
+\bigskip
+
+\exercice{2} \textbf{(a)} Montrer qu'il est possible d'exprimer l'équivalence
+logique à l'aide d'un connecteur logique et d'une négation, c'est-à
+dire que pour deux propositions $P$ et $Q$, on a :
+\[
+  (P \Rightarrow Q) \Leftrightarrow (\overline{P} \lor Q)
+\]
+\textbf{(b)} Montrer que l'équivalence logique entre deux propositions
+$P$ et $Q$ peut s'écrire de façon équivalente sous la forme :
+\[
+  \overline{P \land \overline{Q}} \land \overline{\overline{P} \land Q}
+\]
+
+\bigskip
+
+\exercice{3} Montrer par récurrence que pour tout $x\in \mathbb R$ on a $(1+x)^n \geq 1+nx$, où $n\in \mathbb N$.
+
+\bigskip
+
+\exercice{4} Traduire avec des mots la proposition suivante :
+\[
+\forall \epsilon>0, \exists \delta(\epsilon)>0 \text{ tel que } \forall x \in I,  |x-a|<\delta(\epsilon) \Rightarrow |f(x)-f(a)|<\epsilon   
+\]
+où $I$ est un intervalle réel, et $f$ une fonction de $I$ dans
+$\mathbb R$. Que pouvez-vous dire de la fonction $f$ si cette
+proposition est vraie ?
+
+\bigskip
+
+\exercice{5} Soit la fonction de $\mathbb R$ dans $\mathbb R$ :
+$f(x) = (1+x)^{\frac{2}{3}}(2-x)^{\frac{1}{3}}$. Identifier les minima
+et maxima de cette fonction.
+ 
+\bigskip
+
+\exercice{6} Soient les fonctions continues et dérivables
+$f: I\rightarrow J$ et $g: J\rightarrow K$. \textbf{(a)} Quel est
+l'ensemble de départ de la fonction composée $f \circ g (x)$ ? Quel
+est l'ensemble d'arrivée de la la fonction $f \circ g (x)$ ?
+\textbf{(b)} La fonction composée $f \circ g (x)$ est-elle continue ?
+\textbf{(c)} Quelle est la dérivée d'ordre un de la fonction
+$f \circ g (x)$ ? \textbf{(d)} Calculer la dérivée d'ordre deux de la
+fonction $f \circ g (x)$ par rapport à $x$.
+
+\bigskip
+
+\exercice{7} Calculer les racines du polynôme :
+\[
+P(x) = x^3 + \frac{1}{4}x - \frac{5}{4}
+\]    
+
+\bigskip
+
+\exercice{8} Donner la définition de la dérivée d'une fonction. En admettant que $\lim_{x \rightarrow 0}\frac{e^x-1}{x} = 1$, montrer que la dérivée de $e^x$ est $e^x$ pour tout $x$.
+
+
+\end{document}

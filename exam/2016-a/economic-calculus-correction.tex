@@ -57,330 +57,142 @@ valeur $V$ (vraie) sur toutes les lignes.
 
 \bigskip
 
-\exercice{2} \textbf{(1)} La dérivée d'une fonction $f$ est définie
-par la limite suivante :
+\exercice{2} \textbf{(a)} Nous utilisons une table de vérité avec $2^2=4$ lignes.
+
+\begin{table}[H]
+  \centering
+\adjustbox{max width=\textwidth}{
+  \begin{tabular}{cc|ccccc}
+    $P$ & $Q$ & $P\Rightarrow Q$ & $\overline{P}$ &
+    $\overline{P}\lor Q$\\ 
+    \hline
+    V & V & V & F & V \\
+    V & F & F & F & F \\
+    F & V & V & V & V \\
+    F & F & V & V & V \\
+  \end{tabular}}
+\end{table}
+
+Puisque la troisième colonne et la cinquième colonne ont les mêmes valeurs de vérité sur chaque ligne, on a bien l'équivalence entre $P\Rightarrow Q$ et $\overline{P}\lor Q$. Autrement dit, il est possible d'exprimer l'implication logique avec une négation et le connecteur logique «ou». \textbf{(b)} On sait que l'équivalence logique est une double implication, c'est-à-dire que $P \Leftrightarrow Q$ est équivalent à $(P\Rightarrow Q) \land (Q\Rightarrow P)$. On vient de montrer que l'implication peut s'exprimer à l'aide d'une négation et du connecteur logique «ou». Par ailleurs nous savons que pour deux propositions $A$ et $B$ nous avons $\overline{A \land B} = \overline{A}\lor\overline{B}$. Nous pouvons donc réécrire le résultat précédant sous la forme :
 \[
-f'(x) = \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h}
+  (P \Rightarrow Q) \Leftrightarrow \overline{P \land \overline{Q}}
 \]
-\textbf{(2)} Pour $n=1$ on a $f(x) = x$. La formule nous dit alors que
-$f'(x) = 1\times x^0 = 1$ pour tout $x$. Montrons que c'est bien le
-cas, en utilisant la définition de la dérivée :
-\[
-f'(x) = \lim_{h\rightarrow 0} \frac{x+h-x}{h} = \lim_{h\rightarrow 0}
-\frac{h}{h} = 1 
-\]
-La formule est donc correcte au rang $n=1$. On suppose maintenant que
-la formule est correcte à un rang $n$ quelconque, montrons qu'elle est
-alors nécessairement vraie au rang $n+1$, c'est-à-dire que nous avons
-bien :
-\[
-\frac{\mathrm d}{\mathrm dx}x^{n+1} = (n+1)x^n
-\]
-Nous avons :
-\[
-\frac{\mathrm d}{\mathrm dx} x^{n+1} = \frac{\mathrm d}{\mathrm dx} x
-\times x^n
-\]
-En appliquant la règle $(uv)'=u'v+uv'$ il vient :
-\[
-\frac{\mathrm d}{\mathrm dx} x^{n+1} = 1 \times x^n + x \frac{\mathrm
-  d}{\mathrm dx} x^n
-\]
-En substituant la formule supposée vraie au rang $n$ :
-\[
-\frac{\mathrm d}{\mathrm dx} x^{n+1} = x^n + x \times n \times x^{n-1}
-\]
-soit de façon équivalente :
-\[
-\frac{\mathrm d}{\mathrm dx} x^{n+1} = x^n + n \times x^{n}
-\]
-ou encore :
-\[
-\frac{\mathrm d}{\mathrm dx} x^{n+1} = (n+1) x^{n}
-\]
-ce qu'il fallait démontrer.
+En faisant de même pour $Q\Rightarrow P$ on obtient le résultat désiré.
 
 \bigskip
 
-\exercice{3} Sur un marché la demande pour un bien à la date $t$ est linéaire par
-rapport au prix du bien :
-\[
-q_t = a - b p_t
-\]
-où $a$ et $b$ sont deux paramètres réels strictement positifs. Sur le même marché,
-la quantité offerte à la date $t$ dépend du prix anticipé (à la date
-$t-1$) pour la date $t$ :
-\[
-q_t = c + d \hat p_t
-\]
-où $c$ et $d$ sont deux paramètres réels positifs, $\hat p_t$ est le
-prix anticipé pour la période $t$. On supposera que les anticipations
-sont naïves dans le sens où :
-\[
-\hat p_t = p_{t-1}
-\]
-Les offreurs anticipent que le prix à la date $t$ sera le prix observé
-à la date $t-1$. \textbf{(1)} Si l'offre est égale à la demande, alors
-on doit avoir :
-\[
-a - b p_t = c + d \hat p_t
-\]
-en substituant l'anticipation naïve, il vient :
-\[
-a - b p_t = c + d p_{t-1}
-\]
-soit de façon équivalente :
-\[
-p_t = \frac{a-c}{b} - \frac{d}{b}p_{t-1}
-\]
-\textbf{(2)} $p^{\star}$ doit satisfaire :
-\[
-a - b p^{\star} = c + d p^{\star}
-\]
-\[
-\Leftrightarrow a - c = (b+d) p^{\star}
-\]
-\[
-\Leftrightarrow  p^{\star} = \frac{a-c}{b+d}
-\]
-Si $p_t = p^{\star}$ alors $p_{t+s} = p^{\star}$ pour tout $s\in
-\mathbb N$. Pour que ce point fixe puisse être interprété comme un
-prix il faut qu'il soit positif, c'est-à-dire que $a>c$. \textbf{(3)}
-En substituant le point fixe $p^{\star}$ dans les fonctions d'offre et
-de demande, on remarque que :
-\[
-D(p^{\star}) = S(p^{\star}) = \frac{da+bc}{b+d}
-\]
-% a - b (a-c)/(b+d) = (ab + da - ba + bc)(b+d) = 
-% c + d (a-c)/(b+d) = (bc+dc+da-cd)/(b+d) = 
-La quantité offerte égalise la quantité demandée. $p^{\star}$ est
-donc bien un prix d'équilibre. \textbf{(4)}
-Supposons que  le prix à la date 0 soit $p_0\neq p^{\star}$. On omet
-le cas où le prix est initialement à l'équilibre car on sait que le
-prix est alors à l'équilibre pour toute date $t>0$. À la date 1, nous
-avons :
-\[
-p_1 = \frac{a-c}{b} - \frac{d}{b}p_0
-\]
-À la date 2 :
-\[
-p_2 = \frac{a-c}{b} - \frac{d}{b}p_1 =
-\frac{a-c}{b}\left(1-\frac{d}{b}\right) + \left(\frac{d}{b}\right)^2p_0
-\]
-À la date 3 :
-\[
-p_3 = \frac{a-c}{b} - \frac{d}{b}p_2 =
-\frac{a-c}{b}\left(1-\frac{d}{b}+\left(\frac{d}{b}\right)^2\right) - \left(\frac{d}{b}\right)^3p_0
-\]
-Plus généralement nous devrions avoir :
-\[
-p_t =
-\frac{a-c}{b}\left(1-\frac{d}{b}+\left(\frac{d}{b}\right)^2+\dots+\left(-\frac{d}{b}\right)^{t-1}\right)
-+ \left(-\frac{d}{b}\right)^{t}p_0
-\]
-ou de façon équivalente :
-\[
-p_t = \frac{a-c}{b}\sum_{\tau=0}^{t-1}
-\left(-\frac{d}{b}\right)^{\tau} + \left(-\frac{d}{b}\right)^{t}p_0
-\]
-ou encore :
-\[
-p_t = \frac{a-c}{b}\frac{1-\left(-\frac{d}{b}\right)^{t}}{1+\frac{d}{b}} + \left(-\frac{d}{b}\right)^{t}p_0
-\]
-Admettons que cette formule soit correcte au rang $t$ et montrons que
-nous retrouvons alors nécessairement la même au rang $t+1$. Nous avons
-\[
-p_{t+1} = \frac{a-c}{b} - \frac{d}{b}p_t
-\]
-En substituant l'expression pour $p_t$, il vient :
-\[
-p_{t+1} = \frac{a-c}{b} - \frac{d}{b}\left(\frac{a-c}{b}\frac{1-\left(-\frac{d}{b}\right)^{t}}{1+\frac{d}{b}} + \left(-\frac{d}{b}\right)^{t}p_0\right)
-\]
-\[
-\Leftrightarrow p_{t+1} = \frac{a-c}{b} \left(1 - \frac{d}{b}\frac{1-\left(-\frac{d}{b}\right)^{t}}{1+\frac{d}{b}}\right)+ \left(-\frac{d}{b}\right)^{t+1}p_0
-\]
-\[
-\Leftrightarrow p_{t+1} = \frac{a-c}{b} \left(1 - \frac{\frac{d}{b}-\left(-\frac{d}{b}\right)^{t+1}}{1+\frac{d}{b}}\right)+ \left(-\frac{d}{b}\right)^{t+1}p_0
-\]
-\[
-\Leftrightarrow p_{t+1} = \frac{a-c}{b} \frac{1-\left(-\frac{d}{b}\right)^{t+1}}{1+\frac{d}{b}}+ \left(-\frac{d}{b}\right)^{t+1}p_0
-\]
-ce qu'il fallait démontrer. Nous avons donc bien obtenu l'expression
-du prix à la date $t$ comme une fonction du prix initial ($p_0$) et
-des paramètres des fonctions de demande et d'offre. \textbf{(5)}
-Clairement le prix ne diverge pas que si $b<d$ de sorte que
-$\lim_{t\rightarrow\infty}(-\nicefrac{b}{d})^t=0$. Dans ce modèle où
-les anticipations sont naïves, il faut que la demande soit moins \og
-pentue \fg\ que l'offre pour que prix ne diverge pas. Sous cette
-condition, on voit directement que :
-\[
-\lim_{t\rightarrow\infty}p_t = p^{\star}
-\]
-Le prix converge vers le prix d'équilibre du marché dès lors que
-$b<d$. Cette convergence n'est pas monotone. Pour le montrer, notons
-que nous pouvons écrire l'écart entre $p_t$ et $p^{\star}$ comme une
-fonction de l'écart entre $p_0$ et $p^{\star}$ :
-\[
-p_t - p^{\star} = \left(p_0-p^{\star}\right)\left(-\frac{b}{d}\right)^t
-\]
-Clairement le signe de $p_t-p^{\star}$ change à chaque itération, la
-suite $p_t$ oscille donc autour de $p^{\star}$.
-
-\bigskip
-
-\exercice{4} On note que $f(-1)=f(1)=1$, la fonction $f$ n'est donc
-pas bijective puisque deux antécédents ($1$ et $-1$) ont la même image
-($1$). On peut redéfinir la fonction valeur absolue par morceaux, de
-la façon suivante :
-\[
-f(x) = 
-\begin{cases}
-  -x& \quad\forall x\leq 0,\\
-   x& \quad \text{sinon}.
-\end{cases}
-\]
-Nous pouvons donc réécrire la fonction $f$ sous la forme de deux
-droites. Sur chaque sous intervalles (\emph{ie} pour les valeurs
-négatives puis positives de $x$) la fonction est donc continue (les
-droites sont des fonctions continues). En zéro on vérifie que la
-limite de $f$ est définie est égale à zéro. La fonction $f$ est donc
-continue sur $\mathbb R$. Elle est aussi dérivable sur $\mathbb R^*$,
-mais pas en zéro, car en ce point les dérivées à droite ($1$) et à
-gauche ($-1$) sont différentes. 
-
-\bigskip
-
-\exercice{5} \textbf{(1)} Pour la représentation graphique il faut
-remarquer que cette fonction est monotone croissante, que sa dérivée
-est monotone décroissante et qu'elle passe par les points $(0, 0)$ et
-$(1, 1)$. La représentation graphique doit ressembler à celle de
-$\sqrt{x}$. \textbf{(2)} Cette fonction est concave puisque les
-tangentes sont toutes au dessus de la courbe
-représentative. \textbf{(3)} Les dérivées d'ordre 1 et 2 sont :
-\[
-f'(x) = \alpha x^{\alpha-1}
-\]
-et
-\[
-f''(x) = -\alpha(1-\alpha) x^{\alpha-2}
-\]
-Clairement, la dérivée d'ordre deux est négative pour tout $x$ puisque
-$0<\alpha<1$. La fonction de production $f$ est donc bien
-concave. \textbf{(4)} $\Pi(x)$ représente le profit de la firme comme
-une fonction de la quantité de facteur de production. Ce profit est
-exprimé en termes de quantité produite. \textbf{(5)} La fonction est
-définie pour les valeurs positive de $x$. Elle passe pas le point
-$(0,0)$, est croissante pour des petites valeurs de $x$ puis devient
-décroissante, lorsque la variation du coût (c'est-à-dire le coût
-marginal, $p$) domine la variation de la production (c'est-à-dire la
-productivité marginal, $f'(x)$). Cette fonction est concave, puisque
-toutes les tangentes sont au dessus de la courbe représentative, on aussi
-peut vérifier que la dérivée d'ordre 2 est négative :
-\[
-\Pi''(x) = f''(x)
-\]
-\textbf{(6)} La dérivée d'ordre un de la fonction de profit est donnée
-par :
-\[
-\Pi''(x) = f'(x)-p
-\]
-\textbf{(7)} Nous savons que $f'(x)$ est une fonction continue (pour $x>0$) positive et monotone
-décroissante, on peut aussi vérifier que $\lim_{x\rightarrow 0} f'(x)
-= \infty$. Par construction, la fonction $\Pi'(x)$ hérite de ces
-propriétés. Ainsi nous savons que la fonction $\Pi'(x)$ ne s'annule
-qu'en un unique point que nous noterons $x^{\star}$ (\emph{ie} il
-s'agit du point ou la courbe représentative de $\Pi'$ croise l'axe des
-abscisses). Nous avons :
+\exercice{3} Pour $n=1$, nous avons bien $1+x\geq 1+x$ pour tout $x\in \mathbb R$. Pour $n=2$, nous avons  $(1+x)^2 = 1+2x+x^2 \geq 1+2x$, puisque le carré est non négatif, pour tout $x\in\mathbb R$. Pour $n=3$, si $x$ est positif nous avons : $(1+x)^3 = 1 + 3x + 3x^2 + x^3\geq 1+3x$ car la somme des deux derniers termes est nécessairement non négative. Supposons que l'inégalité soit vraie au rang $n$, c'est-à-dire que $(1+x)^n \geq 1+nx$ pour tout $x\geq 0$, et montrons que l'inégalité est nécessairement vérifiée au rang $n+1$, c'est-à-dire que l'on a $(1+x)^{n+1} \geq 1+(n+1)x$ pour tout $x$ positif ou nul. Nous avons :
 \[
   \begin{split}
-    \Pi'(x^{\star}) = 0\\
-    \Leftrightarrow \alpha \left. x^{\star} \right. ^{\alpha-1} - p = 0\\
-    \Leftrightarrow \left. x^{\star} \right. ^{\alpha-1} = \frac{p}{\alpha} \\
-    \Leftrightarrow \left. x^{\star} \right. ^{1-\alpha} = \frac{\alpha}{p} \\
-    \Leftrightarrow x^{\star} = \left(\frac{\alpha}{p}\right)^{\frac{1}{1-\alpha}} \\
+    (1+x)^{n+1} &= (1+x)(1+x)^n\\
+    &\geq (1+x)(1+xn)\\
+    &=1+nx+x+nx^2\\
+    &\geq 1+(n+1)x
   \end{split}
-\] 
-Il vient :
-\[
-y^{\star} = \left(\frac{\alpha}{p}\right)^{\frac{\alpha}{1-\alpha}}
 \]
-et
-\[
-y^{\star} = \left(\frac{\alpha}{p}\right)^{\frac{\alpha}{1-\alpha}}-p\left(\frac{\alpha}{p}\right)^{\frac{1}{1-\alpha}}
-\]
-\textbf{(8)} Puisque la fonction $\Pi$ est concave, la valeur
-$x^{\star}$ qui annule la dérivée première de $\Pi$, est la quantité
-de facteur de production qui maximise le profit. Pour tout $x\neq
-x^{\star}$, on a $\Pi(x)<\Pi^{\star}$. Ainsi $Pi^{\star}$ est
-la valeur maximale du profit. La condition d'optimalité du profit est
-l'égalisation du coût marginal ($p$) et de la productivité marginale
-($\alpha x^{alpha-1}$). Pour comprendre cette condition, supposons que
-$x$ soit tel que la productivité marginale est supérieur au coût
-marginal. Dans ce cas la firme a intérêt à augmenter la quantité de
-facteur de production (et donc à augmenter la quantité produite)
-puisque le gain lié à une augmentation de $x$ est supérieur au coût
-induit. Cette augmentation contribue à réduire l'excès de la
-productivité marginale relativement au coût marginal, puisque la
-productivité marginal décroît lorsque $x$ augmente. Dans une situation
-où la productivité marginale est différente du coût marginal, la firme
-a toujours intérêt à dévier (en augmentant ou diminuant la quantité de
-facteur de production, $x$).
+où le passage de la première ligne à la deuxième est obtenu en substituant l'inégalité au rang $n$ et en notant que le facteur $(1+x)$ est nécessairement positif. Nous avons donc bien retrouvé l'inégalité au rang $n+1$. Cette inégalité est donc vraie pour tout $n$. 
 
 \bigskip
 
-\exercice{(7)} On note que $1$ est une racine évidente, puisque $P(1)=1-\frac{1}{6}-\frac{4}{6}-\frac{1}{6}=0$. On peut réécrire
-le polynôme sous la forme\footnote{Il est évident que le coefficient
-  associé à $x^2$ doit être égal à 1.} :
+\exercice{4} Cette proposition se lit comme suit : « Pour tout $\epsilon$ positif, il existe $\delta(\epsilon)$ positif, tel que pour tout $x$ dans l'intervalle  $I$ $|f(x)-f(a)|<\epsilon$ dès lors que $|x-a|<\delta(\epsilon)$ ». Il s'agit de la définition d'une fonction continue sur l'intervalle $I$. 
+
+\bigskip
+
+\exercice{5} Cette fonction est continue sur $\mathbb R$. Calculons sa dérivée :
 \[
-P(x) = (x-1)(x^2+bx+c)
+  \begin{split}
+    f'(x) &= \frac{2}{3}(1+x)^{-\frac{1}{3}}(2-x)^{\frac{1}{3}} -
+    \frac{1}{3}(1+x)^{\frac{2}{3}}(2-x)^{-\frac{2}{3}}\\
+    &= \frac{1}{3}(1+x)^{-\frac{1}{3}}(2-x)^{-\frac{2}{3}}\left(2(2-x)-(1-x)\right)\\
+    &=\frac{1-x}{(1+x)^{\frac{1}{3}}(2-x)^{\frac{2}{3}}}
+  \end{split}
 \]
-En développant, on a aussi :
+La dérivée de $f$ est une fonction continue sur $\mathbb R$ sauf en $x=-1$ et $x=2$, c'est-à-dire lorsque le dénominateur est nul. Nous avons des asymptotes en ces deux points :
 \[
-P(x) = x^3 + (b-1)x^2 + (c-b)x - c
+\lim_{x\rightarrow -1^-}f'(x) = -\infty  \quad\text{ et }\quad  \lim_{x\rightarrow -1^+}f'(x) = \infty
 \]
-Par identification, nous devons donc avoir :
 \[
+\lim_{x\rightarrow 2^-}f'(x) = -\infty  \quad\text{ et }\quad  \lim_{x\rightarrow 2^+}f'(x) = -\infty
+\]
+On remarque aussi que la dérivée est nulle en $x=1$. Ces trois points sont des optima potentiels, il reste à vérifier qu'il y a bien un changement de signe des dérivées autour de ces points.
+
+\medskip
+
+\begin{itemize}
+
+\item Autour de $x=-1$ nous avons : $f'(x)<0\quad \forall x<-1$ et $f'(x)>0\quad\forall x\in[-1,1]$. Il y a donc bien un signe autour de la singularité en $x=1$. Il s'agit d'un minimum local.
+
+\item Autour de $x=1$ nous avons : $f'(x)>0\quad\forall x\in[-1,1]$ et $f'(x)<0\quad\forall x>1$. Il y a un changement de signe de la pente autour du point où la dérivée est nulle. Il s'agit donc d'un maximum local.
+
+\item Autour de $x=2$ il n'y a pas de changement de signe de la pente puisque  $f'(x)<0\quad\forall x>1$. Il ne s'agit donc pas d'un optimum local.
+\end{itemize} 
+
+\medskip
+
+Pour résumer, la fonction possède deux optima locaux : un minimum local au point $x=-1$ et un maximum local au point $x=1$.
+
+\bigskip
+
+\exercice{6} \textbf{(a)} $f \circ g (x)$ est une fonction de $I$ dans $K$. \textbf{(b)} Une composition de fonctions continues est continue. \textbf{(c)} La dérivée de $f \circ g (x)$ est donnée (voir le cours) par :
+\[
+\frac{\mathrm d}{\mathrm dx}f \circ g (x) = f'(g(x))g'(x)
+\]
+\textbf{(d)} Il faut dérivée la dérivée pour obtenir la dérivée d'ordre deux :
+\[
+  \begin{split}
+    \frac{\mathrm d^2}{\mathrm dx^2}f \circ g (x) &= \left(\frac{\mathrm d}{\mathrm dx}f'(g(x))\right)g'(x)+f'(g(x))g''(x)\\
+    &= f''(g(x))g'(x)^2+f'(g(x))g''(x)
+  \end{split}
+\]
+
+\bigskip
+
+\exercice{7} On note que $x=1$ est une racine évidente puisque $P(1)=0$. Le polynôme peut donc s'écrire sous la forme factorisée :
+\[
+P(x) = (x-1)(ax^2+bx+c)
+\]
+Il reste à déterminer les paramètres $a$, $b$ et $c$. On procède par identification en développant l'expression précédente :
+\[
+  \begin{split}
+    P(x) &= ax^3+bx^2+cx-ax^2-bx-c\\
+    &= ax^3 +(b-a)x^2+(c-b)x-c
+  \end{split}
+\]
+On doit donc avoir $a=1$, $c=\frac{5}{4}$ et $b=1$. Nous pouvons donc réécrire le polynôme sous la forme :
+\[
+P(x) = (x-1)(x^2+x+\frac{5}{4})
+\]
+Calculons les racines du polynôme d'ordre deux. Le discriminant est :
+\[
+\Delta = 1-4\frac{5}{4}=-4
+\]
+Puisque le discriminant est complexe, nous savons que les deux racines sont complexes :
+\[
+  x = \frac{1\pm 2i}{2} =
   \begin{cases}
-    -\frac{1}{6} &= b-1\\
-    -\frac{4}{6} &= c-b\\
-    \frac{1}{6} &= c
+    \frac{1}{2}-i\\
+    \frac{1}{2}+i
   \end{cases}
 \]
-Nous avons donc $c =\nicefrac{1}{6}$ et $b=\nicefrac{5}{6}$, et
-donc :
-\[
-P(x) = (x-1)\left(x^2+\frac{5}{6}x+\frac{1}{6}\right)
-\]
-Pour calculer les racines du polynôme d'ordre deux on calcule le
-discriminant associé :
-\[
-\Delta = \frac{25}{36}-\frac{2}{3} = \frac{1}{36}
-\]
-Ainsi les racines du polynôme d'ordre deux sont :
-\[
-x_{1,2} = \frac{-\frac{5}{6} \pm\sqrt{\Delta}}{2} =
-\frac{-\frac{5}{6}\pm \frac{1}{6}}{2} = 
-\frac{-5 \pm 1}{12}
-\]
-Au total, les racines de $P(x)$ sont donc $1$, $-\nicefrac{1}{2}$ et
-$-\nicefrac{1}{3}$.
+Au final le polynôme $P(x)$ possède trois racines : $x=1$, $x=\frac{1}{2}-i$ et $\frac{1}{2}+i$.
 
 \bigskip
 
-\exercice{8} Soit $f$ une fonction bijective. D'après la définition,
-la fonction réciproque $f^{-1}$ est définie implicitement par :
+\exercice{8} Soit $f(x)$ une fonction continue en $x_0$. La dérivée de $f$ en $x_0$ est définie par la limite suivante :
 \[
-f^{-1}(f(x)) = x
+\lim_{h\rightarrow 0}\frac{f(x_0+h)-f(x_0)}{h}
 \]
-En appliquant la formule de dérivation en chaîne sur les deux membres
-de cette égalité il vient :
+Calculons la dérivée de la fonction exponentielle en utilisant cette définition :
 \[
-\left. f^{-1} \right.' (f(x)) f'(x) = 1
+  \begin{split}
+    \left(e^x\right)' &= \lim_{h \rightarrow 0}\frac{e^{x+h}-e^x}{h}\\
+    &= \lim_{h \rightarrow 0}\frac{e^xe^h-e^x}{h}\\
+    &= \lim_{h \rightarrow 0}e^x\frac{e^h-1}{h}\\
+    &= e^x\lim_{h \rightarrow 0}\frac{e^h-1}{h}\\
+  \end{split}
 \]
-soit de façon équivalente :
+En utilisant le résultat donné dans l'énoncé, on obtient :
 \[
-\left. f^{-1} \right.' (f(x)) = \frac{1}{f'(x)}
+\left(e^x\right)' = e^x
 \]
-La dérivée de la fonction réciproque est donnée par l'inverse de la
-fonction dérivée.
 \end{document}

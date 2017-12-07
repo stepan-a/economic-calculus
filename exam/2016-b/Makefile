@@ -1,8 +1,8 @@
 LATEX = pdflatex
 
-all: exam.pdf correction-exam.pdf
+all: economic-calculus.pdf
 
-exam.pdf: economic-calculus.tex
+economic-calculus.pdf: economic-calculus.tex
 	while ($(LATEX) economic-calculus.tex ; \
 	grep -q "Rerun to get cross" economic-calculus.log ) do true ; \
 	done
@@ -14,4 +14,4 @@ clean:
 clean-all: clean
 	rm *.pdf
 
-all: exam.pdf clean
+all: economic-calculus.pdf clean

@@ -1,0 +1,301 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+\usepackage{mathrsfs}
+
+\usepackage[active]{srcltx}
+\usepackage{scrtime}
+\usepackage{nicefrac}
+\usepackage{adjustbox}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique}\\\textbf{(Éléments de correction)}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} \textbf{(a)} L'implication logique est définie de la façon suivante, à l'aide d'une table de vérité :
+\begin{table}[H]
+  \centering
+\adjustbox{max width=\textwidth}{
+  \begin{tabular}{cc|c}
+    $P$ & $Q$ & $P\Rightarrow Q$ \\ 
+    \hline
+    V & V & V\\
+    V & F & F\\
+    F & V & V\\
+    F & F & V\\
+  \end{tabular}}
+\end{table}
+où $P$ et $Q$ sont deux propositions. Il est possible d'exprimer de
+façon équivalente la proposition $P\Rightarrow Q$ sous la forme
+$\overline P \lor Q$. Nous utilisons une table de vérité:
+\begin{table}[H]
+  \centering
+\adjustbox{max width=\textwidth}{
+  \begin{tabular}{cc|ccc}
+    $P$ & $Q$ & $\overline P$ & $\overline P \lor Q$ & $P\Rightarrow Q$ \\ 
+    \hline
+    V & V & F & V & V\\
+    V & F & F & F & F\\
+    F & V & V & V & V\\
+    F & F & V & V & V\\
+  \end{tabular}}
+\end{table}
+On note que sur chaque ligne des deux dernières colonnes nous avons
+les mêmes valeurs de vérité. Les deux propositions sont donc bien
+équivalentes. \textbf{(b)} Deux propositions $P$ et $Q$ sont
+équivalentes si et seulement si elles ont les mêmes valeurs.
+\begin{table}[H]
+  \centering
+\adjustbox{max width=\textwidth}{
+  \begin{tabular}{cc|c}
+    $P$ & $Q$ & $P\Leftrightarrow Q$ \\ 
+    \hline
+    V & V & V\\
+    V & F & F\\
+    F & V & F\\
+    F & F & V\\
+  \end{tabular}}
+\end{table}
+On peut montrer que l'équivalence entre $P$ et $Q$ peut s'exprimer
+comme $ (P\Rightarrow Q) \land (Q\Rightarrow P)$. On utilise encore
+une table de vérité :
+\begin{table}[H]
+  \centering
+\adjustbox{max width=\textwidth}{
+  \begin{tabular}{cc|cccc}
+    $P$ & $Q$ & $P\Rightarrow Q$ & $Q \Rightarrow P$ & $(P\Rightarrow Q) \land (Q \Rightarrow P)$  & $P\Leftrightarrow Q$ \\ 
+    \hline
+    V & V & V & V & V & V\\
+    V & F & F & V & F & F\\
+    F & V & V & F & F & F\\
+    F & F & V & V & V & F\\
+  \end{tabular}}
+\end{table}
+Les valeurs des deux dernières colonnes sont identiques, nous avons
+donc bien montré l'équivalence entre ces deux propositions.
+
+\bigskip
+
+\exercice{2} Il s'agit ici de justifier (en logique) le \emph{reductio
+  ad absurdum}. Le raisonnement par l'absurde consiste à établir la
+vérité d'une proposition en montrant que la proposition complémentaire
+(\emph{i.e.} la négation de la proposition d'intérêt) aboutit à une
+proposition absurde. Évidemment, nous n'attachons aucun jugement moral
+à la notion d'absurdité, une proposition est absurde si elle est
+fausse. Soient deux propositions $P$ et $Q$, il s'agit de
+montrer que si la proposition $\overline{P} \Rightarrow Q$ est vraie
+\textbf{et} si la proposition $Q$ est fausse, alors la proposition $P$
+est forcément vraie. À cette fin nous utilisons une table de vérité.
+
+\begin{table}[H]
+  \centering
+\adjustbox{max width=\textwidth}{
+  \begin{tabular}{cc|cc}
+    $P$ & $Q$ & $\overline{P}$ & $\overline{P}\Rightarrow Q$ \\ 
+    \hline
+    V & V & F & V \\
+    V & F & F & V \\
+    F & V & V & V \\
+    F & F & V & F \\
+  \end{tabular}}
+\end{table}
+
+La proposition $\overline{P}\Rightarrow Q$ est vraie sur les trois premières lignes du tableau. La proposition
+$Q$ est fausse sur les lignes 2 et 4 du même tableau. L'intersection
+de ces deux ensembles de lignes (les lignes où
+$\overline{P}\Rightarrow Q$ est vraie et où
+$Q$ est fausse) se réduit à une ligne du tableau : la deuxième. Sur
+cette ligne on observe que la valeur de la proposition $P$ est
+$V$. Nous n'avons donc aucun doute sur la valeur de cette proposition
+et cela suffit à montrer la validité du raisonnement par l'absurde.
+
+\bigskip
+
+\exercice{3} \textbf{(a)} En cours nous avons vu que la dérivée première est définie comme une limite, de la façon suivante :
+\[
+f'(x) = \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h}
+\]
+
+\textbf{(b)} Dans le cas $n=1$, nous avons :
+\[
+f'(x) = \lim_{h\rightarrow 0} \frac{x+h-x}{h} = \lim_{h\rightarrow 0} \frac{h}{h} = 1\quad \forall x
+\]
+
+\textbf{(c)} Dans le cas $n=2$, nous avons :
+\[
+f'(x) = \lim_{h\rightarrow 0} \frac{(x+h)^2-x}{h} = \lim_{h\rightarrow 0} \frac{2xh+h^2}{h} = \lim_{h\rightarrow 0} 2x + \lim_{h\rightarrow 0} h = 2x \quad \forall x
+\]
+
+\textbf{(d)} En notant que $x^{n+1} = x x^n$ et en appliquant la règle de dérivation d'un produit de fonction il vient :
+\[
+\left(x^{n+1}\right)' = x^n + x \left(x^n\right)'
+\]
+En utilisant la proposition $P_n$, on obtient :
+\[
+\left(x^{n+1}\right)' = x^n + n x x^{n-1}
+\]
+soit encore, en factorisant :
+\[
+\left(x^{n+1}\right)' = (n+1)x^n
+\]
+Ainsi la proposition $P_{n+1}$ est vraie, dès lors que $P_n$ est vraie. \textbf{(e)} Nous pouvons conclure que la dérivée de la fonction puissance est $\left(x^n\right)' = n x^{n-1}$ pour tout $n\in\mathbb N$.
+
+\bigskip
+
+\exercice{4} Pour $n=0$, nous avons $2^{2 \times 0}+2 = 3$ qui est bien un entier divisible par trois. Ainsi nous savons que la proposition $P_0$ est vraie. Montrons que si la proposition $P_n$ est vraie alors la proposition est nécessairement vraie au rang $n+1$. Nous avons :
+\[
+  \begin{split}
+    2^{2(n+1)}+2 &= 2^{2n+2} + 2\\
+    &= 4 \times 2^{2n} +2\\
+    &= 3 \times 2^{2n} + 2^{2n} + 2\\
+  \end{split}
+\]
+Puisque $P_n$ est vraie, nous pouvons écrire $2^{2n}+2=3\kappa$ avec $\kappa\in\mathbb N$. Nous avons donc :
+\[
+  2^{2(n+1)}+2 = 3 \left(2^{2n} + \kappa \right)
+\]
+Puisque $2^{2n}+\kappa$ est un entier, $2^{2(n+1)}+2$ est divisible par trois et donc la proposition $P_{n+1}$ est vraie. Nous avons ainsi montré par récurrence que $2^{2n}+2$ est un multiple de trois pour tout $n\in\mathbb N$. 
+
+\bigskip
+
+\exercice{5} On note que $x=1$ est une racine évidente puisque $P(1)=0$. Le polynôme peut donc s'écrire sous la forme factorisée :
+\[
+P(x) = (x-1)(ax^2+bx+c)
+\]
+Il reste à déterminer les paramètres $a$, $b$ et $c$. On procède par identification en développant l'expression précédente :
+\[
+  \begin{split}
+    P(x) &= ax^3+bx^2+cx-ax^2-bx-c\\
+    &= ax^3 +(b-a)x^2+(c-b)x-c
+  \end{split}
+\]
+On doit donc avoir $a=1$, $c=\frac{5}{4}$ et $b=1$. Nous pouvons donc réécrire le polynôme sous la forme :
+\[
+P(x) = (x-1)(x^2+x+\frac{5}{4})
+\]
+Calculons les racines du polynôme d'ordre deux. Le discriminant est :
+\[
+\Delta = 1-4\frac{5}{4}=-4
+\]
+Puisque le discriminant est complexe, nous savons que les deux racines sont complexes :
+\[
+  x = \frac{1\pm 2i}{2} =
+  \begin{cases}
+    \frac{1}{2}-i\\
+    \frac{1}{2}+i
+  \end{cases}
+\]
+Au final le polynôme $P(x)$ possède trois racines : $x=1$, $x=\frac{1}{2}-i$ et $\frac{1}{2}+i$.
+
+\bigskip
+
+\exercice{6} \textbf{(1)} La dérivée de la fonction de demande est :
+\[
+D'(p) = -\epsilon p^{-\epsilon-1}
+\]
+comme $\epsilon$ est positif par hypothèse, la dérivée est forcément négative. La demande est donc bien une fonction décroissante du prix. \textbf{(2)} En substituant l'expression de la dérivée dans la définition de l'élasticité nous obtenons :
+\[
+\varepsilon (p) = \frac{p \epsilon p^{-\epsilon-1}}{p^{-\epsilon}}
+\]
+\[
+\Leftrightarrow \varepsilon (p) = -\epsilon\quad\forall p
+\]
+L'élasticité ne dépend pas du prix. Ce résultat nous dit que la
+sensibilité de la demande aux variations du prix ne dépend pas du
+niveau du prix. Si le prix est de 10, une augmentation de 1\% du prix
+induira une diminution de $\epsilon$\% de la demande, si le prix est
+de 100, une augmentation de 1\% du prix induira aussi une diminution
+de $\epsilon$\% de la demande. \textbf{(3)} On a $C'(q) = c$ pour tout
+$q$. Cette dérivée est ce que les économistes appellent le coût
+marginal. Le coût subit par la firme pour produire une unité
+supplémentaire de bien est donnée par le coût marginal. Ici le coût
+marginal est constant, ce que la firme doit débourser pour produire
+une unité de bien supplémentaire ne dépend pas de la quantité de bien
+déjà produite. \textbf{(4)} Le profit de la firme est la différence
+entre ses recettes et ses dépenses. Les recettes de la firme sont
+données par la quantité de bien produite multipliée par le prix de
+chaque unité de bien, c'est-à-dire
+$R(p) = p\times p^{-\epsilon} = p^{1-\epsilon}$. Les dépenses de la
+firme sont données par les coûts de production :
+$\mathcal C(p) = C(D(p)) = c p^{-\epsilon}$. Ainsi le profit est:
+\[
+\Pi(p) = R(p)-\mathcal C(p) = p^{1-\epsilon} - c p^{-\epsilon} 
+\]
+\textbf{(5)} Les dérivées d'ordre un et deux de la fonction de profit sont :
+\[
+\Pi'(p) = (1-\epsilon)p^{-\epsilon} + c \epsilon p^{-\epsilon-1}
+\]
+et
+\[
+\Pi''(p) = -\epsilon(1-\epsilon)p^{-\epsilon-1} - c(1+\epsilon) \epsilon p^{-\epsilon-2}
+\]
+On note que la dérivée d'ordre deux est négative pour toutes les
+valeurs du prix $p$, car $\epsilon$ est strictement compris entre 0 et
+1 par hypothèse. \textbf{(6)} La dérivée première du profit est une
+fonction continue pour tout $p>0$. Le prix qui annule la dérivée
+première du profit est le prix qui maximise le profit car la fonction
+de profit est concave. Cela revient à égaliser la recette marginale
+(\emph{i.e.} la dérivée de la recette par rapport au prix) et le coût
+marginal (plus précisément la dérivée du coût par rapport au prix). Si
+on note $p^{\star}$ le prix qui maximise le profit, il doit
+satisfaire :
+\[
+  (1-\epsilon){p^{\star}}^{-\epsilon} = - c \epsilon {p^{\star}}^{-\epsilon-1}
+\]
+\[
+p^{\star} = \frac{\epsilon}{\epsilon-1} c
+\]
+Ici on doit se rendre compte qu'il y a un problème. Il est supposé
+plus haut que $\epsilon$ est plus petit que 1. Sous cette hypothèse le
+prix optimal est négatif, ce qui n'a évidemment aucun sens ici. Nous
+avons trouvé une solution à un problème d'optimisation qui n'a aucun
+sens économique. Pour que la solution ait un sens il faudrait que
+$\epsilon$ soit plus grand que 1, de sorte que la recette diminue
+lorsque le prix augmente (l'augmentation du prix ne compense pas la
+baisse de la demande). Mais dans ce cas, nous devons vérifier que le
+prix qui annule la dérivée première du profit est bien un
+optimum. Notons $\mathscr S (x)$ le signe de $x$. Nous avons :
+\[
+  \begin{split}
+    \mathscr{S}\left(\Pi'(p)\right) &= \mathscr{S}\left((1-\epsilon)+c\epsilon p^{-1}\right)\\
+    &= \mathscr{S}\left( p(1-\epsilon)+c\epsilon \right)\\
+    &= -\mathscr{S}\left( p+c\frac{\epsilon}{1-\epsilon} \right)\\
+    &= -\mathscr{S}\left( p-c\frac{\epsilon}{\epsilon-1} \right)\\
+    &= \mathscr{S}\left(p^{\star}-p \right)
+  \end{split}
+\]
+La dérivée première du profit est positive si le prix est inférieur à
+$p^{\star}$ et négative si le prix est supérieur à $p^{\star}$. Le
+profit diminue donc dès lors que le prix s'éloigne de $p^{\star}$, qui
+est donc bien le prix qui maximise le profit.\newline
+
+Notons que si le prix optimal positif (en supposant que $\epsilon>1$)
+est bien donné par l'expression de $p^{\star}$, alors ce prix est
+supérieur à $c$ (le coût marginal par rapport aux quantités). Le prix
+sera d'autant plus grand, relativement au coût marginal, que la
+demande est peu élastique au prix. Ce résultat est intuitif dans la
+mesure où la firme peut plus librement fixer son prix si elle sait que la
+demande réagira peu à des augmentations de prix.  
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,89 @@
+\documentclass[10pt,a4paper,notitlepage,twocolumn]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+\thispagestyle{empty}
+
+\exercice{1} \textbf{(a)} Rappeler à l'aide d'une table de vérité la définition de l'implication logique entre deux propositions $P$ et $Q$. Montrer qu'il est possible de l'exprimer à l'aide d'un connecteur logique ($\land$ ou $\lor$) et d'une (ou plusieurs) négation(s). \textbf{(b)} Rappeler à l'aide d'une table de vérité la définition de l'équivalence logique entre deux propositions $P$ et $Q$. Montrer qu'il est possible de l'exprimer à l'aide de deux implications logiques et du connecteur logique $\land$.
+
+\bigskip
+
+\exercice{2} Soient deux propositions $P$ et $Q$. Montrer que si $\bar P \Rightarrow Q$ est une proposition vraie et si $Q$ est une proposition fausse, alors la proposition $P$ est nécessairement vraie. Dans quel type de raisonnement ce résultat est-il utilisé ?
+	
+\bigskip
+
+\exercice{3} Soit la fonction de $\mathbb R$ dans $\mathbb R$ $f(x) = x^n$ avec $n\in\mathbb N$. \textbf{(a)} Rappeler la définition de la dérivée première d'une fonction. \textbf{(b)} Dans le cas $n=1$, montrer que $f'(x) = 1$ pour tout $x$. \textbf{(c)} Dans le cas $n=2$, montrer que $f'(x) = 2x$ pour tout $x$. \textbf{(d)} On suppose que la propriété :
+\begin{center}
+$P_{n}$ : \textit{Si $f(x)=x^{n}$ alors $f'(x) = n x^{n-1}$}  
+\end{center}
+est vraie. Montrer que la propriété :
+\begin{center}
+$P_{n+1}$ : \textit{Si $f(x)=x^{n+1}$ alors $f'(x) = (n+1) x^{n}$}  
+\end{center}
+ est nécessairement vraie. \textbf{(e)} Conclure sur la dérivée première de la fonction $f(x)$.
+
+\bigskip
+
+\exercice{4} Montrer que la proposition:
+\begin{center}
+  $P_n$: $2^{2\times n}+2$ est un entier divisible par trois
+\end{center}
+est vraie pour tout $n\in\mathbb N$.
+
+\bigskip
+
+\exercice{5} Calculer les racines du polynôme suivant :
+\[
+P(x) = x^3 + \frac{1}{4}x - \frac{5}{4}
+\]    
+
+\bigskip
+
+\exercice{6} On suppose que la demande, qui dépend du prix $p$, adressée à une entreprise est caractérisée par la fonction suivante :
+\[
+D(p) = p^{-\epsilon}
+\]
+avec $\epsilon>0$. Dans la suite \textit{nous supposerons que $0<\epsilon<1$}. \textbf{(1)} Montrer que la demande est bien une fonction monotone décroissante du prix. \textbf{(2)} On définit
+l'élasticité de la demande au prix de la façon suivante :
+\[
+\varepsilon(p) = D'(p)\frac{p}{D(p)}
+\]
+Calculer cette élasticité et montrer qu'elle est constante. Comment s'interprète cette quantité ? \textbf{(3)} Pour répondre à la demande l'entreprise doit supporter un coût (de production). On suppose que l'entreprise doit payer $c>0$ pour chaque unité de bien produite, c'est à dire que la fonction de coût est de la forme :
+\[
+C(q) = cq
+\]
+où $q$ est la quantité de bien produite. Calculer $C'(q)$. Comment s'interprète cette quantité ? \textbf{(4)} Justifier la forme de la fonction de profit de l'entreprise :
+\[
+\Pi(q) = p^{1-\epsilon} - c p^{-\epsilon}
+\]
+\textbf{(5)} Calculer les dérivées d'ordre 1 et 2 de la fonction de profit. Montrer que la fonction de profit est concave. \textbf{(6)} Calculer le prix qui maximise le profit. Interpréter le résultat.
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

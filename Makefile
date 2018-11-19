@@ -1,6 +1,14 @@
 ROOT_PATH = .
 
-all: td-build exam-build cours-build
+all: td-build exam-build cours-build ds-build
+
+ds-build:
+	$(MAKE) -C $(ROOT_PATH)/2018-nov all
+	$(MAKE) -C $(ROOT_PATH)/2014-nov all
+
+ds-clean:
+	$(MAKE) -C $(ROOT_PATH)/2018-nov clean-all
+	$(MAKE) -C $(ROOT_PATH)/2014-nov clean-all
 
 td-build:
 	$(MAKE) -C $(ROOT_PATH)/td all

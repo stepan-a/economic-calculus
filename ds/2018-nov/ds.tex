@@ -1,0 +1,122 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+\synctex=1
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\providecommand{\lxor}{\oplus}
+
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique\\ \small{(Devoir surveillé)}}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} Nous avons vu en cours la définition de la disjonction
+entre deux propostions $P$ et $Q$, notée $P \lor Q$, à l'aide d'une
+table de vérité. Cette définition est inclusive dans le sens où la
+disjonction est vraie dès lors qu'au moins une des deux propositions
+est vraie (les deux peuvent être simultanément vraies). \textbf{(1)}
+Définir, à l'aide d'une table de vérité, la disjonction exclusive
+de deux propositions $P$ et $Q$. On notera $P \lxor Q$ la
+disjonction exclusive. \textbf{(2)} Exprimer la disjonction exclusive à
+l'aide de disjonction (inclusive, celle que nous avons étudiée en
+cours) $lor$, conjonction(s) $\land$ et négation(s). \textbf{(3)}
+Comment faut-il réécrire la loi de Morgan (c-à-d calculez la négation de
+$P\lxor Q$) ?
+
+\bigskip
+
+\exercice{2} Montrer la transitivité de l'implication logique.
+
+\bigskip
+
+\exercice{3} Montrer que :
+\[
+  \sum_{i=1}^n i(i+1) = \frac{n(n+1)(n+2)}{3}
+\]
+
+\bigskip
+
+\exercice{4} Soient les fonctions d'offre et de demande :
+\[
+\begin{split}
+  D(p):& q = a - p\\
+  S(p):& q = b + 2p
+\end{split}
+\] 
+où $a$ et $b$ sont des paramètres réels positifs. \textbf{(1)} Interpréter les
+paramètres $a$ et $b$. \textbf{(2)} Représenter graphiquement ces
+fonctions. \textbf{(3)} Déterminer sous quelle condition un prix d'équilibre
+$p^{\star}$ existe. Déterminer ce prix.
+
+\bigskip
+
+\exercice{5} Déterminer les solutions de l'équation suivante :
+\[
+x^2 + x + 1 = 0
+\]
+
+\bigskip
+
+\exercice{6} 
+Soit la fonction $f(x) = x^2+2x+2$ définie pour toutes valeurs de $x$
+dans $\mathbb R$. Identifier $x^{\star}$ qui minimise $f$, calculer $f(x^{\star})$.
+
+
+\end{document}
+
+
+% Exercice (1)
+Vu dans la fiche de TD n°1. Il faut montrer que pour trois
+propositions P, Q et R on a P=>Q et Q=>R implique P=>R.
+
+% Exercice 2(1)
+$\sum_{i=1}^{n+1} 2i-1 = \sum_{i=1}^{n} 2i-1 + 2(n+1)-1 = n^2+
+2(n+1)-1 = n^2+2n+1 = (n+1)^2$
+
+% Exercice 2(2)
+$\sum_{i=1}^{n+1} i(i+1) = \sum_{i=1}^{n} i(i+1) + (n+1)(n+2) =
+\frac{n(n+1)(n+2)}{3} + (n+1)(n+2) = 
+\frac{n(n+1)(n+2)+3(n+1)(n+2)}{3} =
+\frac{(n+1)(n+2)(n+3)}{3}$
+
+% Exercice 3(1)
+Le prix d'équilibre doit vérifier :
+$ a-p = b+2p$
+soit de façon équivalente
+$3p = a-b$
+ou
+$p = (a-b)/3$
+
+% Exercice 4
+$(x-\sqrt{2})(x-3\sqrt{2}) = x^2 - 4x\sqrt{2} + 6$
+
+$\Delta = 16*2 - 24 = 32 - 24 = 8$
+$x_1 = 2\sqrt(2) + .5*\sqrt{4*2} = 2\sqrt(2) + \sqrt{2} = 3\sqrt{2}$
+$x_2 = 2\sqrt(2) - .5*\sqrt{4*2} = \sqrt{2}$
+
+% Exercice 5
+1/x = x
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

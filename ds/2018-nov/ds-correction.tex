@@ -1,0 +1,172 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{color, colortbl}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+\usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\providecommand{\lxor}{\oplus}
+
+\setlength{\parindent}{0cm}
+
+\definecolor{gray}{gray}{0.9}
+\newcolumntype{g}{>{\columncolor{gray}}c}
+
+
+\begin{document}
+
+\title{\textsc{Calcul Économique\\ \small{(Devoir surveillé, éléments de correction)}}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} \textbf{(1)} La disjonction exclusive si et seulement si exactement une des deux propositions
+est vraie. On peut définir ce connecteur logique à l'aide de la table
+de vérité suivante :
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}[H]{ccc}
+    \hline
+    $P$ & $Q$ & $P \lxor Q$ \\ \hline
+    V & V & F \\
+    V & F & V \\
+    F & V & V \\
+    F & F & F \\ \hline\hline
+  \end{tabular}
+\end{table}
+
+\textbf{(2)} On peut montrer, par exemple à l'aide d'une table de vérité, que $(P \lxor Q) \Leftrightarrow ((P \lor Q) \land \overline{P\land Q})$. \textbf{(3)} On a :
+\[
+  \begin{split}
+    \overline{P \lxor Q} &\Leftrightarrow \overline{(P \lor Q) \land \overline{P\land Q}}\\
+    &\Leftrightarrow \overline{P \lor Q} \lor \overline{\overline{P\land Q}}\\
+    &\Leftrightarrow (\overline{P} \land \overline{Q}) \lor (P\land Q) 
+  \end{split}
+\]
+
+\bigskip
+
+\exercice{2} Soient 3 propositions $P$, $Q$ et $R$, nous devons montrer que
+\[
+  (P\Rightarrow Q) \land (Q\Rightarrow R) \Rightarrow (P\Rightarrow R)
+\]
+  Nous utilisons une table de vérité contenant huit lignes psuique nous travaillons
+  avec trois propositions: $P$, $Q$ et $R$ :
+  \begin{table}[H]
+    \begin{center}
+    \scalebox{.7}{
+    \begin{tabular}[H]{|ccc|ccccg|}
+      \hline
+      $P$ & $Q$ & $R$ & $P\Rightarrow Q$ & $Q\Rightarrow R$ & $(P\Rightarrow Q) \land (Q\Rightarrow R)$ & $P\Rightarrow R$ & $((P\Rightarrow Q) \land (Q\Rightarrow R))\Rightarrow (P\Rightarrow R)$\\ \hline
+      V & V & V & V & V & V & V & V \\
+      V & V & F & V & F & F & F & V \\
+      V & F & V & F & V & F & V & V \\
+      V & F & F & F & V & F & F & V \\
+      F & V & V & V & V & V & V & V \\
+      F & V & F & V & F & F & V & V \\
+      F & F & V & V & V & V & V & V \\
+      F & F & F & V & V & V & V & V \\
+      \hline\hline
+    \end{tabular}}
+  \end{center}
+  \end{table}
+  Comme la dernière colonne est vraie sur toutes les lignes,
+  c'est-à-dire pour tout triplet de valeurs de vérité des propositions
+  $P$, $Q$ et $R$, la proposition relative à la transitivité de
+  l'implication logique est vraie.
+
+\bigskip
+  
+\exercice{3} Montrer que :
+\[
+  \sum_{i=1}^n i(i+1) = \frac{n(n+1)(n+2)}{3}
+\]
+Vérifions que la formule est correcte au rang $n=1$. Dans ce cas le
+membre de gauche de l'égalité est égale à 2, et le membre de droite donne :
+\[
+\frac{1\times 2\times 3}{3} = \frac{6}{3} = 2 
+\]
+La formule est donc correcte au rang 1. Montrons que si la formule est  vraie à un rang $n$ quelconque, alors elle est nécessairement vraiment vraie au rang suivant $n+1$. Nous supposons donc que :
+\[
+\sum_{i=1}^n i(i+1) = \frac{n(n+1)(n+2)}{3}
+\]
+est vraie, et cherchons à montrer que :
+\[
+\sum_{i=1}^{n+1} i(i+1) = \frac{(n+1)(n+2)(n+3)}{3}
+\]
+Nous avons :
+\[
+  \begin{split}
+    \sum_{i=1}^{n+1} i(i+1) &= \sum_{i=1}^n i(i+1) + (n+1)(n+2)\\
+    &= \frac{n(n+1)(n+2)}{3} + (n+1)(n+2) \\
+    &= \frac{n(n+1)(n+2)+3(n+1)(n+2)}{3} \\
+    &= \frac{(n+1)(n+2)(n+3)}{3}
+  \end{split}
+\]
+ce qu'il fallait démontrer. La formule est donc toujours vraie,
+puisque nous savons qu'elle est vraie au rang $n=1$ et puisque nous
+venons de montrer que si elle est vraie au rang $n$ alors elle est vraie au rang $n+1$.
+
+\bigskip
+
+\exercice{4} Soient les fonctions d'offre et de demande :
+\[
+\begin{split}
+  D(p):& q = a - p\\
+  S(p):& q = b + 2p
+\end{split}
+\] 
+où $a$ et $b$ sont des paramètres réels positifs. \textbf{(1)} Les
+paramètres $a$ et $b$ représentent respectivement la demande et
+l'offre de bien quand le prix est nul. \textbf{(2)} Dans le plan prix
+quantité, la demande est une droite décroissante de pente -1 reliant
+les points $(0,a)$ et $(a,0)$. Dans le même plan, l'offre est une
+droite croissante de pente 2 reliant les points $(0,b)$ et $(-b/2, 0)$
+\textbf{(3)} Pour qu'un prix d'équilibre existe il faut les deux
+droites aient un point d'intersection, ce qui est le cas ici puisque
+pentes sont différentes, et que ce point d'intersection se situe dans
+l'orthan positif, puisqu'un prix doit être positif. Cela n'est
+possible que si $a>b$. Sous cette condition le prix d'équilibre est:
+\[
+p^{\star} = \frac{a-b}{3}
+\]
+
+\bigskip
+
+\exercice{5} Le discriminant est $\Delta = 1 - 4 = -3$. Puisque le déterminant est négatif, nous savons que l'équation admet deux solutions complexes conjuguées :
+\[
+x^{\star} = \frac{-1\pm i\sqrt{3}}{2}
+\]
+
+\bigskip
+
+\exercice{6} En utilisant une identité remarquable on a directement :
+\[
+f(x) = (x+1)^{2} + 1
+\]
+Cette fonction est supérieure ou égale à 1 pour tout $x\in\mathbb R$
+puisque le premier terme est le carré dn nombre réel (et donc positif). Pour minimiser $f$, il faut minimiser le premier terme. Comme celui-ci est positif ou nul, il faut trouver $x$ tel que le premier terme est nul. Le minimum est atteint lorsque $x$ est égal à -1.
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -6,4 +6,9 @@
 *.synctex.gz
 *.el
 
+cours/prologue.nav
+cours/prologue.out
+cours/prologue.snm
+cours/prologue.toc
+
 .DS_Store

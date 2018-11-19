@@ -1,0 +1,1064 @@
+\synctex=1
+
+\documentclass[10pt,notheorems]{beamer}
+
+\usepackage{etex}
+\usepackage{fourier-orns}
+\usepackage{ccicons}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsbsy}
+\usepackage{amsopn}
+\usepackage{amscd}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{color, colortbl}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{lastpage}
+\usepackage[nice]{nicefrac}
+\usepackage{setspace}
+\usepackage{ragged2e}
+\usepackage{listings}
+\usepackage{algorithms/algorithm}
+\usepackage{algorithms/algorithmic}
+\usepackage[frenchb]{babel}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{patterns, arrows, decorations.pathreplacing, decorations.markings, calc}
+\pgfplotsset{plot coordinates/math parser=false}
+\newlength\figureheight
+\newlength\figurewidth
+\usepackage[utf8x]{inputenc}
+\usepackage{cancel}
+\usepackage{tikz-qtree}
+\usepackage{dcolumn}
+\usepackage{adjustbox}
+\usepackage{environ}
+
+\newcommand{\trace}{\mathrm{tr}}
+\newcommand{\vect}{\mathrm{vec}}
+\newcommand{\tracarg}[1]{\mathrm{tr}\left\{#1\right\}}
+\newcommand{\vectarg}[1]{\mathrm{vec}\left(#1\right)}
+\newcommand{\vecth}[1]{\mathrm{vech}\left(#1\right)}
+\newcommand{\iid}[2]{\mathrm{iid}\left(#1,#2\right)}
+\newcommand{\normal}[2]{\mathcal N\left(#1,#2\right)}
+\newcommand{\dynare}{\href{http://www.dynare.org}{\color{blue}Dynare}}
+\newcommand{\sample}{\mathcal Y_T}
+\newcommand{\samplet}[1]{\mathcal Y_{#1}}
+\newcommand{\slidetitle}[1]{\fancyhead[L]{\textsc{#1}}}
+
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\C}{{\mathbb C}}
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\binomial}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+\newcommand{\bigO}[1]{\mathcal O \left(#1\right)}
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+
+\newcolumntype{d}{D{.}{.}{-1}}
+\definecolor{gray}{gray}{0.9}
+\newcolumntype{g}{>{\columncolor{gray}}c}
+
+
+\setbeamertemplate{theorems}[numbered]
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Théorème}
+
+\theoremstyle{definition} % insert bellow all blocks you want in normal text
+\newtheorem{definition}{Définition}
+\newtheorem{properties}{Propriétés}
+\newtheorem{example}{Exemple}
+\newtheorem*{idea}{Éléments de preuve} % no numbered block
+
+
+\setbeamertemplate{footline}{
+{\hfill\vspace*{1pt}\href{http://creativecommons.org/licenses/by-sa/3.0/legalcode}{\ccbysa}\hspace{.1cm}
+\raisebox{-.075cm}{\href{https://mnemosyne.adjemian.eu/stepan-a/economic-calculus/cours}{\includegraphics[scale=.1]{../img/gitlab.png}}}
+}\hspace{1cm}}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{caption}[numbered]
+
+\NewEnviron{notes}{\justifying\tiny\begin{spacing}{1.0}\BODY\vfill\pagebreak\end{spacing}}
+
+% \newenvironment{notes}
+% {\adjustbox{valign=T}\bgroup\justifying\bgroup\tiny\begin{spacing}{1.0}
+% \end{spacing}\egroup\egroup}
+
+\newenvironment{exercise}[1]
+{\bgroup \small\begin{block}{Ex. #1}}
+{\end{block}\egroup}
+
+\newenvironment{defn}[1]
+{\bgroup \small\begin{block}{Définition. #1}}
+{\end{block}\egroup}
+
+\newenvironment{exemple}[1]
+{\bgroup \small\begin{block}{Exemple. #1}}
+{\end{block}\egroup}
+
+\begin{document}
+
+\title{Calcul Économique\\\small{I. Prologue}}
+\author[S. Adjemian]{Stéphane Adjemian}
+\institute{\texttt{stepan@adjemian.io}} \date{Septembre 2018}
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Plan}
+  \tableofcontents
+\end{frame}
+
+\section{Vocabulaire}
+
+\begin{frame}
+  \frametitle{Un peu de vocabulaire}
+  \begin{itemize}
+
+  \item \textbf{Axiome}. Un énoncé supposé vrai a priori, sans preuve,
+    et qu'on ne cherche pas à démontrer.\newline
+
+  \item \textbf{Proposition}. Un énoncé qui peut être vrai (V) ou faux
+    (F).\newline
+
+  \item \textbf{Théorème}. Une proposition (démontrée) vraie.\newline
+
+  \item \textbf{Corollaire}. Un « petit » théorème conséquence
+    d'un autre théorème.\newline
+
+  \item \textbf{Lemme}. Un « petit » théorème préparatoire d'un
+    autre théorème.\newline
+
+  \item \textbf{Conjecture}. Une proposition supposée vraie, sans
+    preuve, tant que l'on n'exhibe pas un contre exemple.\newline
+
+  \end{itemize}
+
+\end{frame}
+
+\section{Calcul propositionnel}
+
+\subsection{Table de vérité}
+
+\begin{frame}
+  \frametitle{Calcul propositionnel}
+  \framesubtitle{Proposition et table de vérité}
+
+  \begin{itemize}
+
+  \item Une proposition est un énoncé pouvant être vrai ou faux. On
+    dit que vrai (V) ou faux (F) sont les valeurs de vérité dne
+    proposition.\newline
+
+  \item Dans la suite on représentera souvent les valeurs de vérité
+    d'une proposition, notée P par exemple, dans une table:
+
+  \end{itemize}
+
+  \begin{table}[H]
+    \centering
+    \begin{tabular}[H]{|c|}
+      \hline
+      P \\ \hline
+      V \\
+      F \\
+      \hline\hline
+    \end{tabular}
+    \caption{Table de vérité}
+    \label{tab:verite}
+  \end{table}
+
+\end{frame}
+
+\subsection{Équivalence logique}
+
+\begin{frame}
+  \frametitle{Calcul propositionnel}
+  \framesubtitle{Équivalence logique, I}
+
+  \begin{definition}\label{def:equivalence}
+    Deux propositions $P$ et $Q$ sont équivalentes si elles sont
+    simultanément vraies et simultanément fausses. On note
+    $P \Leftrightarrow Q$.
+  \end{definition}
+
+
+  \begin{table}[H]
+    \centering
+    \begin{tabular}[H]{|cc|c|}
+      \hline
+      $P$ & $Q$ & $P \Leftrightarrow Q$\\ \hline
+      V & V & V \\
+      V & F & F \\
+      F & V & F \\
+      F & F & V \\
+      \hline\hline
+    \end{tabular}
+    \caption{Équivalence logique}
+    \label{tab:equivalence}
+  \end{table}
+
+  \bigskip
+
+  L'équivalence logique entre propositions joue un rôle analogue à
+  l'égalité entre des nombres.\newline
+
+  Nous venons de créer une nouvelle proposition
+  ($P \Leftrightarrow Q$) à partir de deux propositions ($P$ et $Q$)
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Calcul propositionnel}
+  \framesubtitle{Équivalence logique, II}
+
+  On note que la table de vérité contient $4 = 2^{2}$ lignes.\newline
+
+  Plus généralement si nous devons construire une nouvelle proposition
+  à partir de $n$ propositions, la table de vérité devra contenir
+  $2^{n}$ lignes.\newline
+
+  On note aussi la méthode utilisée pour définir les valeurs de vérité
+  des propositions $P$ et $Q$. On commence par poser que la
+  proposition $P$ est vraie, puis on considère les deux valeurs de
+  vérité possibles pour la seconde proposition $Q$. Après on pose que
+  la proposition $P$ est fausse\ldots
+
+    \begin{example}
+      Les expressions 3+2 et 4+1, même si elles ne sont pas
+      identiques, ont la même valeur, on dit que ces expressions sont
+      égales ($3+2=4+1$). Les propositions $(x^{2} = 1)$ et
+      $(x=1\text{ ou }x=-1)$ sont distinctes mais équivalentes, on
+      écrit :
+      \[
+        (x^{2} = 1) \Leftrightarrow (x=1\text{ ou }x=-1)
+      \]
+    \end{example}
+
+  \end{frame}
+
+  \subsection{Négation d'une proposition}
+
+  \begin{frame}
+    \frametitle{Calcul propositionnel}
+    \framesubtitle{Négation}
+
+  \begin{definition}\label{definition:negation}
+    La négation d'une proposition $P$, notée $\bar P$, change sa
+    valeur de vérité.
+  \end{definition}
+
+  \bigskip
+
+   \begin{table}[H]
+     \centering
+     \begin{tabular}[H]{|c|c|}
+       \hline
+       $P$ & $\bar P$\\ \hline
+       V & F \\
+       F & V \\
+       \hline\hline
+     \end{tabular}
+     \caption{Négation}
+     \label{tab:negation}
+   \end{table}
+
+    \begin{theorem}\label{theorem:negation}
+      Soit $P$ une proposition, alors
+      $\bar{\bar P} \Leftrightarrow P$.
+    \end{theorem}
+
+    \medskip
+
+    $\looparrowright$ À montrer avec une table de vérité.
+  \end{frame}
+
+
+  \subsection{Connecteurs logiques « et » et « ou »}
+
+  \begin{frame}
+    \frametitle{Connecteurs logiques}
+    \framesubtitle{La conjonction $\land$, I}
+
+  \begin{definition}\label{def:conjonction}
+    La conjonction de deux propositions $P$ et $Q$, on note $P\land Q$
+    et on lit « $P$ et $Q$ », est vraie si et seulement si les
+    deux propositions sont vraies.
+  \end{definition}
+
+  \bigskip
+
+  \begin{table}[H]
+    \centering
+    \begin{tabular}[H]{|cc|c|}
+      \hline
+      $P$ & $Q$ & $P \land Q$\\ \hline
+      V & V & V \\
+      V & F & F \\
+      F & V & F \\
+      F & F & F \\
+      \hline\hline
+    \end{tabular}
+    \caption{Conjonction logique}
+    \label{tab:conjonction}
+  \end{table}
+
+  \bigskip
+
+  On retient que la conjonction de deux propositions est fausse dès
+  lors qu'au moins une proposition est fausse.
+
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Connecteurs logiques}
+    \framesubtitle{La conjonction $\land$, II}
+
+  \begin{properties}\label{properties:conjonction}
+    Soient $P$, $Q$ et $R$ des propositions. La conjonction satisfait
+    les propriétés suivante :
+    \begin{enumerate}
+    \item \textbf{Idempotence:} $(P \land P) \Leftrightarrow P$.
+    \item \textbf{Commutativité:}
+      $(P \land Q) \Leftrightarrow (Q \land P)$.
+    \item \textbf{Associativité:}
+      $((P \land Q)\land R) \Leftrightarrow (P \land (Q\land R)$.
+    \item \textbf{Non contradiction:} La proposition $P \land \bar P$
+      est fausse.
+    \end{enumerate}
+  \end{properties}
+
+  \bigskip
+
+  On démontre facilement ces propriétés en utilisant des tables de
+  vérité.\newline
+
+  On note que dans la dernière propriété (4) nous venons de construire
+  une proposition (disons $Q$) dont la valeur de vérité est certaine,
+  alors que nous ne connaissons pas la valeur de vérité de la
+  proposition de départ ($P$).
+
+  \end{frame}
+
+
+  \begin{notes}
+    \begin{itemize}
+    \item On montre la première propriété à l'aide d'une table de
+      vérité :
+      \begin{table}
+        \centering
+        \begin{tabular}[H]{|c|c|}
+          \hline
+          $P$ & $P \land P$ \\ \hline
+          V & V \\
+          F & F \\
+          \hline\hline
+        \end{tabular}
+      \end{table}
+      Puisque les colonnes ont toujours les mêmes valeurs sur chaque
+      ligne, les deux propositions $P\land P$ et $P$ sont équivalentes
+      (voir la définition \autoref{def:equivalence}).
+    \item On procède de la même façon pour la deuxième propriété. Les
+      propositions à droite et à gauche du symbole d'équivalence
+      $\Leftrightarrow$ font intervenir deux propositions $P$ et
+      $Q$. La table de vérité doit donc contenir quatre lignes qui
+      correspondent aux couples ordonnés possibles pour les
+      valeurs de $P$ et $Q$:
+      \begin{table}[H]
+        \centering
+        \begin{tabular}[H]{|cc|cc|}
+          \hline
+          $P$ & $Q$ & $P \land Q$ & $Q \land P$\\ \hline
+          V & V & V & V\\
+          V & F & F & F\\
+          F & V & F & F\\
+          F & F & F & F \\
+          \hline\hline
+        \end{tabular}
+      \end{table}
+      On observe que les troisième et quatrième colonnes ont toujours
+      la même valeur sur chaque ligne, les deux propositions associées
+      $P \land Q$ et $Q \land P$ sont donc
+      équivalentes.
+    \item Nous suivons la même démarche pour la troisième
+      propriété. Cette fois nous construisons des propositions à
+      partir de trois propositions de base $P$, $Q$ et $R$. La table
+      de vérité doit donc contenir huit lignes :
+      \begin{table}[H]
+        \centering
+        \begin{tabular}[H]{|ccc|cgcg|}
+          \hline
+          $P$ & $Q$ & $R$ & $P\land Q$ & $(P\land Q)\land R$ & $Q\land R$ & $P \land (Q \land R)$ \\ \hline
+          V & V & V & V & V & V & V\\
+          V & V & F & V & F & F & F\\
+          V & F & V & F & F & F & F\\
+          V & F & F & F & F & F & F\\
+          F & V & V & F & F & V & F\\
+          F & V & F & F & F & F & F\\
+          F & F & V & F & F & F & F\\
+          F & F & F & F & F & F & F\\
+          \hline\hline
+        \end{tabular}
+      \end{table}
+      On note que les cinquième et septième colonnes sont identiques,
+      ce qui démontre la troisième propriété.
+    \item Pour la dernière propriété la table de vérité contient seulement deux lignes :
+      \begin{table}
+        \centering
+        \begin{tabular}[H]{|c|cc|}
+          \hline
+          $P$ & $\bar P$ & $P \land \bar P$\\ \hline
+          V & F & F\\
+          F & V & F\\
+          \hline\hline
+        \end{tabular}
+      \end{table}
+      On remarque que la dernière colonne est toujours fausse.
+
+    \end{itemize}
+
+  \end{notes}
+
+
+  \begin{frame}
+    \frametitle{Connecteurs logiques}
+    \framesubtitle{La disjonction $\lor$, I}
+
+  \begin{definition}\label{def:disjonction}
+    La disjonction de deux propositions $P$ et $Q$, on note $P\lor Q$
+    et on lit « $P$ ou $Q$ », est fausse si et seulement si les
+    deux propositions sont fausses.
+  \end{definition}
+
+  \bigskip
+
+  \begin{table}[H]
+    \centering
+    \begin{tabular}[H]{|cc|c|}
+      \hline
+      $P$ & $Q$ & $P \lor Q$\\ \hline
+      V & V & V \\
+      V & F & V \\
+      F & V & V \\
+      F & F & F \\
+      \hline\hline
+    \end{tabular}
+    \caption{Disjonction logique}
+    \label{tab:disjonction}
+  \end{table}
+
+  \bigskip
+
+  On retient que la disjonction de deux propositions est vraie dès
+  lors qu'au moins une proposition est vraie.
+
+  \bigskip
+
+  On considère ici une définition \textit{inclusive} de la disjonction (par opposition à une définition \textit{exclusive}).
+
+  \end{frame}
+
+
+  \begin{frame}
+    \frametitle{Connecteurs logiques}
+    \framesubtitle{La disjonction $\lor$, II}
+
+  \begin{properties}\label{properties:disjonction}
+    Soient $P$, $Q$ et $R$ des propositions. La disjonction satisfait
+    les propriétés suivante :
+    \begin{enumerate}
+    \item \textbf{Idempotence:} $(P \lor P) \Leftrightarrow P$.
+    \item \textbf{Commutativité:}
+      $(P \lor Q) \Leftrightarrow (Q \lor P)$.
+    \item \textbf{Associativité:}
+      $((P \lor Q)\lor R) \Leftrightarrow (P \lor (Q\lor R)$.
+    \item La proposition $P \lor \bar P$
+      est vraie.
+    \end{enumerate}
+  \end{properties}
+
+  \bigskip
+
+  On démontre facilement ces propriétés en utilisant des tables de
+  vérité.\newline
+
+  Nous retrouvons les mêmes propriétés que pour la conjonction (à part pour la dernière).
+
+  \end{frame}
+
+
+  \begin{notes}
+    \begin{itemize}
+    \item On montre la première propriété à l'aide d'une table de
+      vérité :
+      \begin{table}
+        \centering
+        \begin{tabular}[H]{|c|c|}
+          \hline
+          $P$ & $P \lor P$ \\ \hline
+          V & V \\
+          F & F \\
+          \hline\hline
+        \end{tabular}
+      \end{table}
+      Puisque les colonnes ont toujours les mêmes valeurs sur chaque
+      ligne, les deux propositions $P\lor P$ et $P$ sont équivalentes
+      (voir la définition \autoref{def:equivalence}).
+    \item On procède de la même façon pour la deuxième propriété. Les
+      propositions à droite et à gauche du symbole d'équivalence
+      $\Leftrightarrow$ font intervenir deux propositions $P$ et
+      $Q$. La table de vérité doit donc contenir quatre lignes qui
+      correspondent aux couples ordonnés possibles pour les
+      valeurs de $P$ et $Q$:
+      \begin{table}[H]
+        \centering
+        \begin{tabular}[H]{|cc|cc|}
+          \hline
+          $P$ & $Q$ & $P \lor Q$ & $Q \lor P$\\ \hline
+          V & V & V & V\\
+          V & F & V & V\\
+          F & V & V & V\\
+          F & F & F & F \\
+          \hline\hline
+        \end{tabular}
+      \end{table}
+      On observe que les troisième et quatrième colonnes ont toujours
+      la même valeur sur chaque ligne, les deux propositions associées
+      $P \lor Q$ et $Q \lor P$ sont donc
+      équivalentes.
+    \item Nous suivons la même démarche pour la troisième
+      propriété. Cette fois nous construisons des propositions à
+      partir de trois propositions de base $P$, $Q$ et $R$. La table
+      de vérité doit donc contenir huit lignes :
+      \begin{table}[H]
+        \centering
+        \begin{tabular}[H]{|ccc|cgcg|}
+          \hline
+          $P$ & $Q$ & $R$ & $P\lor Q$ & $(P\lor Q)\lor R$ & $Q\lor R$ & $P \lor (Q \lor R)$ \\ \hline
+          V & V & V & V & V & V & V\\
+          V & V & F & V & V & V & V\\
+          V & F & V & V & V & V & V\\
+          V & F & F & V & V & F & V\\
+          F & V & V & V & V & V & V\\
+          F & V & F & V & V & V & V\\
+          F & F & V & F & V & V & V\\
+          F & F & F & F & F & F & F\\
+          \hline\hline
+        \end{tabular}
+      \end{table}
+      On note que les cinquième et septième colonnes sont identiques,
+      ce qui démontre la troisième propriété.
+    \item Pour la dernière propriété la table de vérité contient
+      seulement deux lignes :
+      \begin{table}
+        \centering
+        \begin{tabular}[H]{|c|cc|}
+          \hline
+          $P$ & $\bar P$ & $P \lor \bar P$\\ \hline
+          V & F & V\\
+          F & V & V\\
+          \hline\hline
+        \end{tabular}
+      \end{table}
+      On remarque que la dernière colonne est toujours vraie.
+
+    \end{itemize}
+
+  \end{notes}
+
+
+  \begin{frame}
+    \frametitle{Connecteurs logiques}
+    \framesubtitle{Disjonction, conjonction et négation}
+
+  \begin{properties}[Distributivité]\label{properties:distributivite}
+    Soient trois propositions $P$, $Q$ et $R$, on a :
+    \begin{enumerate}
+    \item $(P\land Q)\lor R \Leftrightarrow (P\lor R) \land (Q\lor R)$
+    \item $(P\lor Q)\land R \Leftrightarrow (P\land R) \lor (Q\land R)$
+    \end{enumerate}
+  \end{properties}
+
+  \bigskip
+
+  \begin{theorem}[Loi de Morgan]\label{theorem:morgan}
+    Soient $P$ et $Q$ deux propositions, on a :
+    \begin{enumerate}
+    \item $\overline{P \land Q} \Leftrightarrow \bar P \lor \bar Q$.
+    \item $\overline{P \lor Q} \Leftrightarrow \bar P \land \bar Q$.
+    \end{enumerate}
+  \end{theorem}
+
+  \bigskip
+  
+  La loi de Morgan souligne le lien entre la conjonction et la disjoinction, que nous pouvions déjà anticipé en comparant les tables de vérité respectives.\newline
+
+  La négation d'une conjonction est la disjonction des négations.
+
+  \end{frame}
+
+
+  \begin{notes}
+    \mbox{}
+    \textbf{Preuve de la propriété \autoref{properties:distributivite}.}
+    On montre seulement la première propriété, pour la seconde on suit
+    exactement la même approche, toujours en utilisant une table de
+    vérité. On dénombre huit triplets de valeurs de vérité pour les
+    propriétés $P$, $Q$ et $R$. La table est donc formée de huit
+    lignes :
+    \begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|ccc|cgccg|}
+        \hline
+        $P$ & $Q$ & $R$ & $P\land Q$ & $(P\land Q)\lor R$ & $P\lor R$ & $Q \lor R$ & $(P\lor R)\land (Q \lor R)$ \\ \hline
+        V & V & V & V & V & V & V & V \\
+        V & V & F & V & V & V & V & V \\
+        V & F & V & F & V & V & V & V \\
+        V & F & F & F & F & V & F & F \\
+        F & V & V & F & V & V & V & V \\
+        F & V & F & F & F & F & V & F \\
+        F & F & V & F & V & V & V & V \\
+        F & F & F & F & F & F & F & F \\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+
+    \bigskip\bigskip
+
+    \textbf{Preuve du théorème \autoref{theorem:morgan}.} On démontre seulement le premier point, on peut suivre la même approche pour le second. On utilise une table de vérité de quatre lignes :
+    \begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|cc|cgccg|}
+        \hline
+        $P$ & $Q$ & $P\land Q$ & $\overline{P\land Q}$ & $\bar P$ & $\bar Q$ & $\bar P \lor \bar Q$ \\ \hline
+        V & V & V & F & F & F & F\\
+        V & F & F & V & F & V & V\\
+        F & V & F & V & V & F & V\\
+        F & F & F & V & V & V & V\\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+
+    \vspace*{\fill}
+    
+  \end{notes}
+\subsection{Implication logique}
+
+\begin{frame}
+  \frametitle{Implication logique}
+  \framesubtitle{Le connecteur $\Rightarrow$, I}
+
+  \begin{definition}\label{def:implication}
+    Soient deux propositions $P$ et $Q$. La proposition
+    $P\Rightarrow Q$, on dit « $P$ implique $Q$ », est fausse si $P$
+    est vraie \textbf{et} $Q$ est fausse, la proposition
+    $P\Rightarrow Q$ est vraie sinon.
+  \end{definition}
+
+
+  \begin{table}[H]
+    \centering
+    \begin{tabular}[H]{|cc|c|}
+      \hline
+      $P$ & $Q$ & $P \Rightarrow Q$\\ \hline
+      V & V & V \\
+      V & F & F \\
+      F & V & V \\
+      F & F & V \\
+      \hline\hline
+    \end{tabular}
+    \caption{L'implication logique}
+    \label{tab:implication}
+  \end{table}
+
+  \bigskip
+
+  Ce connecteur logique peut paraître peu intuitif\ldots\newline
+
+  En réordonnant les colonnes, cette définition nous dit que si l'implication est vraie, on ne peut
+  rien inférer sur la vérité de $Q$ lorsque $P$ est fausse.
+
+  \clearpage
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Implication logique}
+  \framesubtitle{Le connecteur $\Rightarrow$, II}
+
+  \begin{example}\label{ex:implication:1}
+    Considérons la proposition, qui ne devrait pas vous causer le
+    moindre doute, suivante :
+    \begin{quote}
+      Pour tout entier relatif $n$, si $n>2$ alors $n^2>4$
+    \end{quote}
+
+    On posera les propositions $P(n)$: « $n>2$ » et $Q(n)$: 
+    « $n^2>4$ ». On peut vérifier que pour différentes valeurs de $n$ on
+    peut retrouver toutes les lignes de la table de vérité de
+    l'implication logique :
+    \begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|r|cc|}
+        \hline
+        $n$ & $P(n)$ & $Q(n)$\\ \hline
+        3 & V & V \\
+        -3 & F & V \\
+        1 & F & F \\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+    sauf la secconde ligne, où l'implication est fausse.
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Implication logique}
+  \framesubtitle{Le connecteur $\Rightarrow$, III}
+
+  \begin{example}[$F\Rightarrow F$ est vraie]\label{ex:implication:2}
+    Montrons que si $10^n+1$ est divisible par 9, alors $10^{n+1}+1$
+    est divisible par 9, pour $n$ entier. La première proposition,
+    $10^n+1$ est divisible par 9, exige l'existe d'un entier $k$ tel
+    que $10^n+1 = 9k$. Nous avons :
+    \[
+      10^{n+1}+1 = 10\times 10^n+1 =
+      10\times(10^{n}+1)-9=9\times(10k-1)
+    \]
+    et donc $10^{n+1}+1$ est divisible par 9.\newline
+
+    Clairement la proposition « $10^n+1$ divisible par 9 implique
+    $10^{n+1}+1$ divisible par 9 » est vraie. Il est tout aussi
+    évident que la proposition « $10^n+1$ divisible par 9 » est
+    fausse. Il suffit de considérer le cas n=0 pour s'en convaincre.
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Implication logique}
+  \framesubtitle{Le connecteur $\Rightarrow$, IV}
+
+  \begin{example}[$F\Rightarrow V$ est vraie]\label{ex:implication:3}
+    Soit la proposition $P:$ « $2=3$ et $2=1$ ». Cette proposition est
+    clairement fausse, néanmoins en sommant les deux égalités on
+    obtient :
+    \[
+      \begin{split}
+        2+2 &= 3+1\\
+        4 &= 4
+      \end{split}
+    \]
+    la proposition $Q:$ « $4=4$ » est évidemment vraie (forfuitement). Si la
+    proposition $P\Rightarrow Q$ est vraie, alors $Q$ peut être vraie
+    même si $P$ est fausse. Autrement dit un raisonnement correcte
+    peut (par chance) amener à un résultat correct même si le prémisse
+    est faux.
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Implication logique}
+  \framesubtitle{$\Rightarrow$, $\land$, $\Rightarrow$}
+
+  \begin{theorem}[Transitivité]\label{theorem:implication:transitivite}
+    Soient $P$, $Q$ et $R$ trois propositions. On a :
+    \[
+      ((P\Rightarrow Q) \land (Q\Rightarrow R)) \Rightarrow
+      (P\Rightarrow R)
+    \]
+  \end{theorem}
+
+  \bigskip
+
+  Si $P$ est vraie et si $P\Rightarrow Q$ est vraie, alors $Q$ est
+  vraie (Cf. la première ligne de la table de vérité
+  \ref{tab:implication}). Si $Q\Rightarrow R$ est vraie, alors puisque
+  $Q$ est vraie on en déduit que $R$ est vraie.\newline
+
+  Cette propriété de transitivité sera souvent exploitée.\newline
+
+  Pour démontrer le théorème on procède toujours en construisant une
+  table de vérité (à huit lignes).\newline
+
+\end{frame}
+
+
+\begin{notes}
+  \textbf{Preuve du théorème \ref{theorem:implication:transitivite}.}
+  La table de vérité contient huit lignes psuique nous travaillons
+  avec trois propositions: $P$, $Q$ et $R$ :
+
+  \begin{table}[H]
+    \begin{tabular}[H]{|ccc|ccccg|}
+      \hline
+      $P$ & $Q$ & $R$ & $P\Rightarrow Q$ & $Q\Rightarrow R$ & $(P\Rightarrow Q) \land (Q\Rightarrow R)$ & $P\Rightarrow R$ & $((P\Rightarrow Q) \land (Q\Rightarrow R))\Rightarrow (P\Rightarrow R)$\\ \hline
+      V & V & V & V & V & V & V & V \\
+      V & V & F & V & F & F & F & V \\
+      V & F & V & F & V & F & V & V \\
+      V & F & F & F & V & F & F & V \\
+      F & V & V & V & V & V & V & V \\
+      F & V & F & V & F & F & V & V \\
+      F & F & V & V & V & V & V & V \\
+      F & F & F & V & V & V & V & V \\
+      \hline\hline
+    \end{tabular}
+  \end{table}
+    
+  Comme la dernière colonne est vraie sur toutes les lignes,
+  c'est-à-dire pour tout triplet de valeurs de vérité des propositions
+  $P$, $Q$ et $R$, la proposition relative à la transitivité de
+  l'implication logique est vraie.
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Implication logique}
+  \framesubtitle{$\Rightarrow$, $\Leftarrow$ et $\Leftrightarrow$, I}
+
+  \begin{theorem}[Équivalence]\label{theorem:implication:equivalence}
+    Soient $P$ et $Q$ deux propositions. On a :
+    \[
+      (P\Leftrightarrow Q) \Leftrightarrow ((P\Rightarrow Q) \land
+      (Q\Rightarrow P))
+    \]
+  \end{theorem}
+
+  \bigskip
+
+  Cette expression de l'équivalence en termes d'implications est très
+  importante. Quand on vous demande d'établir une équivalence, il faut
+  garder à l'esprit que la preuve se décomposera en deux parties (une
+  pour chaque implication)\newline
+
+  On retouvera la même idée quand on cherchera (voir la section
+  suivante) à établir que deux ensembles $A$ et $B$ sont
+  identiques. Il faut montrer que l'ensemble $A$ est contenu dans
+  l'ensemble $B$ et que l'ensemble $B$ est contenu dans l'ensemble
+  $A$.\newline
+
+\end{frame}
+
+
+\begin{notes}
+  \textbf{Preuve du théorème \autoref{theorem:implication:equivalence}.}
+  \begin{table}[H]
+    \begin{tabular}[H]{|cc|gccg|}
+      \hline
+      $P$ & $Q$ & $P\Leftrightarrow Q$ & $P\Rightarrow Q$ & $Q \Rightarrow P$ & $(P\Rightarrow Q) \land (Q \Rightarrow P)$ \\ \hline
+      V & V & V & V & V & V \\
+      V & F & F & F & V & F \\
+      F & V & F & V & F & F \\
+      F & F & V & V & V & V \\
+      \hline\hline
+    \end{tabular}
+  \end{table}
+  Puisque les colonnes 3 et 6 ont les mêmes valeurs de vérité sur
+  chaque ligne les propositions $P\Leftrightarrow Q$ et
+  $(P\Rightarrow Q) \land (Q \Rightarrow P)$ sont équivalentes, comme annoncée dans le théorème.
+\end{notes}
+
+\begin{frame}
+  \frametitle{Implication logique}
+  \framesubtitle{$\Rightarrow$, $\Leftarrow$ et $\Leftrightarrow$, II}
+
+  Les expressions « condition nécessaire et suffisante » (CNS), « si et seulement si » (ssi) ou encore « il faut et il suffit », font toutes référence à l'équivalence logique.\newline
+
+  Ainsi pour établir qu'une condition est nécessaire et suffisante il faudra décomposer la preuve en deux parties:
+  \begin{itemize}
+  \item montrer que la condition $P$ est nécessaire ($Q \Rightarrow P$)
+  \item montrer que la condition $P$ est suffisante ($Q \Leftarrow P$)
+  \end{itemize}
+
+  \begin{example}\label{ex:implication:4}
+    \begin{itemize}
+    \item La proposition « $(x+1=3) \Rightarrow \left((x+1)^2=9\right)$ » est vraie. Il est \emph{suffisant} que $x+1$ soit égal à 3 pour que $(x+1)^2$ soit égal à 9.
+    \item La proposition « $(x+1=3) \Leftarrow \left((x+1)^2=9\right)$ » n'est pas vraie. Il n'est pas \emph{nécessaire} que $x+1$ soit égal à 3 pour que $(x+1)^2$ soit égal à 9.
+      \item Les deux propositions ne sont pas équivalentes.
+    \end{itemize}
+    
+  \end{example}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Implication logique}
+  \framesubtitle{Réciproque et contreaposée}
+
+  \begin{definition}{Réciproque d'une implication}\label{def:implication:equivalence}
+    Soient deux propositions $P$ et $Q$. L'implication $Q\Rightarrow P$ est la réciproque de l'implication $P\Rightarrow Q$. 
+  \end{definition}
+
+  \bigskip
+
+  \textbf{Remarque:} Si deux propositions $P$ et $Q$ sont équivalentes alors par le théorème \autoref{theorem:implication:equivalence} l'implication et sa réciproque sont vraies.
+
+  \bigskip
+
+  \begin{definition}{Contraposée d'une implication}\label{def:implication:contraposee}
+    Soient deux propositions $P$ et $Q$. L'implication $\bar Q\Rightarrow \bar P$ est la contraposée de l'implication $P\Rightarrow Q$.
+  \end{definition}
+
+  \bigskip
+
+  \begin{theorem}[Contraposée]\label{theorem:implication:contraposee}
+    Soient $P$ et $Q$ deux propositions. On a : $(\bar Q \Rightarrow \bar P) \Leftrightarrow (P\Rightarrow Q)$
+  \end{theorem}
+\end{frame}
+
+\begin{notes}
+
+  \textbf{Preuve du théorème \autoref{theorem:implication:contraposee}.} La proposition
+  $\bar Q \Rightarrow \bar P$ est fausse si et seulement si $\bar Q$
+  est vraie et $\bar P$ est vraie, c'est-à-dire si et seulement si $Q$
+  est fausse et $P$ est vraie. Ainsi $\bar Q \Rightarrow \bar P$ a les
+  mêmes valeurs de vérité que $P\Rightarrow Q$ les deux propositions
+  sont donc équivalentes.
+
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Implication logique}
+  \framesubtitle{Connecteurs logiques}
+
+  \begin{theorem}\label{theorem:implication:connecteurs}
+    Soient $P$ et $Q$ deux propositions. On a :
+    \[
+      (P \Rightarrow Q) \Leftrightarrow (\bar P \lor Q)
+      \]
+  \end{theorem}
+
+  \bigskip
+
+  \textbf{Remarque:} Par la loi de Morgan (théorème \autoref{theorem:morgan}) on a aussi :
+  \[
+    (P \Rightarrow Q) \Leftrightarrow \overline{P \land \bar Q}
+  \]
+  
+  Ce résultat est très important, on peut exprimer l'implication à l'aide d'un connecteur logique et d'une (ou deux) négation(s).\newline
+
+  \begin{theorem}\label{theorem:equivalence:connecteurs}
+    Soient $P$ et $Q$ deux propositions. On a :
+    \[
+      (P \Leftrightarrow Q) \Leftrightarrow \left((\bar P \lor Q) \land (P \lor \bar Q)\right)
+    \]
+  \end{theorem}
+
+\end{frame}
+
+\section{Les ensembles}
+
+\begin{frame}
+  \frametitle{Les ensembles}
+
+  \begin{definition}
+    Un ensemble est une collection d'objets.
+  \end{definition}
+
+  \medskip
+  
+  \begin{itemize}
+  \item Les éléments d'un ensemble peuvent être de types variés (nombres, lettres, mots, phrases, ensembles, \ldots).\newline
+  \item Un ensemble peut être défini par une liste exhaustive des éléments qui le compose. Par exemple :
+    \[
+      A = \{1,3\}
+    \]
+  \item Un ensemble peut être défini à partir d'une règle (indispensable si l'ensemble contient un nombre infini d'éléments). Par exemple :
+    \[
+      B = \left\{ x \text{ entier naturel } | \text{ } x \text{ est un nombre impair }\right\}
+    \]
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Notations}
+  
+  \begin{itemize}
+
+    \item $\in$ note l'appartenance d'un élément à un ensemble : $5\in B$.\newline
+
+    \item $\notin$ note la non appartenance d'un élément à un ensemble : $6\notin B$.\newline
+
+    \item $\emptyset$ note l'ensemble vide : $\emptyset = \{\}$.\newline
+
+    \item $\subseteq$ note l'inclusion d'un ensemble dans un autre : $ A \subseteq B $ si tout élément de $A$ est aussi un élément de $B$.\newline
+
+    \item $\subset$ note l'inclusion stricte d'un ensemble dans un autre : $ A \subset B $ si tout élément de $A$ est aussi un élément de $B$ \emph{et} s'il existe au moins un élément de $B$ qui n'appartient pas à $A$.\newline
+
+    \item Deux ensembles $A$ et $B$ sont égaux si et seulement si $A\subseteq B$ et $B\subseteq A$.\newline
+
+    \item On note $\Omega$ l'ensemble universel qui contient tout les ensembles. 
+      
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Exemples}
+  
+  \begin{itemize}
+
+  \item $\mathbb N$ l'ensemble des entiers naturels, $\mathbb Z$
+    l'ensemble des entiers relatifs, $\mathbb Q$ l'ensemble des
+    rationnels, $\mathbb R$ l'ensemble des réels.
+    \[
+      \mathbb Q = \left\{ \frac{a}{b}\text{ }\Bigl|\text{ }a\in\mathbb Z\text{, }b\in\mathbb Z\text{, et }b\neq 0\right\}
+    \]
+    Ces ensembles vérifient $\mathbb N \subset \mathbb Z \subset \mathbb Q \subset \mathbb R$.\newline
+    
+  \item Les intervalles sur la droite des réels :
+    \[
+      \begin{split}
+        ]a,b[ &= \{x\in\mathbb R\text{ }|\text{ }a<x<b\}\\
+        ]a,b] &= \{x\in\mathbb R\text{ }|\text{ }a<x\leq b\}\\
+        [a,b] &= \{x\in\mathbb R\text{ }|\text{ }a\leq x\leq b\}\\
+        [a,b[ &= \{x\in\mathbb R\text{ }|\text{ }a\leq x< b\}
+      \end{split}
+    \]
+      
+  \end{itemize}
+
+\end{frame}
+
+\subsection{Opérations sur les ensembles}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Union}
+  
+  \begin{definition} L'union de deux ensembles $A$ et $B$, notée $A$ et $B$
+    
+  \end{definition}
+
+  
+\end{frame}
+
+
+
+\end{document}
+% Local Variables:
+% ispell-check-comments: exclusive
+% ispell-local-dictionary: "francais"
+% TeX-master: t
+% End:

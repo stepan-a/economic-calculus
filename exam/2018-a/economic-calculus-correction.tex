@@ -1,0 +1,275 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+
+\synctex=1
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+\usepackage{mathrsfs}
+
+\usepackage[active]{srcltx}
+\usepackage{scrtime}
+\usepackage{nicefrac}
+\usepackage{adjustbox}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique}\\\textbf{(Éléments de correction)}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} \textbf{(a)} L'implication logique est définie de la façon suivante, à l'aide d'une table de vérité :
+\begin{table}[H]
+  \centering
+\adjustbox{max width=\textwidth}{
+  \begin{tabular}{cc|c}
+    $P$ & $Q$ & $P\Rightarrow Q$ \\ 
+    \hline
+    V & V & V\\
+    V & F & F\\
+    F & V & V\\
+    F & F & V\\
+  \end{tabular}}
+\end{table}
+où $P$ et $Q$ sont deux propositions. Il est possible d'exprimer de
+façon équivalente la proposition $P\Rightarrow Q$ sous la forme
+$\overline P \lor Q$. Nous utilisons une table de vérité:
+\begin{table}[H]
+  \centering
+\adjustbox{max width=\textwidth}{
+  \begin{tabular}{cc|ccc}
+    $P$ & $Q$ & $\overline P$ & $\overline P \lor Q$ & $P\Rightarrow Q$ \\ 
+    \hline
+    V & V & F & V & V\\
+    V & F & F & F & F\\
+    F & V & V & V & V\\
+    F & F & V & V & V\\
+  \end{tabular}}
+\end{table}
+On note que sur chaque ligne des deux dernières colonnes nous avons
+les mêmes valeurs de vérité. Les deux propositions sont donc bien
+équivalentes. \textbf{(b)} Deux propositions $P$ et $Q$ sont
+équivalentes si et seulement si elles ont les mêmes valeurs.
+\begin{table}[H]
+  \centering
+\adjustbox{max width=\textwidth}{
+  \begin{tabular}{cc|c}
+    $P$ & $Q$ & $P\Leftrightarrow Q$ \\ 
+    \hline
+    V & V & V\\
+    V & F & F\\
+    F & V & F\\
+    F & F & V\\
+  \end{tabular}}
+\end{table}
+On peut montrer que l'équivalence entre $P$ et $Q$ peut s'exprimer
+comme $ (P\Rightarrow Q) \land (Q\Rightarrow P)$. On utilise encore
+une table de vérité :
+\begin{table}[H]
+  \centering
+\adjustbox{max width=\textwidth}{
+  \begin{tabular}{cc|cccc}
+    $P$ & $Q$ & $P\Rightarrow Q$ & $Q \Rightarrow P$ & $(P\Rightarrow Q) \land (Q \Rightarrow P)$  & $P\Leftrightarrow Q$ \\ 
+    \hline
+    V & V & V & V & V & V\\
+    V & F & F & V & F & F\\
+    F & V & V & F & F & F\\
+    F & F & V & V & V & V\\
+  \end{tabular}}
+\end{table}
+Les valeurs des deux dernières colonnes sont identiques, nous avons
+donc bien montré l'équivalence entre ces deux
+propositions. \textbf{(c)} Ce résultat nous dit que pour établir
+l'équivalence entre deux propositions $P$ et $Q$, on peut décomposer
+la preuve en deux parties en montrant d'abord que $P\Rightarrow Q$
+puis en montrant la réciproque $Q\Rightarrow P$.
+
+\bigskip
+
+\exercice{2} On utilise une table de vérité.
+
+\begin{table}[H]
+  \centering
+ \begin{tabular}{cc|cccccc}
+    $P$ & $Q$ & $P\Rightarrow Q$ & $\overline{Q}$ & $\overline{P}$ & $\overline{Q}\Rightarrow\overline{P}$   \\ 
+    \hline
+    V & V & V & F & F & V\\
+    V & F & F & V & F & F\\
+    F & V & V & F & V & V\\
+    F & F & V & V & V & V\\
+  \end{tabular}
+\end{table}
+
+La dernière colonne et la troisième colonne ont les mêmes valeurs de
+vérité sur chaque ligne, les deux propositions sont donc bien
+équivalentes. La proposition $\overline{Q}\Rightarrow\overline{P}$ est
+la contraposée de la proposition $P\Rightarrow Q$. Un raisonnement par
+contraposition consiste à montrer que
+$\overline{Q}\Rightarrow\overline{P}$ pour établir que
+$P\Rightarrow Q$. Supposons que la proposition $P$ soit <<~Il pleut~>>
+et la proposition $Q$ soit <<~Il y a des nuages~>> . On a bien
+$P\Rightarrow Q$ (la présence de nuages dans le ciel est bien une
+condition nécessaire pour qu'il pleuve). Il est tout aussi évident que
+<<~Il n'y a pas de nuages~>> implique <<~Il ne pleut pas~>>.
+
+\bigskip
+
+\exercice{3} \textbf{(a)} En cours nous avons vu que la dérivée première est définie comme une limite, de la façon suivante :
+\[
+f'(x) = \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h}
+\]
+\textbf{(b)} Nous avons:
+\[
+f(x+h) = \frac{1}{1-(x+h)^2}
+\]
+et donc
+\[
+  \begin{split}
+    f(x+h)-f(x) &= \frac{1}{1-(x+h)^2} - \frac{1}{1-x^2}\\
+    &= \frac{1-x^{2}-1+(x+h)^{2}}{\left(1-(x+h)^2\right)\left(1-x^{2}\right)}\\
+    &= \frac{(2x+h)h}{\left(1-(x+h)^2\right)\left(1-x^{2}\right)}\\
+  \end{split}
+\]
+puis :
+\[
+\frac{f(x+h)-f(x)}{h} = \frac{2x+h}{\left(1-(x+h)^2\right)\left(1-x^{2}\right)}
+\]
+Finalement la dérivée est la limite de la dernière expression quand $h$ tend vers zéro, c'est-à-dire le ratio des limites au numérateur et au dénominateur (il n'y a pas d'indétermination dans ce cas) :
+\[
+f'(x) = \frac{2x}{\left(1-x^{2}\right)^{2}}
+\]
+
+
+\bigskip
+
+\exercice{4} \textbf{(a)} On a $g'(x) = \frac{\mathrm d}{\mathrm dx}f(\theta x)$, par la formule de dérivation en chaîne, on a donc :
+\[
+g'(x) = \theta g(x)
+\]
+c'est-à-dire la dérivée de $\theta x$ par rapport à $x$, fois la dérivée de $f$ évaluée en $\theta x$ (sachant que la dérivée de $f$ est $f$). La formule est donc correcte au premier rang ($n=1$). Supposons que la formule soit vraie au rang $n$ et montrons alors qu'elle est alors nécessairement vraie au rang $n+1$, c'est-à-dire que :
+\[
+g^{(n+1)}(x) = \theta^{n+1}g(x)
+\]
+Nous avons :
+\[
+  \begin{split}
+    g^{(n+1)} &= \left(g^{n}(x)\right)'\\
+    &= \left(\theta^{n}g(x)\right)'\\
+    &= \theta^{n}g'(x)\\
+    &= \theta^{n}\theta g(x)\\
+    &= \theta^{n+1}g(x)
+  \end{split}
+\]
+où la deuxième égalité vient de la formule supposée vraie au rang $n$, la troisième vient des régles de dérivation (la dérivée d'une constante fois une fonction est égale à la constante fois la dérivée de la fonction), la quatrième égalité vient de la formule démontrée vraie au rang 1. Nous retrouvons donc bien la formule au rang $n+1$, lorsqu'elle est vraie au rang $n$. La formule est donc vraie pour toutes les valeurs de $n$. \textbf{(b)} La fonction exponentielle satisfait la même propriété que la fonction $f$.
+
+\bigskip
+
+\exercice{5} On note que $x=1$ est une racine évidente puisque $P(1)=0$. Le polynôme peut donc s'écrire sous la forme factorisée :
+\[
+P(x) = (x-1)(ax^2+bx+c)
+\]
+Il reste à déterminer les paramètres $a$, $b$ et $c$. On procède par identification en développant l'expression précédente :
+\[
+  \begin{split}
+    P(x) &= ax^3+bx^2+cx-ax^2-bx-c\\
+    &= ax^3 +(b-a)x^2+(c-b)x-c
+  \end{split}
+\]
+On doit donc avoir $a=4$, $b-a=4$ (donc $b=8$), $c-b=-3$ (donc $c=5$). Nous pouvons donc réécrire le polynôme sous la forme :
+\[
+P(x) = (x-1)(4x^2+8x+5)
+\]
+Calculons les racines du polynôme d'ordre deux. Le discriminant est :
+\[
+\Delta = 64-4 \times 4 \times 5 = -16
+\]
+Puisque le discriminant est complexe, nous savons que les deux racines sont complexes :
+\[
+  x = \frac{8 \pm 4i}{8} =
+  \begin{cases}
+    -1-\frac{i}{2}\\
+    -1+\frac{i}{2}
+  \end{cases}
+\]
+Au final le polynôme $P(x)$ possède trois racines : $x=1$, $x=-1-\frac{i}{2}$ et $x=-1+\frac{i}{2}$.
+
+\bigskip
+
+\exercice{6} \textbf{(a)} Dans ce cas, $f'(x)=a$ et on aurait donc :
+\[
+\frac{a}{ax+b} = \alpha
+\]
+Clairement il n'est pas possible de trouver $a$ et $b$ satisfaisant
+cette équation (notons que si $\alpha=0$, alors l'équation est
+satisfaite pour $a=0$, mais nous chercons une fonction $f$ qui puisse
+vérifier la contrainte pour toute valeur de $\alpha$). \textbf{(b)}
+Dans ce cas, on a : $f'(x) = a e^{ax+b}$ c'est-à-dire
+$f'(x) = a f(x)$. Ainsi la contrainte est satisfaite si $a=\alpha$ et
+pour toute valeur de $b$. Puisque n'importe quelle valeur de $b$ est
+acceptable, il existe une infinité (c'est-à-dire autant que de valeurs
+de $b$ possibles) de fonctions $f$ vérifiant la contrainte.
+
+\bigskip
+
+\exercice{7} Il suffit de noter (identité remarquable) qu'il est possible de réécrire la fonction sous la forme :
+\[
+f(x) = (x+1)^{4}+1
+\]
+Puisque le premier terme est élevé à une puissance paire, il est
+forcément non négatif. Minimiser cette fonction revient à minimiser le
+premier terme, puisque le second terme (1) ne dépend pas de la
+variable de contrôle $x$. Le premier terme est nul (il ne peut pas
+être plus petit) lorsque $x=-1$. La fonction atteint donc sa valeur
+minimale en $x=-1$ et on a $f(-1)=1$.
+
+\bigskip
+
+\exercice{8} Puisque la courbe est convexe, la tangente doit se situer
+sous la courbe représentative de la fonction. Pour trouver l'équation
+de la tangente à la courbe en $x_{0}$ il suffit de remarquer que la
+tangente passe par le point $(x_{0}, f(x_{0}))$ et que sa pente est
+donnée par la dérivée de la fonction évaluée en $x_{0}$, $f'(x_{0})$. La tangente, que nous noterons $T(x)$ est donc de la forme :
+\[
+T(x) = f'(x_{0}) x + b
+\]
+où $b$ est l'ordonée à l'origine qu'il nous reste à identifier. La
+tangente est une droite qui passe par les points $(0,b)$ et
+$(x_{0}, f'(x_{0})$, comme sa pente est $f'(x_{0})$, nous devons
+avoir :
+\[
+\frac{f(x_{0})-f(0)}{x_{0}-b} = f'(x_{0})
+\]
+soit de façon équivalente :
+\[
+b = f(x_{0}) - x_{0}f'(x_{0})
+\]
+Nous avons finalement :
+\[
+T(x) = f'(x_{0}) x + f(x_{0}) - x_{0}f'(x_{0})
+\]
+ou encore :
+\[
+T(x) = f(x_{0}) + \left(x-x_{0}\right) f'(x_{0})
+\]
+
+
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -62,7 +62,6 @@
 \definecolor{gray}{gray}{0.9}
 \newcolumntype{g}{>{\columncolor{gray}}c}
 
-
 \setbeamertemplate{theorems}[numbered]
 
 \theoremstyle{plain}
@@ -86,10 +85,6 @@
 
 \NewEnviron{notes}{\justifying\tiny\begin{spacing}{1.0}\BODY\vfill\pagebreak\end{spacing}}
 
-% \newenvironment{notes}
-% {\adjustbox{valign=T}\bgroup\justifying\bgroup\tiny\begin{spacing}{1.0}
-% \end{spacing}\egroup\egroup}
-
 \newenvironment{exercise}[1]
 {\bgroup \small\begin{block}{Ex. #1}}
 {\end{block}\egroup}
@@ -106,7 +101,7 @@
 
 \title{Calcul Économique\\\small{I. Prologue}}
 \author[S. Adjemian]{Stéphane Adjemian}
-\institute{\texttt{stepan@adjemian.io}} \date{Septembre 2018}
+\institute{\texttt{stepan@adjemian.eu}} \date{Septembre 2020}
 
 \begin{frame}
   \titlepage{}
@@ -121,6 +116,8 @@
 
 \begin{frame}
   \frametitle{Un peu de vocabulaire}
+  \hypertarget{slide_vocabulaire}{}
+
   \begin{itemize}
 
   \item \textbf{Axiome}. Un énoncé supposé vrai a priori, sans preuve,
@@ -151,19 +148,21 @@
 \begin{frame}
   \frametitle{Calcul propositionnel}
   \framesubtitle{Proposition et table de vérité}
+  \hypertarget{slide_proposition_et_table_de_verite}{}
 
   \begin{itemize}
 
   \item Une proposition est un énoncé pouvant être vrai ou faux. On
-    dit que vrai (V) ou faux (F) sont les valeurs de vérité dne
+    dit que vrai (V) ou faux (F) sont les valeurs de vérité d'une
     proposition.\newline
 
   \item Dans la suite on représentera souvent les valeurs de vérité
-    d'une proposition, notée P par exemple, dans une table:
+    d'une proposition, notée P par exemple, dans une table~:
 
   \end{itemize}
 
   \begin{table}[H]
+
     \centering
     \begin{tabular}[H]{|c|}
       \hline
@@ -183,6 +182,7 @@
 \begin{frame}
   \frametitle{Calcul propositionnel}
   \framesubtitle{Équivalence logique, I}
+  \hypertarget{slide_equivalence_logique_1}{}
 
   \begin{definition}\label{def:equivalence}
     Deux propositions $P$ et $Q$ sont équivalentes si elles sont
@@ -192,6 +192,7 @@
 
 
   \begin{table}[H]
+
     \centering
     \begin{tabular}[H]{|cc|c|}
       \hline
@@ -209,7 +210,7 @@
   \bigskip
 
   L'équivalence logique entre propositions joue un rôle analogue à
-  l'égalité entre des nombres.\newline
+  l'égalité entre des nombres (ou des ensembles comme nous le verrons plus loin).\newline
 
   Nous venons de créer une nouvelle proposition
   ($P \Leftrightarrow Q$) à partir de deux propositions ($P$ et $Q$)
@@ -219,6 +220,7 @@
 \begin{frame}
   \frametitle{Calcul propositionnel}
   \framesubtitle{Équivalence logique, II}
+  \hypertarget{slide_equivalence_logique_2}{}
 
   On note que la table de vérité contient $4 = 2^{2}$ lignes.\newline
 
@@ -237,7 +239,7 @@
       identiques, ont la même valeur, on dit que ces expressions sont
       égales ($3+2=4+1$). Les propositions $(x^{2} = 1)$ et
       $(x=1\text{ ou }x=-1)$ sont distinctes mais équivalentes, on
-      écrit :
+      écrit~:
       \[
         (x^{2} = 1) \Leftrightarrow (x=1\text{ ou }x=-1)
       \]
@@ -250,15 +252,18 @@
   \begin{frame}
     \frametitle{Calcul propositionnel}
     \framesubtitle{Négation}
+    \hypertarget{slide_negation}{}
 
-  \begin{definition}\label{definition:negation}
+    \begin{definition}\label{definition:negation}
+
     La négation d'une proposition $P$, notée $\bar P$, change sa
     valeur de vérité.
   \end{definition}
 
   \bigskip
 
-   \begin{table}[H]
+  \begin{table}[H]
+
      \centering
      \begin{tabular}[H]{|c|c|}
        \hline
@@ -271,7 +276,8 @@
      \label{tab:negation}
    \end{table}
 
-    \begin{theorem}\label{theorem:negation}
+   \begin{theorem}\label{theorem:negation}
+
       Soit $P$ une proposition, alors
       $\bar{\bar P} \Leftrightarrow P$.
     \end{theorem}
@@ -287,8 +293,10 @@
   \begin{frame}
     \frametitle{Connecteurs logiques}
     \framesubtitle{La conjonction $\land$, I}
+    \hypertarget{slide_conjonction_1}{}
 
-  \begin{definition}\label{def:conjonction}
+    \begin{definition}\label{def:conjonction}
+
     La conjonction de deux propositions $P$ et $Q$, on note $P\land Q$
     et on lit « $P$ et $Q$ », est vraie si et seulement si les
     deux propositions sont vraies.
@@ -297,6 +305,7 @@
   \bigskip
 
   \begin{table}[H]
+
     \centering
     \begin{tabular}[H]{|cc|c|}
       \hline
@@ -321,10 +330,12 @@
   \begin{frame}
     \frametitle{Connecteurs logiques}
     \framesubtitle{La conjonction $\land$, II}
+    \hypertarget{slide_conjonction_2}{}
 
-  \begin{properties}\label{properties:conjonction}
+    \begin{properties}\label{properties:conjonction}
+
     Soient $P$, $Q$ et $R$ des propositions. La conjonction satisfait
-    les propriétés suivante :
+    les propriétés suivantes~:
     \begin{enumerate}
     \item \textbf{Idempotence:} $(P \land P) \Leftrightarrow P$.
     \item \textbf{Commutativité:}
@@ -351,8 +362,9 @@
 
   \begin{notes}
     \begin{itemize}
+
     \item On montre la première propriété à l'aide d'une table de
-      vérité :
+      vérité~:
       \begin{table}
         \centering
         \begin{tabular}[H]{|c|c|}
@@ -365,13 +377,14 @@
       \end{table}
       Puisque les colonnes ont toujours les mêmes valeurs sur chaque
       ligne, les deux propositions $P\land P$ et $P$ sont équivalentes
-      (voir la définition \autoref{def:equivalence}).
+      (voir la définition \hyperlink{slide_equivalence_logique_1}{\ref{def:equivalence}}).
+
     \item On procède de la même façon pour la deuxième propriété. Les
       propositions à droite et à gauche du symbole d'équivalence
       $\Leftrightarrow$ font intervenir deux propositions $P$ et
       $Q$. La table de vérité doit donc contenir quatre lignes qui
       correspondent aux couples ordonnés possibles pour les
-      valeurs de $P$ et $Q$:
+      valeurs de $P$ et $Q$~:
       \begin{table}[H]
         \centering
         \begin{tabular}[H]{|cc|cc|}
@@ -388,10 +401,11 @@
       la même valeur sur chaque ligne, les deux propositions associées
       $P \land Q$ et $Q \land P$ sont donc
       équivalentes.
+
     \item Nous suivons la même démarche pour la troisième
       propriété. Cette fois nous construisons des propositions à
       partir de trois propositions de base $P$, $Q$ et $R$. La table
-      de vérité doit donc contenir huit lignes :
+      de vérité doit donc contenir huit lignes (c'est-à-dire $2^3$ lignes)~:
       \begin{table}[H]
         \centering
         \begin{tabular}[H]{|ccc|cgcg|}
@@ -408,9 +422,9 @@
           \hline\hline
         \end{tabular}
       \end{table}
-      On note que les cinquième et septième colonnes sont identiques,
-      ce qui démontre la troisième propriété.
-    \item Pour la dernière propriété la table de vérité contient seulement deux lignes :
+      On note que la cinquième et la septième colonnes sont identiques, ce qui démontre la troisième propriété.
+
+    \item Pour la dernière propriété la table de vérité contient seulement deux lignes~:
       \begin{table}
         \centering
         \begin{tabular}[H]{|c|cc|}
@@ -431,8 +445,10 @@
   \begin{frame}
     \frametitle{Connecteurs logiques}
     \framesubtitle{La disjonction $\lor$, I}
+    \hypertarget{slide_disjonction_1}{}
 
-  \begin{definition}\label{def:disjonction}
+    \begin{definition}\label{def:disjonction}
+
     La disjonction de deux propositions $P$ et $Q$, on note $P\lor Q$
     et on lit « $P$ ou $Q$ », est fausse si et seulement si les
     deux propositions sont fausses.
@@ -441,6 +457,7 @@
   \bigskip
 
   \begin{table}[H]
+
     \centering
     \begin{tabular}[H]{|cc|c|}
       \hline
@@ -470,10 +487,11 @@
   \begin{frame}
     \frametitle{Connecteurs logiques}
     \framesubtitle{La disjonction $\lor$, II}
+    \hypertarget{slide_disjonction_2}{}
 
-  \begin{properties}\label{properties:disjonction}
+    \begin{properties}\label{properties:disjonction}
     Soient $P$, $Q$ et $R$ des propositions. La disjonction satisfait
-    les propriétés suivante :
+    les propriétés suivantes~:
     \begin{enumerate}
     \item \textbf{Idempotence:} $(P \lor P) \Leftrightarrow P$.
     \item \textbf{Commutativité:}
@@ -498,7 +516,7 @@
   \begin{notes}
     \begin{itemize}
     \item On montre la première propriété à l'aide d'une table de
-      vérité :
+      vérité~:
       \begin{table}
         \centering
         \begin{tabular}[H]{|c|c|}
@@ -511,13 +529,13 @@
       \end{table}
       Puisque les colonnes ont toujours les mêmes valeurs sur chaque
       ligne, les deux propositions $P\lor P$ et $P$ sont équivalentes
-      (voir la définition \autoref{def:equivalence}).
+      (voir la définition \hyperlink{slide_equivalence_logique_1}{\ref{def:equivalence}}).
     \item On procède de la même façon pour la deuxième propriété. Les
       propositions à droite et à gauche du symbole d'équivalence
       $\Leftrightarrow$ font intervenir deux propositions $P$ et
       $Q$. La table de vérité doit donc contenir quatre lignes qui
       correspondent aux couples ordonnés possibles pour les
-      valeurs de $P$ et $Q$:
+      valeurs de $P$ et $Q$~:
       \begin{table}[H]
         \centering
         \begin{tabular}[H]{|cc|cc|}
@@ -537,7 +555,7 @@
     \item Nous suivons la même démarche pour la troisième
       propriété. Cette fois nous construisons des propositions à
       partir de trois propositions de base $P$, $Q$ et $R$. La table
-      de vérité doit donc contenir huit lignes :
+      de vérité doit donc contenir huit lignes~:
       \begin{table}[H]
         \centering
         \begin{tabular}[H]{|ccc|cgcg|}
@@ -557,7 +575,7 @@
       On note que les cinquième et septième colonnes sont identiques,
       ce qui démontre la troisième propriété.
     \item Pour la dernière propriété la table de vérité contient
-      seulement deux lignes :
+      seulement deux lignes~:
       \begin{table}
         \centering
         \begin{tabular}[H]{|c|cc|}
@@ -578,9 +596,10 @@
   \begin{frame}
     \frametitle{Connecteurs logiques}
     \framesubtitle{Disjonction, conjonction et négation}
+    \hypertarget{slide_disjonction_conjonction_et_negation}{}
 
-  \begin{properties}[Distributivité]\label{properties:distributivite}
-    Soient trois propositions $P$, $Q$ et $R$, on a :
+    \begin{properties}[Distributivité]\label{properties:distributivite}
+    Soient trois propositions $P$, $Q$ et $R$, on a~:
     \begin{enumerate}
     \item $(P\land Q)\lor R \Leftrightarrow (P\lor R) \land (Q\lor R)$
     \item $(P\lor Q)\land R \Leftrightarrow (P\land R) \lor (Q\land R)$
@@ -590,7 +609,8 @@
   \bigskip
 
   \begin{theorem}[Loi de Morgan]\label{theorem:morgan}
-    Soient $P$ et $Q$ deux propositions, on a :
+
+    Soient $P$ et $Q$ deux propositions, on a~:
     \begin{enumerate}
     \item $\overline{P \land Q} \Leftrightarrow \bar P \lor \bar Q$.
     \item $\overline{P \lor Q} \Leftrightarrow \bar P \land \bar Q$.
@@ -598,8 +618,8 @@
   \end{theorem}
 
   \bigskip
-  
-  La loi de Morgan souligne le lien entre la conjonction et la disjoinction, que nous pouvions déjà anticipé en comparant les tables de vérité respectives.\newline
+
+  La loi de Morgan souligne le lien entre la conjonction et la disjoinction, que nous pouvions déjà anticiper en comparant les tables de vérité respectives.\newline
 
   La négation d'une conjonction est la disjonction des négations.
 
@@ -608,12 +628,12 @@
 
   \begin{notes}
     \mbox{}
-    \textbf{Preuve de la propriété \autoref{properties:distributivite}.}
+    \textbf{Preuve de la propriété \hyperlink{slide_disjonction_conjonction_et_negation}{\ref{properties:distributivite}}.}
     On montre seulement la première propriété, pour la seconde on suit
     exactement la même approche, toujours en utilisant une table de
     vérité. On dénombre huit triplets de valeurs de vérité pour les
     propriétés $P$, $Q$ et $R$. La table est donc formée de huit
-    lignes :
+    lignes~:
     \begin{table}[H]
       \centering
       \begin{tabular}[H]{|ccc|cgccg|}
@@ -633,7 +653,7 @@
 
     \bigskip\bigskip
 
-    \textbf{Preuve du théorème \autoref{theorem:morgan}.} On démontre seulement le premier point, on peut suivre la même approche pour le second. On utilise une table de vérité de quatre lignes :
+    \textbf{Preuve du théorème \hyperlink{slide_disjonction_conjonction_et_negation}{\ref{theorem:morgan}}.} On démontre seulement le premier point, on peut suivre la même approche pour le second. On utilise une table de vérité de quatre lignes~:
     \begin{table}[H]
       \centering
       \begin{tabular}[H]{|cc|cgccg|}
@@ -648,15 +668,16 @@
     \end{table}
 
     \vspace*{\fill}
-    
+
   \end{notes}
 \subsection{Implication logique}
 
 \begin{frame}
   \frametitle{Implication logique}
   \framesubtitle{Le connecteur $\Rightarrow$, I}
+  \hypertarget{slide_implication_1}{}
+  \begin{definition}
 
-  \begin{definition}\label{def:implication}
     Soient deux propositions $P$ et $Q$. La proposition
     $P\Rightarrow Q$, on dit « $P$ implique $Q$ », est fausse si $P$
     est vraie \textbf{et} $Q$ est fausse, la proposition
@@ -665,6 +686,7 @@
 
 
   \begin{table}[H]
+
     \centering
     \begin{tabular}[H]{|cc|c|}
       \hline
@@ -679,45 +701,50 @@
     \label{tab:implication}
   \end{table}
 
-  \bigskip
-
   Ce connecteur logique peut paraître peu intuitif\ldots\newline
 
-  En réordonnant les colonnes, cette définition nous dit que si l'implication est vraie, on ne peut
-  rien inférer sur la vérité de $Q$ lorsque $P$ est fausse.
+  Si l'implication est vraie, $Q$ vraie peut être déduite de $P$ vraie.\newline
 
-  \clearpage
-  
+  Si l'implication est vraie, on ne peut rien inférer sur la vérité de $Q$ lorsque $P$ est fausse.\newline
+
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Implication logique}
   \framesubtitle{Le connecteur $\Rightarrow$, II}
+  \hypertarget{slide_implication_2}{}
 
   \begin{example}\label{ex:implication:1}
-    Considérons la proposition, qui ne devrait pas vous causer le
-    moindre doute, suivante :
-    \begin{quote}
-      Pour tout entier relatif $n$, si $n>2$ alors $n^2>4$
-    \end{quote}
 
-    On posera les propositions $P(n)$: « $n>2$ » et $Q(n)$: 
-    « $n^2>4$ ». On peut vérifier que pour différentes valeurs de $n$ on
-    peut retrouver toutes les lignes de la table de vérité de
-    l'implication logique :
+    Considérons une proposition qui ne devrait pas vous causer le
+    moindre doute~:
+
+    \medskip
+
+    \begin{quotation}
+      {Pour tout entier relatif $n$, si $n>2$ alors $n^2>4$}
+    \end{quotation}
+
+    \medskip
+
+    On note $R(n)$ la proposition précédente, et on pose $P(n)$~: «
+    $n>2$ » et $Q(n)$~: « $n^2>4$ ». On peut vérifier que pour
+    différentes valeurs de $n$ on retrouve trois des lignes de
+    la table de vérité de l'implication logique~:
     \begin{table}[H]
       \centering
-      \begin{tabular}[H]{|r|cc|}
+      \begin{tabular}[H]{|r|cc|c|}
         \hline
-        $n$ & $P(n)$ & $Q(n)$\\ \hline
-        3 & V & V \\
-        -3 & F & V \\
-        1 & F & F \\
+        $n$ & $P(n)$ & $Q(n)$ & $R(n)$\\ \hline
+        3 & V & V & V\\
+        -3 & F & V & V\\
+        1 & F & F & V\\
         \hline\hline
       \end{tabular}
     \end{table}
-    sauf la secconde ligne, où l'implication est fausse.
+    où l'implication est vraie, mais pas le cas où l'implication est
+    fausse (puisque $R(n)$ est vraie pour tout $n$).
   \end{example}
 
 \end{frame}
@@ -726,12 +753,15 @@
 \begin{frame}
   \frametitle{Implication logique}
   \framesubtitle{Le connecteur $\Rightarrow$, III}
+  \hypertarget{slide_implication_3}{}
 
   \begin{example}[$F\Rightarrow F$ est vraie]\label{ex:implication:2}
+
     Montrons que si $10^n+1$ est divisible par 9, alors $10^{n+1}+1$
-    est divisible par 9, pour $n$ entier. La première proposition,
-    $10^n+1$ est divisible par 9, exige l'existe d'un entier $k$ tel
-    que $10^n+1 = 9k$. Nous avons :
+    est divisible par 9, pour tout entier $n$.\newline
+
+    La première proposition, $10^n+1$ est divisible par 9, exige
+    l'existence d'un entier $k$ tel que $10^n+1 = 9k$. Nous avons~:
     \[
       10^{n+1}+1 = 10\times 10^n+1 =
       10\times(10^{n}+1)-9=9\times(10k-1)
@@ -750,18 +780,20 @@
 \begin{frame}
   \frametitle{Implication logique}
   \framesubtitle{Le connecteur $\Rightarrow$, IV}
+  \hypertarget{slide_implication_4}{}
 
   \begin{example}[$F\Rightarrow V$ est vraie]\label{ex:implication:3}
-    Soit la proposition $P:$ « $2=3$ et $2=1$ ». Cette proposition est
+
+    Soit la proposition $P~:$ « $2=3$ et $2=1$ ». Cette proposition est
     clairement fausse, néanmoins en sommant les deux égalités on
-    obtient :
+    obtient~:
     \[
       \begin{split}
         2+2 &= 3+1\\
         4 &= 4
       \end{split}
     \]
-    la proposition $Q:$ « $4=4$ » est évidemment vraie (forfuitement). Si la
+    la proposition $Q$~: « $4=4$ » est évidemment vraie (forfuitement). Si la
     proposition $P\Rightarrow Q$ est vraie, alors $Q$ peut être vraie
     même si $P$ est fausse. Autrement dit un raisonnement correcte
     peut (par chance) amener à un résultat correct même si le prémisse
@@ -774,9 +806,11 @@
 \begin{frame}
   \frametitle{Implication logique}
   \framesubtitle{$\Rightarrow$, $\land$, $\Rightarrow$}
+  \hypertarget{slide_implication_transitivite}{}
 
   \begin{theorem}[Transitivité]\label{theorem:implication:transitivite}
-    Soient $P$, $Q$ et $R$ trois propositions. On a :
+
+    Soient $P$, $Q$ et $R$ trois propositions. On a~:
     \[
       ((P\Rightarrow Q) \land (Q\Rightarrow R)) \Rightarrow
       (P\Rightarrow R)
@@ -787,7 +821,7 @@
 
   Si $P$ est vraie et si $P\Rightarrow Q$ est vraie, alors $Q$ est
   vraie (Cf. la première ligne de la table de vérité
-  \ref{tab:implication}). Si $Q\Rightarrow R$ est vraie, alors puisque
+  \hyperlink{slide_implication_1}{\ref{tab:implication}}). Si $Q\Rightarrow R$ est vraie, alors puisque
   $Q$ est vraie on en déduit que $R$ est vraie.\newline
 
   Cette propriété de transitivité sera souvent exploitée.\newline
@@ -799,9 +833,9 @@
 
 
 \begin{notes}
-  \textbf{Preuve du théorème \ref{theorem:implication:transitivite}.}
+  \textbf{Preuve du théorème \hyperlink{slide_implication_transitivite}{\ref{theorem:implication:transitivite}}.}
   La table de vérité contient huit lignes psuique nous travaillons
-  avec trois propositions: $P$, $Q$ et $R$ :
+  avec trois propositions~: $P$, $Q$ et $R$~:
 
   \begin{table}[H]
     \begin{tabular}[H]{|ccc|ccccg|}
@@ -818,7 +852,7 @@
       \hline\hline
     \end{tabular}
   \end{table}
-    
+
   Comme la dernière colonne est vraie sur toutes les lignes,
   c'est-à-dire pour tout triplet de valeurs de vérité des propositions
   $P$, $Q$ et $R$, la proposition relative à la transitivité de
@@ -829,9 +863,11 @@
 \begin{frame}
   \frametitle{Implication logique}
   \framesubtitle{$\Rightarrow$, $\Leftarrow$ et $\Leftrightarrow$, I}
+  \hypertarget{slide_implication_et_equivalence_1}{}
 
   \begin{theorem}[Équivalence]\label{theorem:implication:equivalence}
-    Soient $P$ et $Q$ deux propositions. On a :
+
+    Soient $P$ et $Q$ deux propositions. On a~:
     \[
       (P\Leftrightarrow Q) \Leftrightarrow ((P\Rightarrow Q) \land
       (Q\Rightarrow P))
@@ -855,7 +891,7 @@
 
 
 \begin{notes}
-  \textbf{Preuve du théorème \autoref{theorem:implication:equivalence}.}
+  \textbf{Preuve du théorème \hyperlink{slide_implication_et_equivalence_1}{\ref{theorem:implication:equivalence}}.}
   \begin{table}[H]
     \begin{tabular}[H]{|cc|gccg|}
       \hline
@@ -875,55 +911,61 @@
 \begin{frame}
   \frametitle{Implication logique}
   \framesubtitle{$\Rightarrow$, $\Leftarrow$ et $\Leftrightarrow$, II}
+  \hypertarget{slide_implication_et_equivalence_2}{}
 
   Les expressions « condition nécessaire et suffisante » (CNS), « si et seulement si » (ssi) ou encore « il faut et il suffit », font toutes référence à l'équivalence logique.\newline
 
-  Ainsi pour établir qu'une condition est nécessaire et suffisante il faudra décomposer la preuve en deux parties:
+  Ainsi pour établir qu'une condition est nécessaire et suffisante il faudra décomposer la preuve en deux parties~:
   \begin{itemize}
   \item montrer que la condition $P$ est nécessaire ($Q \Rightarrow P$)
   \item montrer que la condition $P$ est suffisante ($Q \Leftarrow P$)
   \end{itemize}
 
   \begin{example}\label{ex:implication:4}
+
     \begin{itemize}
     \item La proposition « $(x+1=3) \Rightarrow \left((x+1)^2=9\right)$ » est vraie. Il est \emph{suffisant} que $x+1$ soit égal à 3 pour que $(x+1)^2$ soit égal à 9.
     \item La proposition « $(x+1=3) \Leftarrow \left((x+1)^2=9\right)$ » n'est pas vraie. Il n'est pas \emph{nécessaire} que $x+1$ soit égal à 3 pour que $(x+1)^2$ soit égal à 9.
       \item Les deux propositions ne sont pas équivalentes.
     \end{itemize}
-    
+
   \end{example}
-  
+
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Implication logique}
   \framesubtitle{Réciproque et contreaposée}
+  \hypertarget{slide_reciproque_et_contraposee}{}
 
   \begin{definition}{Réciproque d'une implication}\label{def:implication:equivalence}
-    Soient deux propositions $P$ et $Q$. L'implication $Q\Rightarrow P$ est la réciproque de l'implication $P\Rightarrow Q$. 
+
+    Soient deux propositions $P$ et $Q$. L'implication $Q\Rightarrow P$ est la réciproque de l'implication $P\Rightarrow Q$.
   \end{definition}
 
   \bigskip
 
-  \textbf{Remarque:} Si deux propositions $P$ et $Q$ sont équivalentes alors par le théorème \autoref{theorem:implication:equivalence} l'implication et sa réciproque sont vraies.
+  \textbf{Remarque:} Si deux propositions $P$ et $Q$ sont équivalentes alors par le théorème \hyperlink{slide_implication_et_equivalence_1}{\ref{theorem:implication:equivalence}} l'implication et sa réciproque sont vraies.
 
   \bigskip
 
   \begin{definition}{Contraposée d'une implication}\label{def:implication:contraposee}
+
     Soient deux propositions $P$ et $Q$. L'implication $\bar Q\Rightarrow \bar P$ est la contraposée de l'implication $P\Rightarrow Q$.
   \end{definition}
 
   \bigskip
 
   \begin{theorem}[Contraposée]\label{theorem:implication:contraposee}
-    Soient $P$ et $Q$ deux propositions. On a : $(\bar Q \Rightarrow \bar P) \Leftrightarrow (P\Rightarrow Q)$
+
+    Soient $P$ et $Q$ deux propositions. On a~: $(\bar Q \Rightarrow \bar P) \Leftrightarrow (P\Rightarrow Q)$
   \end{theorem}
 \end{frame}
 
 \begin{notes}
 
-  \textbf{Preuve du théorème \autoref{theorem:implication:contraposee}.} La proposition
+  \textbf{Preuve du théorème \hyperlink{slide_reciproque_et_contraposee}{\ref{theorem:implication:contraposee}}.} La proposition
   $\bar Q \Rightarrow \bar P$ est fausse si et seulement si $\bar Q$
   est vraie et $\bar P$ est vraie, c'est-à-dire si et seulement si $Q$
   est fausse et $P$ est vraie. Ainsi $\bar Q \Rightarrow \bar P$ a les
@@ -936,9 +978,11 @@
 \begin{frame}
   \frametitle{Implication logique}
   \framesubtitle{Connecteurs logiques}
+  \hypertarget{slide_implication_et_connecteurs}{}
 
   \begin{theorem}\label{theorem:implication:connecteurs}
-    Soient $P$ et $Q$ deux propositions. On a :
+
+    Soient $P$ et $Q$ deux propositions. On a~:
     \[
       (P \Rightarrow Q) \Leftrightarrow (\bar P \lor Q)
       \]
@@ -946,15 +990,16 @@
 
   \bigskip
 
-  \textbf{Remarque:} Par la loi de Morgan (théorème \autoref{theorem:morgan}) on a aussi :
+  \textbf{Remarque:} Par la loi de Morgan (théorème \hyperlink{slide_disjonction_conjonction_et_negation}{\ref{theorem:morgan}}) on a aussi~:
   \[
     (P \Rightarrow Q) \Leftrightarrow \overline{P \land \bar Q}
   \]
-  
+
   Ce résultat est très important, on peut exprimer l'implication à l'aide d'un connecteur logique et d'une (ou deux) négation(s).\newline
 
   \begin{theorem}\label{theorem:equivalence:connecteurs}
-    Soient $P$ et $Q$ deux propositions. On a :
+
+    Soient $P$ et $Q$ deux propositions. On a~:
     \[
       (P \Leftrightarrow Q) \Leftrightarrow \left((\bar P \lor Q) \land (P \lor \bar Q)\right)
     \]
@@ -966,20 +1011,21 @@
 
 \begin{frame}
   \frametitle{Les ensembles}
+  \hypertarget{slide_ensembles_notations_definitions_1}{}
 
   \begin{definition}
     Un ensemble est une collection d'objets.
   \end{definition}
 
   \medskip
-  
+
   \begin{itemize}
   \item Les éléments d'un ensemble peuvent être de types variés (nombres, lettres, mots, phrases, ensembles, \ldots).\newline
-  \item Un ensemble peut être défini par une liste exhaustive des éléments qui le compose. Par exemple :
+  \item Un ensemble peut être défini par une liste exhaustive des éléments qui le compose. Par exemple~:
     \[
       A = \{1,3\}
     \]
-  \item Un ensemble peut être défini à partir d'une règle (indispensable si l'ensemble contient un nombre infini d'éléments). Par exemple :
+  \item Un ensemble peut être défini à partir d'une règle (indispensable si l'ensemble contient un nombre infini d'éléments). Par exemple~:
     \[
       B = \left\{ x \text{ entier naturel } | \text{ } x \text{ est un nombre impair }\right\}
     \]
@@ -991,23 +1037,24 @@
 \begin{frame}
   \frametitle{Les ensembles}
   \framesubtitle{Notations}
-  
+  \hypertarget{slide_ensembles_notations_definitions_2}{}
+
   \begin{itemize}
 
-    \item $\in$ note l'appartenance d'un élément à un ensemble : $5\in B$.\newline
+    \item $\in$ note l'appartenance d'un élément à un ensemble~: $5\in B$.\newline
 
-    \item $\notin$ note la non appartenance d'un élément à un ensemble : $6\notin B$.\newline
+    \item $\notin$ note la non appartenance d'un élément à un ensemble~: $6\notin B$.\newline
 
-    \item $\emptyset$ note l'ensemble vide : $\emptyset = \{\}$.\newline
+    \item $\emptyset$ note l'ensemble vide~: $\emptyset = \{\}$.\newline
 
-    \item $\subseteq$ note l'inclusion d'un ensemble dans un autre : $ A \subseteq B $ si tout élément de $A$ est aussi un élément de $B$.\newline
+    \item $\subseteq$ note l'inclusion d'un ensemble dans un autre~: $ A \subseteq B $ si tout élément de $A$ est aussi un élément de $B$.\newline
 
-    \item $\subset$ note l'inclusion stricte d'un ensemble dans un autre : $ A \subset B $ si tout élément de $A$ est aussi un élément de $B$ \emph{et} s'il existe au moins un élément de $B$ qui n'appartient pas à $A$.\newline
+    \item $\subset$ note l'inclusion stricte d'un ensemble dans un autre~: $ A \subset B $ si tout élément de $A$ est aussi un élément de $B$ \emph{et} s'il existe au moins un élément de $B$ qui n'appartient pas à $A$.\newline
 
     \item Deux ensembles $A$ et $B$ sont égaux si et seulement si $A\subseteq B$ et $B\subseteq A$.\newline
 
-    \item On note $\Omega$ l'ensemble universel qui contient tout les ensembles. 
-      
+    \item On note $\Omega$ l'ensemble universel qui contient tout les ensembles.
+
   \end{itemize}
 
 \end{frame}
@@ -1015,7 +1062,8 @@
 \begin{frame}
   \frametitle{Les ensembles}
   \framesubtitle{Exemples}
-  
+  \hypertarget{slide_ensembles_exemples}{}
+
   \begin{itemize}
 
   \item $\mathbb N$ l'ensemble des entiers naturels, $\mathbb Z$
@@ -1025,8 +1073,8 @@
       \mathbb Q = \left\{ \frac{a}{b}\text{ }\Bigl|\text{ }a\in\mathbb Z\text{, }b\in\mathbb Z\text{, et }b\neq 0\right\}
     \]
     Ces ensembles vérifient $\mathbb N \subset \mathbb Z \subset \mathbb Q \subset \mathbb R$.\newline
-    
-  \item Les intervalles sur la droite des réels :
+
+  \item Les intervalles sur la droite des réels~:
     \[
       \begin{split}
         ]a,b[ &= \{x\in\mathbb R\text{ }|\text{ }a<x<b\}\\
@@ -1035,7 +1083,7 @@
         [a,b[ &= \{x\in\mathbb R\text{ }|\text{ }a\leq x< b\}
       \end{split}
     \]
-      
+
   \end{itemize}
 
 \end{frame}
@@ -1046,12 +1094,13 @@
 \begin{frame}
   \frametitle{Les ensembles}
   \framesubtitle{Union}
-  
+  \hypertarget{slide_ensembles_union_1}{}
+
   \begin{definition} L'union de deux ensembles $A$ et $B$, notée $A$ et $B$
-    
+
   \end{definition}
 
-  
+
 \end{frame}
 
 

@@ -11,4 +11,7 @@ cours/prologue.out
 cours/prologue.snm
 cours/prologue.toc
 
+sources/*
+sandbox/*
+
 .DS_Store

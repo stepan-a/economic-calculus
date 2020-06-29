@@ -1,0 +1,101 @@
+\documentclass[10pt,a4paper,notitlepage,twocolumn]{article}
+\synctex=1
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+ \usepackage{scrtime}
+ \usepackage{exercise}
+
+\newcommand{\exercise}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Mardi 4 juin 2019}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\exercise{1} \question{a} Rappeler à l'aide d'une table de vérité la
+définition de l'implication logique entre deux propositions $P$ et
+$Q$. Montrer qu'il est possible de l'exprimer à l'aide d'un connecteur
+logique ($\land$ ou $\lor$) et d'une (ou plusieurs)
+négation(s). \question{b} Rappeler à l'aide d'une table de vérité la
+définition de l'équivalence logique entre deux propositions $P$ et
+$Q$. Montrer qu'il est possible de l'exprimer à l'aide de deux
+implications logiques et d'un connecteur logique. \question{c} Expliquer
+en quoi ce résultat est important.
+
+\bigskip
+  
+\exercise{2} Montrer la transitivité de l'implication logique.
+
+\bigskip
+
+\exercise{3} Soit la fonction de $\mathbb R$ dans $\mathbb R$ $f(x) = x^n$ avec $n\in\mathbb N$. \question{a} Rappeler la définition de la dérivée première d'une fonction. \question{b} Dans le cas $n=1$, montrer que $f'(x) = 1$ pour tout $x$. \question{c} Dans le cas $n=2$, montrer que $f'(x) = 2x$ pour tout $x$. \question{d} On suppose que la proposition :
+\begin{center}
+$P_{n}$ : \textit{Si $f(x)=x^{n}$ alors $f'(x) = n x^{n-1}$}  
+\end{center}
+est vraie. Montrer que la proposition :
+\begin{center}
+$P_{n+1}$ : \textit{Si $f(x)=x^{n+1}$ alors $f'(x) = (n+1) x^{n}$}  
+\end{center}
+ est nécessairement vraie. \question{e} Conclure sur la dérivée première de la fonction $f(x)$.
+
+\bigskip
+
+\exercise{4} Soit $f$, $g$ et $h$ trois fonctions continues deux fois dérivables et dont les dérivées sont continues. \question{a} Quelle est la dérivée de $f(g(x))$ par rapport à $x$. \question{b} Calculer la dérivée d'ordre deux de $f(g(x))$ par rapport à $x$. \question{c} Calculer la dérivée d'ordre un de $f(g(h(x)))$. \question{d} Sous quelle(s) condition(s) la fonction réciproque $f^{-1}$ existe-t-elle ? \question{e} Calculer la dérivée d'ordre un de $f^{-1}(x)$.
+
+\bigskip
+
+\exercise{5} Notons $S_n$ la somme des $n$ premiers entiers impairs. Nous avons donc $S_1 = 1$, $S_2 = 1 + 3 = 4$ et plus généralement $S_n = 1+3+\dots+2n-1$. Montrer que pour tout $n\in\mathbb N$ on a $S_n = n^2$, c'est-à-dire que la somme des $n$ premiers entiers impairs est égale au carré de $n$.  
+
+\bigskip
+
+\exercise{6} \question{a} Représenter graphiquement une fonction convexe monotone croissante $f$. \question{b} Tracer une tangente à cette fonction en un point positif quelconque, disons $x_{0}>0$. \question{c} Donner l'équation de cette tangente.
+
+\bigskip
+
+\exercise{7} Sur un marché la quantité offerte ($q$) est donnée comme
+une fonction du prix par :
+\[
+q = p^2
+\]
+et la demande est déterminée par :
+\[
+q = 6-p
+\]
+\question{a} Montrer qu'il existe un unique prix d'équilibre
+$p^{\star}$. \question{b} Donner une représentation graphique des
+fonctions de demande et d'offre, et de l'équilibre.
+
+\bigskip
+
+\exercise{8} Calculer les racines du polynôme suivant : 
+\[
+P(x) = 4x^3+4x^2-3x-5
+\]
+
+
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

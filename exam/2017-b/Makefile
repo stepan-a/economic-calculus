@@ -23,4 +23,4 @@ clean:
 	rm -rf auto
 
 clean-all: clean
-	rm *.pdf
+	rm -f *.pdf

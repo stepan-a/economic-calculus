@@ -13,8 +13,9 @@ correction-td.pdf: correction-td.tex
 clean:
 	rm -rf *.aux
 	rm -rf *.log
+	rm -rf auto
 
 clean-all: clean
-	rm *.pdf
+	rm -f *.pdf
 
 all: td.pdf clean

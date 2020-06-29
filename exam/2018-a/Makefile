@@ -1,6 +1,6 @@
 LATEX = pdflatex
 
-all: economic-calculus.pdf economic-calculus-correction.pdf
+all: economic-calculus.pdf economic-calculus-correction.pdf clean
 
 economic-calculus.pdf: economic-calculus.tex
 	while ($(LATEX) economic-calculus.tex ; \
@@ -21,4 +21,4 @@ clean:
 	rm -rf auto
 
 clean-all: clean
-	rm *.pdf
+	rm -f *.pdf

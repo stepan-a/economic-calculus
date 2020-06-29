@@ -25,4 +25,7 @@ cours-clean:
 exam-build:
 	$(MAKE) -C $(ROOT_PATH)/exam all
 
-clean-all: td-clean
+exam-clean:
+	$(MAKE) -C $(ROOT_PATH)/exam clean-all
+
+clean-all: td-clean exam-clean cours-clean

@@ -1,0 +1,62 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  TERM: linux
+
+stages:
+  - build
+  - deploy
+
+pdf:
+  stage: build
+  script:
+    - make all
+  tags:
+    - generic
+  artifacts:
+    paths:
+      - cours/prologue.pdf
+      - exam/2014-a/economic-calculus-correction.pdf
+      - exam/2014-a/economic-calculus.pdf
+      - exam/2014-b/economic-calculus.pdf
+      - exam/2015-a/economic-calculus-correction.pdf
+      - exam/2015-a/economic-calculus.pdf
+      - exam/2015-b/economic-calculus.pdf
+      - exam/2016-a/economic-calculus-correction.pdf
+      - exam/2016-a/economic-calculus.pdf
+      - exam/2016-b/economic-calculus.pdf
+      - exam/2017-a/economic-calculus-correction.pdf
+      - exam/2017-a/economic-calculus.pdf
+      - exam/2017-b/economic-calculus.pdf
+      - exam/2018-a/economic-calculus-correction.pdf
+      - exam/2018-a/economic-calculus.pdf
+      - exam/2018-b/economic-calculus.pdf
+      - td/1/td.pdf
+      - td/2/td.pdf
+      - td/3/td.pdf
+      - td/4/td.pdf
+    expire_in: 1 week
+
+web:
+  stage: deploy
+  only:
+    - master@University/economic-calculus
+  tags:
+    - restricted
+  dependencies:
+    - pdf
+  script:
+    - cp cours/prologue.pdf /home/www/le-mans.adjemian.eu/calcul-économique/cours
+    - cp -r exam/2014-a /home/www/le-mans.adjemian.eu/calcul-économique/exam
+    - cp -r exam/2014-b /home/www/le-mans.adjemian.eu/calcul-économique/exam
+    - cp -r exam/2015-a /home/www/le-mans.adjemian.eu/calcul-économique/exam
+    - cp -r exam/2015-b /home/www/le-mans.adjemian.eu/calcul-économique/exam
+    - cp -r exam/2016-a /home/www/le-mans.adjemian.eu/calcul-économique/exam
+    - cp -r exam/2016-b /home/www/le-mans.adjemian.eu/calcul-économique/exam
+    - cp -r exam/2017-a /home/www/le-mans.adjemian.eu/calcul-économique/exam
+    - cp -r exam/2017-b /home/www/le-mans.adjemian.eu/calcul-économique/exam
+    - cp -r exam/2018-a /home/www/le-mans.adjemian.eu/calcul-économique/exam
+    - cp -r exam/2018-b /home/www/le-mans.adjemian.eu/calcul-économique/exam
+    - cp -r td/1/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/1
+    - cp -r td/2/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/2
+    - cp -r td/3/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/3
+    - cp -r td/4/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/4

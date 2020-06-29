@@ -46,17 +46,17 @@ web:
     - pdf
   script:
     - cp cours/prologue.pdf /home/www/le-mans.adjemian.eu/calcul-économique/cours
-    - cp -r exam/2014-a /home/www/le-mans.adjemian.eu/calcul-économique/exam
-    - cp -r exam/2014-b /home/www/le-mans.adjemian.eu/calcul-économique/exam
-    - cp -r exam/2015-a /home/www/le-mans.adjemian.eu/calcul-économique/exam
-    - cp -r exam/2015-b /home/www/le-mans.adjemian.eu/calcul-économique/exam
-    - cp -r exam/2016-a /home/www/le-mans.adjemian.eu/calcul-économique/exam
-    - cp -r exam/2016-b /home/www/le-mans.adjemian.eu/calcul-économique/exam
-    - cp -r exam/2017-a /home/www/le-mans.adjemian.eu/calcul-économique/exam
-    - cp -r exam/2017-b /home/www/le-mans.adjemian.eu/calcul-économique/exam
-    - cp -r exam/2018-a /home/www/le-mans.adjemian.eu/calcul-économique/exam
-    - cp -r exam/2018-b /home/www/le-mans.adjemian.eu/calcul-économique/exam
-    - cp -r td/1/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/1
-    - cp -r td/2/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/2
-    - cp -r td/3/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/3
-    - cp -r td/4/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/4
+    - cp exam/2014-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2014-a
+    - cp exam/2014-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2014-b
+    - cp exam/2015-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2015-a
+    - cp exam/2015-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2015-b
+    - cp exam/2016-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2016-a
+    - cp exam/2016-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2016-b
+    - cp exam/2017-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2017-a
+    - cp exam/2017-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2017-b
+    - cp exam/2018-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2018-a
+    - cp exam/2018-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2018-b
+    - cp -r td/1/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/1/td.pdf
+    - cp -r td/2/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/2/td.pdf
+    - cp -r td/3/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/3/td.pdf
+    - cp -r td/4/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/4/td.pdf

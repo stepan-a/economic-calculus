@@ -34,7 +34,7 @@ pdf:
       - td/2/td.pdf
       - td/3/td.pdf
       - td/4/td.pdf
-    expire_in: 1 week
+    expire_in: 1 day
 
 web:
   stage: deploy

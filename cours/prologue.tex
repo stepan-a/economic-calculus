@@ -36,6 +36,17 @@
 \usepackage{dcolumn}
 \usepackage{adjustbox}
 \usepackage{environ}
+\usepackage[cal=boondox]{mathalfa}
+\usepackage{manfnt}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=black,      
+    urlcolor=black,
+}
+\usepackage{venndiagram}
+% \usepackage{enumitem}
 
 \newcommand{\trace}{\mathrm{tr}}
 \newcommand{\vect}{\mathrm{vec}}
@@ -58,6 +69,8 @@
 \newcommand{\red}{\color{red}}
 \newcommand{\blue}{\color{blue}}
 
+\renewcommand{\qedsymbol}{C.Q.F.D.}
+
 \newcolumntype{d}{D{.}{.}{-1}}
 \definecolor{gray}{gray}{0.9}
 \newcolumntype{g}{>{\columncolor{gray}}c}
@@ -70,6 +83,8 @@
 \theoremstyle{definition} % insert bellow all blocks you want in normal text
 \newtheorem{definition}{Définition}
 \newtheorem{properties}{Propriétés}
+\newtheorem{lemma}{Lemme}
+\newtheorem{property}[properties]{Propriété}
 \newtheorem{example}{Exemple}
 \newtheorem*{idea}{Éléments de preuve} % no numbered block
 
@@ -111,7 +126,6 @@
   \tableofcontents
 \end{frame}
 
-\section{Vocabulaire}
 
 \begin{frame}
   \frametitle{Un peu de vocabulaire}
@@ -142,7 +156,7 @@
 
 \section{Calcul propositionnel}
 
-\subsection{Table de vérité}
+% \subsection{Table de vérité}
 
 \begin{frame}
   \frametitle{Calcul propositionnel}
@@ -176,7 +190,7 @@
 
 \end{frame}
 
-\subsection{Équivalence logique}
+% \subsection{Équivalence logique}
 
 \begin{frame}
   \frametitle{Calcul propositionnel}
@@ -246,7 +260,7 @@
 
   \end{frame}
 
-  \subsection{Négation d'une proposition}
+%  \subsection{Négation d'une proposition}
 
   \begin{frame}
     \frametitle{Calcul propositionnel}
@@ -287,7 +301,7 @@
   \end{frame}
 
 
-  \subsection{Connecteurs logiques « et » et « ou »}
+%  \subsection{Connecteurs logiques $\land$ et $\lor$}
 
   \begin{frame}
     \frametitle{Connecteurs logiques}
@@ -669,7 +683,8 @@
     \vspace*{\fill}
 
   \end{notes}
-\subsection{Implication logique}
+
+\section{Implication logique}
 
 \begin{frame}
   \frametitle{Implication logique}
@@ -938,7 +953,7 @@
   \framesubtitle{Réciproque et contreaposée}
   \hypertarget{slide_reciproque_et_contraposee}{}
 
-  \begin{definition}{Réciproque d'une implication}\label{def:implication:equivalence}
+  \begin{definition}[Réciproque d'une implication]\label{def:implication:equivalence}
 
     Soient deux propositions $P$ et $Q$. L'implication $Q\Rightarrow P$ est la réciproque de l'implication $P\Rightarrow Q$.
   \end{definition}
@@ -949,7 +964,7 @@
 
   \bigskip
 
-  \begin{definition}{Contraposée d'une implication}\label{def:implication:contraposee}
+  \begin{definition}[Contraposée d'une implication]\label{def:implication:contraposee}
 
     Soient deux propositions $P$ et $Q$. L'implication $\bar Q\Rightarrow \bar P$ est la contraposée de l'implication $P\Rightarrow Q$.
   \end{definition}
@@ -1006,7 +1021,299 @@
 
 \end{frame}
 
+\section{Les grands types de raisonnements}
+
+\begin{frame}
+  \frametitle{Les grands types de raisonnements}
+
+    \centering
+    \includegraphics[scale=.8]{../img/le-chat.png}
+  
+\end{frame}
+
+
+% \subsection{Le raisonnement déductif}
+
+\begin{frame}
+  \frametitle{Les grands types de raisonnements}
+  \framesubtitle{Le raisonnement déductif}
+  \hypertarget{slide_raisonnement_deductif}{}
+
+  \begin{definition}[Modus ponens]
+    Si $P\Rightarrow Q$ est une proposition vraie, et si $P$ est une
+    proposition vraie alors $Q$ est une proposition vraie.
+  \end{definition}
+
+  \begin{itemize}
+
+    \bigskip
+
+  \item Le raisonnement déductif correspond à la première ligne de la
+    table de vérité \hyperlink{slide_implication_1}{\ref{tab:implication}}.\newline
+
+  \item On peut généraliser avec un nombre arbitraire d'implications,
+    en utilisant la transitivité de l'implication
+    (voir le théorème \hyperlink{slide_implication_transitivite}{\ref{theorem:implication:transitivite}}). Soient
+    $(P_i, i=1\dots,n)$ des propositions. Si $P_1\Rightarrow P_2 \Rightarrow \dots \Rightarrow P_n$ est une proposition vraie, et si $P_1$ est une proposition vraie alors $P_n$ est une proposition vraie.\newline
+
+  \item On peut généraliser à un ensemble dénombrable de propositions, voir plus loin le raisonnement par récurrence.
+    
+  \end{itemize}
+\end{frame}
+
+% \subsection{Le raisonnement par l'absurde}
+
+\begin{frame}
+  \frametitle{Les grands types de raisonnements}
+  \framesubtitle{Le raisonnement par l'absurde}
+  \hypertarget{slide_raisonnement_par_l_absurde_1}{}
+
+  \begin{definition}[Reductio ad absurdum]
+    Si $\overline P\Rightarrow Q$ est une proposition vraie, et si $Q$ est une
+    proposition fausse alors $P$ est une proposition vraie.
+  \end{definition}
+
+  \bigskip
+  
+  \begin{itemize}
+
+  \item On montre que la proposition $P$ est vraie en montrant que $P$ fausse aboutit à une contradiction logique.\newline
+
+  \item Le raisonnement par l'absurde correspond à la dernière ligne de la
+    table de vérité \hyperlink{slide_implication_1}{\ref{tab:implication}}. Si $Q$ est une proposition fausse, alors la proposition $\overline P\Rightarrow Q$ ne peut être vraie que si $\overline P$ est fausse, c'est-à-dire $P$ vraie.\newline
+
+  \item Contrairement au raisonnement déductif, ici on ne comprend pas vraiment pourquoi $P$ est vraie. C'est une limite du raisonnement par l'absurde. 
+    
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les grands types de raisonnements}
+  \framesubtitle{Exemple de raisonnement par l'absurde}
+  \hypertarget{slide_raisonnement_par_l_absurde_2}{}
+
+  \bigskip
+  
+  Montrons qu'il existe une infinité de nombres premiers.\newline
+
+  \medskip
+  
+  \begin{itemize}
+
+  \item Supposons qu'il existe seulement $n$ nombres premiers: $p_1<p_2<\dots<p_n$ (par exemple 2, 3, 5, 7 et 11).\newline
+
+  \item Posons $P = p_1 \times p_2 \times \dots \times p_n + 1$.\newline
+
+  \item Clairement $P$ est plus grand que $p_n$.\newline
+
+  \item $P$ est-il un nombre premier~?\newline
+
+    \begin{itemize}
+      
+    \item Si $P$ est premier, alors il y a plus de $n$ nombres premiers. Cela contredit l'hypothèse de départ.\newline
+
+    \item Si $P$ n'est pas un nombre premier, alors il est divisible
+      par un nombre premier. Par construction $P$ n'est pas divisible
+      par $p_1, \dots, p_n$. Il doit donc exister au moins un autre
+      nombre premier plus grand que $p_n$. À nouveau, cela contredit
+      l'hypothèse de départ.
+
+    \end{itemize}
+
+  \end{itemize}
+
+\end{frame}
+
+% \subsection{Le raisonnement par contraposition}
+
+\begin{frame}
+  \frametitle{Les grands types de raisonnements}
+  \framesubtitle{Le raisonnement par contraposition}
+  \hypertarget{slide_raisonnement_par_contraposition}{}
+
+  \begin{definition}[Modus tollens]
+   Pour montrer que $P\Rightarrow Q$ il faut et il suffit de montrer que $\overline Q\Rightarrow \overline P$.
+  \end{definition}
+
+  \begin{itemize}
+
+    \bigskip
+
+  \item Voir le théorème \hyperlink{slide_reciproque_et_contraposee}{\ref{theorem:implication:contraposee}}.\newline
+
+  \item Montrer que la proposition « $n^2$ pair implique $n$ pair » est équivalent à montrer que la proposition « $n$ impair implique $n^2$ impair». Or si $n$ est impair alors il peut s'écrire sous la forme $n = 2k+1$ avec $k$ un entier. En prenant le carré~:
+    \[
+      n^2 = (2k+1)^2 \Leftrightarrow n^2 = 2(2n+2k) + 1 \Leftrightarrow n^2 = 2\mathcal{k} + 1
+    \]
+    et donc $n^2$ est impair. On conclut que la proposition de départ « $n^2$ pair implique $n$ pair » est vraie.
+    
+  \end{itemize}
+
+\end{frame}
+
+
+% \subsection{Le raisonnement par récurrence}
+
+\begin{frame}
+  \frametitle{Les grands types de raisonnements}
+  \framesubtitle{Le raisonnement par récurrence}
+  \hypertarget{slide_raisonnement_par_reccurence_1}{}
+
+  \begin{definition}
+    Soit $P_n$ une proposition dépendant d'un entier $n$. Pour montrer
+    que cette proposition est vraie pour tout entier $n \geq n_0$, on procède en deux étapes~:
+    \begin{enumerate}
+    \item On montre que la proposition $P_{n_0}$ est vraie,
+    \item On montre que, pour un entier $n\geq n_0$ quelconque, si $P_n$ est vraie alors $P_{n+1}$ est vraie (ou la proposition $P_n \Rightarrow P_{n+1}$ est vraie).
+    \end{enumerate}
+  \end{definition}
+
+  \bigskip
+  
+  \begin{itemize}
+
+  \item La première étape est l'\textit{initialisation} de la récurrence, la seconde étape est l'\textit{hérédité}.\newline
+  \item En répétant indéfiniment l'étape 2, on obtient en partant de $P_{n_0}$ vraie~: $P_{n_0+1}$ vraie, $P_{n_0+2}$ vraie, $P_{n_0+3}$ vraie, ...    
+    
+  \end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Les grands types de raisonnements}
+  \framesubtitle{Exemple de raisonnement par récurrence, I}
+  \hypertarget{slide_raisonnement_par_reccurence_2}{}
+
+  \bigskip
+  
+   \begin{itemize}
+
+   \item Montrons qu'un polygône convexe à $n$ côtés possède $d_n = \frac{n(n-3)}{2}$ diagonales.\newline
+
+   \item On vérifie facilement que la prédiction est correcte pour un triangle ($n=3$)~: un triangle n'a pas de diagonales~!\newline
+
+   \item Soit un polygône convexe avec $n$ sommets ou côtés, voir \hyperlink{slide_raisonnement_par_reccurence_3}{l'illustration}. Supposons qu'il ait $d_n = \frac{n(n-3)}{2}$ diagonales et montrons qu'un polygône avec $n+1$ sommets a nécessairement $d_{n+1} = \frac{(n+1)(n-2)}{2}$ diagonales.\newline
+
+   \item Créons un polygône à $n+1$ sommets, $\mathcal P_{n+1}$, à partir de d'un polygône à $n$ sommets, $\mathcal P_{n}$. Notons $A_1$, $A_2$, ..., $A_n$ les sommets de $\mathcal P_{n}$.\newline
+
+   \item On construit $\mathcal P_{n+1}$ en créant un nouveau sommet $A_{n+1}$ entre $A_1$ et $A_2$ à l'extérieur du polygône (de sorte que le nouveau polygône soit convexe, autrement certaines diagonales sortiraient du polygône). 
+     
+   \end{itemize}
+   
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les grands types de raisonnements}
+  \framesubtitle{Exemple de raisonnement par récurrence, II}
+  \hypertarget{slide_raisonnement_par_reccurence_2}{}
+
+  \bigskip
+  
+   \begin{itemize}
+
+   \item Les diagonales de $\mathcal P_n$ sont des diagonales de $\mathcal P_{n+1}$.\newline
+   \item En reliant $A_{n+1}$ à $A_3$, $A_4$, ..., $A_n$ on obtient $n-2$ nouvelles diagonales dans $\mathcal P_{n+1}$.\newline
+   \item La dernière diagonale de $\mathcal P_{n+1}$ est le segment $A_1A_2$ (un côté de $\mathcal P_n$).\newline
+   \item Au total, nous avons~:
+     \[
+       d_{n+1} = \frac{n(n-3)}{2} + n-2 + 1
+     \]
+     \[
+       \Leftrightarrow d_{n+1} = \frac{n^2-n-2}{2} \Leftrightarrow d_{n+1} = \frac{(n+1)(n-2)}{2} \qed
+     \]
+   \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les grands types de raisonnements}
+  \framesubtitle{Exemple de raisonnement par récurrence, III (héxagone)}
+  \hypertarget{slide_raisonnement_par_reccurence_3}{}
+
+  \begin{center}
+  \begin{tikzpicture}[scale=0.7]
+    \coordinate (1) at (4,9);
+    \coordinate (2) at (10,6);
+    \coordinate (3) at (8,2);
+    \coordinate (4) at (4,0);
+    \coordinate (5) at (1,2);
+    \coordinate (6) at (0,6);
+    \path[draw, thick] (4) node[below] {$A_4$}
+    -- (5) node[left] {$A_5$}
+    -- (6) node[left] {$A_6$}
+    -- (1) node[above] {$A_1$}
+    -- (2) node[right] {$A_2$}
+    -- (3) node[below] {$A_3$}
+    -- cycle;
+    \draw[dashed] (4) -- (6);
+    \draw[dashed] (4) -- (1);
+    \draw[dashed] (4) -- (2);
+    \draw[dashed] (3) -- (5);
+    \draw[dashed] (3) -- (6);
+    \draw[dashed] (3) -- (1);
+    \draw[dashed] (2) -- (5);
+    \draw[dashed] (2) -- (6);
+    \draw[dashed] (1) -- (5);
+    \foreach \x in {(1), (2), (3), (4), (5), (6)}{
+      \fill \x circle[radius=0.1cm];
+    };
+  \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Les grands types de raisonnements}
+  \framesubtitle{Exemple de raisonnement par récurrence, III (héptagone)}
+
+  \begin{center}
+  \begin{tikzpicture}[scale=0.7]
+    \coordinate (1) at (4,9);
+    \coordinate (2) at (10,6);
+    \coordinate (3) at (8,2);
+    \coordinate (4) at (4,0);
+    \coordinate (5) at (1,2);
+    \coordinate (6) at (0,6);
+    \coordinate (7) at (8,8);
+    \path[draw, thick] (4) node[below] {$A_4$}
+    -- (5) node[left] {$A_5$}
+    -- (6) node[left] {$A_6$}
+    -- (1) node[above] {$A_1$}
+    -- (2) node[right] {$A_2$}
+    -- (3) node[below] {$A_3$}
+    -- cycle;
+    \draw[dashed] (4) -- (6);
+    \draw[dashed] (4) -- (1);
+    \draw[dashed] (4) -- (2);
+    \draw[dashed] (3) -- (5);
+    \draw[dashed] (3) -- (6);
+    \draw[dashed] (3) -- (1);
+    \draw[dashed] (2) -- (5);
+    \draw[dashed] (2) -- (6);
+    \draw[dashed] (1) -- (5);
+    \path[draw, thick, red] (1) -- (7) node [right] {$A_7$} -- (2);
+    \foreach \x in {(3), (4), (5), (6)}{
+      \draw[dashed, red] (7) -- \x;
+    };
+    \draw[dashed, red, thick] (1) -- (2);
+    \draw[red, fill=red] (7) circle [radius=0.1cm];
+    \foreach \x in {(1), (2), (3), (4), (5), (6)}{
+      \fill \x circle[radius=0.1cm];
+    };
+  \end{tikzpicture}
+\end{center}
+
+\end{frame}
+
+
 \section{Les ensembles}
+
+% \subsection{Définitions}
 
 \begin{frame}
   \frametitle{Les ensembles}
@@ -1087,24 +1394,1085 @@
 
 \end{frame}
 
-\subsection{Opérations sur les ensembles}
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Remarques}
+  \hypertarget{slide_ensembles_remarques}{}
+
+  \begin{itemize}
+
+  \item[\dbend] Ne pas confondre $\emptyset$ et $\{\emptyset\}$, qui n'est pas vide puisqu'il contient l'ensemble vide.\newline
+
+  \item[\dbend] Ne pas confondre $\in$ et $\subset$. La proposition $\pi\in\mathbb R$ dit que le nombre $\pi$ appartient à l'ensemble des réels, \textbf{mais} la proposition $\pi\subset\mathbb R$ n'a pas de sens car $\pi$ n'est pas un ensemble. La proposition $[0,1]\subset\mathbb R$ dit que l'intervalle $[0,1]$ est un sous ensemble de l'ensemble des réels, \textbf{mais} la proposition $[0,1]\in\mathbb R$ n'a pas de sens car cet interval n'est pas un élément de l'ensemble des réels.\newline
+
+  \item Le symbole d'appartenance, $\in$, relie un élément à un ensemble ; le symbole d'inclusion, $\subset$, relie deux ensembles.\newline
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{L'insolite ensemble vide}
+  \hypertarget{slide_ensemble_vide_1}{}
+
+  
+  \begin{property}
+  Pour tout ensemble $A$, l'ensemble vide $\emptyset$ est un sous ensemble de $A$.
+  \end{property}
+
+  \bigskip\bigskip
+  
+  Si $\emptyset$ n'est pas inclus dans $A$, alors il existe au moins
+  un élément de l'ensemble vide qui n'appartienne pas à $A$. Or,
+  l'ensemble vide ne contient aucun élément, \textit{a fortiori} aucun
+  élément qui n'appartienne pas à $A$. Donc tout élément de
+  $\emptyset$ appartient à $A$, ainsi $\emptyset$ est un sous ensemble
+  de $A$.
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Quantificateurs}
+  \hypertarget{quantificateurs_notations}{}
+
+
+  Pour définir un ensemble ou décrire ses propriétés, on utilise souvent des phrases comme~: « il existe », « il n'existe pas », « il existe un unique », « pour tout x », ... Afin  d'abréger on utilise les notations suivantes :\newline
+
+  \begin{itemize}
+
+  \item[$\forall$] $\rightarrow$ pour tout (par exemple $\forall x \in A$ se lit « pour tout $x$ dans l'ensemble $A$ »).\newline
+
+  \item[$\exists$] $\rightarrow$ il existe (par exemple $\exists x\in A$ tel que $x\notin B$, se lit « il existe un élément x dans $A$ qui n'appartient pas à $B$ »).\newline
+
+  \item[$\exists!$] $\rightarrow$ il existe un unique.\newline
+
+  \item[$\nexists$] $\rightarrow$ il n'existe pas.\newline
+
+  \end{itemize}
+
+  Nous reviendrons plus loin sur les propriétés de ces quantificateurs. 
+
+\end{frame}
+
+% \subsection{Opérations sur les ensembles}
 
 
 \begin{frame}
   \frametitle{Les ensembles}
   \framesubtitle{Union}
-  \hypertarget{slide_ensembles_union_1}{}
+  \hypertarget{slide_ensembles_union}{}
 
-  \begin{definition} L'union de deux ensembles $A$ et $B$, notée $A$ et $B$
-
+  \begin{definition}\label{def:union} L'union de deux ensembles $A$ et $B$, notée $A\cup B$, est un ensemble contenant les éléments des ensembles $A$ et $B$. Plus formellement, $A \cup B = \{x | x \in A \lor x\in B\}$.
   \end{definition}
 
+  \bigskip
+  
+  \begin{properties}\label{properties:union}
+    \begin{enumerate}
+    \item L'union est associative. Soient $A$, $B$ et $C$ trois ensembles, alors $(A\cup B)\cup C = A\cup (B\cup C)$.
+    \item L'union est commutative. Soient $A$ et $B$ deux ensembles, alors $A \cup B = B \cup A$.
+    \item L'union est idempotente. Soit $A$ un ensemble, alors $A\cup A = A$.
+    \item $\emptyset$ est l'élément neutre de l'union. Soit $A$ un ensemble, alors $A\cup\emptyset=A$
+    \end{enumerate}
+  \end{properties}
 
 \end{frame}
 
 
+\begin{notes}
+  \begin{itemize}
+  \item Quand on écrit $A\cup B = B\cup A$, ou plus généralement quand on considère l'égalité de deux ensembles, il faut comprendre que $A\cup B \subseteq B\cup A$ et $B\cup A \subseteq A\cup B$. Pour montrer l'égalité de deux ensembles il faut donc montrer deux inclusions.\newline
+
+  \item On peut généraliser en considérant un ensemble dénombrable d'ensembles. Par exemple, soit $E = \{E_i, i\in \mathbb N\}$ où chaque $E_i$ est un ensemble. On peut définir l'union de ces ensembles~: $\mathcal E = \bigcup_{i\in\mathbb N}E_i$. La proposition  $x\in\mathcal E$ est équivalente à la proposition $\exists i\in\mathbb N \text{ tel que } x\in E_i$.  
+  \end{itemize}
+
+  \bigskip
+
+  \textbf{Preuve de Propriétés \hyperlink{slide_ensembles_union}{\ref{properties:union}}.} (2) Pour établir la commutativité nous devrions montrer que si $x\in A\cup B$ alors $x\in B\cup A$ et que si $x\in B\cup A$ alors $x\in A\cup B$ (voir la première remarque plus haut). La preuve est très simple, car l'opérateur union hérite des propriétés de l'opérateur logique $\lor$ (la disjonction). En effet,
+  \[
+    \begin{split}
+      x \in A \cup B &\Leftrightarrow x \in A \lor x\in B \text{, par définition de l'union}\\
+      &\Leftrightarrow x \in B \lor x\in A \text{, car la disjonction est commutative}\\
+      &\Leftrightarrow x \in B\cup A
+    \end{split}
+  \]
+  (1) On montre tout aussi simplement que l'union est associative~:
+  \[
+    \begin{split}
+      x \in (A\cup B)\cup C &\Leftrightarrow x \in (A \cup \in B) \lor x\in C\\
+      &\Leftrightarrow (x\in A \lor x\in B) \lor x\in C\\
+      &\Leftrightarrow x\in A \lor (x\in B \lor x\in C) \text{, car la disjonction est associative}\\
+      &\Leftrightarrow x\in A\cup (B\cup C)
+    \end{split}
+  \]
+  (3) On procède de la même façon en rappelant que la disjonction est idempotente, voir Propriétés \hyperlink{slide_disjonction_2}{\ref{properties:disjonction}}. (4) Car $\emptyset$ est un élément de $A$.
+  
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Intersection}
+  \hypertarget{slide_ensembles_intersection}{}
+
+  \begin{definition}\label{def:intersection} L'intersection de deux ensembles $A$ et $B$, notée $A\cap B$, est un ensemble contenant les éléments communs des ensembles $A$ et $B$. Plus formellement, $A \cap B = \{x | x \in A \land x\in B\}$.
+  \end{definition}
+
+  \bigskip
+  
+  \begin{properties}\label{properties:intersection}
+    \begin{enumerate}
+    \item L'intersection est associative. Soient $A$, $B$ et $C$ trois ensembles, alors $(A\cap B)\cup C = A\cap (B\cap C)$.
+    \item L'intersection est commutative. Soient $A$ et $B$ deux ensembles, alors $A \cap B = B \cap A$.
+    \item L'intersection est idempotente. Soit $A$ un ensemble, alors $A \cap A = A$.
+    \item $\Omega$ est l'élément neutre de l'intersection. Soit $A$ un ensemble, alors $A\cap\Omega=A$
+    \end{enumerate}
+  \end{properties}
+
+\end{frame}
+
+
+\begin{notes}
+  \begin{itemize}
+  \item On peut généraliser en considérant un ensemble dénombrable d'ensembles. Par exemple, soit $E = \{E_i, i\in \mathbb N\}$ où chaque $E_i$ est un ensemble. On peut définir l'intersection de ces ensembles~: $\mathcal E = \bigcap_{i\in\mathbb N}E_i$. La proposition  $x\in\mathcal E$ est équivalente à la proposition $\forall i\in\mathbb N, x\in E_i$.  
+  \end{itemize}
+
+  \bigskip
+
+  \textbf{Preuve de Propriétés \hyperlink{slide_ensembles_intersection}{\ref{properties:intersection}}.} On suit la même démarche que pour la preuve de Propriétés \hyperlink{slide_ensembles_union}{\ref{properties:union}}, l'intersection hérite des propriétés de la conjonction. Par exemple, pour la commutativité, on a :
+ \[
+    \begin{split}
+      x \in A \cap B &\Leftrightarrow x \in A \land x\in B \text{, par définition de l'intersection}\\
+      &\Leftrightarrow x \in B \land x\in A \text{, car la conjonction est commutative}\\
+      &\Leftrightarrow x \in B\cap A
+    \end{split}
+  \]
+ 
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Différence}
+  \hypertarget{slide_ensembles_difference}{}
+
+  \begin{definition}\label{def:difference} La différence de deux ensembles $A$ et $B$, notée $A\setminus B$, est un ensemble contenant les éléments de $A$ qui n'appartiennent pas à $B$. Plus formellement, $A \setminus B = \{x\in A | x \notin B\}$.
+  \end{definition}
+
+  \bigskip
+  
+  \begin{properties}\label{properties:difference}
+    \begin{enumerate}
+    \item Soit $A$ un ensemble, alors $A\setminus A = \emptyset$.
+    \item Soit $A$ un ensemble, alors $A\setminus \emptyset = A$.
+    \item Soit $A$ un ensemble, alors $\emptyset \setminus A = \emptyset$.
+    \item Soit $A$ un ensemble, alors $A\setminus\Omega = \emptyset$.
+    \end{enumerate}
+  \end{properties}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Complémentaire}
+  \hypertarget{slide_ensembles_complementaire}{}
+
+  \begin{definition}\label{def:complementaire} Le complémentaire d'un ensemble $A$, noté $\bar A$, est l'ensemble des éléments qui n'appartiennent pas à $A$. Plus formellement, $\bar A = \{x\in\Omega|x\notin A\}$.
+  \end{definition}
+
+  \bigskip
+
+  \begin{properties}\label{properties:complementaire}
+    \begin{enumerate}
+    \item Soit $A$ un ensemble, alors $A \cup \bar A = \Omega$.
+    \item Soit $A$ un ensemble, alors $A \cap \bar A = \emptyset$.
+    \item $\bar\emptyset = \Omega$ et $\bar\Omega = \emptyset$.
+    \item Soient $A$ et $B$ deux ensembles tels que $A\subseteq B$, alors $\bar B \subseteq \bar A$.
+    \item Soit $A$ un ensemble, alors $\bar{\bar A} = A$.
+    \end{enumerate}
+  \end{properties}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Distributivité}
+  \hypertarget{slide_ensembles_distributivite}{}
+
+  \begin{properties}\label{properties:distributivite} Soient $A$, $B$ et $C$ trois ensembles.
+    \begin{enumerate}
+    \item $A\cap (B\cup C) = (A\cap B) \cup (A\cap C)$.
+    \item $A\cup (B\cap C) = (A\cup B) \cap (A\cup C)$.
+    \item $C \setminus (A\cap B) = (C\setminus A) \cup (C\setminus B)$.
+    \item $C \setminus (A\cup B) = (C\setminus A) \cap (C\setminus B)$.
+    \end{enumerate}
+  \end{properties}
+
+\end{frame}
+
+\begin{notes}
+  \textbf{Preuve de Propriétés \hyperlink{slide_ensembles_distributivite}{\ref{properties:distributivite}}.} On se contente de montrer la première propriété, le reste est laissé comme exercice. On a~:
+  \[
+    \begin{split}
+      x\in A\cap (B\cup C) &\Leftrightarrow x\in A \land x\in (B\cup C)\\
+      & \Leftrightarrow x\in A \land (x\in B \lor x\in C)\\
+      & \Leftrightarrow (x\in A \land x\in B) \lor (x\in A \land x\in C) \text{, en exploitant la distributivité de la disjonction et conjonction}\\
+      & \Leftrightarrow x\in (A\cap B) \cup (A\cap C)
+    \end{split}
+  \]
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Diagramme de Venn, union}
+  \hypertarget{slide_ensembles_venn_union}{}
+
+  \begin{center}
+  \begin{venndiagram3sets}
+    \fillA \fillB \fillC
+  \end{venndiagram3sets}\\
+  $A\cup B \cup C$
+  \end{center}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Diagramme de Venn, intersection}
+  \hypertarget{slide_ensembles_venn_intersection}{}
+
+  \begin{center}
+  \begin{venndiagram3sets}
+    \fillACapBCapC
+  \end{venndiagram3sets}\\
+  $A \cap B \cap C$
+  \end{center}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Diagramme de Venn, différence}
+  \hypertarget{slide_ensembles_venn_difference}{}
+
+  \begin{center}
+  \begin{venndiagram2sets}
+    \fillANotB
+  \end{venndiagram2sets}\\
+  $A \setminus B$
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Diagramme de Venn, complémentaire}
+  \hypertarget{slide_ensembles_venn_complementaire}{}
+
+  \begin{center}
+  \begin{venndiagram2sets}
+    \fillNotA
+  \end{venndiagram2sets}\\
+  $\bar A$
+  \end{center}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Opérateurs binaires et complémentaire}
+  \hypertarget{slide_ensembles_morgan}{}
+
+  \begin{theorem}[Loi de Morgan]\label{theorem:ensemble_morgan}
+    Soient $A$ et $B$ deux ensembles. On a~:
+    \begin{enumerate}
+    \item $\overline{A\cup B} = \bar A \cap \bar B$.
+    \item $\overline{A\cap B} = \bar A \cup \bar B$.
+    \end{enumerate}
+  \end{theorem}
+
+  \bigskip
+
+  \begin{theorem}\label{theorem:ensemble_diff_comp}
+    Soient $A$ et $B$ deux ensembles. On a~:
+    \begin{enumerate}
+    \item $\overline{A\setminus B} = \bar A \cup B$.
+    \item $\bar A\setminus \bar B = B\setminus A$.
+    \end{enumerate}
+  \end{theorem}
+  
+\end{frame}
+
+
+\begin{notes}
+  
+  \textbf{Preuve du théorème \hyperlink{slide_ensembles_morgan}{\ref{theorem:ensemble_morgan}}.} Montrons que $\overline{A\cup B} = \bar A \cap \bar B$, le second point est laissé en exercice.
+  \begin{itemize}
+  \item[$\bullet$] Montrons d'abord que $\overline{A\cup B} \subseteq \bar A \cap \bar B$. C'est à dire que si $x$ est dans $\overline{A\cup B}$ alors $x$ est nécessairement dans $\bar A \cap \bar B$. Soit $x\in\overline{A\cup B}$, alors $x\notin A\cup B$. Or
+    \[
+      A\cup B = \{z | z\in A \lor z\in B \}
+    \]
+    Ainsi il faut que $x\notin A \land x\notin B$, c'est-à-dire $x\in\bar A \land x\in\bar B$ (par définition du complémentaire), et donc $x\in \bar A \cap \bar B$ (par définition de l'intersection). Nous avons bien montré que $\overline{A\cup B} \subseteq \bar A \cap \bar B$.
+  \item[$\bullet$] Montrons que $\bar A \cap \bar B \subseteq \overline{A\cup B}$. Soit $x\in \bar A \cap \bar B$, par définition de l'intersection, cela se traduit par $x\in \bar A \land x \in \bar B$ ou encore, par définition du complémentaire, $x\notin A \land x\notin B$. Finalement, en rappelant que la négation d'une disjonction est une conjonction des négations, $\overline{x\in A \lor x\in B}$. Par définition de l'union nous avons donc~: $x\in \overline{A\cup B}$. Ainsi nous avons bien montré que $\bar A \cap \bar B \subseteq \overline{A\cup B}$ 
+  \end{itemize}
+  Au total, nous avons l'égalité des deux ensembles (puisque chacun contient l'autre). Comme dans les preuves précédentes, on voit que nous héritons directement des propriétés des opérateurs logiques.
+
+  \bigskip
+
+  Afin de montrer le théorème \hyperlink{slide_ensembles_morgan}{\ref{theorem:ensemble_diff_comp}} nous allons d'abord établir le lemme suivant~:\newline
+
+  \textbf{Lemme} Soient $A$ et $B$ deux ensembles. On a $A\setminus B = A \cap\bar B$.\newline
+
+  \textbf{Preuve} Nous avons~:
+  \[
+    \begin{split}
+      x\in A\setminus B &\Leftrightarrow x\in A \land x\notin B\\
+      &\Leftrightarrow x\in A \land x\in \bar B\\
+      &\Leftrightarrow x\in A \ x\cap \bar B \text{, par définition de l'intersection}\qed
+    \end{split}
+  \]
+  
+ \textbf{Preuve du théorème \hyperlink{slide_ensembles_morgan}{\ref{theorem:ensemble_diff_comp}}.} (1) Direct en utilisant le lemme et la loi de Morgan. (2) Direct en utilisant le lemme et la commutativité de l'intersection.
+  
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Différence symétrique}
+  \hypertarget{slide_ensembles_difference_symetrique}{}
+
+  \begin{definition}\label{def:difference_symetrique} La différence symétrique de deux ensembles $A$ et $B$, notée $A\Delta B$, est un ensemble contenant les éléments de $A$ qui n'appartiennent pas à $B$ et les éléments de $B$ qui n'appartiennent pas à $A$. Plus formellement, $A \Delta B = (A\cup B)\setminus (A\cap B)$.
+  \end{definition}
+
+  \bigskip
+  
+  \begin{properties}\label{properties:difference}
+    \begin{enumerate}
+    \item La différence symétrique est associative. Si $A$, $B$ et $C$ sont des ensembles, alors $A\Delta (B\Delta C)=(A\Delta B)\Delta C$.
+    \item La différence symétrique est commutative. Si $A$ et $B$ sont deux ensembles, alors $A\Delta B = B\Delta A$.
+    \item L'ensemble vide est l'élément neutre de la différence symétrique. Si $A$ est un ensemble, alors $A\Delta \emptyset = A$.
+    \item Si $A$ est un ensemble, alors $A\Delta A = \emptyset$.
+    \end{enumerate}
+  \end{properties}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Diagramme de Venn, différence symétrique}
+  \hypertarget{slide_ensembles_venn_difference}{}
+
+  \begin{center}
+  \begin{venndiagram3sets}
+    \fillOnlyA \fillOnlyB \fillOnlyC \fillACapBCapC
+  \end{venndiagram3sets}\\
+  $A \Delta B \Delta C$
+  \end{center}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Le produit cartésien}
+  \hypertarget{slide_ensembles_produit}{}
+
+  \begin{definition}\label{def:produit_cartesien} Le produit cartésien de deux ensembles $E$ et $F$ est l'ensemble des couples ordonnés $(x,y)$ où $x \in E$ et $y \in F$. On note~:
+    \[
+      E\times F = \{(x, y) | x\in E \land y\in F\}
+    \]
+  \end{definition}
+
+  \bigskip
+  
+  \begin{itemize}
+
+  \item[\dbend] Les couples sont ordonnés $\Rightarrow$ $(x,y) \neq (y, x)$.\newline\newline
+
+  \item On peut généraliser en considérant le produit cartésien d'un nombre arbitraire d'ensembles. Soit $E_1, E_2, \ldots E_n$ une collection d'ensembles. Alors le produit cartésien des $n$ ensembles $E_i$ est~:
+    \[
+      E_1\times E_2 \times \ldots \times E_n = \{(x_1,x_2, \ldots, x_n)| x_1\in E_1 \land x_2\in E_2 \land \ldots \land E_n\}
+    \]
+    où les $(x_1,x_2, \ldots, x_n)$ sont des n-uplets (ordonnés).
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Exemple de produit cartésien}
+  \hypertarget{slide_exemple_ensembles_produit}{}
+
+  
+  \begin{itemize}
+
+  \item Soit deux ensembles $A$ et $B$~:
+    \[
+      A = \{0,1,2,3,4\}
+    \]
+    \[
+      B = \{1,3,5\}
+    \]
+
+    
+  \item Le produit cartésien de $A$ et $B$ est~:
+    \[
+      \begin{split}
+        A\times B = \{&(0,1), (0,3), (0,5)\\
+        &(1,1), (1,3), (1,5)\\
+        &(2,1), (2,3), (2,5)\\
+        &(3,1), (3,3), (3,5)\\
+        &(4,1), (4,3), (4,5)\}
+      \end{split}
+    \]
+
+  \item $A$ has 5 elements, $B$ has 3 elements and $A\times B$ has $15=5\times 3$ elements.
+
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Cardinal d'un ensemble}
+  \hypertarget{slide_ensembles_cardinal}{}
+
+  
+  \begin{definition}\label{def:cardinal} Le cardinal d'un ensemble est le nombre d'éléments d'un ensemble. On note $\textrm{Card}(E)$ le cardinal d'un ensemble $E$. On dit qu'un ensemble est fini si son cardinal est fini.
+  \end{definition}
+
+  \bigskip
+  
+  \begin{theorem}\label{thm:cardinal} Soient $E$ et $F$ deux ensembles finis~: $\textrm{Card}(E\times F) = \textrm{Card}(E)\times \textrm{Card}(F)$.
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Partitions d'un ensemble}
+  \hypertarget{slide_ensembles_partitions}{}
+
+  
+  \begin{definition}\label{def:partitions} Tous les sous ensembles d'un ensemble $E$ peuvent être considérés comme les éléments d'un nouvel ensemble que l'on appelle \textbf{ensemble des parties} de l'ensemble $E$, noté $\mathcal P(E)$.
+  \end{definition}
+
+  \bigskip
+  
+  \begin{theorem}\label{thm:partitions} Soit $E$ un ensemble. Le nombre de sous ensemble est donné par~:
+    \[
+      \textrm{Card}(\mathcal P(E)) = 2^{\textrm{Card(E)}}
+    \]
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Exemple de Partitions}
+  \hypertarget{slide_ensembles_exemple_partitions}{}
+
+  \begin{itemize}
+    
+  \item Soit l'ensemble $E = \{a,b,c\}$.\newline
+
+  \item Les sous ensembles sont $\{a\}$, $\{b\}$, $\{c\}$, $\{a,b\}$, $\{a,c\}$, $\{b,c\}$, $\{a,b,c\}$ et $\emptyset$ (n'oublions pas que l'ensemble vide appartient à tout ensemble).\newline
+
+  \item Nous avons donc~:
+    \[
+      \textrm{Card}(\mathcal P(E)) = \left\{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,b,c\}\right\}
+    \]
+
+  \item On vérifie que $\textrm{Card}(\mathcal P(E)) = 8 = 2^3$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les ensembles}
+  \framesubtitle{Union et cardinal}
+  \hypertarget{slide_ensembles_union_cardnal}{}
+
+ \begin{theorem}\label{thm:union_cardinal} Soient $A$ et $B$ deux ensembles finis, alors
+    \[
+      \textrm{Card}(A \cup B) = \textrm{Card}(A) + \textrm{Card}(B) - \textrm{Card}(A \cap B) 
+    \]
+  \end{theorem}
+
+  \bigskip
+  
+  \begin{itemize}
+  \item Si l'intersection est vide le cardinal de l'union est la somme des cardinaux.\newline
+  \item On doit retrancher le cardinal de l'intersection, autrement les éléments de l'intersection sont comptés deux fois.\newline
+  \item Il est possible de généraliser cette formule pour un nombre arbitraire d'ensembles finis. 
+  \end{itemize}
+\end{frame}
+
+\section{Les fonctions}
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Relations et fonctions}
+  \hypertarget{slide_relations_et_fonctions_1}{}
+
+  \begin{definition}\label{def:relation} Un ensemble de paires ordonnées de nombres est appelé une relation binaire.
+  \end{definition}
+
+  \begin{itemize}
+  \item L'ensemble des premiers nombres d'une relation binaire est l'\textbf{ensemble de départ}, ou le \textbf{domaine} de la relation.\newline
+  \item L'ensemble des seconds nombres d'une relation binaire est l'\textbf{ensemble d'arrivée}, ou le \textbf{domaine} de la relation.\newline
+  \item Les ensembles suivants sont des relations binaires:
+    \[
+      A = \{(x,y)| x\in\mathbb N \land y\in\mathbb N \land x\leq y\}
+    \]
+    \[
+      B = \{(x,y)| x\in\mathbb N \land y = 2x-1\}
+    \]
+    On note que dans le premier cas, on peut associer plus d'une valeur $y$ à chaque valeur de $x$.
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Relations et fonctions}
+  \hypertarget{slide_relations_et_fonctions_2}{}
+
+  \begin{definition}\label{def:fonction} Si une relation binaire est telle qu'à chaque élément de l'ensemble de départ est associé \textbf{un et un seul élément} de l'ensemble d'arrivée, on dit que la relation binaire est une \textbf{fonction}.
+  \end{definition}
+
+  \bigskip
+  
+  \begin{itemize}
+  \item Une fonction est un ensemble de paires ordonnées.\newline
+  \item Toutes les fonctions sont des relations binaires, mais l'inverse n'est pas vrai.\newline
+  \item Dans l'exemple de la page précédente $B$ est une fonction, mais pas l'ensemble $A$.
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Notations}
+  \hypertarget{slide_fonctions_notations}{}
+
+  \begin{itemize}
+  \item On représente habituellement une fonction par une lettre minuscule. Par exemple $f$ (fonction), ou encore $g$, ou $h$, \ldots\newline
+  \item Si une fonction $f$ associe à chaque élément $x$ de l'ensemble de départ $E$ l'élément $y$ de l'ensemble d'arrivée $F$, on note~:
+    \[
+      \begin{split}
+        f: \quad &E \longrightarrow F\\
+        &x \longmapsto y = f(x)
+      \end{split}
+    \]
+    
+    \item On dit que $y$ est l'image de $x$ par la fonction $f$.
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Exemple}
+  \hypertarget{slide_fonctions_exemple}{}
+
+  \begin{itemize}
+    \item Soit la fonction~:
+    \[
+      \begin{split}
+        f: \quad &\mathbb R \longrightarrow \mathbb R\\
+        &x \longmapsto y = x^2+x-2
+      \end{split}
+    \]
+    
+  \item On peut alors évaluer cette fonction, c'est-à-dire déterminer les images associées à différentes valeurs de $x$~:
+
+    \medskip
+
+    \begin{itemize}
+    \item $f(0) = -2$\newline
+    \item $f(a) = a^2+a-2$ pour tout $a\in\mathbb R$\newline
+    \item $f(x+h)-f(x) = 2xh+h^2+h$
+    \end{itemize}
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Somme, différence, produit et quotient}
+  \hypertarget{slide_fonctions_opérations}{}
+
+    Soient deux fonctions~:
+      \begin{eqnarray*}
+        \begin{split}
+        f: \quad &\mathbb R \longrightarrow \mathbb R\\
+        &x \longmapsto y = f(x)
+      \end{split}
+        &
+        \quad \begin{split}
+        g: \quad &\mathbb R \longrightarrow \mathbb R\\
+        &x \longmapsto y = g(x)
+      \end{split}
+      \end{eqnarray*}
+      \bigskip
+      On définit les opérations suivantes~:
+  \begin{description}
+  \item[\textbf{Somme}] $(f+g)(x) = f(x)+g(x)$\newline
+  \item[\textbf{Différence}] $(f-g)(x) = f(x)-g(x)$\newline
+  \item[\textbf{Produit}] $(f \cdot g)(x) = f(x) \cdot g(x)$\newline
+  \item[\textbf{Quotient}] $\left(\frac{f}{g}\right)(x) = \frac{f(x)}{g(x)}$ avec $g(x)\neq 0$\newline
+  \end{description}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Composition}
+  \hypertarget{slide_fonctions_composition}{}
+
+    Soient deux fonctions~:
+      \begin{eqnarray*}
+        \begin{split}
+        f: \quad & E \longrightarrow F\\
+        &x \longmapsto y = f(x)
+      \end{split}
+        &
+        \quad \begin{split}
+        g: \quad & F \longrightarrow G\\
+        &x \longmapsto y = g(x)
+      \end{split}
+      \end{eqnarray*}
+      \bigskip
+      La composition de ces deux fonctions est la fonction $h(x) = (g \circ f)(x)$~:
+      \[
+        \begin{split}
+          g \circ f: \quad & E \longrightarrow G\\
+          &x \longmapsto y = g(f(x))
+        \end{split}
+      \]
+
+      \bigskip
+      
+  \begin{itemize}
+  \item[\dbend] En général $g(f(x))\neq f(g(x))$.
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Exemple de composition}
+  \hypertarget{slide_fonctions_composition_exemple}{}
+
+  Soient deux fonctions~:
+  \[
+    f(x) = x^2+x+1 \quad\text{ et }\quad g(x) = x+1
+  \]
+  Alors on a~:
+  \[
+    \begin{split}
+      f(g(x)) &= f(x+1)\\
+      &= (x+1)^2+(x+1)+1\\
+      &= x^2+3x+3
+    \end{split}
+  \]
+  et
+  \[
+    \begin{split}
+      g(f(x)) &= g(x^2+x+1)\\
+      &= (x^2+x+1)+1\\
+      &= x^2+x+1
+    \end{split}
+  \]
+  Ces deux compositions de $f$ et $g$ sont bien différentes.
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Surjection}
+  \hypertarget{slide_fonctions_surjection}{}
+
+  \begin{definition}\label{def:surjection} Une fonction $f: E\longrightarrow F$ \textbf{surjective} est une fonction telle que tout élément $y$ de l'ensemble d'arrivée $F$ soit l'image d'au moins un élément $x$ de l'ensemble de départ $E$. Plus formellement une fonction $f: E\longrightarrow F$ est surjective si et seulement si $\forall y\in F$, $\exists x\in E$ tel que $y=f(x)$.
+  \end{definition}
+
+  \begin{example}\label{ex:surjection_1}
+    Soient deux ensembles $E = \{x\in [-1,1]\}$ et $F = {y\in[0,1]}$, la fonction $f: E\longrightarrow F$ définie par $f(x) = |x|$ est surjective. $y$ admet un unique antécédant si $y=0$ ($x=0$), dans les autres cas $y$ admet deux antécédants ($y$ et $-y$) dans $[-1,1]$.
+  \end{example}
+
+  \begin{example}\label{ex:surjection_2}
+    La fonction $f: \mathbb N \longrightarrow \mathbb N$ qui à $x$ associe $2x$ n'est pas surjective ($y$ impair n'a pas d'antécédant dans $\mathbb N$).
+  \end{example}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Injection}
+  \hypertarget{slide_fonctions_injection}{}
+
+  \begin{definition}\label{def:injection} Une fonction $f: E\longrightarrow F$ est \textbf{injective} si et seulement si deux éléments distincts de l'ensemble de départ ont deux images par $f$ distinctes, ou de façon équivalente si $f(x_1)= f(x_2) \Rightarrow x_1=x_2$.
+  \end{definition}
+    
+  \begin{example}\label{ex:injection_1}
+    La fonction $f: \mathbb R\longrightarrow \mathbb R$ définie par $f(x) = x+1$ est injective. En effet, $f(x_1)=f(x_2)\Leftrightarrow x_1+1 = x_2+1 \Rightarrow x_1 = x_2$.
+  \end{example}
+
+  \begin{example}\label{ex:injection_2}
+    Soient deux ensembles $E = \{x\in [-1,1]\}$ et $F = {y\in[0,1]}$, la fonction $f: E\longrightarrow F$ définie par $f(x) = |x|$ n'est pas injective. Par exemple $x=1$ et $x=-1$ ont la même image par $f$ ($y=1)$.
+  \end{example}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Bijection}
+  \hypertarget{slide_fonctions_bijection}{}
+
+  \begin{definition}\label{def:bijection} Une fonction $f: E\longrightarrow F$ est \textbf{bijective} si et seulement si elle est injective et surjective. Dans ce cas chaque élément de l'ensemble d'arrivée est l'image d'un unique élément $x$ de l'ensemble de départ.
+  \end{definition}
+
+  \bigskip
+  
+  \begin{example}\label{ex:bijection_1}
+    La fonction $f: \mathbb R\longrightarrow \mathbb R$ définie par $f(x) = x+1$ est bijective. Nous savons déjà qu'elle est injective, de plus il est évident que pour chaque élément $y\in\mathbb R$ on peut trouver un antécédant dans $\mathbb R$ ($x = y-1$).
+  \end{example}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Patates et relation binaire}
+  \hypertarget{slide_fonctions_fig_1}{}
+
+\begin{center}
+  \begin{tikzpicture}[scale=1.2]
+    \filldraw[fill=blue!20, draw=blue!60] (-1.5,0) circle (1cm);
+    \filldraw[fill=red!20, draw=red!60] (1.5,0) circle (1cm);
+    \node at (-1.5,1.5) {$E$};
+    \node at (1.5,1.5) {$F$};
+    \node (x1) at (-1.3,0.7) {$x_1$};
+    \node (x2) at (-1.7,0.3) {$x_2$};
+    \node (x3) at (-1.2,-0.2) {$x_3$};
+    \node (x4) at (-1.5,-0.7) {$x_4$};
+    \node (y1) at (1.5,0.8) {$y_1$};
+    \node (y2) at (1.7,0.2) {$y_2$};
+    \node (y3) at (1.9,-0.3) {$y_3$};
+    \node (y4) at (1.6,-0.85) {$y_4$};
+    \draw[->] (x1) -- (y4);
+    \draw[->] (x1) -- (y1);
+    \draw[->] (x2) -- (y2);
+    \draw[->] (x3) -- (y1);
+    \draw[->] (x4) -- (y3);
+
+\end{tikzpicture}
+
+\bigskip
+
+\textbf{Ceci n'est pas une fonction,} car $x_1$ a deux images ($y_1$ et $y_4$)
+
+\end{center}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Patates et fonction}
+  \hypertarget{slide_fonctions_fig_2}{}
+
+\begin{center}
+  \begin{tikzpicture}[scale=1.2]
+    \filldraw[fill=blue!20, draw=blue!60] (-1.5,0) circle (1cm);
+    \filldraw[fill=red!20, draw=red!60] (1.5,0) circle (1cm);
+    \node at (-1.5,1.5) {$E$};
+    \node at (1.5,1.5) {$F$};
+    \node (x1) at (-1.3,0.7) {$x_1$};
+    \node (x2) at (-1.7,0.3) {$x_2$};
+    \node (x3) at (-1.2,-0.2) {$x_3$};
+    \node (x4) at (-1.5,-0.7) {$x_4$};
+    \node (y1) at (1.5,0.8) {$y_1$};
+    \node (y2) at (1.7,0.2) {$y_2$};
+    \node (y3) at (1.9,-0.3) {$y_3$};
+    \node (y4) at (1.6,-0.85) {$y_4$};
+    \draw[->] (x1) -- (y1);
+    \draw[->] (x2) -- (y2);
+    \draw[->] (x3) -- (y1);
+    \draw[->] (x4) -- (y3);
+
+\end{tikzpicture}
+
+\bigskip
+
+\textbf{Ceci est une fonction,} tout élément de $E$ a une unique image dans $F$
+
+\end{center}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Patates et fonction surjective}
+  \hypertarget{slide_fonctions_fig_3}{}
+
+\begin{center}
+  \begin{tikzpicture}[scale=1.2]
+    \filldraw[fill=blue!20, draw=blue!60] (-1.5,0) circle (1cm);
+    \filldraw[fill=red!20, draw=red!60] (1.5,0) circle (1cm);
+    \node at (-1.5,1.5) {$E$};
+    \node at (1.5,1.5) {$F$};
+    \node (x1) at (-1.3,0.7) {$x_1$};
+    \node (x2) at (-1.7,0.3) {$x_2$};
+    \node (x3) at (-1.2,-0.2) {$x_3$};
+    \node (x4) at (-1.5,-0.7) {$x_4$};
+    \node (y1) at (1.5,0.8) {$y_1$};
+    \node (y2) at (1.7,0.2) {$y_2$};
+    \node (y3) at (1.9,-0.3) {$y_3$};
+    \draw[->] (x1) -- (y1);
+    \draw[->] (x2) -- (y2);
+    \draw[->] (x3) -- (y1);
+    \draw[->] (x4) -- (y3);
+
+\end{tikzpicture}
+
+\bigskip
+
+\textbf{Ceci est une surjection,} tout élément de $F$ a un antécédant dans $E$
+
+\end{center}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Patates et fonction injective}
+  \hypertarget{slide_fonctions_fig_4}{}
+
+\begin{center}
+  \begin{tikzpicture}[scale=1.2]
+    \filldraw[fill=blue!20, draw=blue!60] (-1.5,0) circle (1cm);
+    \filldraw[fill=red!20, draw=red!60] (1.5,0) circle (1cm);
+    \node at (-1.5,1.5) {$E$};
+    \node at (1.5,1.5) {$F$};
+    \node (x1) at (-1.3,0.7) {$x_1$};
+    \node (x2) at (-1.7,0.3) {$x_2$};
+    \node (x4) at (-1.5,-0.7) {$x_4$};
+    \node (y1) at (1.5,0.8) {$y_1$};
+    \node (y2) at (1.7,0.2) {$y_2$};
+    \node (y3) at (1.9,-0.3) {$y_3$};
+    \node (y4) at (1.6,-0.85) {$y_4$};
+    \draw[->] (x1) -- (y1);
+    \draw[->] (x2) -- (y2);
+    \draw[->] (x4) -- (y3);
+
+\end{tikzpicture}
+
+\bigskip
+
+\textbf{Ceci est une injection,} $f(y_i)=f(y_j)\Rightarrow x_i=x_j$.
+
+\end{center}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Patates et fonction bijective}
+  \hypertarget{slide_fonctions_fig_5}{}
+
+\begin{center}
+  \begin{tikzpicture}[scale=1.2]
+    \filldraw[fill=blue!20, draw=blue!60] (-1.5,0) circle (1cm);
+    \filldraw[fill=red!20, draw=red!60] (1.5,0) circle (1cm);
+    \node at (-1.5,1.5) {$E$};
+    \node at (1.5,1.5) {$F$};
+    \node (x1) at (-1.3,0.7) {$x_1$};
+    \node (x2) at (-1.7,0.3) {$x_2$};
+    \node (x3) at (-1.2,-0.2) {$x_3$};
+    \node (x4) at (-1.5,-0.7) {$x_4$};
+    \node (y1) at (1.5,0.8) {$y_1$};
+    \node (y2) at (1.7,0.2) {$y_2$};
+    \node (y3) at (1.9,-0.3) {$y_3$};
+    \node (y4) at (1.6,-0.85) {$y_4$};
+    \draw[->] (x1) -- (y1);
+    \draw[->] (x2) -- (y2);
+    \draw[->] (x3) -- (y3);
+    \draw[->] (x4) -- (y4);
+
+\end{tikzpicture}
+
+\bigskip
+
+\textbf{Ceci est une bijection.} Notons qu'il s'agit du seul cas où on peut imaginer sans équivoque une fonction qui nous amène de $F$ vers $E$.
+
+\end{center}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Inverse ou réciproque, I}
+  \hypertarget{slide_fonctions_reciproque_1}{}
+
+  \begin{definition}\label{def:fonction_reciproque}
+    Soit $f : E\rightarrow F$ une fonction bijective. Par définition des bijections, tout élément $y\in F$ possède un antécédent et un seul par $f$. On peut donc définir une application $f^{-1}: F\rightarrow E$, qui à $y\in F$ associe son unique antécédent $x\in E$. $f^{-1}$ est la fonction inverse ou réciproque associée à $f$.
+  \end{definition}
+
+  \bigskip
+  
+  \begin{itemize}
+  \item $f^{-1}$ est aussi une bijection.\newline
+  \item[\dbend] Ne pas confondre $f^{-1}$ et $\frac{1}{f}$.\newline
+  \item Si $f$ est une bijection alors $(f \circ f^{-1})(x) = (f^{-1} \circ f)(x) = x$ pour tout $x$.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les fonctions}
+  \framesubtitle{Inverse ou réciproque, II}
+  \hypertarget{slide_fonctions_reciproque_2}{}
+
+  \begin{example}\label{def:fonction_reciproque}
+    Soit $f(x) = 2x+4$ une fonction de $\mathbb R$ dans $\mathbb R$. Il s'agit d'une bijection. La fonction inverse $f^{-1}(x)$ s'obtient de la façon suivante~:
+    \[
+      \begin{split}
+        y &= 2x+4\\
+        \Leftrightarrow y-4 &=2x\\
+        \Leftrightarrow x &=\frac{y-4}{2}\\
+      \end{split}
+    \]
+    Nous avons donc obtenu une expression de $x$ comme une fonction de $y$, $g(y)=\frac{y-4}{2}$. En inversant $x$ et $y$, puisqu'il est d'usage de noter $x$ un élément de l'ensemble de départ et $y$ son image, on obtient la fonction inverse $f^{-1}(x) = \frac{x-4}{2}$. On vérifie facilement que $f(f^{-1}(x)) = x = f^{-1}(f(x))$. Par exemple~:
+    \[
+        f(f^{-1}(x)) = 2 \left(\frac{x-4}{2}\right)+4 = x-4+4 = x
+    \]
+  \end{example}
+
+\end{frame}
+
+\section{Les quantificateurs}
+
+\begin{frame}
+  \frametitle{Les quantificateurs}
+  \framesubtitle{}
+  \hypertarget{slide_quantificateur_def}{}
+
+  \begin{definition}\label{def:quantificateurs_universel_existentiel}
+    $\forall$ s'appelle le quantificateur universel et $\exists$ s'appelle le quantificateur existentiel.
+  \end{definition}
+
+  \bigskip
+  
+  \begin{itemize}
+  \item La proposition « $\forall x\in E, P(x)$ » se lit « Pour tous les éléments $x$ de $E$ la proposition $P(x)$ est vraie »\newline
+  \item La proposition « $\exists x\in E | P(x) $ » se lit « Il existe au moins un élément $x$ dans $E$ tel que la proposition $P(x)$ est vraie »\newline
+  \item La proposition « $\exists! x\in E | P(x) $ » se lit « Il existe un et un seul élément $x$ dans $E$ tel que la proposition $P(x)$ est vraie »\newline
+  \item La proposition « $\nexists x\in E | P(x) $ » se lit « Il n'existe pas $x$ dans $E$ tel que la proposition $P(x)$ est vraie », on pourrait aussi écrire « $\forall x\in E | \overline{P(x)} $ »  
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Les quantificateurs}
+  \framesubtitle{Propriétés, I}
+  \hypertarget{slide_quantificateur_proprietes_1}{}
+
+  \begin{theorem}\label{thm:quantificateurs_negation}
+    Soient $E$ un ensemble et $P(x)$ une proposition dont la valeur de vérité dépend des éléments $x$ dans $E$. On a~:
+    \begin{enumerate}
+    \item $\overline{\forall x\in E, P(x)} \quad \Leftrightarrow \quad \exists x\in E| \overline{P(x)}$
+    \item $\overline{\exists x\in E| P(x)} \quad \Leftrightarrow \quad \forall x\in E, \overline{P(x)}$
+    \end{enumerate}
+  \end{theorem}
+  
+  \begin{theorem}\label{thm:quantificateurs_arithmetic_1}
+    Soient $E$ un ensemble, $P(x)$ et $Q(x)$ deux propositions dont les valeurs de vérité dépendent des éléments $x$ dans $E$. On a~:
+    \begin{enumerate}
+    \item $(\forall x\in E, P(x) \land Q(x)) \quad \Leftrightarrow \quad (\forall x\in E, P(x)) \land (\forall x\in E, Q(x))$ 
+    \item $(\exists x\in E| P(x) \lor Q(x)) \quad \Leftrightarrow \quad (\exists x\in E| P(x)) \lor (\exists x\in E| Q(x))$
+    \item $(\exists x\in E| P(x) \land Q(x)) \quad \Rightarrow \quad (\exists x\in E| P(x)) \land (\exists x\in E| Q(x))$
+    \item $(\forall x\in E, P(x) \lor Q(x)) \quad \Leftarrow \quad (\forall x\in E, P(x)) \lor (\forall x\in E, Q(x))$ 
+
+    \end{enumerate}
+
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{notes}
+  \begin{itemize}
+
+  \item Pour comprendre pourquoi nous n'avons pas l'équivalence dans le point 3 du théorème \hyperlink{slide_quantificateurs_proprietes_1}{\ref{thm:quantificateurs_arithmetic_1}}, il faut noter que s'il est possible de trouver un $x$ tel que $P(x)$ est vraie et un (autre) $x$ tel que $Q(x)$ est vraie, rien n'assure qu'il soit possible de trouver un $x$ tel que les deux propositions $P(x)$ et $Q(x)$ soient simultanément vraies.\newline
+
+  \item De même pour comprendre l'absence d'équivalence dans point 4 du théorème \hyperlink{slide_quantificateurs_proprietes_1}{\ref{thm:quantificateurs_arithmetic_1}}, remarquons que la proposition « dans la classe, tout élève est un garçon ou une fille » est vraie mais que la proposition  « dans la classe, tout élève est un garçon ou tout élève est une fille » est fausse (en général).\newline
+
+  \item[\dbend] On peut distribuer $\forall$ sur $\land$ et $\exists$ sur $\lor$, \textbf{mais} on ne peut pas distribuer $\forall$ sur $\lor$ ou $\exists$ sur $\land$.
+    
+  \end{itemize}
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Les quantificateurs}
+  \framesubtitle{Propriétés, II}
+  \hypertarget{slide_quantificateur_proprietes_2}{}
+
+  \begin{theorem}\label{thm:quantificateurs_perm_1}
+    Soient $E$ et $F$ deux ensembles et $P(x,y)$ une proposition dont la valeur de vérité dépend des éléments $x$ dans $E$ et $y$ dans $F$. On a~:
+    \begin{enumerate}
+    \item $(\forall x\in E, \forall y\in F, P(x,y)) \quad \Leftrightarrow \quad (\forall y\in F, \forall x\in E, P(x,y))$
+    \item $(\exists x\in E, \exists y\in F, P(x,y)) \quad \Leftrightarrow \quad (\exists y\in F, \exists x\in E, P(x,y))$
+    \end{enumerate}
+  \end{theorem}
+
+  \bigskip
+  
+  \begin{itemize}
+  \item On peut permuter deux quantificateurs universels, ou deux quantificateurs existentiels\ldots Mais
+  \end{itemize}
+  
+  \begin{theorem}\label{thm:quantificateurs_perm_2}
+    Soient $E$ et $F$ deux ensembles et $P(x,y)$ une proposition dont la valeur de vérité dépend des éléments $x$ dans $E$ et $y$ dans $F$. On a~:
+    \[
+      (\exists x\in E | \forall y\in F, P(x,y)) \quad \Rightarrow (\forall y\in F, \exists x\in E| P(x,y))
+    \]
+  \end{theorem}
+
+\end{frame}
+
 
 \end{document}
+
 % Local Variables:
 % ispell-check-comments: exclusive
 % ispell-local-dictionary: "francais"

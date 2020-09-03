@@ -40,10 +40,10 @@
 \usepackage{manfnt}
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=black,      
-    urlcolor=black,
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=black,
+  urlcolor=black,
 }
 \usepackage{venndiagram}
 % \usepackage{enumitem}
@@ -89,9 +89,9 @@
 \newtheorem*{idea}{Éléments de preuve} % no numbered block
 
 \setbeamertemplate{footline}{
-{\hfill\vspace*{1pt}\href{http://creativecommons.org/licenses/by-sa/3.0/legalcode}{\ccbysa}\hspace{.1cm}
-\raisebox{-.075cm}{\href{https://git.adjemian.eu/University/economic-calculus}{\includegraphics[scale=.1]{../img/gitlab.png}}}
-}\hspace{1cm}}
+  {\hfill\vspace*{1pt}\href{http://creativecommons.org/licenses/by-sa/3.0/legalcode}{\ccbysa}\hspace{.1cm}
+    \raisebox{-.075cm}{\href{https://git.adjemian.eu/University/economic-calculus}{\includegraphics[scale=.1]{../img/gitlab.png}}}
+  }\hspace{1cm}}
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{blocks}[rounded][shadow=true]
@@ -101,15 +101,15 @@
 
 \newenvironment{exercise}[1]
 {\bgroup \small\begin{block}{Ex. #1}}
-{\end{block}\egroup}
+  {\end{block}\egroup}
 
 \newenvironment{defn}[1]
 {\bgroup \small\begin{block}{Définition. #1}}
-{\end{block}\egroup}
+  {\end{block}\egroup}
 
 \newenvironment{exemple}[1]
 {\bgroup \small\begin{block}{Exemple. #1}}
-{\end{block}\egroup}
+  {\end{block}\egroup}
 
 \begin{document}
 
@@ -247,27 +247,27 @@
   vérité possibles pour la seconde proposition $Q$. Après on pose que
   la proposition $P$ est fausse\ldots
 
-    \begin{example}
-      Les expressions 3+2 et 4+1, même si elles ne sont pas
-      identiques, ont la même valeur, on dit que ces expressions sont
-      égales ($3+2=4+1$). Les propositions $(x^{2} = 1)$ et
-      $(x=1\text{ ou }x=-1)$ sont distinctes mais équivalentes, on
-      écrit~:
-      \[
-        (x^{2} = 1) \Leftrightarrow (x=1\text{ ou }x=-1)
-      \]
-    \end{example}
+  \begin{example}
+    Les expressions 3+2 et 4+1, même si elles ne sont pas
+    identiques, ont la même valeur, on dit que ces expressions sont
+    égales ($3+2=4+1$). Les propositions $(x^{2} = 1)$ et
+    $(x=1\text{ ou }x=-1)$ sont distinctes mais équivalentes, on
+    écrit~:
+    \[
+      (x^{2} = 1) \Leftrightarrow (x=1\text{ ou }x=-1)
+    \]
+  \end{example}
 
-  \end{frame}
+\end{frame}
 
-%  \subsection{Négation d'une proposition}
+% \subsection{Négation d'une proposition}
 
-  \begin{frame}
-    \frametitle{Calcul propositionnel}
-    \framesubtitle{Négation}
-    \hypertarget{slide_negation}{}
+\begin{frame}
+  \frametitle{Calcul propositionnel}
+  \framesubtitle{Négation}
+  \hypertarget{slide_negation}{}
 
-    \begin{definition}\label{definition:negation}
+  \begin{definition}\label{definition:negation}
 
     La négation d'une proposition $P$, notée $\bar P$, change sa
     valeur de vérité.
@@ -277,38 +277,38 @@
 
   \begin{table}[H]
 
-     \centering
-     \begin{tabular}[H]{|c|c|}
-       \hline
-       $P$ & $\bar P$\\ \hline
-       V & F \\
-       F & V \\
-       \hline\hline
-     \end{tabular}
-     \caption{Négation}
-     \label{tab:negation}
-   \end{table}
+    \centering
+    \begin{tabular}[H]{|c|c|}
+      \hline
+      $P$ & $\bar P$\\ \hline
+      V & F \\
+      F & V \\
+      \hline\hline
+    \end{tabular}
+    \caption{Négation}
+    \label{tab:negation}
+  \end{table}
 
-   \begin{theorem}\label{theorem:negation}
+  \begin{theorem}\label{theorem:negation}
 
-      Soit $P$ une proposition, alors
-      $\bar{\bar P} \Leftrightarrow P$.
-    \end{theorem}
+    Soit $P$ une proposition, alors
+    $\bar{\bar P} \Leftrightarrow P$.
+  \end{theorem}
 
-    \medskip
+  \medskip
 
-    $\looparrowright$ À montrer avec une table de vérité.
-  \end{frame}
+  $\looparrowright$ À montrer avec une table de vérité.
+\end{frame}
 
 
-%  \subsection{Connecteurs logiques $\land$ et $\lor$}
+% \subsection{Connecteurs logiques $\land$ et $\lor$}
 
-  \begin{frame}
-    \frametitle{Connecteurs logiques}
-    \framesubtitle{La conjonction $\land$, I}
-    \hypertarget{slide_conjonction_1}{}
+\begin{frame}
+  \frametitle{Connecteurs logiques}
+  \framesubtitle{La conjonction $\land$, I}
+  \hypertarget{slide_conjonction_1}{}
 
-    \begin{definition}\label{def:conjonction}
+  \begin{definition}\label{def:conjonction}
 
     La conjonction de deux propositions $P$ et $Q$, on note $P\land Q$
     et on lit « $P$ et $Q$ », est vraie si et seulement si les
@@ -338,14 +338,14 @@
   On retient que la conjonction de deux propositions est fausse dès
   lors qu'au moins une proposition est fausse.
 
-  \end{frame}
+\end{frame}
 
-  \begin{frame}
-    \frametitle{Connecteurs logiques}
-    \framesubtitle{La conjonction $\land$, II}
-    \hypertarget{slide_conjonction_2}{}
+\begin{frame}
+  \frametitle{Connecteurs logiques}
+  \framesubtitle{La conjonction $\land$, II}
+  \hypertarget{slide_conjonction_2}{}
 
-    \begin{properties}\label{properties:conjonction}
+  \begin{properties}\label{properties:conjonction}
 
     Soient $P$, $Q$ et $R$ des propositions. La conjonction satisfait
     les propriétés suivantes~:
@@ -370,97 +370,97 @@
   alors que nous ne connaissons pas la valeur de vérité de la
   proposition de départ ($P$).
 
-  \end{frame}
+\end{frame}
 
 
-  \begin{notes}
-    \begin{itemize}
+\begin{notes}
+  \begin{itemize}
 
-    \item On montre la première propriété à l'aide d'une table de
-      vérité~:
-      \begin{table}
-        \centering
-        \begin{tabular}[H]{|c|c|}
-          \hline
-          $P$ & $P \land P$ \\ \hline
-          V & V \\
-          F & F \\
-          \hline\hline
-        \end{tabular}
-      \end{table}
-      Puisque les colonnes ont toujours les mêmes valeurs sur chaque
-      ligne, les deux propositions $P\land P$ et $P$ sont équivalentes
-      (voir la définition \hyperlink{slide_equivalence_logique_1}{\ref{def:equivalence}}).
+  \item On montre la première propriété à l'aide d'une table de
+    vérité~:
+    \begin{table}
+      \centering
+      \begin{tabular}[H]{|c|c|}
+        \hline
+        $P$ & $P \land P$ \\ \hline
+        V & V \\
+        F & F \\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+    Puisque les colonnes ont toujours les mêmes valeurs sur chaque
+    ligne, les deux propositions $P\land P$ et $P$ sont équivalentes
+    (voir la définition \hyperlink{slide_equivalence_logique_1}{\ref{def:equivalence}}).
 
-    \item On procède de la même façon pour la deuxième propriété. Les
-      propositions à droite et à gauche du symbole d'équivalence
-      $\Leftrightarrow$ font intervenir deux propositions $P$ et
-      $Q$. La table de vérité doit donc contenir quatre lignes qui
-      correspondent aux couples ordonnés possibles pour les
-      valeurs de $P$ et $Q$~:
-      \begin{table}[H]
-        \centering
-        \begin{tabular}[H]{|cc|cc|}
-          \hline
-          $P$ & $Q$ & $P \land Q$ & $Q \land P$\\ \hline
-          V & V & V & V\\
-          V & F & F & F\\
-          F & V & F & F\\
-          F & F & F & F \\
-          \hline\hline
-        \end{tabular}
-      \end{table}
-      On observe que les troisième et quatrième colonnes ont toujours
-      la même valeur sur chaque ligne, les deux propositions associées
-      $P \land Q$ et $Q \land P$ sont donc
-      équivalentes.
+  \item On procède de la même façon pour la deuxième propriété. Les
+    propositions à droite et à gauche du symbole d'équivalence
+    $\Leftrightarrow$ font intervenir deux propositions $P$ et
+    $Q$. La table de vérité doit donc contenir quatre lignes qui
+    correspondent aux couples ordonnés possibles pour les
+    valeurs de $P$ et $Q$~:
+    \begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|cc|cc|}
+        \hline
+        $P$ & $Q$ & $P \land Q$ & $Q \land P$\\ \hline
+        V & V & V & V\\
+        V & F & F & F\\
+        F & V & F & F\\
+        F & F & F & F \\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+    On observe que les troisième et quatrième colonnes ont toujours
+    la même valeur sur chaque ligne, les deux propositions associées
+    $P \land Q$ et $Q \land P$ sont donc
+    équivalentes.
 
-    \item Nous suivons la même démarche pour la troisième
-      propriété. Cette fois nous construisons des propositions à
-      partir de trois propositions de base $P$, $Q$ et $R$. La table
-      de vérité doit donc contenir huit lignes (c'est-à-dire $2^3$ lignes)~:
-      \begin{table}[H]
-        \centering
-        \begin{tabular}[H]{|ccc|cgcg|}
-          \hline
-          $P$ & $Q$ & $R$ & $P\land Q$ & $(P\land Q)\land R$ & $Q\land R$ & $P \land (Q \land R)$ \\ \hline
-          V & V & V & V & V & V & V\\
-          V & V & F & V & F & F & F\\
-          V & F & V & F & F & F & F\\
-          V & F & F & F & F & F & F\\
-          F & V & V & F & F & V & F\\
-          F & V & F & F & F & F & F\\
-          F & F & V & F & F & F & F\\
-          F & F & F & F & F & F & F\\
-          \hline\hline
-        \end{tabular}
-      \end{table}
-      On note que la cinquième et la septième colonnes sont identiques, ce qui démontre la troisième propriété.
+  \item Nous suivons la même démarche pour la troisième
+    propriété. Cette fois nous construisons des propositions à
+    partir de trois propositions de base $P$, $Q$ et $R$. La table
+    de vérité doit donc contenir huit lignes (c'est-à-dire $2^3$ lignes)~:
+    \begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|ccc|cgcg|}
+        \hline
+        $P$ & $Q$ & $R$ & $P\land Q$ & $(P\land Q)\land R$ & $Q\land R$ & $P \land (Q \land R)$ \\ \hline
+        V & V & V & V & V & V & V\\
+        V & V & F & V & F & F & F\\
+        V & F & V & F & F & F & F\\
+        V & F & F & F & F & F & F\\
+        F & V & V & F & F & V & F\\
+        F & V & F & F & F & F & F\\
+        F & F & V & F & F & F & F\\
+        F & F & F & F & F & F & F\\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+    On note que la cinquième et la septième colonnes sont identiques, ce qui démontre la troisième propriété.
 
-    \item Pour la dernière propriété la table de vérité contient seulement deux lignes~:
-      \begin{table}
-        \centering
-        \begin{tabular}[H]{|c|cc|}
-          \hline
-          $P$ & $\bar P$ & $P \land \bar P$\\ \hline
-          V & F & F\\
-          F & V & F\\
-          \hline\hline
-        \end{tabular}
-      \end{table}
-      On remarque que la dernière colonne est toujours fausse.
+  \item Pour la dernière propriété la table de vérité contient seulement deux lignes~:
+    \begin{table}
+      \centering
+      \begin{tabular}[H]{|c|cc|}
+        \hline
+        $P$ & $\bar P$ & $P \land \bar P$\\ \hline
+        V & F & F\\
+        F & V & F\\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+    On remarque que la dernière colonne est toujours fausse.
 
-    \end{itemize}
+  \end{itemize}
 
-  \end{notes}
+\end{notes}
 
 
-  \begin{frame}
-    \frametitle{Connecteurs logiques}
-    \framesubtitle{La disjonction $\lor$, I}
-    \hypertarget{slide_disjonction_1}{}
+\begin{frame}
+  \frametitle{Connecteurs logiques}
+  \framesubtitle{La disjonction $\lor$, I}
+  \hypertarget{slide_disjonction_1}{}
 
-    \begin{definition}\label{def:disjonction}
+  \begin{definition}\label{def:disjonction}
 
     La disjonction de deux propositions $P$ et $Q$, on note $P\lor Q$
     et on lit « $P$ ou $Q$ », est fausse si et seulement si les
@@ -494,15 +494,15 @@
 
   On considère ici une définition \textit{inclusive} de la disjonction (par opposition à une définition \textit{exclusive}).
 
-  \end{frame}
+\end{frame}
 
 
-  \begin{frame}
-    \frametitle{Connecteurs logiques}
-    \framesubtitle{La disjonction $\lor$, II}
-    \hypertarget{slide_disjonction_2}{}
+\begin{frame}
+  \frametitle{Connecteurs logiques}
+  \framesubtitle{La disjonction $\lor$, II}
+  \hypertarget{slide_disjonction_2}{}
 
-    \begin{properties}\label{properties:disjonction}
+  \begin{properties}\label{properties:disjonction}
     Soient $P$, $Q$ et $R$ des propositions. La disjonction satisfait
     les propriétés suivantes~:
     \begin{enumerate}
@@ -523,95 +523,95 @@
 
   Nous retrouvons les mêmes propriétés que pour la conjonction (à part pour la dernière).
 
-  \end{frame}
+\end{frame}
 
 
-  \begin{notes}
-    \begin{itemize}
-    \item On montre la première propriété à l'aide d'une table de
-      vérité~:
-      \begin{table}
-        \centering
-        \begin{tabular}[H]{|c|c|}
-          \hline
-          $P$ & $P \lor P$ \\ \hline
-          V & V \\
-          F & F \\
-          \hline\hline
-        \end{tabular}
-      \end{table}
-      Puisque les colonnes ont toujours les mêmes valeurs sur chaque
-      ligne, les deux propositions $P\lor P$ et $P$ sont équivalentes
-      (voir la définition \hyperlink{slide_equivalence_logique_1}{\ref{def:equivalence}}).
-    \item On procède de la même façon pour la deuxième propriété. Les
-      propositions à droite et à gauche du symbole d'équivalence
-      $\Leftrightarrow$ font intervenir deux propositions $P$ et
-      $Q$. La table de vérité doit donc contenir quatre lignes qui
-      correspondent aux couples ordonnés possibles pour les
-      valeurs de $P$ et $Q$~:
-      \begin{table}[H]
-        \centering
-        \begin{tabular}[H]{|cc|cc|}
-          \hline
-          $P$ & $Q$ & $P \lor Q$ & $Q \lor P$\\ \hline
-          V & V & V & V\\
-          V & F & V & V\\
-          F & V & V & V\\
-          F & F & F & F \\
-          \hline\hline
-        \end{tabular}
-      \end{table}
-      On observe que les troisième et quatrième colonnes ont toujours
-      la même valeur sur chaque ligne, les deux propositions associées
-      $P \lor Q$ et $Q \lor P$ sont donc
-      équivalentes.
-    \item Nous suivons la même démarche pour la troisième
-      propriété. Cette fois nous construisons des propositions à
-      partir de trois propositions de base $P$, $Q$ et $R$. La table
-      de vérité doit donc contenir huit lignes~:
-      \begin{table}[H]
-        \centering
-        \begin{tabular}[H]{|ccc|cgcg|}
-          \hline
-          $P$ & $Q$ & $R$ & $P\lor Q$ & $(P\lor Q)\lor R$ & $Q\lor R$ & $P \lor (Q \lor R)$ \\ \hline
-          V & V & V & V & V & V & V\\
-          V & V & F & V & V & V & V\\
-          V & F & V & V & V & V & V\\
-          V & F & F & V & V & F & V\\
-          F & V & V & V & V & V & V\\
-          F & V & F & V & V & V & V\\
-          F & F & V & F & V & V & V\\
-          F & F & F & F & F & F & F\\
-          \hline\hline
-        \end{tabular}
-      \end{table}
-      On note que les cinquième et septième colonnes sont identiques,
-      ce qui démontre la troisième propriété.
-    \item Pour la dernière propriété la table de vérité contient
-      seulement deux lignes~:
-      \begin{table}
-        \centering
-        \begin{tabular}[H]{|c|cc|}
-          \hline
-          $P$ & $\bar P$ & $P \lor \bar P$\\ \hline
-          V & F & V\\
-          F & V & V\\
-          \hline\hline
-        \end{tabular}
-      \end{table}
-      On remarque que la dernière colonne est toujours vraie.
+\begin{notes}
+  \begin{itemize}
+  \item On montre la première propriété à l'aide d'une table de
+    vérité~:
+    \begin{table}
+      \centering
+      \begin{tabular}[H]{|c|c|}
+        \hline
+        $P$ & $P \lor P$ \\ \hline
+        V & V \\
+        F & F \\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+    Puisque les colonnes ont toujours les mêmes valeurs sur chaque
+    ligne, les deux propositions $P\lor P$ et $P$ sont équivalentes
+    (voir la définition \hyperlink{slide_equivalence_logique_1}{\ref{def:equivalence}}).
+  \item On procède de la même façon pour la deuxième propriété. Les
+    propositions à droite et à gauche du symbole d'équivalence
+    $\Leftrightarrow$ font intervenir deux propositions $P$ et
+    $Q$. La table de vérité doit donc contenir quatre lignes qui
+    correspondent aux couples ordonnés possibles pour les
+    valeurs de $P$ et $Q$~:
+    \begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|cc|cc|}
+        \hline
+        $P$ & $Q$ & $P \lor Q$ & $Q \lor P$\\ \hline
+        V & V & V & V\\
+        V & F & V & V\\
+        F & V & V & V\\
+        F & F & F & F \\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+    On observe que les troisième et quatrième colonnes ont toujours
+    la même valeur sur chaque ligne, les deux propositions associées
+    $P \lor Q$ et $Q \lor P$ sont donc
+    équivalentes.
+  \item Nous suivons la même démarche pour la troisième
+    propriété. Cette fois nous construisons des propositions à
+    partir de trois propositions de base $P$, $Q$ et $R$. La table
+    de vérité doit donc contenir huit lignes~:
+    \begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|ccc|cgcg|}
+        \hline
+        $P$ & $Q$ & $R$ & $P\lor Q$ & $(P\lor Q)\lor R$ & $Q\lor R$ & $P \lor (Q \lor R)$ \\ \hline
+        V & V & V & V & V & V & V\\
+        V & V & F & V & V & V & V\\
+        V & F & V & V & V & V & V\\
+        V & F & F & V & V & F & V\\
+        F & V & V & V & V & V & V\\
+        F & V & F & V & V & V & V\\
+        F & F & V & F & V & V & V\\
+        F & F & F & F & F & F & F\\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+    On note que les cinquième et septième colonnes sont identiques,
+    ce qui démontre la troisième propriété.
+  \item Pour la dernière propriété la table de vérité contient
+    seulement deux lignes~:
+    \begin{table}
+      \centering
+      \begin{tabular}[H]{|c|cc|}
+        \hline
+        $P$ & $\bar P$ & $P \lor \bar P$\\ \hline
+        V & F & V\\
+        F & V & V\\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+    On remarque que la dernière colonne est toujours vraie.
 
-    \end{itemize}
+  \end{itemize}
 
-  \end{notes}
+\end{notes}
 
 
-  \begin{frame}
-    \frametitle{Connecteurs logiques}
-    \framesubtitle{Disjonction, conjonction et négation}
-    \hypertarget{slide_disjonction_conjonction_et_negation}{}
+\begin{frame}
+  \frametitle{Connecteurs logiques}
+  \framesubtitle{Disjonction, conjonction et négation}
+  \hypertarget{slide_disjonction_conjonction_et_negation}{}
 
-    \begin{properties}[Distributivité]\label{properties:distributivite}
+  \begin{properties}[Distributivité]\label{properties:distributivite}
     Soient trois propositions $P$, $Q$ et $R$, on a~:
     \begin{enumerate}
     \item $(P\land Q)\lor R \Leftrightarrow (P\lor R) \land (Q\lor R)$
@@ -636,53 +636,53 @@
 
   La négation d'une conjonction est la disjonction des négations.
 
-  \end{frame}
+\end{frame}
 
 
-  \begin{notes}
-    \mbox{}
-    \textbf{Preuve de la propriété \hyperlink{slide_disjonction_conjonction_et_negation}{\ref{properties:distributivite}}.}
-    On montre seulement la première propriété, pour la seconde on suit
-    exactement la même approche, toujours en utilisant une table de
-    vérité. On dénombre huit triplets de valeurs de vérité pour les
-    propriétés $P$, $Q$ et $R$. La table est donc formée de huit
-    lignes~:
-    \begin{table}[H]
-      \centering
-      \begin{tabular}[H]{|ccc|cgccg|}
-        \hline
-        $P$ & $Q$ & $R$ & $P\land Q$ & $(P\land Q)\lor R$ & $P\lor R$ & $Q \lor R$ & $(P\lor R)\land (Q \lor R)$ \\ \hline
-        V & V & V & V & V & V & V & V \\
-        V & V & F & V & V & V & V & V \\
-        V & F & V & F & V & V & V & V \\
-        V & F & F & F & F & V & F & F \\
-        F & V & V & F & V & V & V & V \\
-        F & V & F & F & F & F & V & F \\
-        F & F & V & F & V & V & V & V \\
-        F & F & F & F & F & F & F & F \\
-        \hline\hline
-      \end{tabular}
-    \end{table}
+\begin{notes}
+  \mbox{}
+  \textbf{Preuve de la propriété \hyperlink{slide_disjonction_conjonction_et_negation}{\ref{properties:distributivite}}.}
+  On montre seulement la première propriété, pour la seconde on suit
+  exactement la même approche, toujours en utilisant une table de
+  vérité. On dénombre huit triplets de valeurs de vérité pour les
+  propriétés $P$, $Q$ et $R$. La table est donc formée de huit
+  lignes~:
+  \begin{table}[H]
+    \centering
+    \begin{tabular}[H]{|ccc|cgccg|}
+      \hline
+      $P$ & $Q$ & $R$ & $P\land Q$ & $(P\land Q)\lor R$ & $P\lor R$ & $Q \lor R$ & $(P\lor R)\land (Q \lor R)$ \\ \hline
+      V & V & V & V & V & V & V & V \\
+      V & V & F & V & V & V & V & V \\
+      V & F & V & F & V & V & V & V \\
+      V & F & F & F & F & V & F & F \\
+      F & V & V & F & V & V & V & V \\
+      F & V & F & F & F & F & V & F \\
+      F & F & V & F & V & V & V & V \\
+      F & F & F & F & F & F & F & F \\
+      \hline\hline
+    \end{tabular}
+  \end{table}
 
-    \bigskip\bigskip
+  \bigskip\bigskip
 
-    \textbf{Preuve du théorème \hyperlink{slide_disjonction_conjonction_et_negation}{\ref{theorem:morgan}}.} On démontre seulement le premier point, on peut suivre la même approche pour le second. On utilise une table de vérité de quatre lignes~:
-    \begin{table}[H]
-      \centering
-      \begin{tabular}[H]{|cc|cgccg|}
-        \hline
-        $P$ & $Q$ & $P\land Q$ & $\overline{P\land Q}$ & $\bar P$ & $\bar Q$ & $\bar P \lor \bar Q$ \\ \hline
-        V & V & V & F & F & F & F\\
-        V & F & F & V & F & V & V\\
-        F & V & F & V & V & F & V\\
-        F & F & F & V & V & V & V\\
-        \hline\hline
-      \end{tabular}
-    \end{table}
+  \textbf{Preuve du théorème \hyperlink{slide_disjonction_conjonction_et_negation}{\ref{theorem:morgan}}.} On démontre seulement le premier point, on peut suivre la même approche pour le second. On utilise une table de vérité de quatre lignes~:
+  \begin{table}[H]
+    \centering
+    \begin{tabular}[H]{|cc|cgccg|}
+      \hline
+      $P$ & $Q$ & $P\land Q$ & $\overline{P\land Q}$ & $\bar P$ & $\bar Q$ & $\bar P \lor \bar Q$ \\ \hline
+      V & V & V & F & F & F & F\\
+      V & F & F & V & F & V & V\\
+      F & V & F & V & V & F & V\\
+      F & F & F & V & V & V & V\\
+      \hline\hline
+    \end{tabular}
+  \end{table}
 
-    \vspace*{\fill}
+  \vspace*{\fill}
 
-  \end{notes}
+\end{notes}
 
 \section{Implication logique}
 
@@ -940,7 +940,7 @@
     \begin{itemize}
     \item La proposition « $(x+1=3) \Rightarrow \left((x+1)^2=9\right)$ » est vraie. Il est \emph{suffisant} que $x+1$ soit égal à 3 pour que $(x+1)^2$ soit égal à 9.
     \item La proposition « $(x+1=3) \Leftarrow \left((x+1)^2=9\right)$ » n'est pas vraie. Il n'est pas \emph{nécessaire} que $x+1$ soit égal à 3 pour que $(x+1)^2$ soit égal à 9.
-      \item Les deux propositions ne sont pas équivalentes.
+    \item Les deux propositions ne sont pas équivalentes.
     \end{itemize}
 
   \end{example}
@@ -999,7 +999,7 @@
     Soient $P$ et $Q$ deux propositions. On a~:
     \[
       (P \Rightarrow Q) \Leftrightarrow (\bar P \lor Q)
-      \]
+    \]
   \end{theorem}
 
   \bigskip
@@ -1026,9 +1026,9 @@
 \begin{frame}
   \frametitle{Les grands types de raisonnements}
 
-    \centering
-    \includegraphics[scale=.8]{../img/le-chat.png}
-  
+  \centering
+  \includegraphics[scale=.8]{../img/le-chat.png}
+
 \end{frame}
 
 
@@ -1057,7 +1057,7 @@
     $(P_i, i=1\dots,n)$ des propositions. Si $P_1\Rightarrow P_2 \Rightarrow \dots \Rightarrow P_n$ est une proposition vraie, et si $P_1$ est une proposition vraie alors $P_n$ est une proposition vraie.\newline
 
   \item On peut généraliser à un ensemble dénombrable de propositions, voir plus loin le raisonnement par récurrence.
-    
+
   \end{itemize}
 \end{frame}
 
@@ -1074,7 +1074,7 @@
   \end{definition}
 
   \bigskip
-  
+
   \begin{itemize}
 
   \item On montre que la proposition $P$ est vraie en montrant que $P$ fausse aboutit à une contradiction logique.\newline
@@ -1082,8 +1082,8 @@
   \item Le raisonnement par l'absurde correspond à la dernière ligne de la
     table de vérité \hyperlink{slide_implication_1}{\ref{tab:implication}}. Si $Q$ est une proposition fausse, alors la proposition $\overline P\Rightarrow Q$ ne peut être vraie que si $\overline P$ est fausse, c'est-à-dire $P$ vraie.\newline
 
-  \item Contrairement au raisonnement déductif, ici on ne comprend pas vraiment pourquoi $P$ est vraie. C'est une limite du raisonnement par l'absurde. 
-    
+  \item Contrairement au raisonnement déductif, ici on ne comprend pas vraiment pourquoi $P$ est vraie. C'est une limite du raisonnement par l'absurde.
+
   \end{itemize}
 \end{frame}
 
@@ -1094,11 +1094,11 @@
   \hypertarget{slide_raisonnement_par_l_absurde_2}{}
 
   \bigskip
-  
+
   Montrons qu'il existe une infinité de nombres premiers.\newline
 
   \medskip
-  
+
   \begin{itemize}
 
   \item Supposons qu'il existe seulement $n$ nombres premiers: $p_1<p_2<\dots<p_n$ (par exemple 2, 3, 5, 7 et 11).\newline
@@ -1110,7 +1110,7 @@
   \item $P$ est-il un nombre premier~?\newline
 
     \begin{itemize}
-      
+
     \item Si $P$ est premier, alors il y a plus de $n$ nombres premiers. Cela contredit l'hypothèse de départ.\newline
 
     \item Si $P$ n'est pas un nombre premier, alors il est divisible
@@ -1133,7 +1133,7 @@
   \hypertarget{slide_raisonnement_par_contraposition}{}
 
   \begin{definition}[Modus tollens]
-   Pour montrer que $P\Rightarrow Q$ il faut et il suffit de montrer que $\overline Q\Rightarrow \overline P$.
+    Pour montrer que $P\Rightarrow Q$ il faut et il suffit de montrer que $\overline Q\Rightarrow \overline P$.
   \end{definition}
 
   \begin{itemize}
@@ -1147,7 +1147,7 @@
       n^2 = (2k+1)^2 \Leftrightarrow n^2 = 2(2n+2k) + 1 \Leftrightarrow n^2 = 2\mathcal{k} + 1
     \]
     et donc $n^2$ est impair. On conclut que la proposition de départ « $n^2$ pair implique $n$ pair » est vraie.
-    
+
   \end{itemize}
 
 \end{frame}
@@ -1170,12 +1170,12 @@
   \end{definition}
 
   \bigskip
-  
+
   \begin{itemize}
 
   \item La première étape est l'\textit{initialisation} de la récurrence, la seconde étape est l'\textit{hérédité}.\newline
-  \item En répétant indéfiniment l'étape 2, on obtient en partant de $P_{n_0}$ vraie~: $P_{n_0+1}$ vraie, $P_{n_0+2}$ vraie, $P_{n_0+3}$ vraie, ...    
-    
+  \item En répétant indéfiniment l'étape 2, on obtient en partant de $P_{n_0}$ vraie~: $P_{n_0+1}$ vraie, $P_{n_0+2}$ vraie, $P_{n_0+3}$ vraie, ...
+
   \end{itemize}
 
 \end{frame}
@@ -1188,21 +1188,21 @@
   \hypertarget{slide_raisonnement_par_reccurence_2}{}
 
   \bigskip
-  
-   \begin{itemize}
 
-   \item Montrons qu'un polygône convexe à $n$ côtés possède $d_n = \frac{n(n-3)}{2}$ diagonales.\newline
+  \begin{itemize}
 
-   \item On vérifie facilement que la prédiction est correcte pour un triangle ($n=3$)~: un triangle n'a pas de diagonales~!\newline
+  \item Montrons qu'un polygône convexe à $n$ côtés possède $d_n = \frac{n(n-3)}{2}$ diagonales.\newline
 
-   \item Soit un polygône convexe avec $n$ sommets ou côtés, voir \hyperlink{slide_raisonnement_par_reccurence_3}{l'illustration}. Supposons qu'il ait $d_n = \frac{n(n-3)}{2}$ diagonales et montrons qu'un polygône avec $n+1$ sommets a nécessairement $d_{n+1} = \frac{(n+1)(n-2)}{2}$ diagonales.\newline
+  \item On vérifie facilement que la prédiction est correcte pour un triangle ($n=3$)~: un triangle n'a pas de diagonales~!\newline
 
-   \item Créons un polygône à $n+1$ sommets, $\mathcal P_{n+1}$, à partir de d'un polygône à $n$ sommets, $\mathcal P_{n}$. Notons $A_1$, $A_2$, ..., $A_n$ les sommets de $\mathcal P_{n}$.\newline
+  \item Soit un polygône convexe avec $n$ sommets ou côtés, voir \hyperlink{slide_raisonnement_par_reccurence_3}{l'illustration}. Supposons qu'il ait $d_n = \frac{n(n-3)}{2}$ diagonales et montrons qu'un polygône avec $n+1$ sommets a nécessairement $d_{n+1} = \frac{(n+1)(n-2)}{2}$ diagonales.\newline
 
-   \item On construit $\mathcal P_{n+1}$ en créant un nouveau sommet $A_{n+1}$ entre $A_1$ et $A_2$ à l'extérieur du polygône (de sorte que le nouveau polygône soit convexe, autrement certaines diagonales sortiraient du polygône). 
-     
-   \end{itemize}
-   
+  \item Créons un polygône à $n+1$ sommets, $\mathcal P_{n+1}$, à partir de d'un polygône à $n$ sommets, $\mathcal P_{n}$. Notons $A_1$, $A_2$, ..., $A_n$ les sommets de $\mathcal P_{n}$.\newline
+
+  \item On construit $\mathcal P_{n+1}$ en créant un nouveau sommet $A_{n+1}$ entre $A_1$ et $A_2$ à l'extérieur du polygône (de sorte que le nouveau polygône soit convexe, autrement certaines diagonales sortiraient du polygône).
+
+  \end{itemize}
+
 \end{frame}
 
 
@@ -1212,20 +1212,20 @@
   \hypertarget{slide_raisonnement_par_reccurence_2}{}
 
   \bigskip
-  
-   \begin{itemize}
 
-   \item Les diagonales de $\mathcal P_n$ sont des diagonales de $\mathcal P_{n+1}$.\newline
-   \item En reliant $A_{n+1}$ à $A_3$, $A_4$, ..., $A_n$ on obtient $n-2$ nouvelles diagonales dans $\mathcal P_{n+1}$.\newline
-   \item La dernière diagonale de $\mathcal P_{n+1}$ est le segment $A_1A_2$ (un côté de $\mathcal P_n$).\newline
-   \item Au total, nous avons~:
-     \[
-       d_{n+1} = \frac{n(n-3)}{2} + n-2 + 1
-     \]
-     \[
-       \Leftrightarrow d_{n+1} = \frac{n^2-n-2}{2} \Leftrightarrow d_{n+1} = \frac{(n+1)(n-2)}{2} \qed
-     \]
-   \end{itemize}
+  \begin{itemize}
+
+  \item Les diagonales de $\mathcal P_n$ sont des diagonales de $\mathcal P_{n+1}$.\newline
+  \item En reliant $A_{n+1}$ à $A_3$, $A_4$, ..., $A_n$ on obtient $n-2$ nouvelles diagonales dans $\mathcal P_{n+1}$.\newline
+  \item La dernière diagonale de $\mathcal P_{n+1}$ est le segment $A_1A_2$ (un côté de $\mathcal P_n$).\newline
+  \item Au total, nous avons~:
+    \[
+      d_{n+1} = \frac{n(n-3)}{2} + n-2 + 1
+    \]
+    \[
+      \Leftrightarrow d_{n+1} = \frac{n^2-n-2}{2} \Leftrightarrow d_{n+1} = \frac{(n+1)(n-2)}{2} \qed
+    \]
+  \end{itemize}
 
 \end{frame}
 
@@ -1236,33 +1236,33 @@
   \hypertarget{slide_raisonnement_par_reccurence_3}{}
 
   \begin{center}
-  \begin{tikzpicture}[scale=0.7]
-    \coordinate (1) at (4,9);
-    \coordinate (2) at (10,6);
-    \coordinate (3) at (8,2);
-    \coordinate (4) at (4,0);
-    \coordinate (5) at (1,2);
-    \coordinate (6) at (0,6);
-    \path[draw, thick] (4) node[below] {$A_4$}
-    -- (5) node[left] {$A_5$}
-    -- (6) node[left] {$A_6$}
-    -- (1) node[above] {$A_1$}
-    -- (2) node[right] {$A_2$}
-    -- (3) node[below] {$A_3$}
-    -- cycle;
-    \draw[dashed] (4) -- (6);
-    \draw[dashed] (4) -- (1);
-    \draw[dashed] (4) -- (2);
-    \draw[dashed] (3) -- (5);
-    \draw[dashed] (3) -- (6);
-    \draw[dashed] (3) -- (1);
-    \draw[dashed] (2) -- (5);
-    \draw[dashed] (2) -- (6);
-    \draw[dashed] (1) -- (5);
-    \foreach \x in {(1), (2), (3), (4), (5), (6)}{
-      \fill \x circle[radius=0.1cm];
-    };
-  \end{tikzpicture}
+    \begin{tikzpicture}[scale=0.7]
+      \coordinate (1) at (4,9);
+      \coordinate (2) at (10,6);
+      \coordinate (3) at (8,2);
+      \coordinate (4) at (4,0);
+      \coordinate (5) at (1,2);
+      \coordinate (6) at (0,6);
+      \path[draw, thick] (4) node[below] {$A_4$}
+      -- (5) node[left] {$A_5$}
+      -- (6) node[left] {$A_6$}
+      -- (1) node[above] {$A_1$}
+      -- (2) node[right] {$A_2$}
+      -- (3) node[below] {$A_3$}
+      -- cycle;
+      \draw[dashed] (4) -- (6);
+      \draw[dashed] (4) -- (1);
+      \draw[dashed] (4) -- (2);
+      \draw[dashed] (3) -- (5);
+      \draw[dashed] (3) -- (6);
+      \draw[dashed] (3) -- (1);
+      \draw[dashed] (2) -- (5);
+      \draw[dashed] (2) -- (6);
+      \draw[dashed] (1) -- (5);
+      \foreach \x in {(1), (2), (3), (4), (5), (6)}{
+        \fill \x circle[radius=0.1cm];
+      };
+    \end{tikzpicture}
   \end{center}
 
 \end{frame}
@@ -1272,41 +1272,41 @@
   \framesubtitle{Exemple de raisonnement par récurrence, III (héptagone)}
 
   \begin{center}
-  \begin{tikzpicture}[scale=0.7]
-    \coordinate (1) at (4,9);
-    \coordinate (2) at (10,6);
-    \coordinate (3) at (8,2);
-    \coordinate (4) at (4,0);
-    \coordinate (5) at (1,2);
-    \coordinate (6) at (0,6);
-    \coordinate (7) at (8,8);
-    \path[draw, thick] (4) node[below] {$A_4$}
-    -- (5) node[left] {$A_5$}
-    -- (6) node[left] {$A_6$}
-    -- (1) node[above] {$A_1$}
-    -- (2) node[right] {$A_2$}
-    -- (3) node[below] {$A_3$}
-    -- cycle;
-    \draw[dashed] (4) -- (6);
-    \draw[dashed] (4) -- (1);
-    \draw[dashed] (4) -- (2);
-    \draw[dashed] (3) -- (5);
-    \draw[dashed] (3) -- (6);
-    \draw[dashed] (3) -- (1);
-    \draw[dashed] (2) -- (5);
-    \draw[dashed] (2) -- (6);
-    \draw[dashed] (1) -- (5);
-    \path[draw, thick, red] (1) -- (7) node [right] {$A_7$} -- (2);
-    \foreach \x in {(3), (4), (5), (6)}{
-      \draw[dashed, red] (7) -- \x;
-    };
-    \draw[dashed, red, thick] (1) -- (2);
-    \draw[red, fill=red] (7) circle [radius=0.1cm];
-    \foreach \x in {(1), (2), (3), (4), (5), (6)}{
-      \fill \x circle[radius=0.1cm];
-    };
-  \end{tikzpicture}
-\end{center}
+    \begin{tikzpicture}[scale=0.7]
+      \coordinate (1) at (4,9);
+      \coordinate (2) at (10,6);
+      \coordinate (3) at (8,2);
+      \coordinate (4) at (4,0);
+      \coordinate (5) at (1,2);
+      \coordinate (6) at (0,6);
+      \coordinate (7) at (8,8);
+      \path[draw, thick] (4) node[below] {$A_4$}
+      -- (5) node[left] {$A_5$}
+      -- (6) node[left] {$A_6$}
+      -- (1) node[above] {$A_1$}
+      -- (2) node[right] {$A_2$}
+      -- (3) node[below] {$A_3$}
+      -- cycle;
+      \draw[dashed] (4) -- (6);
+      \draw[dashed] (4) -- (1);
+      \draw[dashed] (4) -- (2);
+      \draw[dashed] (3) -- (5);
+      \draw[dashed] (3) -- (6);
+      \draw[dashed] (3) -- (1);
+      \draw[dashed] (2) -- (5);
+      \draw[dashed] (2) -- (6);
+      \draw[dashed] (1) -- (5);
+      \path[draw, thick, red] (1) -- (7) node [right] {$A_7$} -- (2);
+      \foreach \x in {(3), (4), (5), (6)}{
+        \draw[dashed, red] (7) -- \x;
+      };
+      \draw[dashed, red, thick] (1) -- (2);
+      \draw[red, fill=red] (7) circle [radius=0.1cm];
+      \foreach \x in {(1), (2), (3), (4), (5), (6)}{
+        \fill \x circle[radius=0.1cm];
+      };
+    \end{tikzpicture}
+  \end{center}
 
 \end{frame}
 
@@ -1347,19 +1347,19 @@
 
   \begin{itemize}
 
-    \item $\in$ note l'appartenance d'un élément à un ensemble~: $5\in B$.\newline
+  \item $\in$ note l'appartenance d'un élément à un ensemble~: $5\in B$.\newline
 
-    \item $\notin$ note la non appartenance d'un élément à un ensemble~: $6\notin B$.\newline
+  \item $\notin$ note la non appartenance d'un élément à un ensemble~: $6\notin B$.\newline
 
-    \item $\emptyset$ note l'ensemble vide~: $\emptyset = \{\}$.\newline
+  \item $\emptyset$ note l'ensemble vide~: $\emptyset = \{\}$.\newline
 
-    \item $\subseteq$ note l'inclusion d'un ensemble dans un autre~: $ A \subseteq B $ si tout élément de $A$ est aussi un élément de $B$.\newline
+  \item $\subseteq$ note l'inclusion d'un ensemble dans un autre~: $ A \subseteq B $ si tout élément de $A$ est aussi un élément de $B$.\newline
 
-    \item $\subset$ note l'inclusion stricte d'un ensemble dans un autre~: $ A \subset B $ si tout élément de $A$ est aussi un élément de $B$ \emph{et} s'il existe au moins un élément de $B$ qui n'appartient pas à $A$.\newline
+  \item $\subset$ note l'inclusion stricte d'un ensemble dans un autre~: $ A \subset B $ si tout élément de $A$ est aussi un élément de $B$ \emph{et} s'il existe au moins un élément de $B$ qui n'appartient pas à $A$.\newline
 
-    \item Deux ensembles $A$ et $B$ sont égaux si et seulement si $A\subseteq B$ et $B\subseteq A$.\newline
+  \item Deux ensembles $A$ et $B$ sont égaux si et seulement si $A\subseteq B$ et $B\subseteq A$.\newline
 
-    \item On note $\Omega$ l'ensemble universel qui contient tout les ensembles.
+  \item On note $\Omega$ l'ensemble universel qui contient tout les ensembles.
 
   \end{itemize}
 
@@ -1417,13 +1417,13 @@
   \framesubtitle{L'insolite ensemble vide}
   \hypertarget{slide_ensemble_vide_1}{}
 
-  
+
   \begin{property}
-  Pour tout ensemble $A$, l'ensemble vide $\emptyset$ est un sous ensemble de $A$.
+    Pour tout ensemble $A$, l'ensemble vide $\emptyset$ est un sous ensemble de $A$.
   \end{property}
 
   \bigskip\bigskip
-  
+
   Si $\emptyset$ n'est pas inclus dans $A$, alors il existe au moins
   un élément de l'ensemble vide qui n'appartienne pas à $A$. Or,
   l'ensemble vide ne contient aucun élément, \textit{a fortiori} aucun
@@ -1453,7 +1453,7 @@
 
   \end{itemize}
 
-  Nous reviendrons plus loin sur les propriétés de ces quantificateurs. 
+  Nous reviendrons plus loin sur les propriétés de ces quantificateurs.
 
 \end{frame}
 
@@ -1469,7 +1469,7 @@
   \end{definition}
 
   \bigskip
-  
+
   \begin{properties}\label{properties:union}
     \begin{enumerate}
     \item L'union est associative. Soient $A$, $B$ et $C$ trois ensembles, alors $(A\cup B)\cup C = A\cup (B\cup C)$.
@@ -1486,7 +1486,7 @@
   \begin{itemize}
   \item Quand on écrit $A\cup B = B\cup A$, ou plus généralement quand on considère l'égalité de deux ensembles, il faut comprendre que $A\cup B \subseteq B\cup A$ et $B\cup A \subseteq A\cup B$. Pour montrer l'égalité de deux ensembles il faut donc montrer deux inclusions.\newline
 
-  \item On peut généraliser en considérant un ensemble dénombrable d'ensembles. Par exemple, soit $E = \{E_i, i\in \mathbb N\}$ où chaque $E_i$ est un ensemble. On peut définir l'union de ces ensembles~: $\mathcal E = \bigcup_{i\in\mathbb N}E_i$. La proposition  $x\in\mathcal E$ est équivalente à la proposition $\exists i\in\mathbb N \text{ tel que } x\in E_i$.  
+  \item On peut généraliser en considérant un ensemble dénombrable d'ensembles. Par exemple, soit $E = \{E_i, i\in \mathbb N\}$ où chaque $E_i$ est un ensemble. On peut définir l'union de ces ensembles~: $\mathcal E = \bigcup_{i\in\mathbb N}E_i$. La proposition  $x\in\mathcal E$ est équivalente à la proposition $\exists i\in\mathbb N \text{ tel que } x\in E_i$.
   \end{itemize}
 
   \bigskip
@@ -1509,7 +1509,7 @@
     \end{split}
   \]
   (3) On procède de la même façon en rappelant que la disjonction est idempotente, voir Propriétés \hyperlink{slide_disjonction_2}{\ref{properties:disjonction}}. (4) Car $\emptyset$ est un élément de $A$.
-  
+
 \end{notes}
 
 
@@ -1522,7 +1522,7 @@
   \end{definition}
 
   \bigskip
-  
+
   \begin{properties}\label{properties:intersection}
     \begin{enumerate}
     \item L'intersection est associative. Soient $A$, $B$ et $C$ trois ensembles, alors $(A\cap B)\cup C = A\cap (B\cap C)$.
@@ -1537,20 +1537,20 @@
 
 \begin{notes}
   \begin{itemize}
-  \item On peut généraliser en considérant un ensemble dénombrable d'ensembles. Par exemple, soit $E = \{E_i, i\in \mathbb N\}$ où chaque $E_i$ est un ensemble. On peut définir l'intersection de ces ensembles~: $\mathcal E = \bigcap_{i\in\mathbb N}E_i$. La proposition  $x\in\mathcal E$ est équivalente à la proposition $\forall i\in\mathbb N, x\in E_i$.  
+  \item On peut généraliser en considérant un ensemble dénombrable d'ensembles. Par exemple, soit $E = \{E_i, i\in \mathbb N\}$ où chaque $E_i$ est un ensemble. On peut définir l'intersection de ces ensembles~: $\mathcal E = \bigcap_{i\in\mathbb N}E_i$. La proposition  $x\in\mathcal E$ est équivalente à la proposition $\forall i\in\mathbb N, x\in E_i$.
   \end{itemize}
 
   \bigskip
 
   \textbf{Preuve de Propriétés \hyperlink{slide_ensembles_intersection}{\ref{properties:intersection}}.} On suit la même démarche que pour la preuve de Propriétés \hyperlink{slide_ensembles_union}{\ref{properties:union}}, l'intersection hérite des propriétés de la conjonction. Par exemple, pour la commutativité, on a :
- \[
+  \[
     \begin{split}
       x \in A \cap B &\Leftrightarrow x \in A \land x\in B \text{, par définition de l'intersection}\\
       &\Leftrightarrow x \in B \land x\in A \text{, car la conjonction est commutative}\\
       &\Leftrightarrow x \in B\cap A
     \end{split}
   \]
- 
+
 \end{notes}
 
 
@@ -1563,7 +1563,7 @@
   \end{definition}
 
   \bigskip
-  
+
   \begin{properties}\label{properties:difference}
     \begin{enumerate}
     \item Soit $A$ un ensemble, alors $A\setminus A = \emptyset$.
@@ -1634,10 +1634,10 @@
   \hypertarget{slide_ensembles_venn_union}{}
 
   \begin{center}
-  \begin{venndiagram3sets}
-    \fillA \fillB \fillC
-  \end{venndiagram3sets}\\
-  $A\cup B \cup C$
+    \begin{venndiagram3sets}
+      \fillA \fillB \fillC
+    \end{venndiagram3sets}\\
+    $A\cup B \cup C$
   \end{center}
 \end{frame}
 
@@ -1648,10 +1648,10 @@
   \hypertarget{slide_ensembles_venn_intersection}{}
 
   \begin{center}
-  \begin{venndiagram3sets}
-    \fillACapBCapC
-  \end{venndiagram3sets}\\
-  $A \cap B \cap C$
+    \begin{venndiagram3sets}
+      \fillACapBCapC
+    \end{venndiagram3sets}\\
+    $A \cap B \cap C$
   \end{center}
 \end{frame}
 
@@ -1662,10 +1662,10 @@
   \hypertarget{slide_ensembles_venn_difference}{}
 
   \begin{center}
-  \begin{venndiagram2sets}
-    \fillANotB
-  \end{venndiagram2sets}\\
-  $A \setminus B$
+    \begin{venndiagram2sets}
+      \fillANotB
+    \end{venndiagram2sets}\\
+    $A \setminus B$
   \end{center}
 \end{frame}
 
@@ -1675,10 +1675,10 @@
   \hypertarget{slide_ensembles_venn_complementaire}{}
 
   \begin{center}
-  \begin{venndiagram2sets}
-    \fillNotA
-  \end{venndiagram2sets}\\
-  $\bar A$
+    \begin{venndiagram2sets}
+      \fillNotA
+    \end{venndiagram2sets}\\
+    $\bar A$
   \end{center}
 \end{frame}
 
@@ -1705,12 +1705,12 @@
     \item $\bar A\setminus \bar B = B\setminus A$.
     \end{enumerate}
   \end{theorem}
-  
+
 \end{frame}
 
 
 \begin{notes}
-  
+
   \textbf{Preuve du théorème \hyperlink{slide_ensembles_morgan}{\ref{theorem:ensemble_morgan}}.} Montrons que $\overline{A\cup B} = \bar A \cap \bar B$, le second point est laissé en exercice.
   \begin{itemize}
   \item[$\bullet$] Montrons d'abord que $\overline{A\cup B} \subseteq \bar A \cap \bar B$. C'est à dire que si $x$ est dans $\overline{A\cup B}$ alors $x$ est nécessairement dans $\bar A \cap \bar B$. Soit $x\in\overline{A\cup B}$, alors $x\notin A\cup B$. Or
@@ -1718,7 +1718,7 @@
       A\cup B = \{z | z\in A \lor z\in B \}
     \]
     Ainsi il faut que $x\notin A \land x\notin B$, c'est-à-dire $x\in\bar A \land x\in\bar B$ (par définition du complémentaire), et donc $x\in \bar A \cap \bar B$ (par définition de l'intersection). Nous avons bien montré que $\overline{A\cup B} \subseteq \bar A \cap \bar B$.
-  \item[$\bullet$] Montrons que $\bar A \cap \bar B \subseteq \overline{A\cup B}$. Soit $x\in \bar A \cap \bar B$, par définition de l'intersection, cela se traduit par $x\in \bar A \land x \in \bar B$ ou encore, par définition du complémentaire, $x\notin A \land x\notin B$. Finalement, en rappelant que la négation d'une disjonction est une conjonction des négations, $\overline{x\in A \lor x\in B}$. Par définition de l'union nous avons donc~: $x\in \overline{A\cup B}$. Ainsi nous avons bien montré que $\bar A \cap \bar B \subseteq \overline{A\cup B}$ 
+  \item[$\bullet$] Montrons que $\bar A \cap \bar B \subseteq \overline{A\cup B}$. Soit $x\in \bar A \cap \bar B$, par définition de l'intersection, cela se traduit par $x\in \bar A \land x \in \bar B$ ou encore, par définition du complémentaire, $x\notin A \land x\notin B$. Finalement, en rappelant que la négation d'une disjonction est une conjonction des négations, $\overline{x\in A \lor x\in B}$. Par définition de l'union nous avons donc~: $x\in \overline{A\cup B}$. Ainsi nous avons bien montré que $\bar A \cap \bar B \subseteq \overline{A\cup B}$
   \end{itemize}
   Au total, nous avons l'égalité des deux ensembles (puisque chacun contient l'autre). Comme dans les preuves précédentes, on voit que nous héritons directement des propriétés des opérateurs logiques.
 
@@ -1736,9 +1736,9 @@
       &\Leftrightarrow x\in A \ x\cap \bar B \text{, par définition de l'intersection}\qed
     \end{split}
   \]
-  
- \textbf{Preuve du théorème \hyperlink{slide_ensembles_morgan}{\ref{theorem:ensemble_diff_comp}}.} (1) Direct en utilisant le lemme et la loi de Morgan. (2) Direct en utilisant le lemme et la commutativité de l'intersection.
-  
+
+  \textbf{Preuve du théorème \hyperlink{slide_ensembles_morgan}{\ref{theorem:ensemble_diff_comp}}.} (1) Direct en utilisant le lemme et la loi de Morgan. (2) Direct en utilisant le lemme et la commutativité de l'intersection.
+
 \end{notes}
 
 
@@ -1751,7 +1751,7 @@
   \end{definition}
 
   \bigskip
-  
+
   \begin{properties}\label{properties:difference}
     \begin{enumerate}
     \item La différence symétrique est associative. Si $A$, $B$ et $C$ sont des ensembles, alors $A\Delta (B\Delta C)=(A\Delta B)\Delta C$.
@@ -1769,10 +1769,10 @@
   \hypertarget{slide_ensembles_venn_difference}{}
 
   \begin{center}
-  \begin{venndiagram3sets}
-    \fillOnlyA \fillOnlyB \fillOnlyC \fillACapBCapC
-  \end{venndiagram3sets}\\
-  $A \Delta B \Delta C$
+    \begin{venndiagram3sets}
+      \fillOnlyA \fillOnlyB \fillOnlyC \fillACapBCapC
+    \end{venndiagram3sets}\\
+    $A \Delta B \Delta C$
   \end{center}
 \end{frame}
 
@@ -1789,7 +1789,7 @@
   \end{definition}
 
   \bigskip
-  
+
   \begin{itemize}
 
   \item[\dbend] Les couples sont ordonnés $\Rightarrow$ $(x,y) \neq (y, x)$.\newline\newline
@@ -1799,9 +1799,9 @@
       E_1\times E_2 \times \ldots \times E_n = \{(x_1,x_2, \ldots, x_n)| x_1\in E_1 \land x_2\in E_2 \land \ldots \land E_n\}
     \]
     où les $(x_1,x_2, \ldots, x_n)$ sont des n-uplets (ordonnés).
-    
+
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -1810,7 +1810,7 @@
   \framesubtitle{Exemple de produit cartésien}
   \hypertarget{slide_exemple_ensembles_produit}{}
 
-  
+
   \begin{itemize}
 
   \item Soit deux ensembles $A$ et $B$~:
@@ -1821,7 +1821,7 @@
       B = \{1,3,5\}
     \]
 
-    
+
   \item Le produit cartésien de $A$ et $B$ est~:
     \[
       \begin{split}
@@ -1836,7 +1836,7 @@
   \item $A$ has 5 elements, $B$ has 3 elements and $A\times B$ has $15=5\times 3$ elements.
 
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -1845,12 +1845,12 @@
   \framesubtitle{Cardinal d'un ensemble}
   \hypertarget{slide_ensembles_cardinal}{}
 
-  
+
   \begin{definition}\label{def:cardinal} Le cardinal d'un ensemble est le nombre d'éléments d'un ensemble. On note $\textrm{Card}(E)$ le cardinal d'un ensemble $E$. On dit qu'un ensemble est fini si son cardinal est fini.
   \end{definition}
 
   \bigskip
-  
+
   \begin{theorem}\label{thm:cardinal} Soient $E$ et $F$ deux ensembles finis~: $\textrm{Card}(E\times F) = \textrm{Card}(E)\times \textrm{Card}(F)$.
   \end{theorem}
 
@@ -1862,12 +1862,12 @@
   \framesubtitle{Partitions d'un ensemble}
   \hypertarget{slide_ensembles_partitions}{}
 
-  
+
   \begin{definition}\label{def:partitions} Tous les sous ensembles d'un ensemble $E$ peuvent être considérés comme les éléments d'un nouvel ensemble que l'on appelle \textbf{ensemble des parties} de l'ensemble $E$, noté $\mathcal P(E)$.
   \end{definition}
 
   \bigskip
-  
+
   \begin{theorem}\label{thm:partitions} Soit $E$ un ensemble. Le nombre de sous ensemble est donné par~:
     \[
       \textrm{Card}(\mathcal P(E)) = 2^{\textrm{Card(E)}}
@@ -1883,7 +1883,7 @@
   \hypertarget{slide_ensembles_exemple_partitions}{}
 
   \begin{itemize}
-    
+
   \item Soit l'ensemble $E = \{a,b,c\}$.\newline
 
   \item Les sous ensembles sont $\{a\}$, $\{b\}$, $\{c\}$, $\{a,b\}$, $\{a,c\}$, $\{b,c\}$, $\{a,b,c\}$ et $\emptyset$ (n'oublions pas que l'ensemble vide appartient à tout ensemble).\newline
@@ -1905,18 +1905,18 @@
   \framesubtitle{Union et cardinal}
   \hypertarget{slide_ensembles_union_cardnal}{}
 
- \begin{theorem}\label{thm:union_cardinal} Soient $A$ et $B$ deux ensembles finis, alors
+  \begin{theorem}\label{thm:union_cardinal} Soient $A$ et $B$ deux ensembles finis, alors
     \[
-      \textrm{Card}(A \cup B) = \textrm{Card}(A) + \textrm{Card}(B) - \textrm{Card}(A \cap B) 
+      \textrm{Card}(A \cup B) = \textrm{Card}(A) + \textrm{Card}(B) - \textrm{Card}(A \cap B)
     \]
   \end{theorem}
 
   \bigskip
-  
+
   \begin{itemize}
   \item Si l'intersection est vide le cardinal de l'union est la somme des cardinaux.\newline
   \item On doit retrancher le cardinal de l'intersection, autrement les éléments de l'intersection sont comptés deux fois.\newline
-  \item Il est possible de généraliser cette formule pour un nombre arbitraire d'ensembles finis. 
+  \item Il est possible de généraliser cette formule pour un nombre arbitraire d'ensembles finis.
   \end{itemize}
 \end{frame}
 
@@ -1942,7 +1942,7 @@
     \]
     On note que dans le premier cas, on peut associer plus d'une valeur $y$ à chaque valeur de $x$.
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -1955,13 +1955,13 @@
   \end{definition}
 
   \bigskip
-  
+
   \begin{itemize}
   \item Une fonction est un ensemble de paires ordonnées.\newline
   \item Toutes les fonctions sont des relations binaires, mais l'inverse n'est pas vrai.\newline
   \item Dans l'exemple de la page précédente $B$ est une fonction, mais pas l'ensemble $A$.
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -1979,10 +1979,10 @@
         &x \longmapsto y = f(x)
       \end{split}
     \]
-    
-    \item On dit que $y$ est l'image de $x$ par la fonction $f$.
+
+  \item On dit que $y$ est l'image de $x$ par la fonction $f$.
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -1992,14 +1992,14 @@
   \hypertarget{slide_fonctions_exemple}{}
 
   \begin{itemize}
-    \item Soit la fonction~:
+  \item Soit la fonction~:
     \[
       \begin{split}
         f: \quad &\mathbb R \longrightarrow \mathbb R\\
         &x \longmapsto y = x^2+x-2
       \end{split}
     \]
-    
+
   \item On peut alors évaluer cette fonction, c'est-à-dire déterminer les images associées à différentes valeurs de $x$~:
 
     \medskip
@@ -2010,7 +2010,7 @@
     \item $f(x+h)-f(x) = 2xh+h^2+h$
     \end{itemize}
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -2019,27 +2019,27 @@
   \framesubtitle{Somme, différence, produit et quotient}
   \hypertarget{slide_fonctions_opérations}{}
 
-    Soient deux fonctions~:
-      \begin{eqnarray*}
-        \begin{split}
-        f: \quad &\mathbb R \longrightarrow \mathbb R\\
-        &x \longmapsto y = f(x)
-      \end{split}
-        &
+  Soient deux fonctions~:
+  \begin{eqnarray*}
+    \begin{split}
+      f: \quad &\mathbb R \longrightarrow \mathbb R\\
+      &x \longmapsto y = f(x)
+    \end{split}
+      &
         \quad \begin{split}
-        g: \quad &\mathbb R \longrightarrow \mathbb R\\
-        &x \longmapsto y = g(x)
-      \end{split}
-      \end{eqnarray*}
-      \bigskip
-      On définit les opérations suivantes~:
+          g: \quad &\mathbb R \longrightarrow \mathbb R\\
+          &x \longmapsto y = g(x)
+        \end{split}
+  \end{eqnarray*}
+  \bigskip
+  On définit les opérations suivantes~:
   \begin{description}
   \item[\textbf{Somme}] $(f+g)(x) = f(x)+g(x)$\newline
   \item[\textbf{Différence}] $(f-g)(x) = f(x)-g(x)$\newline
   \item[\textbf{Produit}] $(f \cdot g)(x) = f(x) \cdot g(x)$\newline
   \item[\textbf{Quotient}] $\left(\frac{f}{g}\right)(x) = \frac{f(x)}{g(x)}$ avec $g(x)\neq 0$\newline
   \end{description}
-  
+
 \end{frame}
 
 
@@ -2048,33 +2048,33 @@
   \framesubtitle{Composition}
   \hypertarget{slide_fonctions_composition}{}
 
-    Soient deux fonctions~:
-      \begin{eqnarray*}
-        \begin{split}
-        f: \quad & E \longrightarrow F\\
-        &x \longmapsto y = f(x)
-      \end{split}
-        &
+  Soient deux fonctions~:
+  \begin{eqnarray*}
+    \begin{split}
+      f: \quad & E \longrightarrow F\\
+      &x \longmapsto y = f(x)
+    \end{split}
+      &
         \quad \begin{split}
-        g: \quad & F \longrightarrow G\\
-        &x \longmapsto y = g(x)
-      \end{split}
-      \end{eqnarray*}
-      \bigskip
-      La composition de ces deux fonctions est la fonction $h(x) = (g \circ f)(x)$~:
-      \[
-        \begin{split}
-          g \circ f: \quad & E \longrightarrow G\\
-          &x \longmapsto y = g(f(x))
+          g: \quad & F \longrightarrow G\\
+          &x \longmapsto y = g(x)
         \end{split}
-      \]
+  \end{eqnarray*}
+  \bigskip
+  La composition de ces deux fonctions est la fonction $h(x) = (g \circ f)(x)$~:
+  \[
+    \begin{split}
+      g \circ f: \quad & E \longrightarrow G\\
+      &x \longmapsto y = g(f(x))
+    \end{split}
+  \]
 
-      \bigskip
-      
+  \bigskip
+
   \begin{itemize}
   \item[\dbend] En général $g(f(x))\neq f(g(x))$.
   \end{itemize}
-  
+
 \end{frame}
 
 
@@ -2123,7 +2123,7 @@
   \begin{example}\label{ex:surjection_2}
     La fonction $f: \mathbb N \longrightarrow \mathbb N$ qui à $x$ associe $2x$ n'est pas surjective ($y$ impair n'a pas d'antécédant dans $\mathbb N$).
   \end{example}
-  
+
 \end{frame}
 
 
@@ -2134,7 +2134,7 @@
 
   \begin{definition}\label{def:injection} Une fonction $f: E\longrightarrow F$ est \textbf{injective} si et seulement si deux éléments distincts de l'ensemble de départ ont deux images par $f$ distinctes, ou de façon équivalente si $f(x_1)= f(x_2) \Rightarrow x_1=x_2$.
   \end{definition}
-    
+
   \begin{example}\label{ex:injection_1}
     La fonction $f: \mathbb R\longrightarrow \mathbb R$ définie par $f(x) = x+1$ est injective. En effet, $f(x_1)=f(x_2)\Leftrightarrow x_1+1 = x_2+1 \Rightarrow x_1 = x_2$.
   \end{example}
@@ -2142,7 +2142,7 @@
   \begin{example}\label{ex:injection_2}
     Soient deux ensembles $E = \{x\in [-1,1]\}$ et $F = {y\in[0,1]}$, la fonction $f: E\longrightarrow F$ définie par $f(x) = |x|$ n'est pas injective. Par exemple $x=1$ et $x=-1$ ont la même image par $f$ ($y=1)$.
   \end{example}
-  
+
 \end{frame}
 
 
@@ -2155,11 +2155,11 @@
   \end{definition}
 
   \bigskip
-  
+
   \begin{example}\label{ex:bijection_1}
     La fonction $f: \mathbb R\longrightarrow \mathbb R$ définie par $f(x) = x+1$ est bijective. Nous savons déjà qu'elle est injective, de plus il est évident que pour chaque élément $y\in\mathbb R$ on peut trouver un antécédant dans $\mathbb R$ ($x = y-1$).
   \end{example}
-  
+
 \end{frame}
 
 
@@ -2168,34 +2168,34 @@
   \framesubtitle{Patates et relation binaire}
   \hypertarget{slide_fonctions_fig_1}{}
 
-\begin{center}
-  \begin{tikzpicture}[scale=1.2]
-    \filldraw[fill=blue!20, draw=blue!60] (-1.5,0) circle (1cm);
-    \filldraw[fill=red!20, draw=red!60] (1.5,0) circle (1cm);
-    \node at (-1.5,1.5) {$E$};
-    \node at (1.5,1.5) {$F$};
-    \node (x1) at (-1.3,0.7) {$x_1$};
-    \node (x2) at (-1.7,0.3) {$x_2$};
-    \node (x3) at (-1.2,-0.2) {$x_3$};
-    \node (x4) at (-1.5,-0.7) {$x_4$};
-    \node (y1) at (1.5,0.8) {$y_1$};
-    \node (y2) at (1.7,0.2) {$y_2$};
-    \node (y3) at (1.9,-0.3) {$y_3$};
-    \node (y4) at (1.6,-0.85) {$y_4$};
-    \draw[->] (x1) -- (y4);
-    \draw[->] (x1) -- (y1);
-    \draw[->] (x2) -- (y2);
-    \draw[->] (x3) -- (y1);
-    \draw[->] (x4) -- (y3);
+  \begin{center}
+    \begin{tikzpicture}[scale=1.2]
+      \filldraw[fill=blue!20, draw=blue!60] (-1.5,0) circle (1cm);
+      \filldraw[fill=red!20, draw=red!60] (1.5,0) circle (1cm);
+      \node at (-1.5,1.5) {$E$};
+      \node at (1.5,1.5) {$F$};
+      \node (x1) at (-1.3,0.7) {$x_1$};
+      \node (x2) at (-1.7,0.3) {$x_2$};
+      \node (x3) at (-1.2,-0.2) {$x_3$};
+      \node (x4) at (-1.5,-0.7) {$x_4$};
+      \node (y1) at (1.5,0.8) {$y_1$};
+      \node (y2) at (1.7,0.2) {$y_2$};
+      \node (y3) at (1.9,-0.3) {$y_3$};
+      \node (y4) at (1.6,-0.85) {$y_4$};
+      \draw[->] (x1) -- (y4);
+      \draw[->] (x1) -- (y1);
+      \draw[->] (x2) -- (y2);
+      \draw[->] (x3) -- (y1);
+      \draw[->] (x4) -- (y3);
 
-\end{tikzpicture}
+    \end{tikzpicture}
 
-\bigskip
+    \bigskip
 
-\textbf{Ceci n'est pas une fonction,} car $x_1$ a deux images ($y_1$ et $y_4$)
+    \textbf{Ceci n'est pas une fonction,} car $x_1$ a deux images ($y_1$ et $y_4$)
 
-\end{center}
-  
+  \end{center}
+
 \end{frame}
 
 
@@ -2204,33 +2204,33 @@
   \framesubtitle{Patates et fonction}
   \hypertarget{slide_fonctions_fig_2}{}
 
-\begin{center}
-  \begin{tikzpicture}[scale=1.2]
-    \filldraw[fill=blue!20, draw=blue!60] (-1.5,0) circle (1cm);
-    \filldraw[fill=red!20, draw=red!60] (1.5,0) circle (1cm);
-    \node at (-1.5,1.5) {$E$};
-    \node at (1.5,1.5) {$F$};
-    \node (x1) at (-1.3,0.7) {$x_1$};
-    \node (x2) at (-1.7,0.3) {$x_2$};
-    \node (x3) at (-1.2,-0.2) {$x_3$};
-    \node (x4) at (-1.5,-0.7) {$x_4$};
-    \node (y1) at (1.5,0.8) {$y_1$};
-    \node (y2) at (1.7,0.2) {$y_2$};
-    \node (y3) at (1.9,-0.3) {$y_3$};
-    \node (y4) at (1.6,-0.85) {$y_4$};
-    \draw[->] (x1) -- (y1);
-    \draw[->] (x2) -- (y2);
-    \draw[->] (x3) -- (y1);
-    \draw[->] (x4) -- (y3);
+  \begin{center}
+    \begin{tikzpicture}[scale=1.2]
+      \filldraw[fill=blue!20, draw=blue!60] (-1.5,0) circle (1cm);
+      \filldraw[fill=red!20, draw=red!60] (1.5,0) circle (1cm);
+      \node at (-1.5,1.5) {$E$};
+      \node at (1.5,1.5) {$F$};
+      \node (x1) at (-1.3,0.7) {$x_1$};
+      \node (x2) at (-1.7,0.3) {$x_2$};
+      \node (x3) at (-1.2,-0.2) {$x_3$};
+      \node (x4) at (-1.5,-0.7) {$x_4$};
+      \node (y1) at (1.5,0.8) {$y_1$};
+      \node (y2) at (1.7,0.2) {$y_2$};
+      \node (y3) at (1.9,-0.3) {$y_3$};
+      \node (y4) at (1.6,-0.85) {$y_4$};
+      \draw[->] (x1) -- (y1);
+      \draw[->] (x2) -- (y2);
+      \draw[->] (x3) -- (y1);
+      \draw[->] (x4) -- (y3);
 
-\end{tikzpicture}
+    \end{tikzpicture}
 
-\bigskip
+    \bigskip
 
-\textbf{Ceci est une fonction,} tout élément de $E$ a une unique image dans $F$
+    \textbf{Ceci est une fonction,} tout élément de $E$ a une unique image dans $F$
 
-\end{center}
-  
+  \end{center}
+
 \end{frame}
 
 
@@ -2239,32 +2239,32 @@
   \framesubtitle{Patates et fonction surjective}
   \hypertarget{slide_fonctions_fig_3}{}
 
-\begin{center}
-  \begin{tikzpicture}[scale=1.2]
-    \filldraw[fill=blue!20, draw=blue!60] (-1.5,0) circle (1cm);
-    \filldraw[fill=red!20, draw=red!60] (1.5,0) circle (1cm);
-    \node at (-1.5,1.5) {$E$};
-    \node at (1.5,1.5) {$F$};
-    \node (x1) at (-1.3,0.7) {$x_1$};
-    \node (x2) at (-1.7,0.3) {$x_2$};
-    \node (x3) at (-1.2,-0.2) {$x_3$};
-    \node (x4) at (-1.5,-0.7) {$x_4$};
-    \node (y1) at (1.5,0.8) {$y_1$};
-    \node (y2) at (1.7,0.2) {$y_2$};
-    \node (y3) at (1.9,-0.3) {$y_3$};
-    \draw[->] (x1) -- (y1);
-    \draw[->] (x2) -- (y2);
-    \draw[->] (x3) -- (y1);
-    \draw[->] (x4) -- (y3);
+  \begin{center}
+    \begin{tikzpicture}[scale=1.2]
+      \filldraw[fill=blue!20, draw=blue!60] (-1.5,0) circle (1cm);
+      \filldraw[fill=red!20, draw=red!60] (1.5,0) circle (1cm);
+      \node at (-1.5,1.5) {$E$};
+      \node at (1.5,1.5) {$F$};
+      \node (x1) at (-1.3,0.7) {$x_1$};
+      \node (x2) at (-1.7,0.3) {$x_2$};
+      \node (x3) at (-1.2,-0.2) {$x_3$};
+      \node (x4) at (-1.5,-0.7) {$x_4$};
+      \node (y1) at (1.5,0.8) {$y_1$};
+      \node (y2) at (1.7,0.2) {$y_2$};
+      \node (y3) at (1.9,-0.3) {$y_3$};
+      \draw[->] (x1) -- (y1);
+      \draw[->] (x2) -- (y2);
+      \draw[->] (x3) -- (y1);
+      \draw[->] (x4) -- (y3);
 
-\end{tikzpicture}
+    \end{tikzpicture}
 
-\bigskip
+    \bigskip
 
-\textbf{Ceci est une surjection,} tout élément de $F$ a un antécédant dans $E$
+    \textbf{Ceci est une surjection,} tout élément de $F$ a un antécédant dans $E$
 
-\end{center}
-  
+  \end{center}
+
 \end{frame}
 
 
@@ -2273,31 +2273,31 @@
   \framesubtitle{Patates et fonction injective}
   \hypertarget{slide_fonctions_fig_4}{}
 
-\begin{center}
-  \begin{tikzpicture}[scale=1.2]
-    \filldraw[fill=blue!20, draw=blue!60] (-1.5,0) circle (1cm);
-    \filldraw[fill=red!20, draw=red!60] (1.5,0) circle (1cm);
-    \node at (-1.5,1.5) {$E$};
-    \node at (1.5,1.5) {$F$};
-    \node (x1) at (-1.3,0.7) {$x_1$};
-    \node (x2) at (-1.7,0.3) {$x_2$};
-    \node (x4) at (-1.5,-0.7) {$x_4$};
-    \node (y1) at (1.5,0.8) {$y_1$};
-    \node (y2) at (1.7,0.2) {$y_2$};
-    \node (y3) at (1.9,-0.3) {$y_3$};
-    \node (y4) at (1.6,-0.85) {$y_4$};
-    \draw[->] (x1) -- (y1);
-    \draw[->] (x2) -- (y2);
-    \draw[->] (x4) -- (y3);
+  \begin{center}
+    \begin{tikzpicture}[scale=1.2]
+      \filldraw[fill=blue!20, draw=blue!60] (-1.5,0) circle (1cm);
+      \filldraw[fill=red!20, draw=red!60] (1.5,0) circle (1cm);
+      \node at (-1.5,1.5) {$E$};
+      \node at (1.5,1.5) {$F$};
+      \node (x1) at (-1.3,0.7) {$x_1$};
+      \node (x2) at (-1.7,0.3) {$x_2$};
+      \node (x4) at (-1.5,-0.7) {$x_4$};
+      \node (y1) at (1.5,0.8) {$y_1$};
+      \node (y2) at (1.7,0.2) {$y_2$};
+      \node (y3) at (1.9,-0.3) {$y_3$};
+      \node (y4) at (1.6,-0.85) {$y_4$};
+      \draw[->] (x1) -- (y1);
+      \draw[->] (x2) -- (y2);
+      \draw[->] (x4) -- (y3);
 
-\end{tikzpicture}
+    \end{tikzpicture}
 
-\bigskip
+    \bigskip
 
-\textbf{Ceci est une injection,} $f(y_i)=f(y_j)\Rightarrow x_i=x_j$.
+    \textbf{Ceci est une injection,} $f(y_i)=f(y_j)\Rightarrow x_i=x_j$.
 
-\end{center}
-  
+  \end{center}
+
 \end{frame}
 
 
@@ -2306,33 +2306,33 @@
   \framesubtitle{Patates et fonction bijective}
   \hypertarget{slide_fonctions_fig_5}{}
 
-\begin{center}
-  \begin{tikzpicture}[scale=1.2]
-    \filldraw[fill=blue!20, draw=blue!60] (-1.5,0) circle (1cm);
-    \filldraw[fill=red!20, draw=red!60] (1.5,0) circle (1cm);
-    \node at (-1.5,1.5) {$E$};
-    \node at (1.5,1.5) {$F$};
-    \node (x1) at (-1.3,0.7) {$x_1$};
-    \node (x2) at (-1.7,0.3) {$x_2$};
-    \node (x3) at (-1.2,-0.2) {$x_3$};
-    \node (x4) at (-1.5,-0.7) {$x_4$};
-    \node (y1) at (1.5,0.8) {$y_1$};
-    \node (y2) at (1.7,0.2) {$y_2$};
-    \node (y3) at (1.9,-0.3) {$y_3$};
-    \node (y4) at (1.6,-0.85) {$y_4$};
-    \draw[->] (x1) -- (y1);
-    \draw[->] (x2) -- (y2);
-    \draw[->] (x3) -- (y3);
-    \draw[->] (x4) -- (y4);
+  \begin{center}
+    \begin{tikzpicture}[scale=1.2]
+      \filldraw[fill=blue!20, draw=blue!60] (-1.5,0) circle (1cm);
+      \filldraw[fill=red!20, draw=red!60] (1.5,0) circle (1cm);
+      \node at (-1.5,1.5) {$E$};
+      \node at (1.5,1.5) {$F$};
+      \node (x1) at (-1.3,0.7) {$x_1$};
+      \node (x2) at (-1.7,0.3) {$x_2$};
+      \node (x3) at (-1.2,-0.2) {$x_3$};
+      \node (x4) at (-1.5,-0.7) {$x_4$};
+      \node (y1) at (1.5,0.8) {$y_1$};
+      \node (y2) at (1.7,0.2) {$y_2$};
+      \node (y3) at (1.9,-0.3) {$y_3$};
+      \node (y4) at (1.6,-0.85) {$y_4$};
+      \draw[->] (x1) -- (y1);
+      \draw[->] (x2) -- (y2);
+      \draw[->] (x3) -- (y3);
+      \draw[->] (x4) -- (y4);
 
-\end{tikzpicture}
+    \end{tikzpicture}
 
-\bigskip
+    \bigskip
 
-\textbf{Ceci est une bijection.} Notons qu'il s'agit du seul cas où on peut imaginer sans équivoque une fonction qui nous amène de $F$ vers $E$.
+    \textbf{Ceci est une bijection.} Notons qu'il s'agit du seul cas où on peut imaginer sans équivoque une fonction qui nous amène de $F$ vers $E$.
 
-\end{center}
-  
+  \end{center}
+
 \end{frame}
 
 
@@ -2346,7 +2346,7 @@
   \end{definition}
 
   \bigskip
-  
+
   \begin{itemize}
   \item $f^{-1}$ est aussi une bijection.\newline
   \item[\dbend] Ne pas confondre $f^{-1}$ et $\frac{1}{f}$.\newline
@@ -2372,7 +2372,7 @@
     \]
     Nous avons donc obtenu une expression de $x$ comme une fonction de $y$, $g(y)=\frac{y-4}{2}$. En inversant $x$ et $y$, puisqu'il est d'usage de noter $x$ un élément de l'ensemble de départ et $y$ son image, on obtient la fonction inverse $f^{-1}(x) = \frac{x-4}{2}$. On vérifie facilement que $f(f^{-1}(x)) = x = f^{-1}(f(x))$. Par exemple~:
     \[
-        f(f^{-1}(x)) = 2 \left(\frac{x-4}{2}\right)+4 = x-4+4 = x
+      f(f^{-1}(x)) = 2 \left(\frac{x-4}{2}\right)+4 = x-4+4 = x
     \]
   \end{example}
 
@@ -2390,12 +2390,12 @@
   \end{definition}
 
   \bigskip
-  
+
   \begin{itemize}
   \item La proposition « $\forall x\in E, P(x)$ » se lit « Pour tous les éléments $x$ de $E$ la proposition $P(x)$ est vraie »\newline
   \item La proposition « $\exists x\in E | P(x) $ » se lit « Il existe au moins un élément $x$ dans $E$ tel que la proposition $P(x)$ est vraie »\newline
   \item La proposition « $\exists! x\in E | P(x) $ » se lit « Il existe un et un seul élément $x$ dans $E$ tel que la proposition $P(x)$ est vraie »\newline
-  \item La proposition « $\nexists x\in E | P(x) $ » se lit « Il n'existe pas $x$ dans $E$ tel que la proposition $P(x)$ est vraie », on pourrait aussi écrire « $\forall x\in E | \overline{P(x)} $ »  
+  \item La proposition « $\nexists x\in E | P(x) $ » se lit « Il n'existe pas $x$ dans $E$ tel que la proposition $P(x)$ est vraie », on pourrait aussi écrire « $\forall x\in E | \overline{P(x)} $ »
   \end{itemize}
 
 \end{frame}
@@ -2413,14 +2413,14 @@
     \item $\overline{\exists x\in E| P(x)} \quad \Leftrightarrow \quad \forall x\in E, \overline{P(x)}$
     \end{enumerate}
   \end{theorem}
-  
+
   \begin{theorem}\label{thm:quantificateurs_arithmetic_1}
     Soient $E$ un ensemble, $P(x)$ et $Q(x)$ deux propositions dont les valeurs de vérité dépendent des éléments $x$ dans $E$. On a~:
     \begin{enumerate}
-    \item $(\forall x\in E, P(x) \land Q(x)) \quad \Leftrightarrow \quad (\forall x\in E, P(x)) \land (\forall x\in E, Q(x))$ 
+    \item $(\forall x\in E, P(x) \land Q(x)) \quad \Leftrightarrow \quad (\forall x\in E, P(x)) \land (\forall x\in E, Q(x))$
     \item $(\exists x\in E| P(x) \lor Q(x)) \quad \Leftrightarrow \quad (\exists x\in E| P(x)) \lor (\exists x\in E| Q(x))$
     \item $(\exists x\in E| P(x) \land Q(x)) \quad \Rightarrow \quad (\exists x\in E| P(x)) \land (\exists x\in E| Q(x))$
-    \item $(\forall x\in E, P(x) \lor Q(x)) \quad \Leftarrow \quad (\forall x\in E, P(x)) \lor (\forall x\in E, Q(x))$ 
+    \item $(\forall x\in E, P(x) \lor Q(x)) \quad \Leftarrow \quad (\forall x\in E, P(x)) \lor (\forall x\in E, Q(x))$
 
     \end{enumerate}
 
@@ -2437,7 +2437,7 @@
   \item De même pour comprendre l'absence d'équivalence dans point 4 du théorème \hyperlink{slide_quantificateurs_proprietes_1}{\ref{thm:quantificateurs_arithmetic_1}}, remarquons que la proposition « dans la classe, tout élève est un garçon ou une fille » est vraie mais que la proposition  « dans la classe, tout élève est un garçon ou tout élève est une fille » est fausse (en général).\newline
 
   \item[\dbend] On peut distribuer $\forall$ sur $\land$ et $\exists$ sur $\lor$, \textbf{mais} on ne peut pas distribuer $\forall$ sur $\lor$ ou $\exists$ sur $\land$.
-    
+
   \end{itemize}
 \end{notes}
 
@@ -2456,11 +2456,11 @@
   \end{theorem}
 
   \bigskip
-  
+
   \begin{itemize}
   \item On peut permuter deux quantificateurs universels, ou deux quantificateurs existentiels\ldots Mais
   \end{itemize}
-  
+
   \begin{theorem}\label{thm:quantificateurs_perm_2}
     Soient $E$ et $F$ deux ensembles et $P(x,y)$ une proposition dont la valeur de vérité dépend des éléments $x$ dans $E$ et $y$ dans $F$. On a~:
     \[

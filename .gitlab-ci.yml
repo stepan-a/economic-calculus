@@ -1,6 +1,7 @@
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
   TERM: linux
+  GIT_STRATEGY: clone
 
 stages:
   - build

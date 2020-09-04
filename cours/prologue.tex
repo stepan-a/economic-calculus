@@ -46,7 +46,12 @@
   urlcolor=black,
 }
 \usepackage{venndiagram}
-% \usepackage{enumitem}
+
+% Git hash
+\usepackage{xstring}
+\usepackage{catchfile}
+\CatchFileDef{\HEAD}{../.git/refs/heads/master}{\endlinechar=-1}
+\newcommand{\gitrevision}{\StrLeft{\HEAD}{7}}
 
 \newcommand{\trace}{\mathrm{tr}}
 \newcommand{\vect}{\mathrm{vec}}
@@ -90,7 +95,8 @@
 
 \setbeamertemplate{footline}{
   {\hfill\vspace*{1pt}\href{http://creativecommons.org/licenses/by-sa/3.0/legalcode}{\ccbysa}\hspace{.1cm}
-    \raisebox{-.075cm}{\href{https://git.adjemian.eu/University/economic-calculus}{\includegraphics[scale=.1]{../img/gitlab.png}}}
+    \raisebox{-.075cm}{\href{https://git.adjemian.eu/University/economic-calculus}{\includegraphics[scale=.1]{../img/gitlab.png}}}\quad
+    \href{https://git.adjemian.eu/University/economic-calculus/-/blob/\HEAD/cours/prologue.tex}{\gitrevision}\quad\today
   }\hspace{1cm}}
 
 \setbeamertemplate{navigation symbols}{}

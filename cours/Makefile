@@ -1,7 +1,7 @@
 LATEX = pdflatex
 
 prologue.pdf: prologue.tex
-	while ($(LATEX) prologue.tex ; \
+	while ($(LATEX) --shell-escape prologue.tex ; \
 	grep -q "Rerun to get cross" prologue.log ) do true ; \
 	done
 

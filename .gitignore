@@ -10,6 +10,7 @@ cours/prologue.nav
 cours/prologue.out
 cours/prologue.snm
 cours/prologue.toc
+cours/git.hash
 
 sources/*
 sandbox/*

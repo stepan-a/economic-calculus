@@ -1,21 +1,13 @@
-LATEX = pdflatex
+all: prologue.pdf clean
 
-prologue.pdf: prologue.tex
-	while ($(LATEX) --shell-escape prologue.tex ; \
-	grep -q "Rerun to get cross" prologue.log ) do true ; \
-	done
+%.pdf: %.tex
+	@rubber --src-specials --unsafe --pdf $*
 
 clean:
-	rm -rf *.aux
-	rm -rf *.log
-	rm -rf *.nav
-	rm -rf *.out
-	rm -rf *.snm
-	rm -rf *.synctex.gz
-	rm -rf *.toc
-	rm -rf auto
+	@rm -f *.aux *.log *.out *.nav *.rel *.toc *.snm *.synctex.gz *.vrb
+	@rm -rf auto
 
-clean-all: clean
-	rm -f *.pdf
+clean-all:
+	@rm -f *.pdf
 
-all: prologue.pdf clean
+.PHONY: all clean clean-all

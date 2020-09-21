@@ -1,4 +1,4 @@
-all: prologue.pdf clean
+all: prologue.pdf chapitre-2.pdf clean
 
 %.pdf: %.tex
 	@rubber --src-specials --unsafe --pdf $*

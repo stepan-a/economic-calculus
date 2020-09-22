@@ -873,8 +873,8 @@
   \bigskip
 
   \begin{definition}
-    Une racine $\bar x$ d'un polynôme d'ordre $n$, $P_n(x)$, est une
-    valeur de $x$ telle que $P_n(\bar x)=0$.
+    Une racine $x^{\star}$ d'un polynôme d'ordre $n$, $P_n(x)$, est une
+    valeur de $x$ telle que $P_n(x^{\star})=0$.
   \end{definition}
 
   \bigskip
@@ -984,11 +984,11 @@
 
   \item Lorsque le reste de la divison euclidienne est nul, c'est-à-dire lorsqu'il est possible d'écrire $T(x)=Q(x)S(x)$, alors les racines de $Q(x)$ sont des racines de $T(x)$ et les racines de $S(x)$ sont des racines de $T(x)$.\newline
 
-  \item Dans l'autre sens, si $\bar x$ est une racine de $T(x)$ alors $\bar x$ est une racine de $Q(x)$ ou une racine de $S(x)$.\newline
+  \item Dans l'autre sens, si $x^{\star}$ est une racine de $T(x)$ alors $x^{\star}$ est une racine de $Q(x)$ ou une racine de $S(x)$.\newline
 
   \item Dans le dernier exemple on a $S(x)=x+5$, donc $-5$ est une racine de $T(x)=x^3+6x^2-x-30$.\newline
 
-  \item Plus généralement, si $\bar x$ est la racine d'un polynôme $T(x)$, alors on peut toujours factoriser celui-ci sous la forme~: $T(x) = (x-\bar x) Q(x)$.
+  \item Plus généralement, si $x^{\star}$ est la racine d'un polynôme $T(x)$, alors on peut toujours factoriser celui-ci sous la forme~: $T(x) = (x-x^{\star}) Q(x)$.
   \end{itemize}
 
 \end{frame}
@@ -1009,18 +1009,18 @@
     \]
     avec $a\neq 0$, $b$ et $c$ des paramètres réels.\newline
 
-  \item Une racine du polynôme d'ordre 2 est une valeur de $x$, notée $\bar x$, telle que~:
+  \item Une racine du polynôme d'ordre 2 est une valeur de $x$, notée $x^{\star}$, telle que~:
     \[
-      a\bar x^2 + b\bar x + c = 0
+      a \left.x^{\star}\right.^2 + b x^{\star} + c = 0
     \]
 
     \bigskip
 
   \item Cette équation admet au plus deux racines réelles.\newline
 
-  \item Si $\bar x_1$ et $\bar x_2$ sont deux racines réelles, alors on a~:
+  \item Si $x_1^{\star}$ et $x_2^{\star}$ sont deux racines réelles, alors on a~:
     \[
-      a x^2 + b x + c = (x-\bar x_1)(x-\bar x_2)
+      a x^2 + b x + c = a(x-x_1^{\star})(x-x_2^{\star})
     \]
     pour tout $x\in\mathbb R$
 
@@ -1043,7 +1043,7 @@
     \]
     c'est-à-dire les valeurs de $x$ telles que $x^2=1$. On voit immédiatement qu'il existe deux solutions~:
     \[
-      \bar x_1 = -1\quad\text{ et }\quad \bar x_1 = 1
+      x_1^{\star} = -1\quad\text{ et }\quad x_2^{\star} = 1
     \]
     et on retrouve donc une identité remarquable bien connue~:
     \[
@@ -1068,13 +1068,13 @@
     \]
     On reconnaît une identité remarquable~:
     \[
-      x^2 -2x + 1 = (x-1)^2
+      x^2 -2x + 1 = (x-1)^2 = (x-1)(x-1)
     \]
-    Ainsi $\bar x = 1$ est une racine. On dit qu'il s'agit d'une
+    Ainsi $x^{\star} = 1$ est une racine. On dit qu'il s'agit d'une
     racine double (ou de multiplicité deux) à cause la puissance deux
     le terme $x-1$. On a donc~:
     \[
-      \bar x_1 = 1\quad\text{ et }\quad \bar x_2 = 1
+      x_1^{\star} = 1\quad\text{ et }\quad x_2^{\star} = 1
     \]
   \end{example}
 

@@ -21,6 +21,7 @@
 \usepackage{setspace}
 \usepackage{ragged2e}
 \usepackage{listings}
+\usepackage{polynom}
 \usepackage{algorithms/algorithm}
 \usepackage{algorithms/algorithmic}
 \usepackage[frenchb]{babel}
@@ -679,7 +680,7 @@
   \begin{definition}
     On appelle polynôme de degré $n\in\mathbb N$ la fonction de $\mathbb R$ dans $\mathbb R$ donnée par~:
     \[
-      f(x) = \alpha_n x^n + \alpha_{n-1}x_{n-1}+\ldots+a_1x+a_0
+      P_n(x) = \alpha_n x^n + \alpha_{n-1}x_{n-1}+\ldots+a_1x+a_0
     \]
     où les coefficients $\{a_i\}_{i=1}^n$ sont réels et $a_n\neq 0$.
   \end{definition}
@@ -864,6 +865,135 @@
       \end{axis}
     \end{tikzpicture}
   \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, III}
+  \framesubtitle{Racines d'un polynôme}
+  \hypertarget{slide_polynome_racines_1}{}
+
+  \bigskip
+
+  \begin{definition}
+    Une racine $\bar x$ d'un polynôme d'ordre $n$, $P_n(x)$, est une
+    valeur de $x$ telle que $P_n(\bar x)=0$.
+  \end{definition}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Un polynôme peut avoir plusieurs racines, on verra plus loin que le nombre de racines est lié à l'ordre du polynôme.\newline
+
+  \item Graphiquement, les racines réelles d'un polynôme correspondent à l'intersection de la courbe représentative du polynôme et de l'axe des abscisses.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, III}
+  \framesubtitle{Division euclidienne}
+  \hypertarget{slide_division_1}{}
+
+  \bigskip
+
+  \begin{theorem}
+    Soient deux polynômes $S(x)$ et $T(x)\neq 0$, alors il existe deux polynômes $Q(x)$ et $R(x)$ uniques tels que $S(x) = Q(x)T(x)+R(x)$, avec $R(x)=0$ ou un polynôme d'ordre inférieur au polynôme $T(x)$.
+  \end{theorem}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item $Q$ est le quotient de la division euclidienne de $S$ par $T$.\newline
+
+  \item $R$ est le reste de la division euclidienne.\newline
+
+  \item Si le reste de la division euclidienne est nul, on dit qu'on a factorisé le polynôme $S$, puisque $S(x)=Q(x)T(x)$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, III}
+  \framesubtitle{Division euclidienne, exemple 1}
+  \hypertarget{slide_division_exemple_1}{}
+
+  \begin{itemize}
+
+  \item Soient les polynômes $T(x) = 6x^3-2x^2+x+3$ et $S(x) = x^2-x+1$.\newline
+
+  \item La division de $T(x)$ par $S(x)$~:\newline
+
+    \begin{Center}
+      \polyset{style=D}
+      \polylongdiv{6x^3-2x^2+x+3}{x^2-x+1}
+    \end{Center}
+
+    \bigskip
+
+  \item Le quotient est $Q(x) = 6x+4$ et le reste $R(x) = -x-1$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, III}
+  \framesubtitle{Division euclidienne, exemple 2}
+  \hypertarget{slide_division_exemple_2}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Soient les polynômes $T(x) = x^3+6x^2-x-30$ et $S(x) = x+5$.\newline
+
+  \item La division de $T(x)$ par $S(x)$~:\newline
+
+    \begin{Center}
+      \polyset{style=D}
+      \polylongdiv{x^3+6x^2-x-30}{x+5}
+    \end{Center}
+
+    \bigskip
+
+  \item Le quotient est $Q(x) = x^2+x-6$ et le reste est nul.\newline
+
+  \item On peut donc écrire~:
+    \[
+      x^3+6x^2-x-30 = (x+5)(x^2+x-6)
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, III}
+  \framesubtitle{Division euclidienne et racines}
+  \hypertarget{slide_division_racine}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Lorsque le reste de la divison euclidienne est nul, c'est-à-dire lorsqu'il est possible d'écrire $T(x)=Q(x)S(x)$, alors les racines de $Q(x)$ sont des racines de $T(x)$ et les racines de $S(x)$ sont des racines de $T(x)$.\newline
+
+  \item Dans l'autre sens, si $\bar x$ est une racine de $T(x)$ alors $\bar x$ est une racine de $Q(x)$ ou une racine de $S(x)$.\newline
+
+  \item Dans le dernier exemple on a $S(x)=x+5$, donc $-5$ est une racine de $T(x)=x^3+6x^2-x-30$.\newline
+
+  \item Plus généralement, si $\bar x$ est la racine d'un polynôme $T(x)$, alors on peut toujours factoriser celui-ci sous la forme~: $T(x) = (x-\bar x) Q(x)$.
+  \end{itemize}
 
 \end{frame}
 

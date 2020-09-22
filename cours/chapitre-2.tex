@@ -1288,12 +1288,13 @@
 
   \bigskip
 
-  \begin{block}{Les racines}
+  \begin{theorem}\label{thm:poly_2_roots}
     Les racines d'un polynôme de degré 2 sont~:
     \[
       x^{\star} = \frac{-b \pm \sqrt{\Delta}}{2a}
     \]
-  \end{block}
+    avec $\Delta = b^2-4ac$ le discriminant.
+  \end{theorem}
 
   \bigskip
 
@@ -1306,6 +1307,38 @@
   \end{itemize}
 
 \end{frame}
+
+
+\begin{notes}
+  \textbf{Preuve du théorème \hyperlink{slide_polynome_2_racines_5}{\ref{thm:poly_2_roots}}} Le polynôme dont nous cherchons les racines est~:
+  \[
+    f(x) = a x^2 + b x + c
+  \]
+  Les racines de $f(x)$ sont aussi les racines de~:
+  \[
+    g(x) = x^2 +\frac{b}{a} x + \frac{c}{a}
+  \]
+  on a simplement normalisé le polynôme en factorisant le paramètre $a$. Pour montrer que les racines sont bien celles données dans le théorème, nous allons factoriser $g(x)$ en utilisant successivement deux identités remarquable~: $(\alpha+\beta)^2=\alpha^2+2\alpha\beta+\beta^2$ et $\gamma^2-\delta^2 = (\gamma-\delta)(\gamma+\delta)$. Réécrivons $g(x)$ de façon à pouvoir utiliser la première identité remarquable~:
+  \[
+    \begin{split}
+      g(x) &= x^2 + 2\frac{b}{2a} x +  \frac{b^2}{4a^2} - \frac{b^2}{4a^2} + \frac{c}{a}\\
+      &= \left(x+\frac{b}{2a}\right)^2- \frac{b^2}{4a^2} + \frac{c}{a}\\
+      &= \left(x+\frac{b}{2a}\right)^2- \left(\frac{b^2}{4a^2} - \frac{c}{a}\right)\\
+    \end{split}
+  \]
+  On peut alors faire apparaître le discriminant dans le dernier terme~:
+  \[
+    \begin{split}
+      g(x) &= \left(x+\frac{b}{2a}\right)^2- \frac{b^2-4ac}{4a^2}\\
+      &= \left(x+\frac{b}{2a}\right)^2- \frac{\Delta}{4a^2}
+    \end{split}
+  \]
+  Il ne reste plus qu'à utiliser la seconde identité remarquable~:
+  \[
+    g(x) = \left(x+\frac{b}{2a}-\frac{\sqrt{\Delta}}{2a}\right)\left(x+\frac{b}{2a}+\frac{\sqrt{\Delta}}{2a}\right) = \left(x+\frac{b-\sqrt{\Delta}}{2a}\right)\left(x+\frac{b+\sqrt{\Delta}}{2a}\right)\qed
+  \]
+
+\end{notes}
 
 \end{document}
 

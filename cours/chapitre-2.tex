@@ -998,6 +998,319 @@
 \end{frame}
 
 
+\begin{frame}
+  \frametitle{Polynômes, IV}
+  \framesubtitle{Racines d'un polynôme d'ordre 2 (a)}
+  \hypertarget{slide_polynome_2_racines_1}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Un polynôme d'ordre 2 est une fonction de $\mathbb R$ dans $\mathbb R$ définie par~:
+    \[
+      f(x) = ax^2 + bx + c
+    \]
+    avec $a\neq 0$, $b$ et $c$ des paramètres réels.\newline
+
+  \item Une racine du polynôme d'ordre 2 est une valeur de $x$, notée $\bar x$, telle que~:
+    \[
+      a\bar x^2 + b\bar x + c = 0
+    \]
+
+    \bigskip
+
+  \item Cette équation admet au plus deux racines réelles.\newline
+
+  \item Si $\bar x_1$ et $\bar x_2$ sont deux racines réelles, alors on a~:
+    \[
+      a x^2 + b x + c = (x-\bar x_1)(x-\bar x_2)
+    \]
+    pour tout $x\in\mathbb R$
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, IV}
+  \framesubtitle{Racines d'un polynôme d'ordre 2 (b)}
+  \hypertarget{slide_polynome_2_racines_2}{}
+
+  \bigskip
+
+  \begin{example}
+    Soit le polynôme d'ordre deux $f(x) = x^2-1$. Les racines de ce polynôme sont les solutions de l'équation~:
+    \[
+      x^2 - 1 = 0
+    \]
+    c'est-à-dire les valeurs de $x$ telles que $x^2=1$. On voit immédiatement qu'il existe deux solutions~:
+    \[
+      \bar x_1 = -1\quad\text{ et }\quad \bar x_1 = 1
+    \]
+    et on retrouve donc une identité remarquable bien connue~:
+    \[
+      x^2-1 = (x+1)(x-1)
+    \]
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, IV}
+  \framesubtitle{Racines d'un polynôme d'ordre 2 (c)}
+  \hypertarget{slide_polynome_2_racines_3}{}
+
+  \bigskip
+
+  \begin{example}
+    Soit le polynôme d'ordre deux $f(x) = x^2-2x+1$. Les racines de ce polynôme sont les solutions de l'équation~:
+    \[
+      x^2 -2x + 1 = 0
+    \]
+    On reconnaît une identité remarquable~:
+    \[
+      x^2 -2x + 1 = (x-1)^2
+    \]
+    Ainsi $\bar x = 1$ est une racine. On dit qu'il s'agit d'une
+    racine double (ou de multiplicité deux) à cause la puissance deux
+    le terme $x-1$. On a donc~:
+    \[
+      \bar x_1 = 1\quad\text{ et }\quad \bar x_2 = 1
+    \]
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, IV}
+  \framesubtitle{Racines d'un polynôme d'ordre 2 (d)}
+  \hypertarget{slide_polynome_2_racines_4}{}
+
+  \bigskip
+
+  \begin{example}
+    Soit le polynôme d'ordre deux $f(x) = x^2+1$. Les racines de ce
+    polynôme sont les solutions de l'équation~:
+    \[
+      x^2 = -1
+    \]
+    Il n'existe pas de solution réelle à cette équation, car le carré
+    d'un nombre réel est toujours positif.
+  \end{example}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Pour trouver des solutions à cette équation il sortir de l'ensemble des réels.\newline
+
+  \item Peut-on créer un ensemble où cette équation admette une (des) solution(s)~? $\Rightarrow$ Les nombres complexes\ldots
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, IV}
+  \framesubtitle{Le nombre imaginaire et l'ensemble des nombres complexes}
+  \hypertarget{slide_polynome_2_imaginaire_1}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item On définit l'ensemble des nombres complexes noté $\mathbb C$, dont $\mathbb R$ est un sous ensemble, en « imaginant » que l'équation $x^2=-1$ admet une solution que nous noterons $i$.\newline
+
+  \item $i$ est le nombre imaginaire, il est défini comme $i = \sqrt{-1}$.\newline
+
+  \item Un nombre complexe $x\in\mathbb C$ peut s'écrire sous la forme~:
+    \[
+      x = a + i\cdot b
+    \]
+    où $a\in\mathbb R$ est la partie réelle de $x$ et $b\in\mathbb R$ la partie imaginaire.\newline
+
+  \end{itemize}
+
+  \begin{center}
+    \begin{tikzpicture}[scale=0.6]
+      \begin{scope}[thick,font=\scriptsize]
+        \draw [->] (-4,0) -- (4,0) node [right]  {$\Re\{z\}$};
+        \draw [->] (0,-4) -- (0,4) node [above left] {$\Im\{z\}$};
+        \foreach \n in {-3,...,-1,1,2,...,3}{%
+          \draw (\n,-3pt) -- (\n,3pt)   node [above] {$\n$};
+          \draw (-3pt,\n) -- (3pt,\n)   node [right] {$\n i$};}
+        \draw [thin, dashed, color=black!80] (0,0) -- (2,3);
+        \draw [color=black, fill=black] (2,3) circle(0.05);
+        \node [color=black] at (3,3) {$ 2+3i$};
+      \end{scope}
+    \end{tikzpicture}
+
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, IV}
+  \framesubtitle{Arithmétique avec les nombres complexes}
+  \hypertarget{slide_polynome_2_imaginaire_2}{}
+
+  \bigskip
+
+  Soient $x = a_x + i b_x$ et $y = a_x + i b_x$ deux nombres complexes.
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item \textbf{Somme de nombres complexes.}
+    \[
+      x+y = a_x+a_y + i(b_x+b_y)
+    \]
+
+    \bigskip
+
+  \item \textbf{Produit de nombres complexes.}
+    \[
+      \begin{split}
+        x \cdot y &= (a_x + i b_x)(a_y + i b_y)\\
+        &= a_xa_y + i a_xb_y + ib_xa_y + i^2b_xb_y\\
+        &= a_xa_y-b_xb_y + i(a_xb_y + b_xa_y)
+      \end{split}
+    \]
+
+    \bigskip
+
+  \item \textbf{Conjugué d'un nombre complexe.}
+    \[
+      \bar x = a_x - i b_x
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, IV}
+  \framesubtitle{Arithmétique avec les nombres complexes (suite)}
+  \hypertarget{slide_polynome_2_imaginaire_3}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item \textbf{Le produit d'un nombre complexe et de son conjugué est réel.}
+    \[
+      \begin{split}
+        x \cdot \bar x &= (a_x + i b_x)(a_x - i b_x)\\
+        &= a_x^2 + i a_xb_x - i a_x b_x - i^2 b_x^2\\
+        &= a_x^2 + b_x^2
+      \end{split}
+    \]
+
+    \bigskip
+
+  \item \textbf{La norme d'un nombre complexe.}
+    \[
+      |x| = \sqrt{x \cdot \bar x} = \sqrt{a_x^2 + b_x^2}
+    \]
+    généralise la valeur absolue dans $\mathbb R$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, IV}
+  \framesubtitle{Arithmétique avec les nombres complexes (suite et fin)}
+  \hypertarget{slide_polynome_2_imaginaire_4}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item \textbf{Quotient de deux nombres complexes.}
+    \[
+      \begin{split}
+        \frac{x}{y} &= \frac{x \cdot \bar y}{y \cdot y}\\
+        &= \frac{(a_x+ib_x)(a_y-ib_y)}{a_y^2 + b_y^2}\\
+        &= \frac{a_xa_y-ia_xb_y+ib_xa_y-i^2b_xb_y}{a_x^2 + b_x^2}\\
+        &= \frac{a_xa_y+b_xb_y+i(b_xa_y-a_xb_y)}{a_x^2 + b_x^2}\\
+        &= \frac{a_xa_y+b_xb_y}{a_x^2 + b_x^2} + i \frac{b_xa_y-a_xb_y}{a_x^2 + b_x^2}
+      \end{split}
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, IV}
+  \framesubtitle{Racines d'un polynôme d'ordre 2 (e)}
+  \hypertarget{slide_polynome_2_racines_5}{}
+
+  \bigskip
+
+  \begin{block}{Le discriminant}
+    Le discriminant d'un polynôme d'ordre 2 est défini comme~:
+    \[
+      \Delta = b^2-4ac
+    \]
+  \end{block}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item La nature des racines dépend du signe du discriminant~:\newline
+
+    \begin{itemize}
+    \item[$\Delta>0$] Le polynôme possède deux racines réelles,\newline
+    \item[$\Delta=0$] Le polynôme possède une racine réelle de multilplicité deux, et\newline
+    \item[$\delta<0$] Le polynôme possède deux racines complexes conjuguées.\newline
+    \end{itemize}
+
+  \item Un polynôme d'ordre deux possède toujours deux racines (dans $\mathbb C$)
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, IV}
+  \framesubtitle{Racines d'un polynôme d'ordre 2 (e)}
+  \hypertarget{slide_polynome_2_racines_5}{}
+
+  \bigskip
+
+  \begin{block}{Les racines}
+    Les racines d'un polynôme d'ordre 2 sont~:
+    \[
+      x^{\star} = \frac{-b \pm \sqrt{\Delta}}{2a}
+    \]
+  \end{block}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Si $\Delta=0$ (une racine de multiplicité deux) on a~: $x^{\star} = -\nicefrac{b}{2a}$.\newline
+
+  \item Les racines complexes conjuguées apparaissent quand $\Delta<0$ à cause de la racine carrée.\newline
+
+  \end{itemize}
+
+\end{frame}
+
 \end{document}
 
 % Local Variables:

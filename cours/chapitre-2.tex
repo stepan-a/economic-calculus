@@ -1138,8 +1138,10 @@
         \draw [->] (-4,0) -- (4,0) node [right]  {$\Re\{x\}$};
         \draw [->] (0,-4) -- (0,4) node [above left] {$\Im\{x\}$};
         \foreach \n in {-3,...,-1,1,2,...,3}{%
-          \draw (\n,-3pt) -- (\n,3pt)   node [above] {$\n$};
-          \draw (-3pt,\n) -- (3pt,\n)   node [right] {$\n i$};}
+          \draw (\n,-3pt) -- (\n,3pt)   node [above] {$\n$};}
+        \draw (-3pt,1) -- (3pt,1)   node [right] {$i$};
+        \draw (-3pt,2) -- (3pt,2)   node [right] {$2i$};
+        \draw (-3pt,3) -- (3pt,3)   node [right] {$3i$};
         \draw [thin, dashed, color=black!80] (0,0) -- (2,3);
         \draw [color=black, fill=black] (2,3) circle(0.05);
         \node [color=black] at (3,3) {$ 2+3i$};

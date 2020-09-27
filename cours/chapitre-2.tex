@@ -664,7 +664,7 @@
 \end{frame}
 
 
-\section{Polynômes}
+\section{Fonctions polynomiales}
 
 
 \begin{frame}
@@ -1575,6 +1575,451 @@
       \end{axis}
     \end{tikzpicture}
   \end{center}
+
+\end{frame}
+
+
+\section{Fonctions puissances}
+
+\begin{frame}
+  \frametitle{Fonctions puissances, I}
+  \hypertarget{slide_fonctions_puissance_1}{}
+
+  \bigskip
+
+  \begin{definition}
+    On appelle fonction puissance les fonctions de la forme~:
+    \[
+      f(x) = x^{\alpha}
+    \]
+    où $\alpha$ est une constante réelle.
+  \end{definition}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Le domaine de défnition dépend de $\alpha$.\newline
+
+  \item Si $\alpha\in\mathbb Q$, c'est-à-dire s'il existe $p$ et $q$ dans $\mathbb N$ tels que $\alpha=\nicefrac{p}{q}$, alors on écrit~: $x^{\alpha} = x^{\frac{p}{q}} = \sqrt[q]{x^p}$.\newline
+
+  \item Si $\alpha$ est un entier naturel, alors le domaine de définition est $\mathbb R$.
+
+  \item Si $\alpha$ est un entier négatif, alors le domaine de définiton est $\mathbb R\setminus \{0\}$.
+
+  \item Si $\alpha=\nicefrac{1}{q}$, le domaine de définiton est $\mathbb R$ si $q$ est impair et $\mathbb R_+$ sinon.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions puissances, II}
+  \framesubtitle{Exemple}
+  \hypertarget{slide_fonctions_puissance_2}{}
+
+  \bigskip
+
+  \begin{center}
+    \begin{tikzpicture}[scale=1.7]
+      \begin{axis}[
+        xticklabels={,,},
+        yticklabels={,,},
+        enlargelimits=true,
+        grid style={dashed, gray!60},
+        axis x line = bottom,
+        axis y line = left,
+        axis line style={thin},
+        xmax = 3,
+        xmin = 0,
+        ymax = 5,
+        ymin = 0,
+        axis lines = middle,
+        small,
+        clip=false,
+        ]
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=50,
+        domain=0:2,
+        ]
+        {x^2} node(p1){} ;
+        \node [right] at (p1) {\tiny $x^2$};
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=2,
+        domain=0:2,
+        ]
+        {x} node(p2){} ;
+        \node [right] at (p2) {\tiny $x$};
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=100,
+        domain=0:2,
+        ]
+        {x^.5} node(p3){} ;
+        \node [right] at (p3) {\tiny $\sqrt{x}$};
+        \addplot[
+        draw=black,
+        dashed,
+        ]
+        coordinates {
+          (1,0)
+          (1,1)
+          (0,1)
+        } ;
+        \node[left] at (0,1) {\tiny 1};
+        \node[below] at (1,0) {\tiny 1};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions puissances, III}
+  \framesubtitle{Propriété 1}
+  \hypertarget{slide_fonctions_puissance_3}{}
+
+  \bigskip
+
+  \begin{block}{Produit de fonctions puissances}
+    Soit $c$ une constante réelle, soient $\alpha$ et $\beta$ deux paramètres réels, alors~:
+    \[
+      c^{\alpha}c^{\beta} = c^{\alpha+\beta}
+    \]
+  \end{block}
+
+  \bigskip
+
+  Par exemple, dans le cas où les puissances sont entières~:
+  \[
+    \begin{split}
+      c^mc^n &= \underbrace{c\times c \times \ldots \times c}_{m\times}\times\underbrace{c\times c \times \ldots \times c}_{n\times}\\
+      &= \underbrace{c\times c \times \ldots\ldots \times c}_{(m+n)\times}\\
+      &= c^{m+n}
+    \end{split}
+  \]
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions puissances, III}
+  \framesubtitle{Propriété 2}
+  \hypertarget{slide_fonctions_puissance_4}{}
+
+  \bigskip
+
+  \begin{block}{Puissance de puissance}
+    Soit $c$ une constante réelle, soient $\alpha$ et $\beta$ deux paramètres réels, alors~:
+    \[
+      \left(c^{\alpha}\right)^{\beta} = c^{\alpha\beta}
+    \]
+  \end{block}
+
+  \bigskip
+
+  Par exemple, dans le cas où les puissances sont entières~:
+  \[
+    \begin{split}
+      \left(c^m\right)^n &= \underbrace{c^m\times c^m \times \ldots \times c^m}_{n\times}\\
+      &= \underbrace{\underbrace{c\times c \times \times c}_{m\times}\times \ldots \times \underbrace{c\times c \times \times c}_{m\times}}_{n\times}\\
+      &=\underbrace{c\times c \times \ldots\ldots \times c}_{(mn)\times}\\
+      &= c^{mn}
+    \end{split}
+  \]
+
+\end{frame}
+
+
+\section{Fonctions exponentielles}
+
+\begin{frame}
+  \frametitle{Fonctions exponentielles, I}
+  \hypertarget{slide_fonctions_exponentielles_1}{}
+
+  \bigskip
+
+  \begin{definition}
+    On appelle fonction exponentielle de base $a>0$ les fonctions de la forme~:
+    \[
+      f(x) = a^{x}
+    \]
+    Il s'agit d'une fonction de $\mathbb R$ dans $\mathbb R_+$.
+  \end{definition}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item D'après les propriétés précédentes, si $f$ est une fonction exponentielle alors~:
+    \[
+      f(x)f(y) = f(x+y)
+    \]
+
+  \item Si on restreint le domaine à $\mathbb N$, cette fonction sert à calculer des intérêts composés ou des facteurs de croissance.\newline
+
+  \item On considère souvent la base~:
+    \[
+      e=\sum_{k=0}^{\infty}\frac{1}{k!} \approx 2,71828182845904523536028747135266249775724709\ldots
+    \]
+    une constante irrationnelle (Euler).
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions exponentielles, II}
+  \framesubtitle{Exemple}
+  \hypertarget{slide_fonctions_exponentielles_2}{}
+
+  \bigskip
+
+  \begin{center}
+    \begin{tikzpicture}[scale=1]
+      \begin{axis}[
+        xticklabels={,,},
+        yticklabels={,,},
+        enlargelimits=true,
+        grid style={dashed, gray!60},
+        axis x line = bottom,
+        axis y line = left,
+        axis line style={thin},
+        xmax = 2,
+        xmin = -2,
+        ymax = 10,
+        ymin = 0,
+        axis lines = middle,
+        small,
+        clip=false,
+        ]
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=50,
+        domain=-2:2,
+        ]
+        {3^x} node(p1){} ;
+        \node [right] at (p1) {\tiny $3^x$};
+        \addplot[
+        draw=red,
+        thick,
+        smooth,
+        samples=50,
+        domain=-2:2,
+        ]
+        {2.71828182845904523536028747135266249775724709369996^x} node(p2){} ;
+        \node [right, red] at (p2) {\tiny $e^x$};
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=100,
+        domain=-2:2,
+        ]
+        {2^x} node(p3){} ;
+        \node [right] at (p3) {\tiny $2^x$};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+
+\section{Logarithmes}
+
+
+\begin{frame}
+  \frametitle{Logarithmes, I}
+
+  \begin{definition}
+    Le logarithme de base $a$ d'un nombre est la puissance de $a$ qui donne ce nombre. On note $\log_a x$ le logarithme base $a$ de $x$.
+  \end{definition}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Par définition, on doit donc avoir~: $a^{\log_a x} = x$.\newline
+
+  \item On définit la fonction logarithme (base $a$) $f(x) = \log_a(x)$.\newline
+
+  \item Il s'agit de la réciproque de la fonction exponentielle, c'est une fonction de $\mathbb R_+^{\star}$ dans $\mathbb R$.\newline
+
+  \item Quand la base est omise, la base est la constante d'Euler ($e$), on parle alors de logarithme naurel (on aussi $\ln$ parfois).\newline
+
+  \item Les bases fréquemment utilisées sont 10, 2 et $e$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Logarithmes, II}
+  \framesubtitle{Propriétés}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item \textbf{Logarithme de 1.} $\log_a 1 = 0$ (puisque $a^0 = 1$).\newline
+
+  \item \textbf{Changement de base.}
+    \[
+      \log_a(x) = \frac{\log_b(x)}{\log_b(a)}
+    \]
+
+    \bigskip
+
+  \item \textbf{Le logarithme d'un produit est la somme des logarithmes}.
+    \[
+      \log_a(xy) = \log_a(x)+\log_a(y)
+    \]
+    $\Rightarrow$
+    \[
+      \log_a \left(x^c\right) = c \log_a (x)
+    \]
+
+    \bigskip
+
+  \item \textbf{Le logarithme d'un ratio est la différence des logarithmes}.
+    \[
+      \log_a(x/y) = \log_a(x)-\log_a(y)
+    \]
+
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{notes}
+
+  \begin{itemize}
+
+  \item \textbf{Formule du logarithme d'un produit.} Par définition du logarithme~:
+    \begin{eqnarray*}
+      &\text{Si } y_1 = a^{x_1} \text{ alors } \log_a(y_1) = x_1\\
+      &\text{Si } y_2 = a^{x_2} \text{ alors } \log_a(y_2) = x_2\\
+    \end{eqnarray*}
+    Par ailleurs nous savons que~:
+    \[
+      y_1y_2 = a^{x_1+x_2}
+    \]
+    Nous avons donc que~:
+    \[
+      \log_a(y_1y_2) = x_1 + x_2
+    \]
+    c'est-à-dire~:
+    \[
+      \log_a(y_1y_2) = \log_a(y_1) + \log_a(y_2)
+    \]
+
+  \item \textbf{Formule du change de base.} Notons que si $A = log_a(x)$, alors par définition du logarithme on a $x = a^A$. En base $b$ nous avons donc~:
+    \[
+      \begin{split}
+        \log_b(x) &= \log_b a^A\\
+        &= A\log_b a\\
+        &= \log_a(x)\log_b(a)
+      \end{split}
+    \]
+    Et donc finalement de façon équivalente~:
+    \[
+      \log_a(x) = \frac{\log_b(x)}{\log_b(a)}
+    \]
+    En particulier nous avons~:
+
+  \item \textbf{Logarithme d'un inverse.} On peut montrer que $\log_a \left(\frac{1}{x}\right) = - \log_a(x)$. En effet, on a~:
+    \[
+      \log_a1 = \log_a \left(x\cdot\frac{1}{x}\right) = \log_a x + \log_a \left(\frac{1}{x}\right)
+    \]
+    Comme le $\log_a 1 = 0$ pour toute base $a>0$, il vient~:
+    \[
+      \log_a x + \log_a \left(\frac{1}{x}\right) = 0
+    \]
+    et donc~:
+    \[
+      \log_a \left(\frac{1}{x}\right) = -\log_a x
+    \]
+
+  \item \textbf{Formule du logarithme d'un quotient.} On a~:
+    \[
+      \begin{split}
+        \log_a \left(\frac{x}{y}\right) &= \log_a \left(x\cdot\frac{1}{y}\right)\\
+        &= \log_a x + \log_a \left(\frac{1}{y}\right)\\
+        &= \log_a x - \log_a y\\
+      \end{split}
+    \]
+
+  \end{itemize}
+
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Logarithmes, III}
+
+  \begin{center}
+    \begin{tikzpicture}[scale=1.7]
+      \begin{axis}[
+        xticklabels={,,},
+        yticklabels={,,},
+        enlargelimits=true,
+        grid style={dashed, gray!60},
+        axis x line = bottom,
+        axis y line = left,
+        axis line style={thin},
+        xmax = 3,
+        xmin = -3,
+        ymax = 5,
+        ymin = -5,
+        axis lines = middle,
+        small,
+        clip=false,
+        ]
+        \addplot[
+        draw=black,
+        smooth,
+        samples=50,
+        domain=-2.8:1.8,
+        ]
+        {2.718281828459045235360287^x} node(p1){} ;
+        \node [right] at (p1) {\tiny $e^x$};
+        \addplot[
+        draw=black,
+        dashed,
+        samples=2,
+        domain=-3:3,
+        ]
+        {x} node(p2){} ;
+        \node [right] at (p2) {\tiny $x$};
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=200,
+        domain=0.015:3,
+        ]
+        {ln(x)} node(p3){} ;
+        \node [right] at (p3) {\tiny $\log{x}$};
+        \node[above] at (1,0) {\tiny 1};
+        \node[left] at (0,1) {\tiny 1};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+
 
 \end{frame}
 

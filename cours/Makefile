@@ -5,7 +5,7 @@ all: prologue.pdf chapitre-2.pdf chapitre-3.pdf clean
 
 clean:
 	@rm -f *.aux *.log *.out *.nav *.rel *.toc *.snm *.synctex.gz *.vrb
-	@rm -rf _minted-chapter-2
+	@rm -rf _minted-*
 	@rm -rf auto
 
 clean-all:

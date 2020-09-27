@@ -1,0 +1,261 @@
+\synctex=1
+
+\documentclass[10pt,notheorems]{beamer}
+
+\usepackage{etex}
+\usepackage{fourier-orns}
+\usepackage{ccicons}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsbsy}
+\usepackage{amsopn}
+\usepackage{amscd}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{color, colortbl}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{lastpage}
+\usepackage[nice]{nicefrac}
+\usepackage{setspace}
+\usepackage{ragged2e}
+\usepackage{listings}
+\usepackage{polynom}
+\usepackage{algorithms/algorithm}
+\usepackage{algorithms/algorithmic}
+\usepackage[frenchb]{babel}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{patterns, arrows, decorations.pathreplacing, decorations.markings, calc}
+\pgfplotsset{plot coordinates/math parser=false}
+\newlength\figureheight
+\newlength\figurewidth
+\usepackage[utf8x]{inputenc}
+\usepackage{cancel}
+\usepackage{tikz-qtree}
+\usepackage{dcolumn}
+\usepackage{adjustbox}
+\usepackage{environ}
+\usepackage[cal=boondox]{mathalfa}
+\usepackage{manfnt}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=black,
+  urlcolor=black,
+}
+\usepackage{venndiagram}
+\usepackage{minted}
+
+% Git hash
+\usepackage{xstring}
+\usepackage{catchfile}
+\immediate\write18{git rev-parse HEAD > git.hash}
+\CatchFileDef{\HEAD}{git.hash}{\endlinechar=-1}
+\newcommand{\gitrevision}{\StrLeft{\HEAD}{7}}
+
+\newcommand{\trace}{\mathrm{tr}}
+\newcommand{\vect}{\mathrm{vec}}
+\newcommand{\tracarg}[1]{\mathrm{tr}\left\{#1\right\}}
+\newcommand{\vectarg}[1]{\mathrm{vec}\left(#1\right)}
+\newcommand{\vecth}[1]{\mathrm{vech}\left(#1\right)}
+\newcommand{\iid}[2]{\mathrm{iid}\left(#1,#2\right)}
+\newcommand{\normal}[2]{\mathcal N\left(#1,#2\right)}
+\newcommand{\dynare}{\href{http://www.dynare.org}{\color{blue}Dynare}}
+\newcommand{\sample}{\mathcal Y_T}
+\newcommand{\samplet}[1]{\mathcal Y_{#1}}
+\newcommand{\slidetitle}[1]{\fancyhead[L]{\textsc{#1}}}
+
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\C}{{\mathbb C}}
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\binomial}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+\newcommand{\bigO}[1]{\mathcal O \left(#1\right)}
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+
+\renewcommand{\qedsymbol}{C.Q.F.D.}
+
+\newcolumntype{d}{D{.}{.}{-1}}
+\definecolor{gray}{gray}{0.9}
+\newcolumntype{g}{>{\columncolor{gray}}c}
+
+\setbeamertemplate{theorems}[numbered]
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Théorème}
+
+\theoremstyle{definition} % insert bellow all blocks you want in normal text
+\newtheorem{definition}{Définition}
+\newtheorem{properties}{Propriétés}
+\newtheorem{lemma}{Lemme}
+\newtheorem{property}[properties]{Propriété}
+\newtheorem{example}{Exemple}
+\newtheorem*{idea}{Éléments de preuve} % no numbered block
+
+
+
+\setbeamertemplate{footline}{
+  {\hfill\vspace*{1pt}\href{http://creativecommons.org/licenses/by-sa/3.0/legalcode}{\ccbysa}\hspace{.1cm}
+    \raisebox{-.075cm}{\href{https://git.adjemian.eu/University/economic-calculus}{\includegraphics[scale=.1]{../img/gitlab.png}}}\enspace
+    \href{https://git.adjemian.eu/University/economic-calculus/-/blob/\HEAD/cours/chapitre-3.tex}{\gitrevision}\enspace\today
+  }\hspace{1cm}}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{caption}[numbered]
+
+\NewEnviron{notes}{\justifying\tiny\begin{spacing}{1.0}\BODY\vfill\pagebreak\end{spacing}}
+
+\newenvironment{exercise}[1]
+{\bgroup \small\begin{block}{Ex. #1}}
+  {\end{block}\egroup}
+
+\newenvironment{defn}[1]
+{\bgroup \small\begin{block}{Définition. #1}}
+  {\end{block}\egroup}
+
+\newenvironment{exemple}[1]
+{\bgroup \small\begin{block}{Exemple. #1}}
+  {\end{block}\egroup}
+
+\begin{document}
+
+\title{Calcul Économique\\\small{III. Suites, limites et continuité}}
+\author[S. Adjemian]{Stéphane Adjemian}
+\institute{\texttt{stephane.adjemian@univ-lemans.fr}} \date{Septembre 2020}
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Plan}
+  \tableofcontents
+\end{frame}
+
+
+\section{Suites}
+
+\begin{frame}
+  \frametitle{Suites, I}
+  \framesubtitle{Définition}
+  \hypertarget{slide_suites_1}{}
+
+  \begin{itemize}
+
+  \item Une suite est une famille d'éléments, les « termes » de la suite, indexée par $\mathbb N$.\newline
+
+  \item Lorsque tous les éléments d'une suite appartiennent à un même ensemble $E$, cette suite peut être assimilée à une fonction de $\mathbb N$ dans $E$.\newline
+
+  \item Une suite est dite entière si $E$ est un sous ensemble de $\mathbb Z$, réelle si $E$ est un sous ensemble de $\mathbb R$, ou complexe si $E$ est un sous-ensemble $\mathbb C$.\newline
+
+  \item On note habituellement $u_0$, $u_1$, $u_2$, \ldots les termes d'une suite.\newline
+
+  \item Une suite peut être définie en donnant une expression générale de ses termes, ou à l'aide d'une expression récursive en définissant chaque terme en fonction de termes précédents.\newline
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, I}
+  \framesubtitle{Exemple}
+  \hypertarget{slide_suites_2}{}
+
+  \begin{itemize}
+
+  \item On définit la suite $(u_n)_{n\in\mathbb N}$~, en donnant l'expression générale du $n$-ième terme~:
+    \[
+      u_n = (-1)^n
+    \]
+
+  \item Cela donne~:\newline
+    \begin{center}
+      \begin{table}[H]
+        \centering
+        \begin{tabular}{c|cccccccc}
+          $n$ & 0 & 1 & 2 & 3 & 4 & \ldots & $n$ & \ldots\\\hline
+          $u_n$ & 1 & -1 & 1 & -1 & 1 &     & $(-1)^n$ &
+        \end{tabular}
+      \end{table}
+    \end{center}
+
+    \bigskip
+
+  \item Alternativement, nous pouvons définir la suite récursivement~:
+    \[
+      u_n = -1\times u_{n-1}
+    \]
+    avec la condition initiale $u_0 = 1$.\newline
+
+  \item Quand les signes des termes successifs sont toujours opposés, on dit que la suite est \textbf{alternée}.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, I}
+  \framesubtitle{Monotonie}
+  \hypertarget{slide_suites_3}{}
+
+  \begin{itemize}
+
+  \item Une suite est dite \textbf{monotone croissante} si $u_n>u_{n-1}$ pour tout $n\geq 1$.\newline
+
+  \item Une suite est dite \textbf{monotone décroissante} si $u_n<u_{n-1}$ pour tout $n\geq 1$.\newline
+
+  \item On dira qu'une suite est croissante (décroissante) si $u_n\geq u_{n-1}$ (respectivement $u_n\leq u_{n-1}$.\newline
+
+  \end{itemize}
+
+  \begin{example}
+    La suite $(u_n)_{n\in\mathbb N}$ de terme général $u_n = \frac{1}{n}$ (pour $n\in\mathbb N^{\star}$) est monotone décroissante. En effet~:
+    \[
+      u_n - u_{n-1} = \frac{1}{n}-\frac{1}{n-1} = \frac{n-1-n}{n(n-1)} = -\frac{1}{n(n-1)}<0 \forall n\geq 2
+    \]
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, I}
+  \framesubtitle{Majorant et minorant}
+  \hypertarget{slide_suites_4}{}
+
+  \begin{itemize}
+
+  \item Une suite est \textbf{bornée} s'il existe $k$ et $K$ tels que $k\leq u_n\leq K$ $\forall n\geq 0$.\newline
+
+  \item $k$ ($K$) est un \textbf{minorant} (\textbf{majorant}) de la suite.\newline
+
+  \item Le plus grand minorant (petit majorant) est la \textbf{borne inférieure} (\textbf{borne supérieure}) de la suite.\newline
+
+  \end{itemize}
+
+  \begin{example}
+    La suite $(u_n)_{n\in\mathbb N}$ de terme général $u_n = \frac{n-2}{2n}$ (pour $n\in\mathbb N^{\star}$) est bornée. En effet $-\frac{1}{2}\leq u_n\leq \frac{1}{2}$~:
+    \[
+      u_n - \frac{1}{2} =  \frac{n-2}{2n}-\frac{1}{2}=\frac{1}{2}-\frac{2}{2n}-\frac{1}{2}=-\frac{1}{n}<0 \quad\forall n\geq 1
+    \]
+    \[
+      u_n+\frac{1}{2} = \frac{n-2}{2n}+\frac{1}{2} = 1 - \frac{1}{n} \geq 0\quad \forall n\geq 1
+    \]
+  \end{example}
+
+\end{frame}
+
+
+\end{document}
+
+% Local Variables:
+% ispell-check-comments: exclusive
+% ispell-local-dictionary: "francais"
+% TeX-master: t
+% End:

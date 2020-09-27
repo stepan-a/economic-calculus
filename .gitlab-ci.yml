@@ -17,6 +17,7 @@ pdf:
     paths:
       - cours/prologue.pdf
       - cours/chapitre-2.pdf
+      - cours/chapitre-3.pdf
       - exam/2014-a/economic-calculus-correction.pdf
       - exam/2014-a/economic-calculus.pdf
       - exam/2014-b/economic-calculus.pdf
@@ -49,6 +50,7 @@ web:
   script:
     - cp cours/prologue.pdf /home/www/le-mans.adjemian.eu/calcul-économique/cours
     - cp cours/chapitre-2.pdf /home/www/le-mans.adjemian.eu/calcul-économique/cours
+    - cp cours/chapitre-3.pdf /home/www/le-mans.adjemian.eu/calcul-économique/cours
     - cp exam/2014-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2014-a
     - cp exam/2014-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2014-b
     - cp exam/2015-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2015-a

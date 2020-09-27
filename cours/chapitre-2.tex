@@ -47,6 +47,7 @@
   urlcolor=black,
 }
 \usepackage{venndiagram}
+\usepackage{minted}
 
 % Git hash
 \usepackage{xstring}
@@ -1341,6 +1342,242 @@
   \]
 
 \end{notes}
+
+
+\begin{frame}
+  \frametitle{Polynômes, V}
+  \framesubtitle{Racines d'un polynôme de degré supérieur à 2}
+  \hypertarget{slide_polynome_2_racines_5_1}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item De la même façon que pour les polynôme d'ordre 2, il existe des formules (par radicaux, c'est-à-dire qui n'utilisent que les opérations usuelles et des racines) pour calculer les solutions des polynomiale de degré 3 ou 4\ldots Mais ces formules sont assez difficile à lire\ldots\newline
+
+  \item En pratique, dans la vie d'un étudiant, on cherche des « racines évidentes » (petits entiers), et factorise le  polynôme pour réduire le degré du polynôme dont il restera à calculer les racines.\newline
+
+  \item En pratique, dans la vraie vie, on utilise un ordinateur pour calculer numériquement les racines.\newline
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, V}
+  \framesubtitle{Calculer des racines en utilisant des solutions évidentes (a)}
+  \hypertarget{slide_polynome_2_racines_5_2}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Soit le polynôme de degré 3~:
+    \[
+      f(x) = x^3-\frac{7}{4}x^2 + \frac{7}{8}x - \frac{1}{8}
+    \]
+
+  \item On note que pour $x=1$, on a~:
+    \[
+      f(1) = 1-\frac{7}{4}+\frac{7}{8}x -\frac{1}{8}
+    \]
+
+  \item On sait donc qu'on peut factoriser $(x-1)$, c'est-à-dire écrire $f(x)$ comme le produit d'un polynôme de degré 2 et de $(x-1)$.\newline
+
+  \item Pour trouver le polynôme de degré 2 on peut faire une division euclidienne, ou procéder par la méthode dite des « coefficients indéterminés ».\newline
+
+  \item Postulons $f(x) = (x-1)(ax^2+bx+c)$ et identifions les paramètres $a$, $b$ et $c$. Nous devons donc avoir~:
+    \[
+      x^3-\frac{7}{4}x^2+\frac{7}{8}x -\frac{1}{8} = (x-1)(ax^2+bx+c)
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Polynômes, V}
+  \framesubtitle{Calculer des racines en utilisant des solutions évidentes (b)}
+  \hypertarget{slide_polynome_2_racines_5_3}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item C'est-à-dire~:
+    \[
+      \begin{split}
+        x^3-\frac{7}{4}x^2+\frac{7}{8}x -\frac{1}{8} &= ax^3 + bx^2 + cx - ax^2 - bx - c\\
+        &= ax^3 + (b-a)x^2 + (c-b)x -c
+      \end{split}
+    \]
+
+  \item Par identification, on a donc~:
+    \[
+      \begin{cases}
+        1 &= a\\
+        -\frac{7}{4} &= b-a\\
+        \frac{7}{8} &= c-b\\
+        \frac{1}{8} &= c
+      \end{cases}
+      \quad
+      \Leftrightarrow
+      \quad
+      \begin{cases}
+        a &= 1\\
+        b &= -\frac{3}{4}\\
+        \frac{7}{8} &= c-b\\
+        c &= \frac{1}{8}
+      \end{cases}
+    \]
+
+  \item Et donc~:
+    \[
+      x^3-\frac{7}{4}x^2+\frac{7}{8}x -\frac{1}{8} = (x-1)\left(x^2-\frac{3}{4}x+\frac{1}{8}\right)
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \frametitle{Polynômes, V}
+  \framesubtitle{Calculer les racines numériquement}
+  \hypertarget{slide_polynome_2_racines_5_4}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Avec Python:\newline
+
+    \begin{minted}{python}
+      >>> import numpy as np
+      >>> np.roots([1, -7.0/4.0, 7.0/8.0, -1.0/8.0])
+      array([1.  , 0.5 , 0.25])
+    \end{minted}
+
+    \bigskip
+
+  \item[\dbend] Ordre inverse des paramètres par rapport à nos notations.\newline
+
+    \bigskip
+
+  \item Il existe des algorithmes plus généraux pour trouver les zéros d'une fonction, c'est à dire des valeurs de $x$ telles que $f(x)=0$. On verra une version simple de ces algorithmes (qui reposent souvent sur des calculs de dérivées).
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions rationnelles, I}
+  \hypertarget{slide_fonction_rationnelle_definition}{}
+
+  \bigskip
+
+  \begin{definition}
+    Une fonction rationnelle est une fonction de la forme $\frac{p(x)}{q(x)}$, où $p(x)$ et $q(x)$ sont des fonctions polynomiales, c'est-à-dire~:
+    \[
+      f(x) = \frac{\alpha_n x^n + \alpha_{n-1}x^{n-1} + \ldots + \alpha_1 x + \alpha_0}{\beta_m x^m + \beta_{m-1}x^{m-1} + \ldots + \beta_1 x + \beta_0}
+    \]
+  \end{definition}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Si $q(x)$ est un polynôme de degré 0 alors $f(x)$ est une fonction polynomiale.\newline
+
+  \item La fonction $f$ est à valeur dans $\mathbb R$, mais le domaine de la fonction n'est généralement pas $\mathbb R$. Il faut exclure les points où $q(x)$ est nulle, c'est-à-dire les racines de $q(x)$. Ainsi~:
+    \[
+      \begin{split}
+        f: \quad \{x\in\mathbb R|q(x)\neq 0\} &\longrightarrow \mathbb R\\
+        x &\longmapsto y = \frac{p(x)}{q(x)}
+      \end{split}
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions rationnelles, II}
+  \hypertarget{slide_fonction_rationnelle_exemple}{}
+
+  \bigskip
+
+  \begin{center}
+    \begin{tikzpicture}[scale=1.7]
+      \begin{axis}[
+        xticklabels={,,},
+        yticklabels={,,},
+        enlargelimits=true,
+        grid style={dashed, gray!60},
+        axis x line = bottom,
+        axis y line = left,
+        axis line style={thin},
+        xmax = 5,
+        xmin = -5,
+        ymax = 7,
+        ymin = -9,
+        axis lines = middle,
+        small,
+        clip=false,
+        ]
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=50,
+        domain=-4:-1.1,
+        ]
+        {(x-.5)/(x^3-x)} ;
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=50,
+        domain=-.9:-.075,
+        ]
+        {(x-.5)/(x^3-x)} ;
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=50,
+        domain=.075:.97,
+        ]
+        {(x-.5)/(x^3-x)} ;
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=50,
+        domain=1.05:4,
+        ]
+        {(x-.5)/(x^3-x)} ;
+        \addplot[
+        draw=red,
+        dashed,
+        ]
+        coordinates {(-1,-9) (-1,7)} ;
+        \addplot[
+        draw=red,
+        dashed,
+        ]
+        coordinates {(1,-9) (1,7)} ;
+        \node [right] at (-6,6) {$f(x) = \frac{x-\frac{1}{2}}{x^3-x}$};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
 
 \end{document}
 

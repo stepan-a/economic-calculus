@@ -12,6 +12,8 @@ cours/prologue.snm
 cours/prologue.toc
 cours/git.hash
 
+cours/_minted-chapitre-2/*
+
 sources/*
 sandbox/*
 

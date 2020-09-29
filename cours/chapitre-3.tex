@@ -631,6 +631,54 @@
 
 \begin{frame}
   \frametitle{Suites, II}
+  \framesubtitle{Suite de Cauchy (a)}
+  \hypertarget{slide_suite_cauchy_1}{}
+
+  \bigskip
+
+  \begin{definition}
+    Une suite $(u_n)_{n\in\mathbb N}$ est dite de Cauchy si et seulement si~:
+    \[
+      \forall\,\varepsilon>0,\, \exists N\in\mathbb N\,\text{ tel que } \forall m>N,\, \forall n>N\, \text{ on ait }|u_n-u_m|<\varepsilon
+    \]
+  \end{definition}
+
+  \bigskip
+
+  \begin{theorem}
+    Une suite converge si et seulement si elle est une suite de Cauchy.
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, II}
+  \framesubtitle{Suite de Cauchy (b)}
+  \hypertarget{slide_suite_cauchy_1}{}
+
+  \bigskip
+
+  \begin{example}
+    Soit la suite $(u_n)_{n\in\mathbb N}$ définie par le terme général $u_n = \frac{(-1)^n}{n}$. On peut montrer qu'il s'agit d'une suite de Cauchy. On a~:
+    \[
+      \begin{split}
+      |u_n-u_m| &= \left|\frac{(-1)^n}{n}-\frac{(-1)^m}{m}\right|\\
+      &\leq \left|\frac{(-1)^n}{n}\right|+\left|\frac{(-1)^m}{m}\right|\\
+      &= \frac{1}{n} + \frac{1}{m} < \varepsilon
+      \end{split}
+    \]
+    où la dernière inégalité est vérifiée dès lors que $n$ et $m$ sont plus grands que $N(\varepsilon)=\frac{2}{\varepsilon}$. Ainsi~:
+    \[
+      \forall\,\varepsilon>0,\, \exists N(\varepsilon)\in\mathbb N\,\text{ tel que } \forall m>N(\varepsilon),\, \forall n>N(\varepsilon)\, \text{ on ait }|u_n-u_m|<\varepsilon
+    \]
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, II}
   \framesubtitle{Suites divergentes (a)}
   \hypertarget{slide_suite_divergente_1}{}
 

@@ -252,6 +252,440 @@
 \end{frame}
 
 
+\begin{frame}
+  \frametitle{Suites, I}
+  \framesubtitle{Suites arithmétiques (a)}
+  \hypertarget{slide_suites_arithmetiques_1}{}
+
+  \bigskip
+
+  \begin{definition}
+    Une suite $(u_n)_{n\in\mathbb N}$ est dite arithmétique si ses variations sont constantes, c'est-à-dire si~:
+    \[
+      \Delta u_n \equiv u_n-u_{n-1} = r\quad \forall n\in\mathbb N^{\star}
+    \]
+    On dit que la constante $r$ est la raison de la suite.
+  \end{definition}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item La suite arithmétique est monotone croissante si et seulement si sa raison est positive.\newline
+
+  \item Nous avons ici une définition récursive de la suite arithmétique~:
+    \[
+      u_n = u_{n-1} + r
+    \]
+    avec une condition initial $u_0$.\newline
+
+  \item Il est possible de définir celle-ci en donnant son terme général.\newline
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, I}
+  \framesubtitle{Suites arithmétiques (b)}
+  \hypertarget{slide_suites_arithmetiques_2}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Pour obtenir le terme général on substitue la définition dans le membre de droite, autant de fois que nécessaire pour remonter jusqu'à la condition initiale~:
+    \[
+      \begin{split}
+        u_n &= u_{n-1} + r\\
+        &= u_{n-2} + r + r{\color{gray}\text{, car }u_{n-1}=u_{n-2}+r}\\
+        \Leftrightarrow u_n &= u_{n-2} + 2r\\
+        &\vdots\\
+        u_n &= u_0 + nr{\color{gray}\text{, le terme général de la suite.}}
+      \end{split}
+    \]
+
+    \bigskip
+
+  \item Pour vérifier que le terme général est correct, on peut le substituer dans l'expression récursive.\newline
+
+  \end{itemize}
+
+  \begin{example}
+    La suite $(u_n)_{n\in\mathbb N}$ définie par $u_n = n$ est une suite arithmétique de raison 1 et avec pour condition initiale $u_0=0$.
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, I}
+  \framesubtitle{Suites géométriques (a)}
+  \hypertarget{slide_suites_geometrique_1}{}
+
+  \bigskip
+
+  \begin{definition}
+    Une suite $(u_n)_{n\in\mathbb N}$ est dite géométrique si le rapport de deux termes consécutifs est constant, c'est-à-dire si~:
+    \[
+      \frac{u_n}{u_{n-1}} = r\quad \forall n\in\mathbb N^{\star}
+    \]
+    On dit que la constante $r$ est la raison de la suite.
+  \end{definition}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item La suite arithmétique est monotone croissante si et seulement si sa raison est supérieure à 1.\newline
+
+  \item Nous avons ici une définition récursive de la suite arithmétique~:
+    \[
+      u_n = r u_{n-1}
+    \]
+    avec une condition initial $u_0$.\newline
+
+  \item Il est possible de définir celle-ci en donnant son terme général.\newline
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, I}
+  \framesubtitle{Suites géométriques (b)}
+  \hypertarget{slide_suites_geometriques_2}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Pour obtenir le terme général on substitue la définition dans le membre de droite, autant de fois que nécessaire pour remonter jusqu'à la condition initiale~:
+    \[
+      \begin{split}
+        u_n &= r u_{n-1}\\
+        &= r r u_{n-2} {\color{gray}\text{, car }u_{n-1}=r u_{n-2}}\\
+        \Leftrightarrow u_n &= r^2 u_{n-2}\\
+        &\vdots\\
+        u_n &= r^nu_0 {\color{gray}\text{, le terme général de la suite.}}
+      \end{split}
+    \]
+
+    \bigskip
+
+  \item Pour vérifier que le terme général est correct, on peut le substituer dans l'expression récursive.\newline
+
+  \end{itemize}
+
+  \begin{example}
+    La suite $(u_n)_{n\in\mathbb N}$ définie par $u_n = (1+g)^n$ est une suite géométrique de raison $1+g$ et avec pour condition initiale $u_0=1$.
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, II}
+  \framesubtitle{Limite d'une suite (a)}
+  \hypertarget{slide_suite_limite_1}{}
+
+  \bigskip
+
+  \begin{definition}
+    On dit qu'une suite $(u_n)_{n\in\mathbb N}$ converge vers une limite $u^{\star}$ quand $n$ tend vers l'infini, et on note $\lim_{n\rightarrow\infty}u_n = u^{\star}$, si et seulement si~:
+    \[
+      \forall \varepsilon>0, \exists N\text{ tel que } |u_n-u^{\star}|<\varepsilon\,\, \forall \, n>N
+    \]
+  \end{definition}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item $|u_n-u^{\star}|$ mesure la distance entre le n-ième terme de la suite et la limite $u^{\star}$.\newline
+
+  \item La suite converge vers $u^{\star}$ s'il est possible de rendre la distance entre $u_n$ et $u^{\star}$ arbitrairement petite au delà d'un certain rang ($N$).\newline
+
+  \item Le rang à partir duquel les écarts sont plus petits que $\varepsilon$ dépend a priori de $\varepsilon$. Plus $\varepsilon$ est proche de 0 plus le rang sera élevé (plus loin il faudra aller pour contenir la distance entre $u_n$ et $u^{\star}$ en deçà de $\varepsilon$).
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, II}
+  \framesubtitle{Limite d'une suite (b)}
+  \hypertarget{slide_suite_limite_2}{}
+
+  \bigskip
+
+  \begin{example}
+    Montrons que la suite $(u_n)_{n\in\mathbb N}$ de terme général $u_n = \frac{n-2}{2n}$ (pour $n\in\mathbb N^{\star}$) converge vers $u^{\star} = \frac{1}{2}$ quand $n\rightarrow\infty$. Nous avons~:
+    \[
+      \begin{split}
+        |u_n-u^{\star}| &= \left|\frac{n-2}{2n}-\frac{1}{2}\right|\\
+        &= \frac{1}{n}
+      \end{split}
+    \]
+    Ainsi la distance entre $u_n$ et $u^{\star}$ est plus petite que $\varepsilon>0$ si $n>\frac{1}{\varepsilon}\equiv N(\varepsilon)$, et donc~:
+    \[
+      \forall \varepsilon>0, \exists N(\varepsilon) \text{ tel que } |u_n-u^{\star}|<\varepsilon\,\, \forall \, n>N(\varepsilon)
+    \]
+  \end{example}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item On établit la convergence d'une suite vers une limite en trouvant le rang $N(\varepsilon)$
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, II}
+  \framesubtitle{Limite d'une suite (c)}
+  \hypertarget{slide_suite_limite_3}{}
+
+  \bigskip
+
+  \begin{theorem}
+    \medskip
+    \begin{enumerate}
+
+    \item Si une suite $(u_n)_{n\in\mathbb N}$ admet $u^{\star}$ pour limite, alors celle-ci est unique,\newline
+
+    \item Toute suite $(u_n)_{n\in\mathbb N}$ convergente est bornée,\newline
+
+    \item Toute suite croissante (décroissante) et majorée (resp. minorée) est convergente.\newline
+
+    \end{enumerate}
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, II}
+  \framesubtitle{Limite d'une suite (d)}
+  \hypertarget{slide_suite_limite_4}{}
+
+  \bigskip
+
+  \begin{example}
+
+    On peut montrer que la suite $(u_n)_{n\in\mathbb N}$ de terme général $u_n = \frac{n+2}{n}$ est décroissante et minorée par 1. En effet~:
+    \[
+      u_n-u_{n-1} = \frac{n+2}{n}-\frac{n+1}{n-1} = -\frac{2}{n(n-1)}<0\, \forall\, n>1 \text{ (décroissance)}
+    \]
+    \[
+      u_n-1 = \frac{2}{n} > 0\, \forall\, n\in\mathbb N^{\star} \text{ (la suite est minorée par 1)}
+    \]
+    Ainsi la suite $(u_n)_{n\in\mathbb N}$ est convergente. Montrons que la limite de la suite est $u^{\star}=1$. Nous avons~:
+    \[
+      |u_n-1| = \frac{2}{n}
+    \]
+    Pour que $|u_n-1|$ soit arbitrairement petit, il faut que $\frac{2}{n}<\varepsilon$ c'est-à-dire $n>\frac{2}{\varepsilon}\equiv N(\epsilon)$, et donc~:
+    \[
+      \forall \varepsilon>0, \exists N(\varepsilon) \text{ tel que } |u_n-u^{\star}|<\varepsilon\,\, \forall \, n>N(\varepsilon)
+    \]
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, II}
+  \framesubtitle{Limite d'une suite (e)}
+  \hypertarget{slide_suite_limite_5}{}
+
+  \bigskip
+
+  \begin{theorem}
+    Soient $(u_n)_{n\in\mathbb N}$ et $(v_n)_{n\in\mathbb N}$ deux suites qui convergent respectivement vers $u^{\star}$ et $v^{\star}$. Alors~:\newline
+
+    \begin{enumerate}
+
+    \item $(u_n+v_n)_{n\in\mathbb N}$ converge vers $u^{\star}+v^{\star}$,\newline
+
+    \item $(\lambda u_n)_{n\in\mathbb N}$ converge vers $\lambda u^{\star}$,\newline
+
+    \item $(u_n\cdot v_n)_{n\in\mathbb N}$ converge vers $u^{\star}\cdot v^{\star}$,\newline
+
+    \item Si $v^{\star}\neq 0$, $\left(\frac{u_n}{v_n}\right)_{n\in\mathbb N}$ converge vers $\frac{u^{\star}}{v^{\star}}$.\newline
+    \end{enumerate}
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, II}
+  \framesubtitle{Suites extraites}
+  \hypertarget{slide_suites_extraites}{}
+
+  \bigskip
+
+  \begin{definition}
+    Toute suite $(u_{\varphi(n)})_{n\in\mathbb N}$ où $\varphi$ est une fonction de $\mathbb N$ dans un sous ensemble de $\mathbb N$ strictement croissante est appelée une suite extraite (ou sous suite) de la suite $(u_n)_{n\in\mathbb N}$.
+  \end{definition}
+
+  \bigskip
+
+  \begin{example}\label{ex:suite_extraite_divergente_0}
+    Soit la suite $(u_n)_{n\in\mathbb N^{\star}}$ définie par le terme général $u_n = (-1)^n\left(1-\frac{1}{n}\right)$. Posons $\varphi_1(k) = 2k$ et $\varphi_2(k)=2k+1$. Ces deux fonctions prennent des entiers naturels en entrée et retourne des entiers naturels pairs, pour $\varphi_1$, ou impairs, pour $\varphi_2$. Ces deux fonctions croissantes nous permettent de considérer une partition de $\mathbb N$.\newline
+
+    La suite extraite $(u_{\varphi_1(n)})_{n\in\mathbb N}$ est positive, alors que la suite extraite $(u_{\varphi_2(n)})_{n\in\mathbb N}$ est négative.
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, II}
+  \framesubtitle{Limite d'une suite (f)}
+  \hypertarget{slide_suite_limite_6}{}
+
+  \bigskip
+
+  \begin{theorem}
+    Toute suite extraite d'une suite $(u_n)_{n\in\mathbb N}$ convergente converge vers la même limite.
+  \end{theorem}
+
+  \bigskip
+
+  \begin{theorem}
+    Soit une suite $(u_n)_{n\in\mathbb N}$. Pour que  cette suite converge vers $u^{\star}$ il faut et il suffit que les suites extraites $(u_{2n})_{n\in\mathbb N}$ et $(u_{2n+1})_{n\in\mathbb N}$ convergent vers $u^{\star}$.
+  \end{theorem}
+
+  \bigskip
+
+  \begin{theorem}[Bolzano-Weierstrass]
+    On peut extraire une sous suite convergente de toute suite bornée.
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, II}
+  \framesubtitle{Limite d'une suite (g)}
+  \hypertarget{slide_suite_limite_7}{}
+
+  \bigskip
+
+  \begin{example}[suite de l'exemple \hyperlink{slide_suites_extraites}{\ref{ex:suite_extraite_divergente_0}}]
+    La suite $(u_n)_{n\in\mathbb N}$ est bornée. En effet on montre
+    facilement que $u_n\leq 1$ pour tout $n$ et que que $u_n \geq
+    -1$. La première sous suite, définie par $\varphi_1$, sélectionne les
+    termes positifs, montrons qu'elle est majorée par 1~:
+    \[
+      u_{2n}-1 = 1-\frac{1}{2n}-1 = -\frac{1}{2n} < 0 \,\forall\, n\in\mathbb n
+    \]
+    La seconde sous suite, définie par $\varphi_2$, sélectionne les
+    termes négatifs, montrons qu'elle est minorée par -1~:
+    \[
+      u_{2n+1}+1 = -\left(1-\frac{1}{2n+1}\right)+1 = \frac{1}{2n+1} > 0 \,\forall\, n\in\mathbb n
+    \]
+    Donc la suite est bornée.
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, II}
+  \framesubtitle{Limite d'une suite (h)}
+  \hypertarget{slide_suite_limite_8}{}
+
+  \bigskip
+
+  \addtocounter{example}{-1}
+  \begin{example}[suite de l'exemple \hyperlink{slide_suites_extraites}{\ref{ex:suite_extraite_divergente_0}}]
+    On peut montrer que chaque sous suite est convergente. On montre
+    que $\lim_{n\rightarrow\infty}u_{\varphi_1(n)} = 1$~:
+    \[
+      |u_{\varphi_1(n)}-1| = \left|-\frac{1}{2n}\right| = \frac{1}{2n}
+    \]
+    Pour que $|u_{\varphi_1(n)}-1|$ soit inférieur à $\varepsilon$,
+    c'est-à-dire $\frac{1}{2n}<\varepsilon$, il faut que $n>\frac{1}{2\varepsilon}\equiv N(\varepsilon)$. Ainsi~:
+    \[
+      \forall \varepsilon>0, \exists N(\varepsilon) \text{ tel que } |u_{\varphi_1(n)}-1|<\varepsilon\,\, \forall \, n>N(\varepsilon)
+    \]
+    De la même façon on montre que $\lim_{n\rightarrow\infty}u_{\varphi_2(n)} = -1$.\newline
+
+    \textdbend Les deux suites extraites convergent vers des limites différentes !
+    \begin{center}
+      $\Rightarrow$ La suite $(u_n)_{n\in\mathbb N}$ diverge.
+    \end{center}
+
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, II}
+  \framesubtitle{Suites divergentes (a)}
+  \hypertarget{slide_suite_divergente_1}{}
+
+  \bigskip
+
+  \begin{definition}
+    On dit qu'une suite $(u_n)_{n\in\mathbb N}$ est dite divergente si elle ne converge pas~:
+    \[
+      \forall \ell\in\mathbb R, \exists\varepsilon>0, \text{ tel que } \forall\, N\in\mathbb N\, \text{ on ait }  |u_n-\ell|>\varepsilon
+    \]
+  \end{definition}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Une suite peut diverger vers $\infty$~:
+    \[
+      \forall \mathcal A \in\mathbb R, \exists N\in\mathbb N\, \text{ tel que } n\geq N \Rightarrow u_n\geq \mathcal A
+    \]
+
+  \item Une suite peut diverger vers $-\infty$~:
+    \[
+      \forall \mathcal A \in\mathbb R, \exists N\in\mathbb N\, \text{ tel que } n\geq N \Rightarrow u_n\leq \mathcal A
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suites, II}
+  \framesubtitle{Suites divergentes (b)}
+  \hypertarget{slide_suite_divergente_2}{}
+
+  \bigskip
+
+  \begin{theorem}
+
+    \begin{enumerate}
+
+    \item Toute suite non bornée est divergente,\newline
+
+    \item Toute suite admettant une sous suite divergente est divergente.\newline
+
+    \item Toute suite admettant des sous suites avec des limites différentes diverge.\newline
+
+    \end{enumerate}
+
+  \end{theorem}
+
+\end{frame}
+
+
 \end{document}
 
 % Local Variables:

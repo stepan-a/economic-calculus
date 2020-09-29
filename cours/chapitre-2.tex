@@ -1161,7 +1161,7 @@
 
   \bigskip
 
-  Soient $x = a_x + i b_x$ et $y = a_x + i b_x$ deux nombres complexes.
+  Soient $x = a_x + i b_x$ et $y = a_y + i b_y$ deux nombres complexes.
 
   \bigskip
 
@@ -1242,7 +1242,7 @@
         &= \frac{(a_x+ib_x)(a_y-ib_y)}{a_y^2 + b_y^2}\\
         &= \frac{a_xa_y-ia_xb_y+ib_xa_y-i^2b_xb_y}{a_x^2 + b_x^2}\\
         &= \frac{a_xa_y+b_xb_y+i(b_xa_y-a_xb_y)}{a_x^2 + b_x^2}\\
-        &= \frac{a_xa_y+b_xb_y}{a_x^2 + b_x^2} + i \frac{b_xa_y-a_xb_y}{a_x^2 + b_x^2}
+        &= \underbrace{\frac{a_xa_y+b_xb_y}{a_x^2 + b_x^2}}_{\Re\left\{\frac{x}{y}\right\}} + i \underbrace{\frac{b_xa_y-a_xb_y}{a_x^2 + b_x^2}}_{\Im\left\{\frac{x}{y}\right\}}
       \end{split}
     \]
 
@@ -1274,7 +1274,7 @@
     \begin{itemize}
     \item[$\Delta>0$] Le polynôme possède deux racines réelles,\newline
     \item[$\Delta=0$] Le polynôme possède une racine réelle de multilplicité deux, et\newline
-    \item[$\delta<0$] Le polynôme possède deux racines complexes conjuguées.\newline
+    \item[$\Delta<0$] Le polynôme possède deux racines complexes conjuguées.\newline
     \end{itemize}
 
   \item Un polynôme de degré deux possède toujours deux racines (dans $\mathbb C$)
@@ -1353,7 +1353,7 @@
 
   \begin{itemize}
 
-  \item De la même façon que pour les polynôme d'ordre 2, il existe des formules (par radicaux, c'est-à-dire qui n'utilisent que les opérations usuelles et des racines) pour calculer les solutions des polynomiale de degré 3 ou 4\ldots Mais ces formules sont assez difficile à lire\ldots\newline
+  \item De la même façon que pour les polynôme d'ordre 2, il existe des formules (par radicaux, c'est-à-dire qui n'utilisent que les opérations usuelles et des racines) pour calculer les solutions des équations  polynomiales de degré 3 ou 4\ldots Mais ces formules sont assez difficile à lire\ldots\newline
 
   \item En pratique, dans la vie d'un étudiant, on cherche des « racines évidentes » (petits entiers), et factorise le  polynôme pour réduire le degré du polynôme dont il restera à calculer les racines.\newline
 
@@ -1380,7 +1380,7 @@
 
   \item On note que pour $x=1$, on a~:
     \[
-      f(1) = 1-\frac{7}{4}+\frac{7}{8}x -\frac{1}{8}
+      f(1) = 1-\frac{7}{4}+\frac{7}{8} -\frac{1}{8} = \frac{8-14+7-1}{8} = 0
     \]
 
   \item On sait donc qu'on peut factoriser $(x-1)$, c'est-à-dire écrire $f(x)$ comme le produit d'un polynôme de degré 2 et de $(x-1)$.\newline
@@ -1428,7 +1428,6 @@
       \begin{cases}
         a &= 1\\
         b &= -\frac{3}{4}\\
-        \frac{7}{8} &= c-b\\
         c &= \frac{1}{8}
       \end{cases}
     \]

@@ -6,10 +6,13 @@
 *.synctex.gz
 *.el
 
-cours/prologue.nav
-cours/prologue.out
-cours/prologue.snm
-cours/prologue.toc
+cours/*.nav
+cours/*.out
+cours/*.snm
+cours/*.toc
+cours/*.dvi
+cours/*.ps
+
 cours/git.hash
 
 cours/_minted-chapitre-2/*

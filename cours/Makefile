@@ -12,7 +12,7 @@ chapitre-3.pdf: cos-sin.pdf chapitre-3.tex
 	@rubber --src-specials --unsafe --pdf $*
 
 clean:
-	@rm -f *.aux *.log *.out *.nav *.rel *.toc *.snm *.synctex.gz *.vrb
+	@rm -f *.aux *.log *.out *.nav *.rel *.toc *.snm *.synctex.gz *.vrb *.ps *.dvi
 	@rm -rf _minted-*
 	@rm -rf auto
 

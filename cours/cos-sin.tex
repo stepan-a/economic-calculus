@@ -1,0 +1,66 @@
+% Adapted from https://tex.stackexchange.com/questions/70081/improved-unit-circle-animation
+
+\documentclass[pstricks,border=0pt]{standalone}
+\usepackage{ifthen}
+\usepackage{pst-plot,pst-node}
+\usepackage[nomessages]{fp}
+
+\usepackage{pst-node}
+\usepackage{pst-eucl}
+\usepackage{pstricks-add}
+
+% User Defined Constants
+\FPeval\NumberOfPoints{18}
+
+% Internally Defined Data
+\FPeval\DeltaX{round(2*pi/(NumberOfPoints-1):3)}
+
+\def\sine#1{%
+  \begin{pspicture}(-0.25,-1.25)(\dimexpr\psPiTwo\psxunit+0.6\psxunit\relax,1.60)
+    \psplot[algebraic,linecolor=blue]{0}{#1}{sin(x)}
+    \pnode(!#1 dup RadtoDeg sin){B}
+    \psaxes
+    [
+    linecolor=gray,
+    ticksize=2pt -2pt,
+    labelFontSize=\scriptscriptstyle,
+    trigLabels=true,trigLabelBase=2,dx=\psPiH
+    ]{->}(0,0)(-0.10,-1.10)(\dimexpr\psPiTwo\psxunit+0.3\psxunit\relax,1.30)[$x$,0][$y$,90]
+  \end{pspicture}}
+
+\def\circle#1{%
+  \begin{pspicture}(-1.25,-1.25)(1.6,1.6)
+    \pscircle[linecolor=gray](0,0){1}
+    \pnode(!#1 RadtoDeg dup cos exch sin){A}
+    \psline{->}(A)
+    \psaxes
+    [
+    linecolor=gray,
+    ticksize=2pt -2pt,
+    labelFontSize=\scriptscriptstyle,
+    ]{->}(0,0)(-1.1,-1.1)(1.3,1.3)
+  \end{pspicture}}
+
+\begin{document}
+
+\newcounter{loopindex}
+\setcounter{loopindex}{0}
+\multido{\nx=0.000+\DeltaX}{\NumberOfPoints}
+{
+  \addtocounter{loopindex}{1}
+  \begin{pspicture}[showgrid=false](0,-1.6)(10.2,1.6)
+    \rput(1.375,0){\circle\nx}
+    \rput(6.515,0){\sine\nx}
+    \ifnum \value{loopindex} > 1 %
+    \ifnum \value{loopindex} < 18
+    \pcline[linestyle=dotted,linewidth=.8pt, linecolor=red](A)(B)
+    \fi
+    \fi
+  \end{pspicture}
+}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

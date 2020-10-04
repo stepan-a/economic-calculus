@@ -56,6 +56,10 @@
 \CatchFileDef{\HEAD}{git.hash}{\endlinechar=-1}
 \newcommand{\gitrevision}{\StrLeft{\HEAD}{7}}
 
+% Include pdf page by page
+\usepackage{pdfpages}
+
+
 \newcommand{\trace}{\mathrm{tr}}
 \newcommand{\vect}{\mathrm{vec}}
 \newcommand{\tracarg}[1]{\mathrm{tr}\left\{#1\right\}}
@@ -663,9 +667,9 @@
     Soit la suite $(u_n)_{n\in\mathbb N}$ définie par le terme général $u_n = \frac{(-1)^n}{n}$. On peut montrer qu'il s'agit d'une suite de Cauchy. On a~:
     \[
       \begin{split}
-      |u_n-u_m| &= \left|\frac{(-1)^n}{n}-\frac{(-1)^m}{m}\right|\\
-      &\leq \left|\frac{(-1)^n}{n}\right|+\left|\frac{(-1)^m}{m}\right|\\
-      &= \frac{1}{n} + \frac{1}{m} < \varepsilon
+        |u_n-u_m| &= \left|\frac{(-1)^n}{n}-\frac{(-1)^m}{m}\right|\\
+        &\leq \left|\frac{(-1)^n}{n}\right|+\left|\frac{(-1)^m}{m}\right|\\
+        &= \frac{1}{n} + \frac{1}{m} < \varepsilon
       \end{split}
     \]
     où la dernière inégalité est vérifiée dès lors que $n$ et $m$ sont plus grands que $N(\varepsilon)=\frac{2}{\varepsilon}$. Ainsi~:
@@ -777,6 +781,193 @@
   \end{table}
 
 \end{frame}
+
+
+\section{Limites d'une fonction}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+
+  \begin{itemize}
+
+  \item Une suite réelle est une fonction de $\mathbb N$ dans $\mathbb R$ (ou un sous ensemble de $\mathbb R$).\newline
+
+  \item Étudier le comportement limite d'une suite est relativement simple car il n'y a qu'une seule direction : on caractérise l'évolution de $u_n$ quand $n$ tend vers $+\infty$.\newline
+
+  \item Avec une fonction, c'est un peu plus compliqué. On s'intéresse au comportement de la fonction $f(x)$ quand $x$ tend vers $-\infty$ ou $+\infty$, mais aussi quand $x$ se rapproche des points de singularité de la fonction (voir l'exemple de la fonction rationnelle dans le \href{https://le-mans.adjemian.eu/calcul-économique/cours/chapitre-2.pdf}{chapitre 2}).\newline
+
+  \item Dans cette section on étend la notion de limite aux fonctions.
+
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+  \framesubtitle{Limites en $\pm\infty$ (a)}
+
+
+  \begin{definition}
+    La fonction $f(x)$ admet la limite $\ell<\infty$ lorsque $x$ tend vers l'infini pour tout $\varepsilon>0$, l existe $\eta>0$ tel que $|f(x)-\ell|<\varepsilon$ dès que $x>\nu$. On écrit alors~:
+    \[
+      \lim_{x\rightarrow\infty} f(x) = \ell
+    \]
+  \end{definition}
+
+  \medskip
+
+  \begin{itemize}
+
+  \item La fonction $f$ converge vers $\ell$ si on peut rendre la distance entre $f(x)$ et $\ell$ arbitrairement petite quand $x$ s'accroît.\newline
+
+  \end{itemize}
+
+  \begin{definition}
+    La fonction $f(x)$ admet la limite $\ell<\infty$ lorsque $x$ tend vers moins l'infini pour tout $\varepsilon>0$, l existe $\eta>0$ tel que $|f(x)-\ell|<\varepsilon$ dès que $x<\nu$. On écrit alors~:
+    \[
+      \lim_{x\rightarrow\infty} f(x) = \ell
+    \]
+  \end{definition}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+  \framesubtitle{Limites en $\pm\infty$ (b)}
+
+  Plus formellement~:
+
+  \bigskip
+
+  \addtocounter{definition}{-2}
+  \begin{definition}
+    \[
+      \lim_{x\rightarrow\infty} f(x) = \ell<\infty\,\Leftrightarrow\, \forall\varepsilon>0,\, \exists \nu>0\,\text{ tel que }\, |f(x)-\ell|<\varepsilon\, \forall x>\nu
+    \]
+  \end{definition}
+
+  \bigskip
+
+  \begin{definition}
+    \[
+      \lim_{x\rightarrow\infty} f(x) = \ell<\infty\,\Leftrightarrow\, \forall\varepsilon>0,\, \exists \nu<0\,\text{ tel que }\, |f(x)-\ell|<\varepsilon\, \forall x<\nu
+    \]
+  \end{definition}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+  \framesubtitle{Limites en $\pm\infty$ (c)}
+
+  \begin{example}
+    Soit la fontion $f(x) = 2-\frac{1}{x}$ définie de $\mathbb R^{\star}$ dans $\mathbb R$. Montrons que~:
+    \[
+      \lim_{x\rightarrow\infty}f(x) = 2
+    \]
+    On a~:
+    \[
+      \begin{split}
+        |f(x)-2| &= \left|2-\frac{1}{x}-2\right|\\
+        &= \frac{1}{|x|}
+      \end{split}
+    \]
+    Ainsi la proposition $|f(x)-2|<\varepsilon$ est équivalente à $x>\frac{1}{\varepsilon}\,\lor\, x<-\frac{1}{\varepsilon}$. On pose donc $\nu(\varepsilon) = \frac{1}{\varepsilon}$ et on a bien~:
+    \[
+      \forall\varepsilon>0,\, \exists \nu(\varepsilon)>0\,\text{ tel que }\, |f(x)-2|<\varepsilon\, \forall x>\nu(\varepsilon)
+    \]
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+  \framesubtitle{Limites en $\pm\infty$ (d)}
+
+  \bigskip
+
+  \begin{definition}[divergence vers l'infini]
+    \[
+      \lim_{x\rightarrow\infty} f(x) = \infty\,\Leftrightarrow\, \forall N>0,\, \exists \nu>0\,\text{ tel que }\, f(x)>N\, \forall x>\nu
+    \]
+    \[
+      \lim_{x\rightarrow\infty} f(x) = -\infty\,\Leftrightarrow\, \forall N>0,\, \exists \nu>0\,\text{ tel que }\, f(x)<-N\, \forall x>\nu
+    \]
+    \[
+      \lim_{x\rightarrow -\infty} f(x) = \infty\,\Leftrightarrow\, \forall N>0,\, \exists \nu>0\,\text{ tel que }\, f(x)>N\, \forall x<-\nu
+    \]
+    \[
+      \lim_{x\rightarrow -\infty} f(x) = -\infty\,\Leftrightarrow\, \forall N>0,\, \exists \nu>0\,\text{ tel que }\, f(x)<-N\, \forall x<-\nu
+    \]
+  \end{definition}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+  \framesubtitle{Limites en $\pm\infty$ (e)}
+
+  \begin{example}
+    Soit la fontion $f(x) = x^2$ définie de $\mathbb R$ dans $\mathbb R_+$ diverge vers l'infini. On peut montrer que~:
+    \[
+      \lim_{x\rightarrow\infty}f(x) = \infty \quad \lim_{x\rightarrow -\infty}f(x) = \infty
+    \]
+    En effet, pour tout $x>\sqrt{N}\equiv \nu(N)$ on a $f(x)>N$ et cela quel que soit $N>0$. Aussi pour tout $x<-\sqrt{N}\equiv \nu(N)$ on a $f(x)>N$ et cela quel que soit $N>0$.
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+  \framesubtitle{Limites en $\pm\infty$ (f)}
+
+  Une fonction peut ne pas converger vers une limite finie et ne pas diverger vers l'infini. C'est le cas des fonctions périodidiques, comme la fonction $\sin (x)$~:
+
+  \foreach \n in {1,...,18}{
+    \only<\n>{
+      \begin{center}
+        \includegraphics[scale=1.1,page=\n]{./cos-sin.pdf}
+      \end{center}
+    }
+  }
+
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+  \framesubtitle{Limites en un point (a)}
+
+
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+  \framesubtitle{Limites à gauche et à droite (a)}
+
+
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+  \framesubtitle{Propriétés}
+
+
+
+\end{frame}
+
 
 
 \end{document}

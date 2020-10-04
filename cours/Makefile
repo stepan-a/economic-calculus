@@ -1,5 +1,13 @@
 all: prologue.pdf chapitre-2.pdf chapitre-3.pdf clean
 
+cos-sin.pdf: cos-sin.tex
+	latex cos-sin
+	dvips cos-sin.dvi
+	ps2pdf cos-sin.ps
+
+chapitre-3.pdf: cos-sin.pdf chapitre-3.tex
+	@rubber --src-specials --unsafe --pdf chapitre-3.tex
+
 %.pdf: %.tex
 	@rubber --src-specials --unsafe --pdf $*
 

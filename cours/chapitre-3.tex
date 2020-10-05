@@ -949,16 +949,45 @@
   \frametitle{Limites d'une fonction}
   \framesubtitle{Limites en un point (a)}
 
+  \begin{itemize}
 
+  \item Une fonction peut ne pas être définie en certains points de $\mathbb R$, on parle alors de points de singularité.\newline
+
+  \item Par exemple, l'hyperbole $f(x)=\frac{1}{x}$ est définie sur $\mathbb R$ sauf en $x=0$. Pour caractériser une fonction, il est utile de savoir comment se comporte $f$ quand $x$ se rapproche de ces points de singularité.\newline
+
+  \end{itemize}
+
+  \begin{definition}[limite finie en un point]
+    \[
+      \lim_{x\rightarrow a}f(x) = \ell<\infty \,\Leftrightarrow\, \forall\varepsilon>0,\, \exists \eta>0\,\text{ tel que }\, |x-a|<\eta\,\Rightarrow\, |f(x)-\ell|<\varepsilon
+    \]
+  \end{definition}
 
 \end{frame}
 
 
 \begin{frame}
   \frametitle{Limites d'une fonction}
-  \framesubtitle{Limites à gauche et à droite (a)}
+  \framesubtitle{Limites en un point (b)}
 
+  \begin{example}
+    Montrons que $\lim_{x\rightarrow 3} f(x) = 12$, avec $f(x)=2x+6$. La distance de $f$ à sa limite en $x=3$ est~:
+    \[
+      \begin{split}
+        |f(x)-12| &= |2x+6-12|\\
+        &=  |2x-6|\\
+        &= 2|x-3|
+      \end{split}
+    \]
+    Ainsi, pour tout $\varepsilon>0$ on a~:
+    $|f(x)-12|<\varepsilon \,\Leftrightarrow \, |x-3|<\frac{\varepsilon}{2}$.
+    Pour chaque $\varepsilon>0$ (arbitrairement petit) il existe donc bien un nombre $\eta(\varepsilon)=\frac{\varepsilon}{2}$ tel que si $|x-3|<\eta$ alors $|f(x)-12|<\varepsilon$.\newline
 
+    Si $x$ est suffisament proche de 3, alors on peut rendre la distance entre $f(x)$ et 12 arbitrairement petite.\newline
+
+    Notons que dans ce cas la limite $\lim_{x\rightarrow a} f(x)=f(a)$ $\Rightarrow$ Continuité.
+
+  \end{example}
 
 \end{frame}
 

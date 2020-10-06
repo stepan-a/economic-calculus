@@ -892,16 +892,16 @@
 
   \begin{definition}[divergence vers l'infini]
     \[
-      \lim_{x\rightarrow\infty} f(x) = \infty\,\Leftrightarrow\, \forall N>0,\, \exists \nu>0\,\text{ tel que }\, f(x)>N\, \forall x>\nu
+      \lim_{x\rightarrow\infty} f(x) = \infty\,\Leftrightarrow\, \forall \eta>0,\, \exists \nu>0\,\text{ tel que }\, f(x)>\eta\, \forall x>\nu
     \]
     \[
-      \lim_{x\rightarrow\infty} f(x) = -\infty\,\Leftrightarrow\, \forall N>0,\, \exists \nu>0\,\text{ tel que }\, f(x)<-N\, \forall x>\nu
+      \lim_{x\rightarrow\infty} f(x) = -\infty\,\Leftrightarrow\, \forall \eta>0,\, \exists \nu>0\,\text{ tel que }\, f(x)<-\eta\, \forall x>\nu
     \]
     \[
-      \lim_{x\rightarrow -\infty} f(x) = \infty\,\Leftrightarrow\, \forall N>0,\, \exists \nu>0\,\text{ tel que }\, f(x)>N\, \forall x<-\nu
+      \lim_{x\rightarrow -\infty} f(x) = \infty\,\Leftrightarrow\, \forall \eta>0,\, \exists \nu>0\,\text{ tel que }\, f(x)>\eta\, \forall x<-\nu
     \]
     \[
-      \lim_{x\rightarrow -\infty} f(x) = -\infty\,\Leftrightarrow\, \forall N>0,\, \exists \nu>0\,\text{ tel que }\, f(x)<-N\, \forall x<-\nu
+      \lim_{x\rightarrow -\infty} f(x) = -\infty\,\Leftrightarrow\, \forall \eta>0,\, \exists \nu>0\,\text{ tel que }\, f(x)<-\eta\, \forall x<-\nu
     \]
   \end{definition}
 
@@ -917,7 +917,7 @@
     \[
       \lim_{x\rightarrow\infty}f(x) = \infty \quad \lim_{x\rightarrow -\infty}f(x) = \infty
     \]
-    En effet, pour tout $x>\sqrt{N}\equiv \nu(N)$ on a $f(x)>N$ et cela quel que soit $N>0$. Aussi pour tout $x<-\sqrt{N}\equiv \nu(N)$ on a $f(x)>N$ et cela quel que soit $N>0$.
+    En effet, pour tout $x>\sqrt{\eta}\equiv \nu(\eta)$ on a $f(x)>\eta$ et cela quel que soit $\eta>0$. Aussi pour tout $x<-\sqrt{\eta}\equiv \nu(\eta)$ on a $f(x)>\eta$ et cela quel que soit $\eta>0$.
   \end{example}
 
 \end{frame}
@@ -1006,10 +1006,10 @@
 
   \begin{definition}[limites non finies en un point]
     \[
-      \lim_{x\rightarrow a}f(x) = \infty \,\Leftrightarrow\, \forall N>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\Rightarrow\, f(x)>N
+      \lim_{x\rightarrow a}f(x) = \infty \,\Leftrightarrow\, \forall \eta>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\Rightarrow\, f(x)>\eta
     \]
     \[
-      \lim_{x\rightarrow a}f(x) = -\infty \,\Leftrightarrow\, \forall N>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\Rightarrow\, f(x)<-N
+      \lim_{x\rightarrow a}f(x) = -\infty \,\Leftrightarrow\, \forall \eta>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\Rightarrow\, f(x)<-\eta
     \]
   \end{definition}
 
@@ -1035,18 +1035,18 @@
 
     \begin{columns}[onlytextwidth]
       \begin{column}{.5\textwidth}
-        Soit $N\in\mathbb R_+$,
+        Soit $\eta\in\mathbb R_+$,
         \[
           \begin{split}
-            f(x) &>N \Leftrightarrow (x-1)^2<\frac{1}{N}\\
-            &\Leftrightarrow |x-1|<\frac{1}{\sqrt{N}}
+            f(x) &>\eta \Leftrightarrow (x-1)^2<\frac{1}{\eta}\\
+            &\Leftrightarrow |x-1|<\frac{1}{\sqrt{\eta}}
           \end{split}
         \]
-        Ainsi en posant $\delta (N) = \frac{1}{\sqrt{N}}$, on a bien
+        Ainsi en posant $\delta (\eta) = \frac{1}{\sqrt{\eta}}$, on a bien
         \[
           \begin{split}
-            &\forall N>0,\, \exists \delta(N)>0,\, \text{ tel que }\\
-            &|x-1|<\delta(N) \Rightarrow f(x)>N
+            &\forall \eta>0,\, \exists \delta(\eta)>0,\, \text{ tel que }\\
+            &|x-1|<\delta(\eta) \Rightarrow f(x)>\eta
           \end{split}
         \]
       \end{column}
@@ -1201,16 +1201,16 @@
   \begin{definition}[Limites non finies à gauche et à droite]
     {\small
       \[
-        \lim_{x\rightarrow a+}f(x) = \infty \,\Leftrightarrow\, \forall N>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\land\,x>a\,\Rightarrow\, f(x)>N
+        \lim_{x\rightarrow a+}f(x) = \infty \,\Leftrightarrow\, \forall \eta>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\land\,x>a\,\Rightarrow\, f(x)>\eta
       \]
       \[
-        \lim_{x\rightarrow a+}f(x) = -\infty \,\Leftrightarrow\, \forall N>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\land\,x>a\,\Rightarrow\, f(x)<-N
+        \lim_{x\rightarrow a+}f(x) = -\infty \,\Leftrightarrow\, \forall \eta>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\land\,x>a\,\Rightarrow\, f(x)<-\eta
       \]
       \[
-        \lim_{x\rightarrow a-}f(x) = \infty \,\Leftrightarrow\, \forall N>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\land\,x<a\,\Rightarrow\, f(x)>N
+        \lim_{x\rightarrow a-}f(x) = \infty \,\Leftrightarrow\, \forall \eta>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\land\,x<a\,\Rightarrow\, f(x)>\eta
       \]
       \[
-        \lim_{x\rightarrow a-}f(x) = -\infty \,\Leftrightarrow\, \forall N>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\land\,x<a\,\Rightarrow\, f(x)<-N
+        \lim_{x\rightarrow a-}f(x) = -\infty \,\Leftrightarrow\, \forall \eta>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\land\,x<a\,\Rightarrow\, f(x)<-\eta
       \]
     }
   \end{definition}

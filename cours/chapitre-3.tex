@@ -994,9 +994,302 @@
 
 \begin{frame}
   \frametitle{Limites d'une fonction}
+  \framesubtitle{Limites en un point (c)}
+
+  \begin{itemize}
+
+  \item La limite en un point n'est pas nécessairement finie.\newline
+
+  \item C'est le cas, par exemple, sur les points de singularité d'une fonction rationnelle.\newline
+
+  \end{itemize}
+
+  \begin{definition}[limites non finies en un point]
+    \[
+      \lim_{x\rightarrow a}f(x) = \infty \,\Leftrightarrow\, \forall N>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\Rightarrow\, f(x)>N
+    \]
+    \[
+      \lim_{x\rightarrow a}f(x) = -\infty \,\Leftrightarrow\, \forall N>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\Rightarrow\, f(x)<-N
+    \]
+  \end{definition}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item La limite n'est pas finie si on peut rendre $f(x)$ arbitrairement grand en rapprochant $x$ du point $a$.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+  \framesubtitle{Limites en un point (d)}
+
+  \begin{example}
+
+    Soit la fonction rationnelle $f(x) = \frac{1}{(x-1)^2}$, il s'agit d'une fonction de $\mathbb R\setminus \{1\}$ dans $\mathbb R_+$. Montrons que $\lim_{x\rightarrow 1}f(x) = \infty$.
+
+    \bigskip
+
+    \begin{columns}[onlytextwidth]
+      \begin{column}{.5\textwidth}
+        Soit $N\in\mathbb R_+$,
+        \[
+          \begin{split}
+            f(x) &>N \Leftrightarrow (x-1)^2<\frac{1}{N}\\
+            &\Leftrightarrow |x-1|<\frac{1}{\sqrt{N}}
+          \end{split}
+        \]
+        Ainsi en posant $\delta (N) = \frac{1}{\sqrt{N}}$, on a bien
+        \[
+          \begin{split}
+            &\forall N>0,\, \exists \delta(N)>0,\, \text{ tel que }\\
+            &|x-1|<\delta(N) \Rightarrow f(x)>N
+          \end{split}
+        \]
+      \end{column}
+      \begin{column}{.5\textwidth}
+        \begin{tikzpicture}[scale=.9]
+          \begin{axis}[
+            xticklabels={,,},
+            yticklabels={,,},
+            enlargelimits=true,
+            grid style={dashed, gray!60},
+            axis x line = bottom,
+            axis y line = left,
+            axis line style={thin},
+            xmax = 4,
+            xmin = -2,
+            ymax = 120,
+            ymin = -.5,
+            axis lines = middle,
+            small,
+            clip=false,
+            ]
+            \addplot[
+            draw=black,
+            thick,
+            smooth,
+            samples=50,
+            domain=-1:0.9,
+            ]
+            {1/(x-1)^2};
+            \addplot[
+            draw=black,
+            thick,
+            smooth,
+            samples=50,
+            domain=1.1:3,
+            ]
+            {1/(x-1)^2};
+            \addplot[red, dashed] coordinates { (1,0) (1,110)};
+          \end{axis}
+        \end{tikzpicture}
+      \end{column}
+    \end{columns}
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+  \framesubtitle{Limites à gauche et à droite (a)}
+
+  \begin{itemize}
+
+  \item Il peut arriver que la limite en un point $a$ dépende de la façon dont on se rapproche de $a$.\newline
+  \end{itemize}
+
+  \begin{definition}[Limites finies à gauche et à droite]
+
+    \begin{enumerate}
+
+    \item On dit que $f(x)$ admet une limite à gauche $\ell$ finie ssi $\forall \varepsilon>0$ $\exists\eta>0$ tel que $|x-a|<\eta\,\land\, x<a$ $\Rightarrow$ $|f(x)-\ell|<\varepsilon$, et on note $\lim_{x\rightarrow a^-}f(x) = \ell$.\newline
+
+    \item On dit que $f(x)$ admet une limite à droite $\ell$ finie ssi $\forall \varepsilon>0$ $\exists\eta>0$ tel que $|x-a|<\eta\,\land\, x>a$ $\Rightarrow$ $|f(x)-\ell|<\varepsilon$, et on note $\lim_{x\rightarrow a^+}f(x) = \ell$.
+
+    \end{enumerate}
+
+  \end{definition}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Si les limites à gauche et à droite sont différentes ou non définies, la limite de la fonction n'est pas définie.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+  \framesubtitle{Limites à gauche et à droite (b)}
+
+  \begin{example}
+
+    Soit la fonction  $f(x) = \frac{x}{|x|}$. Cette fonction n'est pas définie en 0 (puisque nous avons alors une forme indéterminée). Néanmoins, en notant que nous pouvons réécrire la fonctions sous la forme~:
+    \begin{columns}[onlytextwidth]
+      \begin{column}{.5\textwidth}
+        \[
+          f(x) =
+          \begin{cases}
+            1 &\text{ si } x>0\\
+            -1 &\text{ si } x<0
+          \end{cases}
+        \]
+        nous avons~:
+        \[
+          \lim_{x\rightarrow 0^-} f(x) = -1
+        \]
+        et
+        \[
+          \lim_{x\rightarrow 0^+} f(x) = 1
+        \]
+      \end{column}
+      \begin{column}{.5\textwidth}
+        \begin{tikzpicture}[scale=.9]
+          \begin{axis}[
+            xticklabels={,,},
+            yticklabels={,,},
+            enlargelimits=true,
+            grid style={dashed, gray!60},
+            axis x line = bottom,
+            axis y line = left,
+            axis line style={thin},
+            xmax = 4,
+            xmin = -4,
+            ymax = 2,
+            ymin = -2,
+            axis lines = middle,
+            small,
+            clip=false,
+            ]
+            \addplot[
+            draw=black,
+            thick,
+            ]
+            coordinates {(-3.5,-1) (-0.05, -1)};
+            \addplot[
+            draw=black,
+            thick,
+            ]
+            coordinates {(0,1) (3.5, 1)};
+          \end{axis}
+        \end{tikzpicture}
+      \end{column}
+    \end{columns}
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+  \framesubtitle{Limites à gauche et à droite (c)}
+
+  \bigskip
+
+  Les limites à gauche et à droites ne sont pas nécessairement finies.
+
+  \bigskip
+
+  \begin{definition}[Limites non finies à gauche et à droite]
+    {\small
+      \[
+        \lim_{x\rightarrow a+}f(x) = \infty \,\Leftrightarrow\, \forall N>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\land\,x>a\,\Rightarrow\, f(x)>N
+      \]
+      \[
+        \lim_{x\rightarrow a+}f(x) = -\infty \,\Leftrightarrow\, \forall N>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\land\,x>a\,\Rightarrow\, f(x)<-N
+      \]
+      \[
+        \lim_{x\rightarrow a-}f(x) = \infty \,\Leftrightarrow\, \forall N>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\land\,x<a\,\Rightarrow\, f(x)>N
+      \]
+      \[
+        \lim_{x\rightarrow a-}f(x) = -\infty \,\Leftrightarrow\, \forall N>0,\, \exists \delta>0\,\text{ tel que }\, |x-a|<\delta\,\land\,x<a\,\Rightarrow\, f(x)<-N
+      \]
+    }
+  \end{definition}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+  \framesubtitle{Limites à gauche et à droite (d)}
+
+  \bigskip
+
+  Les limites à gauche et à droite en zéro de l'hyperbole sont différentes~:
+
+  \bigskip
+
+  \begin{center}
+    \begin{tikzpicture}[scale=1.4]
+      \begin{axis}[
+        xticklabels={,,},
+        yticklabels={,,},
+        enlargelimits=true,
+        grid style={dashed, gray!60},
+        axis x line = bottom,
+        axis y line = left,
+        axis line style={thin},
+        xmax = 5,
+        xmin = -5,
+        ymax = 22,
+        ymin = -22,
+        axis lines = middle,
+        small,
+        clip=false,
+        ]
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=500,
+        domain=-4.5:-0.05,
+        ]
+        {1/x};
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=500,
+        domain=.05:4.5,
+        ]
+        {1/x};
+        \node[right] (-3,20) {$f(x) = \frac{1}{x}$};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
   \framesubtitle{Propriétés}
 
+  \begin{theorem}
+    Soient deux fonctions $f(x)$ et $g(x)$ deux fonctions telles que $\lim_{x\rightarrow a}f(x) = \ell_1$ et $\lim_{x\rightarrow a}g(x) = \ell_2$, où les constantes $\ell_1$ et $\ell_2$ sont des constantes finies, alors~:\newline
+    \begin{enumerate}
 
+    \item $\lim_{x\rightarrow a} c = c$  pour toute constante $c$\newline
+
+    \item $\lim_{x\rightarrow a} c f(x) = c\ell_1$\newline
+
+    \item $\lim_{x\rightarrow a} f(x)\pm g(x) = \ell_1\pm\ell_2$\newline
+
+    \item $\lim_{x\rightarrow a} f(x)\cdot g(x) = \ell_1\ell_2$\newline
+
+    \item $\lim_{x\rightarrow a} \frac{f(x)}{g(x)} = \frac{\ell_1}{\ell_2}$, si $\ell_2\neq 0$.
+
+    \end{enumerate}
+  \end{theorem}
 
 \end{frame}
 

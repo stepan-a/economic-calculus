@@ -1294,6 +1294,42 @@
 \end{frame}
 
 
+\begin{frame}[fragile]
+  \frametitle{Limites d'une fonction}
+  \framesubtitle{Limites usuelles}
+
+  \bigskip
+
+  \newcounter{enumcounter}
+
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      \begin{enumerate}
+      \item $\lim_{x\rightarrow 0}\log x = -\infty$
+      \item $\lim_{x\rightarrow 0}\frac{e^x-1}{x} = 1$
+      \item $\lim_{x\rightarrow 0}\frac{\log(1+x)}{x} = 1$
+      \item $\lim_{x\rightarrow 0} \left(1+x\right)^{\frac{1}{x}} = e$
+      \item $\lim_{x\rightarrow\infty}\left(1+\frac{1}{x}\right)^x = e$
+      \item $\lim_{x\rightarrow\infty}\left(1+\frac{a}{x}\right)^x = e^a$
+      \end{enumerate}
+      \setcounter{enumcounter}{\value{enumi}}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{enumerate}
+        \setcounter{enumi}{\value{enumcounter}}
+      \item $\lim_{x\rightarrow \infty}\log x = \infty$
+      \item $\lim_{x\rightarrow \infty}e^x = \infty$
+      \item $\lim_{x\rightarrow -\infty}e^x = 0$
+      \item $\lim_{x\rightarrow\infty}\frac{x^k}{a^x} = 0$, $\forall\, a>0$, $k\in \mathbb R$
+      \item $\lim_{x\rightarrow\infty}\frac{a^x}{x^x} = 0$, $\forall\, a>0$
+      \item $\lim_{x\rightarrow\infty} = \frac{\log x^k}{x^m} = 0$, $\forall\, m>0$
+      \end{enumerate}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+
 
 \end{document}
 

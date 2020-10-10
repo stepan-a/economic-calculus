@@ -1294,7 +1294,7 @@
 \end{frame}
 
 
-\begin{frame}[fragile]
+\begin{frame}
   \frametitle{Limites d'une fonction}
   \framesubtitle{Limites usuelles}
 
@@ -1326,6 +1326,63 @@
       \end{enumerate}
     \end{column}
   \end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+
+  \begin{example}
+
+    \[
+      \begin{split}
+        \lim_{x\rightarrow 2}\frac{x^2+3}{x} =& \frac{\lim_{x\rightarrow 2} x^2 + 3}{\lim_{x\rightarrow 2} x}\\
+        &= \frac{\lim_{x\rightarrow 2} x^2 + \lim_{x\rightarrow 2} 3}{\lim_{x\rightarrow 2} x}\\
+        &= \frac{\lim_{x\rightarrow 2} x \cdot \lim_{x\rightarrow 2} x + \lim_{x\rightarrow 2} 3}{\lim_{x\rightarrow 2} x}\\
+        &= \frac{2\cdot 2 + 3}{2} = \frac{7}{2}
+      \end{split}
+    \]
+
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+
+  \begin{example}
+    Considérons la limite quand $x$ tend vers 4 de la fonction $f(x) = \frac{x^2-16}{x-4}$. Cette fonction n'est pas définie en $x=4$ car on a alors une forme indéterminée de la forme $\nicefrac{0}{0}$. Néanmoins, tant que $x\neq 4$, et c'est le cas quand on considère une limite ($x$ se rapproche de 4 mais n'est pas égal à 4), on peut diviser le numérateur et le dénominateur par $x-4$:
+    \[
+      \begin{split}
+        \lim_{x\rightarrow 4}\frac{x^2-16}{x-4} &= \lim_{x\rightarrow 4} \frac{(x+4)(x-4)}{x-4}\\
+        &= \lim_{x\rightarrow 4} x+4\\
+        &= \left(\lim_{x\rightarrow 4} x\right)+4\\
+        &= 8
+      \end{split}
+    \]
+
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Limites d'une fonction}
+
+  \begin{example}
+    On s'intéresse à la limite de la fraction rationnelle  $f(x) = \frac{2x^3+5x^2+6}{x^3-3x+9}$ lorsque $x$ tend vers l'infini. À nouveau nous sommmes en présence d'une forme indéterminée (de la forme $\nicefrac{\infty}{\infty}$). En supposant, sans perte de généralité puisque nous nous intéressons au comportement de $f(x)$ quand $x$ est très grand, que $x\neq$ on peut diviser le numérateur et le dénominateur par la plus grande puissance de $x$:
+    \[
+      \begin{split}
+        \lim_{x\rightarrow \infty}\frac{2x^3+5x^2+6}{x^3-3x+9} &= \lim_{x\rightarrow \infty}\frac{2+\frac{5}{x}+\frac{6}{x^3}}{1-\frac{3}{x^2}+\frac{1}{x^3}}\\
+        &= \frac{ \lim_{x\rightarrow \infty}2+ 5\lim_{x\rightarrow \infty}\frac{1}{x}+6\lim_{x\rightarrow \infty}\frac{1}{x^3}}{\lim_{x\rightarrow \infty} 1-3\lim_{x\rightarrow \infty}\frac{1}{x^2}+\lim_{x\rightarrow \infty}\frac{1}{x^3}}\\
+        &= \frac{2+5\times 0 + 6\times 0}{1-3\times 0 + 9\times 0}\\
+        &= 2
+      \end{split}
+    \]
+
+  \end{example}
 
 \end{frame}
 

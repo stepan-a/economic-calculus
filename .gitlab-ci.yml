@@ -42,7 +42,7 @@ pdf:
 web:
   stage: deploy
   only:
-    - master@University/economic-calculus
+    - master@stepan/economic-calculus
   tags:
     - restricted
   dependencies:

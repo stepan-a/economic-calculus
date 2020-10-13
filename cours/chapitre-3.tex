@@ -1578,7 +1578,7 @@
 
     Soit $f(x) = \sqrt{x}$ une fonction de  $\mathbb R^+$ à valeurs dans $\mathbb R^+$. Cette fonction n'est pas continue en 0. En effet en 0 on a $f(0) = 0$ ($f$ est donc finie en ce point) et $\lim_{x\rightarrow 0^+}f(x) = 0$, mais la limite à gauche n'est pas définie puisque la fonction racine carrée n'est pas définie pour les valeurs négatives de $x$.\newline
 
-    Soit $\alpha>0$, montrons que $\lim_{x\rightarrow a}f(x) = \sqrt{a}$ (comme la racine carrée de $\alpha$ est finie pour tout $\alpha<\infty$ cela suffit à montrer la continuité en $\alpha$). Nous avons~:
+    Soit $\alpha>0$, montrons que $\lim_{x\rightarrow \alpha}f(x) = \sqrt{\alpha}$ (comme la racine carrée de $\alpha$ est finie pour tout $\alpha<\infty$ cela suffit à montrer la continuité en $\alpha$). Nous avons~:
     \[
       |f(x)-f(\alpha)| = |\sqrt{x}-\sqrt{\alpha}| \leq \sqrt{|x-\alpha|}
     \]
@@ -1647,7 +1647,7 @@
   \hypertarget{slide_fonction_lipschitzienne}{}
 
   \begin{definition}
-    La fonction $f$ de $E$ dans $\mathbb R$ est dite k-lipschitzienne sur $E$ si $\forall (x,y)\in\mathbb E^2$ on a $|f(x)-f(y)|\leq k|x-y|$ (avec $k\in\mathbb R_+$).
+    La fonction $f$ de $E$ dans $\mathbb R$ est dite k-lipschitzienne sur $E$ si $\forall (x,y)\in E^2$ on a $|f(x)-f(y)|\leq k|x-y|$ (avec $k\in\mathbb R_+$).
   \end{definition}
 
   \bigskip
@@ -1668,7 +1668,7 @@
 
   \textbf{Preuve du théorème \hyperlink{slide_fonction_lipschitzienne}{\ref{thm:lipschitz}}.} Si $f$ est une fonction lipschitzienne sur $E$, alors il existe $k\in\mathbb R_+$ tel que~:
   \[
-    \forall (x,y)\in\mathbb E^2 on ait |f(x)-f(y)|\leq k|x-y|
+    \forall (x,y)\in E^2 \text{ on ait } |f(x)-f(y)|\leq k|x-y|
   \]
   En particulier, on doit avoir pour $a\in E$~:
   \[
@@ -2118,7 +2118,7 @@
           \medskip
         \item Si $f(a)f(m)<0$ alors on pose $b = m$ et on retourne en 1.
           \medskip
-        \item Si $f(a)f(m)<0$ alors on pose $a = m$ et on retourne en 1.
+        \item Si $f(b)f(m)<0$ alors on pose $a = m$ et on retourne en 1.
           \medskip
         \end{enumerate}
 

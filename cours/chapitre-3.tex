@@ -1386,6 +1386,799 @@
 
 \end{frame}
 
+\section{Continuité des fonctions}
+
+\begin{frame}
+  \frametitle{Continuité en un point, I}
+
+  \begin{itemize}
+
+  \item Une fonction continue sur un intervalle est une fonction que l'on peut tracer sur une page sans lever le crayon, elle ne s'interrompt nulle part.\newline
+
+  \item Afin d'obtenir une définition plus opérationnelle, on commence par définir la continuité en un point.\newline
+
+  \item Pour qu'une fonction soit continue en un point il faut qu'elle soit définie en ce point, et que l'on puisse s'en approcher.\newline
+
+  \end{itemize}
+
+  \begin{definition}
+    Une fonction $f(x)$ est dite continue en $x=a$ si les trois conditions suivantes sont satisfaites~:
+    \begin{enumerate}
+    \item $f(a)$ est défini,
+    \item $\lim_{x\rightarrow a}f(x)$ existe, et
+    \item $\lim_{x\rightarrow a}f(x) = f(a)$.
+    \end{enumerate}
+  \end{definition}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Continuité en un point, II}
+
+  En utilisant la définition de la limite, on a alternativement~:\newline
+
+  \begin{definition}
+    Une fonction $f(x)$ est continue en $x=a$ ssi:
+    \[
+      \forall \varepsilon>0,\, \exists \delta>0\quad |\quad |x-a|<\delta\, \Rightarrow\, |f(x)-f(a)|<\varepsilon
+    \]
+  \end{definition}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Une fonction $f$ est continue en $x=a$ si on peut rendre arbirairement petite la distance entre $f(x)$ et $f(a)$ dès lors que $x$ est assez proche de $a$.\newline
+
+  \item Si une fonction n'est pas continue en un point on dit qu'elle  est discontinue.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Continuité en un point, III}
+
+  \begin{itemize}
+
+  \item Puisque la continuité est définie à partir du concept de limite\ldots\newline
+
+  \item On peut définir la continuité à droite et la continuité à gauche.\newline
+
+  \item Ce rafinement est nécessaire si la fonction est définie sur un intervalle fermé.\newline
+
+  \end{itemize}
+
+
+  \begin{definition}
+    \begin{enumerate}
+    \item Une fonction $f(x)$ est continue à droite en $x=a$ ssi:
+      \[
+        \forall \varepsilon>0,\, \exists \delta>0\quad |\quad |x-a|<\delta\,\land\,x>a\, \Rightarrow\, |f(x)-f(a)|<\varepsilon
+      \]
+    \item Une fonction $f(x)$ est continue à gauche en $x=a$ ssi:
+      \[
+        \forall \varepsilon>0,\, \exists \delta>0\quad |\quad |x-a|<\delta\,\land\,x<a\, \Rightarrow\, |f(x)-f(a)|<\varepsilon
+      \]
+    \end{enumerate}
+  \end{definition}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Continuité en un point, IV}
+
+  \begin{itemize}
+
+  \item Si une fonction n'est pas continue en un point à droite \textbf{et} à gauche, alors elle est discontinue en ce point.\newline
+
+  \item Si une fonction est dite continue sur $E$ si et seulement si elle est continue en tout point $x\in E$.\newline
+
+  \item Au sens strict, une fonction ne peut donc être continue sur un interval fermé $[a, b]$ puisqu'elle n'est pas continue à gauche de $a$ et à droite de $b$.\newline
+
+  \item On dira qu'une fonction est continue sur un intervalle $[a,b]$ si elle est continue sur l'intervalle ouvert $]a,b[$ et si elle continue à droite en $a$ et continue à gauche en $b$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Continuité, I}
+
+  \begin{example}
+
+    Soit $f(x) = |x|$ une fonction défine sur $\mathbb R$ à valeurs dans $\mathbb R^+$. Montrons que cette fonction est continue en $x=0$.\newline
+
+    \begin{columns}[onlytextwidth]
+      \begin{column}{.5\textwidth}
+        {\small
+          \begin{itemize}
+          \item $\lim_{x\rightarrow 0^-} |x| = 0$, en effet on a~:
+            \[
+              \begin{split}
+                \lim_{x\rightarrow 0^-} |x| &= \lim_{x\rightarrow 0^-} -x\\
+                &= -\lim_{x\rightarrow 0^-} x = 0
+              \end{split}
+            \]
+          \item $\lim_{x\rightarrow 0^+} |x| = 0$, en effet on a~:
+            \[
+              \begin{split}
+                \lim_{x\rightarrow 0^+} |x| &= \lim_{x\rightarrow 0^+} x\\
+                &= 0
+              \end{split}
+            \]
+          \item La limite existe (les limites à droite et à gauche existent et sont identiques) et est égale à $f(0)$ $\Rightarrow$ Continuité en 0
+          \end{itemize}}
+      \end{column}
+      \begin{column}{.5\textwidth}
+        \begin{tikzpicture}[scale=1]
+          \begin{axis}[
+            xticklabels={,,},
+            yticklabels={,,},
+            enlargelimits=true,
+            grid style={dashed, gray!60},
+            axis x line = bottom,
+            axis y line = left,
+            axis line style={thin},
+            xmax = 5,
+            xmin = -5,
+            ymax = 5.5,
+            ymin = -0.5,
+            axis lines = middle,
+            small,
+            clip=false,
+            ]
+            \addplot[
+            draw=black,
+            thick,
+            domain=-5:0,
+            ]
+            {-x};
+            \addplot[
+            draw=black,
+            thick,
+            domain=0:5,
+            ]
+            {x};
+          \end{axis}
+        \end{tikzpicture}
+      \end{column}
+    \end{columns}
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Continuité, II}
+
+  \begin{example}
+    Montrons que la droite $f(x) = ax+b$ est continue (pour des paramètres $a$ et $b$ réels) sur $\mathbb R$. Nous savons déjà que pour tout $\alpha$ réel fini $f(\alpha) = a\alpha+b$ est défini, il nous reste à montrer que pour tout $\alpha\in\mathbb R$ $\lim_{x\rightarrow\alpha}f(x)=f(\alpha)$. Nous avons~:
+    \[
+      \begin{split}
+        \lim_{x\rightarrow\alpha}f(x) &= \lim_{x\rightarrow\alpha} ax+b\\
+        &= a\lim_{x\rightarrow\alpha} x + \lim_{x\rightarrow\alpha} b\\
+        &= a\alpha + b = f(\alpha)
+      \end{split}
+    \]
+    La fonction est donc continue en tout point $\alpha\in\mathbb R$, elle est donc continue sur $\mathbb R$.
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Continuité, III}
+
+  \begin{example}
+
+    Soit $f(x) = \sqrt{x}$ une fonction de  $\mathbb R^+$ à valeurs dans $\mathbb R^+$. Cette fonction n'est pas continue en 0. En effet en 0 on a $f(0) = 0$ ($f$ est donc finie en ce point) et $\lim_{x\rightarrow 0^+}f(x) = 0$, mais la limite à gauche n'est pas définie puisque la fonction racine carrée n'est pas définie pour les valeurs négatives de $x$.\newline
+
+    Soit $\alpha>0$, montrons que $\lim_{x\rightarrow a}f(x) = \sqrt{a}$ (comme la racine carrée de $\alpha$ est finie pour tout $\alpha<\infty$ cela suffit à montrer la continuité en $\alpha$). Nous avons~:
+    \[
+      |f(x)-f(\alpha)| = |\sqrt{x}-\sqrt{\alpha}| \leq \sqrt{|x-\alpha|}
+    \]
+    Ainsi, si $|x-\alpha|<\varepsilon^2$ on a nécessairement $|f(x)-f(\alpha)|<\varepsilon$. En posant $\delta(\varepsilon) = \varepsilon^2$ nous avons donc pour tout $\alpha\in\mathbb R_+^{\star}$~:
+    \[
+      \forall \varepsilon>0, \exists \delta(\varepsilon)>0\,\text{tel que}\, |x-a|<\delta(\varepsilon)\Rightarrow |f(x)-f(\alpha)|<\varepsilon
+    \]
+  \end{example}
+
+\end{frame}
+
+
+\begin{notes}
+  Revenons sur l'inégalité utilisée pour montrer la continuité de la fonction racine carrée, et montrons que l'on a~:
+  \[
+    |\sqrt{a}-\sqrt{b}| \leq \sqrt{|a-b|}
+  \]
+  De façon équivalente~:
+  \[
+    \begin{split}
+      (\sqrt{a}-\sqrt{b})^2&\leq |a-b|\\
+      \Leftrightarrow a+b-2\sqrt{a}\sqrt{b} &\leq |a-b|
+    \end{split}
+  \]
+  Distinguons de cas~:
+  \medskip
+  \begin{itemize}
+  \item [$a \geq b$] On a donc~:
+    \[
+      \begin{split}
+        a+b-2\sqrt{a}\sqrt{b} &\leq a-b\\
+        \Leftrightarrow 2b &\leq 2\sqrt{a}\sqrt{b}\\
+        \Leftrightarrow b &\leq \sqrt{a}\sqrt{b}\\
+      \end{split}
+    \]
+    ce qui est vrai dès lors que $a\geq b$. En effet $a\geq b \Leftrightarrow \sqrt{a}\geq\sqrt{b} \Leftrightarrow \sqrt{a}\sqrt{b} \geq b$.
+
+  \item [$a \leq b$] On a donc~:
+    \[
+      \begin{split}
+        a+b-2\sqrt{a}\sqrt{b} &\leq b-a\\
+        \Leftrightarrow 2a &\leq 2\sqrt{a}\sqrt{b}\\
+        \Leftrightarrow a &\leq \sqrt{a}\sqrt{b}\\
+      \end{split}
+    \]
+    ce qui est vrai dès lors que $a\leq b$.
+  \end{itemize}
+
+  \medskip
+
+  Ainsi quel que soit $a$ et $b$ positifs on a~:
+  \[
+    a+b-2\sqrt{a}\sqrt{b} \leq |a-b|
+  \]
+  ou de façon équivalente~:
+  \[
+    |\sqrt{a}-\sqrt{b}| \leq \sqrt{|a-b|}
+  \]
+
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Fonctions lipschitzienne sur un intervalle, I}
+
+  \hypertarget{slide_fonction_lipschitzienne}{}
+
+  \begin{definition}
+    La fonction $f$ de $E$ dans $\mathbb R$ est dite k-lipschitzienne sur $E$ si $\forall (x,y)\in\mathbb E^2$ on a $|f(x)-f(y)|\leq k|x-y|$ (avec $k\in\mathbb R_+$).
+  \end{definition}
+
+  \bigskip
+
+  \begin{itemize}
+  \item La fonction constante $f(x)=c\,\forall c\in\mathbb R_+$ est 0-lipschitzienne.\newline
+  \item Une fonction $f$ est lipschitzienne si $\exists k>0$ tel que $f$ est k-lipschitzienne.\newline
+  \end{itemize}
+
+  \begin{theorem}\label{thm:lipschitz}
+    Si $f$ est une fonction lipschitzienne sur $E$ alors elle est continue sur le même intervalle.
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{notes}
+
+  \textbf{Preuve du théorème \hyperlink{slide_fonction_lipschitzienne}{\ref{thm:lipschitz}}.} Si $f$ est une fonction lipschitzienne sur $E$, alors il existe $k\in\mathbb R_+$ tel que~:
+  \[
+    \forall (x,y)\in\mathbb E^2 on ait |f(x)-f(y)|\leq k|x-y|
+  \]
+  En particulier, on doit avoir pour $a\in E$~:
+  \[
+    \forall x\in E,\, |f(x)-f(a)|\leq k|x-a|
+  \]
+  Or $\forall k\in\mathbb R_+$ on a~:
+  \[
+    \lim_{x\rightarrow a} |x-a| = 0
+  \]
+  Autreent dit on peut rendre arbitrairement petite la distance entre $f(x)$ et $f(a)$ pourvu que $x$ soit assez proche de $a$. La fonction $f$ est donc continue en $a$. Comme ceci est valable pour tout $a$ dans $E$, la fonction est continue sur $E$.
+
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Fonctions lipschitzienne sur un intervalle, II}
+
+  \begin{example}
+    La droite $f(x) = ax+b$ est une fonction lipschitzienne sur
+    $\mathbb R$ (et donc continue, mais nous le savons déjà). Pour
+    tout $(x,y)\in\mathbb R$ nous avons~:
+    \[
+      \begin{split}
+        |f(x)-f(y)| &= |ax+b-ay-b|\\
+        &= |a|\cdot|x-y|
+      \end{split}
+    \]
+    La doite de pente $a$ est donc $|a|$-lipschitzienne
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions discontinues}
+  \framesubtitle{Typologie}
+
+  \begin{itemize}
+
+  \item Une fonction n'est pas continue sur $E$, si il existe un point dans $E$ où la fonction est discontinue.\newline
+
+  \item Une fonction peut être discontinue en un point $a$ pour trois raisons~:\newline
+
+    \begin{enumerate}
+    \item La fonction $f$ n'est pas définie en $a$,
+      \medskip
+    \item la limite $\lim_{x \rightarrow a}f(x)$ n'existe pas, ou
+      \medskip
+    \item la limite $\lim_{x \rightarrow a}f(x)$ est différente de $f(a)$.\newline
+    \end{enumerate}
+
+  \item On distingue donc plusieurs types de discontinuités.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions discontinues}
+  \framesubtitle{Discontinuité infinie (a)}
+
+  \begin{itemize}
+
+  \item Si la fonction admet un point de singularité $a$ sur son domaine où~:
+    \[
+      \lim_{x\rightarrow a}f(x) = \pm \infty
+    \]
+    \bigskip
+
+  \item \ldots Ou si la fonction en un point $a$ les limites à gauche et/ou à droite ne sont pas finies~:
+    \[
+      \lim_{x\rightarrow a^-}f(x) = \pm \infty \quad\quad \lim_{x\rightarrow a^+}f(x) = \pm \infty
+    \]
+    \bigskip
+
+  \item Possible avec des fonctions rationnelles lorsque le polynôme au dénominateur admet des racines réelles.\newline
+
+  \item \ldots Ou autres.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions discontinues}
+  \framesubtitle{Discontinuité infinie (b)}
+
+  \begin{example}
+
+    La fonction $f(x) = \frac{1}{x^2-2x+1}$ admet un point de singularité, elle n'est définie que sur $\mathbb R\setminus \{1\}$
+
+    \bigskip
+
+    \begin{columns}[onlytextwidth]
+      \begin{column}{.5\textwidth}
+        De façon équivalente~:
+        \[
+          f(x) = \frac{1}{(x-1)^2}
+        \]
+        Nous avons déjà montré que~:
+        \[
+          \lim_{x\rightarrow 1}f(x) = \infty
+        \]
+        La fonction $f$ est donc discontinue en $x=1$. Elle n'est pas
+        continue sur $\mathbb R$, mais elle est continue sur
+        $]-\infty, 1[$ et $]1,\infty[$.
+      \end{column}
+      \begin{column}{.5\textwidth}
+        \begin{tikzpicture}[scale=.9]
+          \begin{axis}[
+            xticklabels={,,},
+            yticklabels={,,},
+            enlargelimits=true,
+            grid style={dashed, gray!60},
+            axis x line = bottom,
+            axis y line = left,
+            axis line style={thin},
+            xmax = 4,
+            xmin = -2,
+            ymax = 120,
+            ymin = -.5,
+            axis lines = middle,
+            small,
+            clip=false,
+            ]
+            \addplot[
+            draw=black,
+            thick,
+            smooth,
+            samples=50,
+            domain=-1:0.9,
+            ]
+            {1/(x-1)^2};
+            \addplot[
+            draw=black,
+            thick,
+            smooth,
+            samples=50,
+            domain=1.1:3,
+            ]
+            {1/(x-1)^2};
+            \addplot[red, dashed] coordinates { (1,0) (1,110)};
+          \end{axis}
+        \end{tikzpicture}
+      \end{column}
+    \end{columns}
+
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions discontinues}
+  \framesubtitle{Discontinuité finie (a)}
+
+  \begin{itemize}
+
+  \item Si la fonction « saute » en un point.\newline
+
+  \item Une fonction admet un saut en un point $x = a$, si la limite en ce point n'existe pas car les limites à gauche et à droite sont différentes.\newline
+
+  \item Si $\lim_{x\rightarrow a^-}f(x) = \underline{\ell}$ et $\lim_{x\rightarrow a^+}f(x) = \overline{\ell}$, avec $\underline{\ell}\neq\overline{\ell}$, la fonction « saute » de $\underline{\ell}$ à $\overline{\ell}$ en $x=a$.\newline
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions discontinues}
+  \framesubtitle{Discontinuité finie (b)}
+
+  \begin{example}
+
+    La fonction $f(x) = \frac{2}{1+3^{\frac{1}{x}}}$ est définie sur $\mathbb R\setminus {0}$ et saute en 0.
+
+    \bigskip
+
+    \begin{columns}[onlytextwidth]
+      \begin{column}{.5\textwidth}
+        \[
+          \lim_{x\rightarrow 0^-}f(x) = 2
+        \]
+        et
+        \[
+          \lim_{x\rightarrow 0^+}f(x) = 0
+        \]
+      \end{column}
+      \begin{column}{.5\textwidth}
+        \begin{tikzpicture}[scale=.9]
+          \begin{axis}[
+            xticklabels={,,},
+            yticklabels={,,},
+            enlargelimits=true,
+            grid style={dashed, gray!60},
+            axis x line = bottom,
+            axis y line = left,
+            axis line style={thin},
+            xmin = -4,
+            xmax = 4,
+            ymax = 3,
+            ymin = -1,
+            axis lines = middle,
+            small,
+            clip=false,
+            ]
+            \addplot[
+            draw=black,
+            thick,
+            smooth,
+            samples=500,
+            domain=-3.5:-0.01,
+            ]
+            {2/(1+3^(1/x))};
+            \addplot[
+            draw=black,
+            thick,
+            smooth,
+            samples=500,
+            domain=0.01:3.5,
+            ]
+            {2/(1+3^(1/x))};
+            \addplot[red, dashed] coordinates { (-3.5,1) (3.5,1)};
+          \end{axis}
+        \end{tikzpicture}
+      \end{column}
+    \end{columns}
+
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions discontinues}
+  \framesubtitle{Discontinuité réparable (a)}
+
+  \begin{itemize}
+
+  \item Soit $f$ une fonction définie sur $\mathbb R\setminus \{a\}$ et à valeurs dans $\mathbb R$.\newline
+
+  \item Supposons que $f$ ait une limite définie en $a$, c'est-à-dire que $\lim_{x\rightarrow a}f(x) = \ell$ avec $|\ell|<\infty$.\newline
+
+  \item On dit alors que $f$ admet une discontinuité réparable en $a$, ou que $f$ est prolongeable par continuité en $a$.\newline
+
+  \item On pose~:
+    \[
+      \overline{f}(x) =
+      \begin{cases}
+        f(x) \quad&\forall x\in\mathbb R\setminus \{a\},\\
+        \ell  &\text{si $x=a$.}
+      \end{cases}
+    \]
+    la fonction $\overline{f}$ est continue sur $\mathbb R$.\newline
+
+  \item Une discontinuité peut être réparable à gauche (droite) seulement si la limite à gauche (droite) est définie mais pas la limite à droite (gauche).
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions discontinues}
+  \framesubtitle{Discontinuité réparable (b)}
+
+  \begin{example}
+
+    Soit la fonction $f(x) = e^{-\frac{1}{x^2}}$ de $x\in \mathbb R\setminus \{0\}$ dans $\mathbb R_+$.
+
+    \begin{columns}[onlytextwidth]
+      \begin{column}{.5\textwidth}
+        \begin{itemize}
+
+        \item Cette fonction n'est pas définie en $x=0$ à cause de la fraction sous l'exponentielle.\newline
+
+        \item Pourtant $\lim_{x\rightarrow 0}f(x) = 0$.\newline
+
+        \item On prolonge la fonction $f(x)$~:
+          \[
+            \overline{f}(x) =
+            \begin{cases}
+              e^{-\frac{1}{x^2}} \quad &\forall x\in \mathbb R\setminus \{0\}\\
+              0                     &\text{sinon.}
+            \end{cases}
+          \]
+        \end{itemize}
+
+      \end{column}
+      \begin{column}{.5\textwidth}
+        \begin{tikzpicture}[scale=.9]
+          \begin{axis}[
+            xticklabels={,,},
+            yticklabels={,,},
+            enlargelimits=true,
+            grid style={dashed, gray!60},
+            axis x line = bottom,
+            axis y line = left,
+            axis line style={thin},
+            xmin = -2,
+            xmax = 2,
+            ymax = 1.5,
+            ymin = -.5,
+            axis lines = middle,
+            small,
+            clip=false,
+            ]
+            \addplot[
+            draw=black,
+            thick,
+            smooth,
+            samples=500,
+            domain=-2:-0.01,
+            ]
+            {exp(-1/x^2)};
+            \addplot[
+            draw=black,
+            thick,
+            smooth,
+            samples=500,
+            domain=0.01:2,
+            ]
+            {exp(-1/x^2)};
+          \end{axis}
+        \end{tikzpicture}
+      \end{column}
+    \end{columns}
+
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions discontinues}
+  \framesubtitle{Discontinuité apparente}
+
+  \begin{itemize}
+
+  \item Soit $f$ une fonction définie sur $E$ à valeurs dans $\mathbb R$.\newline
+
+  \item Si il existe $a\in E$ tel que la limite en $a$ soit définie mais différente de $f(a)$, alors on parle de discontinuuité apparente.\newline
+
+  \item Si il existe $a\in E$ tel que $\lim_{x\rightarrow a}f(x)=\ell\neq f(a)$, tout se passe comme si il y avait une erreur dans la définition de la fonction.\newline
+
+  \item Ce type de discontinuité est réparable par prolongement.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions continues}
+  \framesubtitle{Propriétés (a)}
+
+  \begin{theorem}
+    Soient $f$ et $g$ deux fonctions continues sur $E$ à valeurs dans $\mathbb R$, alors~:\newline
+    \begin{enumerate}
+    \item $f+g$ et $f-g$ sont des fonctions continues,\newline
+    \item $f\cdot g$ est une fonction continue,\newline
+    \item $f/g$ est une fonction continue en tout point de $E$ où $g$ est non nulle.\newline
+    \end{enumerate}
+  \end{theorem}
+
+  \bigskip
+
+  \begin{theorem}
+    Soient $f$ une fonction continue de $E$ dans $F$ et $g$ une fonction continue de $F$ dans $G$, alors la composition $g\circ f$ est continue tant qu'elle est définie.
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions continues}
+  \framesubtitle{Propriétés (b)}
+
+  \begin{theorem}
+    Soit $f$ une fonction continue et strictement monotone sur un intervalle $E$, alors $f$ admet une réciproque $f^{-1}$, celle-ci est continue sur l'image de $E$ par $f$, strictement monotone et de même sens de monotonie que $f$.
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions continues}
+  \framesubtitle{Propriétés (c)}
+
+  \begin{theorem}
+    Soit $f$ une fonction continue sur un intervalle fermé $[a,b]$, alors $f$ a une valeur maximale $M$ et une valeur minimale $m$ sur l'intervalle $[a,b]$, et $f$ prend sur $[a,b]$ toute valeur comprise entre $m$ et $M$
+  \end{theorem}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Ce résultat assure l'existence des extrema d'une fonction.\newline
+
+  \item Il faut que la fonction soit continue sur un intervalle \textbf{fermé}.\newline
+
+  \item Pour tout $k\in[m,M]$, il existe $c\in[a,b]$ tel que $f(c)=k$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions continues}
+  \framesubtitle{Propriétés (d)}
+
+  \begin{theorem}
+    Soit $f$ une fonction continue sur un intervalle fermé $[a,b]$, alors si $f(a)$ et $f(b)$ sont de signes opposés il existe au moins un $x_0\in[a,b]$ tel que $f(x_0)=0$.
+  \end{theorem}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Ce résultat nous donne une condition suffisante d'existence de solutions pour les équations de la forme $f(x)=0$.\newline
+
+  \item Si $P(x)$ est une fonction polynomiale d'ordre impair, avec un coefficient positif sur le monôme de degré le plus élevé, on sait que $\lim_{x\rightarrow -\infty}P(x) = -\infty $ et $\lim_{x\rightarrow \infty}P(x) = \infty $. On peut donc toujours trouver un intervalle $[a,b]$ tel que $P(a)<0$ et $P(b)>0$. Et on sait que dans cet intervalle on trouvera au moins une racine réelle du polynôme.\newline
+
+  \item Méthode de bissection pour résoudre l'équation $f(x)=0$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Résoudre f(x)=0 par bissection}
+
+  \begin{columns}[onlytextwidth]
+    \begin{column}{.5\textwidth}
+      \begin{itemize}
+
+      \item On cherche $a$ et $b$ tels que $f(a)f(b)<0$ (signes différents).\newline
+
+      \item Tant que $|f(a)-f(b)|>\varepsilon$~:\newline
+
+        \begin{enumerate}
+        \item $m = \frac{a+b}{2}$ (moyenne)
+          \medskip
+        \item Si $f(a)f(m)<0$ alors on pose $b = m$ et on retourne en 1.
+          \medskip
+        \item Si $f(a)f(m)<0$ alors on pose $a = m$ et on retourne en 1.
+          \medskip
+        \end{enumerate}
+
+      \end{itemize}
+
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{center}
+        \includegraphics[scale = .2]{../img/bisection-wikipedia.pdf}
+      \end{center}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+  \frametitle{Fonctions continues}
+  \framesubtitle{Retour sur les limites}
+
+  \begin{theorem}
+    Soit $f$ une fonction continue de $\mathbb R$ dans $\mathbb R$. Alors si la suite $(u_n)_{n\in\mathbb N}$ converge vers $u^{\star}$ alors la suite $(v_n)_{n\in\mathbb N}$ de terme général $v_n = f(u_n)$ converge vers $f(u^{\star})$ quand $n$ tend vers l'infini.
+  \end{theorem}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Idem pour les limites des fonctions.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions continues}
+  \framesubtitle{Retour sur les équations récurrentes}
+
+  \begin{theorem}[Point fixe]
+    Soit une suite $(u_n)_{n\in\mathbb N}$ définie de façon récursive par $u_{n+1} = f(u_n)$, avec la condition initale $u_0$ donnée. Supposons que la suite converge vers $u^{\star}$. Si la fonction $f$ est continue en $u^{\star}$ alors la limite de la suite est aussi la solution de l'équation $f(x) = x$.
+  \end{theorem}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Donne une méthode générale pour calculer de façon itérative la solution de l'équation $f(x)=x$.\newline
+
+  \item Ou de façon plus générale une équation de la forme $g(x) = 0$.\newline
+
+  \item Plus efficace que la méthode de bissection (car on n'exploite pas seulement le signe de la fonction mais aussi sa valeur)... Mais on peut faire mieux en exploitant les dérivées de la fonction.
+
+  \end{itemize}
+
+\end{frame}
+
 
 
 \end{document}

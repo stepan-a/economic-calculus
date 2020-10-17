@@ -2221,24 +2221,108 @@
 
 \begin{frame}
   \frametitle{Fonctions continues}
-  \framesubtitle{Retour sur les équations récurrentes}
+  \framesubtitle{Retour sur les équations récurrentes (a)}
 
   \begin{theorem}[Point fixe]
-    Soit une suite $(u_n)_{n\in\mathbb N}$ définie de façon récursive par $u_{n+1} = f(u_n)$, avec la condition initale $u_0$ donnée. Supposons que la suite converge vers $u^{\star}$. Si la fonction $f$ est continue en $u^{\star}$ alors la limite de la suite est aussi la solution de l'équation $f(x) = x$.
+    Soit une suite $(u_n)_{n\in\mathbb N}$ définie de façon récursive par $u_{n+1} = g(u_n)$, avec la condition initale $u_0$ donnée. Supposons que la suite converge vers $u^{\star}$. Si la fonction $g$ est continue en $u^{\star}$ alors la limite de la suite est aussi la solution de l'équation $g(x) = x$.
   \end{theorem}
 
   \bigskip
 
   \begin{itemize}
 
-  \item Donne une méthode générale pour calculer de façon itérative la solution de l'équation $f(x)=x$.\newline
+  \item Donne une méthode pour calculer de façon itérative la solution de l'équation $g(x)=x$.\newline
 
-  \item Ou de façon plus générale une équation de la forme $g(x) = 0$.\newline
+  \item Ou de façon plus générale une équation de la forme $f(x) = 0$.\newline
 
-  \item Plus efficace que la méthode de bissection (car on n'exploite pas seulement le signe de la fonction mais aussi sa valeur)... Mais on peut faire mieux en exploitant les dérivées de la fonction.
+  \item Plus efficace que la méthode de bissection (car on n'exploite pas seulement le signe de la fonction mais aussi sa valeur)... On peut faire encore mieux en exploitant les dérivées de la fonction.
 
   \end{itemize}
 
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions continues}
+  \framesubtitle{Retour sur les équations récurrentes (b)}
+
+  \begin{center}
+    \begin{tikzpicture}[scale=1.6]
+      \begin{axis}[
+        title={},
+        xlabel= {},
+        ylabel= {},
+        xticklabels={,,},
+        yticklabels={,,},
+        enlargelimits=true,
+        grid style={dashed, gray!60},
+        axis x line = bottom,
+        axis y line = left,
+        axis lines = middle,
+        axis line style={thin},
+        xmin = -.1,
+        xmax = 1.1,
+        ymin = -.25,
+        ymax = 1.1,
+        small,
+        clip=false,
+        ]
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=500,
+        domain=0:1,
+        ]
+        {sqrt(.5*x)-x} node[right] {\tiny $f(x)$} ;
+        \addplot[
+        draw=blue,
+        thick,
+        smooth,
+        samples=500,
+        domain=0:1,
+        ]
+        {sqrt(.5*x)} node[right] {\tiny \color{blue} $f(x)+x = g(x)$};
+        \addplot[
+        draw=blue,
+        smooth,
+        samples=2,
+        domain=0:1,
+        ]
+        {x} ;
+        \node[below] at (.5,0) {\tiny{\color{black}$x^{\star}$}};
+        \addplot[draw=black, dashed] coordinates {(.5,0) (.5,.5)};
+        \node[draw=black, circle, fill=black, scale=.25] at (.5,0) {};
+        \node[draw=blue, circle, fill=blue, scale=.25] at (.5,.5) {};
+        \node[below] at (.1,0) {\tiny{\color{red}$x_0$}};
+        \addplot[draw=red] coordinates {(.1,0) (.1, 0.22360679774997896)};
+        \addplot[draw=red] coordinates {(.1, 0.22360679774997896) (0.22360679774997896, 0.22360679774997896)};
+        \node[below] at (0.22360679774997896,0) {\tiny{\color{red}$x_1$}};
+        \addplot[draw=red] coordinates {(0.22360679774997896,0.22360679774997896) (0.22360679774997896, 0.334370152488211)};
+        \addplot[draw=red,dotted] coordinates {(0.22360679774997896,0) (0.22360679774997896,0.22360679774997896)};
+        \addplot[draw=red] coordinates {(0.22360679774997896, 0.334370152488211) (0.334370152488211, 0.334370152488211)};
+        \node[below] at (0.334370152488211,0) {\tiny{\color{red}$x_2$}};
+        \addplot[draw=red] coordinates {(0.334370152488211,0.334370152488211) (0.334370152488211, 0.4088827169789713)};
+        \addplot[draw=red,dotted] coordinates {(0.334370152488211,0) (0.334370152488211,0.4088827169789713)};
+        \addplot[draw=red] coordinates {(0.334370152488211, 0.4088827169789713) (0.4088827169789713, 0.4088827169789713)};
+        
+        \node[below] at (0.4088827169789713,0) {\tiny{\color{red}$x_3$}};
+        \addplot[draw=red,dotted] coordinates {(0.4088827169789713,0) (0.4088827169789713,0.4088827169789713)};
+        \addplot[draw=red] coordinates {(0.4088827169789713,0.4088827169789713) (0.4088827169789713, 0.4521519197012058)};
+        \addplot[draw=red] coordinates {(0.4088827169789713, 0.4521519197012058)  (0.4521519197012058, 0.4521519197012058)};
+        \addplot[draw=red, dotted] coordinates {(0.4521519197012058, 0.4521519197012058)  (0.4521519197012058, 0)};
+        \addplot[draw=red] coordinates {(0.4521519197012058, 0.4521519197012058) (0.4521519197012058, 0.4754744576216507)};
+        \addplot[draw=red] coordinates {(0.4521519197012058, 0.4754744576216507) (0.4754744576216507, 0.4754744576216507)};
+        \addplot[draw=red, dotted] coordinates {(0.4754744576216507, 0.4754744576216507) (0.4754744576216507, 0)};
+        \node[right] at (0.1, -.25) {\tiny\color{red} $x_{n+1} = g(x_n)$} ;
+        \node[right] at (0.1, -.4) {\tiny\color{red} $\lim_{n\rightarrow\infty}x_{n} = x^{\star}$} ;
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+
+  
+
+  
 \end{frame}
 
 

@@ -2127,7 +2127,69 @@
     \end{column}
     \begin{column}{.5\textwidth}
       \begin{center}
-        \includegraphics[scale = .2]{../img/bisection-wikipedia.pdf}
+        \begin{tikzpicture}[scale=1]
+          \begin{axis}[
+            title={},
+            xlabel= {},
+            ylabel= {},
+            xticklabels={,,},
+            yticklabels={,,},
+            enlargelimits=true,
+            grid style={dashed, gray!60},
+            axis x line = bottom,
+            axis y line = left,
+            axis lines = middle,
+            axis line style={thin},
+            xmin = -.1,
+            xmax = 1.1,
+            ymin = -.25,
+            ymax = .15,
+            small,
+            clip=false,
+            ]
+            \addplot[
+            draw=black,
+            thick,
+            smooth,
+            samples=500,
+            domain=0:1,
+            ]
+            {sqrt(.5*x)-x} node[right] {\tiny $f(x)$} ;
+            \node[above] at (.5,0) {\tiny{\color{black}$x^{\star}$}};
+            \node[draw=black, circle, fill=black, scale=.25] at (.1,0.12360679774997896) {};
+            \node[draw=black, circle, fill=black, scale=.25] at (.8,-0.16754446796632416) {};
+            \node[below] at (.1,0) {\tiny $a_0$};
+            \node[above] at (.8,0) {\tiny $b_0=b_1$};
+            \node[left] at (0, 0.12360679774997896) {\tiny $f(a_0)$};
+            \node[left] at (0, -0.16754446796632416) {\tiny $f(b_0)$};
+            \addplot[draw=black, dashed] coordinates {(.1,0.12360679774997896) (0,0.12360679774997896)};
+            \addplot[draw=black, dashed] coordinates {(.8,-0.16754446796632416) (0,-0.16754446796632416)};
+            \addplot[draw=black, dashed] coordinates {(.1,0) (.1,0.12360679774997896)};
+            \addplot[draw=black, dashed] coordinates {(.8,0) (.8,-0.16754446796632416)};
+            \node[below] at (.45,0) {\tiny $a_1$};
+            \addplot[draw=black, dashed] coordinates {(.45,0) (.45,0.024341649025256873)};
+            \addplot[draw=black, dashed] coordinates {(.45,0.024341649025256873) (0,0.024341649025256873)};
+            \node[left] at (0, 0.024341649025256873) {\tiny $f(a_1)$};
+            \node[above] at (.625,0) {\tiny $b_2$};
+            \addplot[draw=black, dashed] coordinates {(.625,0) (.625,-0.06598300562505255)};
+            \addplot[draw=black, dashed] coordinates {(.625,-0.06598300562505255) (0,-0.06598300562505255)};
+            \node[left] at (0, -0.06598300562505255) {\tiny $f(b_2)$};
+            \addplot[draw=red,dotted] coordinates {(0.1,-.2) (0.1,0)};
+            \draw[{[-]}, thick, red] (0.1,-.2) -- (0.8,-0.2);
+            \addplot[draw=red,dotted] coordinates {(0.45,-.35) (0.45,0)};
+            \addplot[draw=red,dotted] coordinates {(0.8,-0.25) (0.8,0)};
+            \node[left] at (0.06,-0.2) {\tiny\color{red} intervalle 0};
+            \draw[{[-]}, thick, red] (0.45,-.25) -- (0.8,-0.25);
+            \node[left] at (0.06,-0.25) {\tiny\color{red} intervalle 1};
+            \addplot[draw=red,dotted] coordinates {(0.625,-0.3) (0.625,0)};
+            \draw[{[-]}, thick, red] (0.45,-.3) -- (0.625,-0.3);
+            \node[left] at (0.06,-0.30) {\tiny\color{red} intervalle 2};
+            % \node[above] at (.5375,0) {\tiny $b_3$};
+            \addplot[draw=red,dotted] coordinates {(0.5375,-0.35) (0.5375,0)};
+            \draw[{[-]}, thick, red] (0.45,-.35) -- (0.5375,-0.35);
+            \node[left] at (0.06,-0.35) {\tiny\color{red} intervalle 3};
+          \end{axis}
+        \end{tikzpicture}
       \end{center}
     \end{column}
   \end{columns}

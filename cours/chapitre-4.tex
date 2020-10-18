@@ -522,7 +522,167 @@
 \end{frame}
 
 
+\begin{frame}
+  \frametitle{Dérivée en un point, V}
+  \hypertarget{slide_derivee_5}{}
+
+  \begin{itemize}
+
+  \item Pour qu'une fonction soit dérivable en un point, il faut que la fonction soit définie en ce point.\newline
+
+  \item Si une fonction n'est pas définie en un point $x_0$, alors la fonction n'admet pas de dérivée en ce point.\newline
+
+  \item[\dbend] Ce n'est pas parce qu'une fonction est définie en un point que la dérivée en ce point existe.\newline
+
+  \end{itemize}
+
+  \begin{theorem}\label{thm:derivable-continue}
+    Soit $f$ une fonction de $E$ dans $\mathbb R$. Si la fonction $f$ est dérivable en $x_0\in E$, alors la fonction $f$ est continue en $x_0$.
+  \end{theorem}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item[\dbend] La réciproque n'est pas vraie (voir l'exemple suivant)~: une fonction continue n'est pas nécessairement dérivable.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{notes}
+  \textbf{Preuve du théorème
+    \hyperlink{slide_derivee_5}{\ref{thm:derivable-continue}}.}
+  Puisque la fonction est supposée dérivable en $x_0\in E$, nous avons
+  par définition de la dérivée~:
+  \[
+    f'(x_0) = \lim_{h\rightarrow 0} \frac{f(x_0+h)-f(x_0)}{h}
+  \]
+  Posons~:
+  \[
+    g(h) =  \frac{f(x_0+h)-f(x_0)}{h}
+  \]
+  Nous avons donc~:
+  \[
+    h g(h) = f(x_0+h)-f(x_0)
+  \]
+  avec $\lim_{h\rightarrow 0}g(h) = f'(x_0)$. Ainsi~:
+  \[
+    \lim_{h\rightarrow 0} hg(h) = \lim_{h\rightarrow 0}f(x_0+h) - f(x_0)
+  \]
+  \[
+    \Leftrightarrow f'(x_0)\lim_{h\rightarrow 0} h = \lim_{h\rightarrow 0}f(x_0+h) - f(x_0)
+  \]
+  \[
+    \Leftrightarrow 0 = \lim_{h\rightarrow 0}f(x_0+h) - f(x_0)
+  \]
+  \[
+    \Leftrightarrow 0 = \lim_{x\rightarrow x_0}f(x) - f(x_0)
+  \]
+  d'où finalement~:
+  \[
+    \lim_{x\rightarrow x_0}f(x) = f(x_0)
+  \]
+  La fonction est donc bien continue en $x_0$.
+
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Dérivée en un point, VI}
+  \hypertarget{slide_derivee_6}{}
+
+  \begin{example}
+    Soit $f(x) = |x|$ une fonction défine sur $\mathbb R$ à valeurs dans $\mathbb R^+$. Cette fonction est continue en $x=0$ mais n'est pas dérivable.\newline
+
+    \begin{columns}[onlytextwidth]
+      \begin{column}{.5\textwidth}
+        {\small
+          \begin{itemize}
+          \item $f'_-(0)=\lim_{h\rightarrow 0^-} \frac{|0+h|-0}{h} = -1$, en effet on a~:
+            \[
+              \begin{split}
+                f'_-(0) &= \lim_{h\rightarrow 0^-} \frac{|h|}{h}\\
+                &= \lim_{h\rightarrow 0^-} \frac{-h}{h}\\
+                &= -\lim_{h\rightarrow 0^-} 1\\
+                &= -1\\
+              \end{split}
+            \]
+          \item Mais $f'_+(0) = 1$
+
+          \item Les dérivées à droite et à gauche sont différentes, la fonction n'est donc pas dérivable en $x=0$.
+          \end{itemize}}
+      \end{column}
+      \begin{column}{.5\textwidth}
+        \begin{tikzpicture}[scale=1]
+          \begin{axis}[
+            xticklabels={,,},
+            yticklabels={,,},
+            enlargelimits=true,
+            grid style={dashed, gray!60},
+            axis x line = bottom,
+            axis y line = left,
+            axis line style={thin},
+            xmax = 5,
+            xmin = -5,
+            ymax = 5.5,
+            ymin = -0.5,
+            axis lines = middle,
+            small,
+            clip=false,
+            ]
+            \addplot[
+            draw=black,
+            thick,
+            domain=-5:0,
+            ]
+            {-x};
+            \addplot[
+            draw=black,
+            thick,
+            domain=0:5,
+            ]
+            {x};
+          \end{axis}
+        \end{tikzpicture}
+      \end{column}
+    \end{columns}
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Dérivée sur un intervalle}
+  \hypertarget{slide_derivee_7}{}
+
+
+  \begin{definition}\label{dfn:derivable-intervalle}
+    Soit $f$ une fonction de $E$ dans $\mathbb R$. Si la fonction $f$ est dérivable sur $E$ si ell est dérivable en tout point  $x\in E$.
+  \end{definition}
+
+  \bigskip
+
+  \begin{example}
+    La fonction $f(x) = x^2$ de $\mathbb R$ dans $\mathbb R_+$ est dérivable sur $\mathbb R$. En effet, pour tout $x\in\mathbb R$ nous avons~:
+    \[
+      \begin{split}
+        f'(x) &= \lim_{h\rightarrow 0}\frac{(x+h)^2-x^2}{h}\\
+        &= \lim_{h\rightarrow 0}\frac{x^2+2xh+h^2-x^2}{h} = \lim_{h\rightarrow 0}\frac{2xh+h^2}{h}\\
+        &= \lim_{h\rightarrow 0} 2x+h = 2x + \lim_{h\rightarrow 0} h\\
+        &= 2x
+      \end{split}
+    \]
+
+  \end{example}
+
+\end{frame}
+
+
 \end{document}
+
+\hyperlink{slide_equivalence_logique_1}{\ref{def:equivalence}}
 
 % Local Variables:
 % ispell-check-comments: exclusive

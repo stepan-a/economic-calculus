@@ -1,4 +1,4 @@
-all: prologue.pdf chapitre-2.pdf chapitre-3.pdf clean
+all: prologue.pdf chapitre-2.pdf chapitre-3.pdf chapitre-4.pdf clean
 
 cos-sin.pdf: cos-sin.tex
 	latex cos-sin

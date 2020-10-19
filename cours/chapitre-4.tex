@@ -680,6 +680,201 @@
 \end{frame}
 
 
+\section{Règles de dérivation}
+
+
+\begin{frame}
+  \frametitle{Règles de dérivation}
+  \framesubtitle{Dérivée d'une somme}
+  \hypertarget{slide_derivee_somme_1}{}
+
+  \begin{theorem}
+    Soient $f(x)$ et $g(x)$ deux fonctions de $E$ dans $F$ dérivables sur $E$, alors~:
+    \[
+      (f(x)+g(x))' = f'(x) + g'(x)
+    \]
+  \end{theorem}
+
+  \bigskip
+
+  {\small \textbf{Preuve.} Notons $\ell(x) = f(x)+g(x)$, nous avons par définition~:
+    \[
+      \begin{split}
+        \ell'(x) &= \lim_{h\rightarrow 0} \frac{\ell(x+h)-\ell(x)}{h}\\
+        &= \lim_{h\rightarrow 0} \frac{f(x+h)+g(x+h)-f(x)-g(x)}{h}\\
+        &= \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h} + \lim_{h\rightarrow 0} \frac{g(x+h)-g(x)}{h}\\
+        &= f'(x)+g'(x) \qed
+      \end{split}
+    \]
+  }
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Règles de dérivation}
+  \framesubtitle{Dérivée d'un produit (a)}
+  \hypertarget{slide_derivee_produit_1}{}
+
+  \begin{theorem}
+    Soient $f(x)$ et $g(x)$ deux fonctions de $E$ dans $F$ dérivables sur $E$, alors~:
+    \[
+      (f(x)\cdot g(x))' = f'(x)g(x) + f(x)g'(x)
+    \]
+  \end{theorem}
+
+  \bigskip
+
+  {\small \textbf{Preuve.} Notons $\ell(x) = f(x) \cdot g(x)$, nous avons par définition~:
+    \[
+      \begin{split}
+        \ell'(x) &= \lim_{h\rightarrow 0} \frac{\ell(x+h)-\ell(x)}{h}\\
+        &= \lim_{h\rightarrow 0} \frac{f(x+h)g(x+h)-f(x)g(x)}{h} \\
+        &= \lim_{h\rightarrow 0} \frac{(f(x+h)-f(x))g(x+h)+f(x)g(x+h)-f(x)g(x)}{h}\\
+        &= \lim_{h\rightarrow 0} \frac{(f(x+h)-f(x))g(x+h)+f(x)(g(x+h)-g(x))}{h}\\
+      \end{split}
+    \]
+  }
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Règles de dérivation}
+  \framesubtitle{Dérivée d'un produit (b)}
+  \hypertarget{slide_derivee_produit_2}{}
+
+  {\small On a donc~:
+    \[
+      \begin{split}
+        \ell'(x) &= \lim_{h\rightarrow 0} \frac{(f(x+h)-f(x))g(x+h)}{h} + \lim_{h\rightarrow 0} \frac{f(x)(g(x+h)-g(x))}{h}\\
+        &= \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h}\lim_{h\rightarrow 0} g(x+h) + f(x)\lim_{h\rightarrow 0} \frac{g(x+h)-g(x)}{h}\\
+        &= \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h}g(x) + f(x)\lim_{h\rightarrow 0} \frac{g(x+h)-g(x)}{h}\\
+        &= f'(x)g(x) + f(x)g'(x) \qed
+      \end{split}
+    \]
+  }
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Règles de dérivation}
+  \framesubtitle{Dérivée d'un quotient}
+  \hypertarget{slide_derivee_quotient_1}{}
+
+  \begin{theorem}
+    Soient $f(x)$ et $g(x)$ deux fonctions de $E$ dans $F$ dérivables sur $E$, avec $g(x)\neq 0\,\forall x\in E$, alors~:
+    \[
+      \left(\frac{f(x)}{g(x)}\right)' = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}
+    \]
+  \end{theorem}
+
+  \bigskip
+
+  {\small \textbf{Preuve.} Notons $\ell(x) = \frac{f(x)}{g(x)}$, nous avons de façon équivalente~:
+    \[
+      \ell(x)g(x) = f(x)
+    \]
+    en dérivant, et en exploitant la règle de dérivation d'un produit, il vient~:
+    \[
+      \ell'(x)g(x)+\ell(x)g'(x) = f'(x)
+    \]
+    soit~:
+    \[
+      \ell'(x) = \frac{f'(x)-\ell(x)g'(x)}{g(x)} = \frac{f'(x)g(x)-f(x)g'(x)}{g(x)} \qed
+    \]
+  }
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Règles de dérivation}
+  \framesubtitle{Dérivée d'une composition}
+  \hypertarget{slide_derivee_composition_1}{}
+
+  \begin{theorem}\label{thm:composition}
+    Soient $f(x)$ une fonction dérivable de $E$ dans $F$ et $g(x)$ une fonction dérivable de $F$ dans $G$, alors~:
+    \[
+      g(f(x))' = g'(f(x))f'(x)
+    \]
+  \end{theorem}
+
+  \bigskip
+
+  \begin{example}
+    Soit $f(x)$ une fonction de $\mathbb R$ dans $\mathbb R$ dérivable. Alors $g(x) = f(x)^2$ est une fonction dérivable sur $\mathbb R$ et~:
+    \[
+      g'(x) = 2f(x)f'(x)
+    \]
+  \end{example}
+
+\end{frame}
+
+
+\begin{notes}
+  \textbf{Preuve du théorème \hyperlink{slide_derivee_composition_1}{\ref{thm:composition}}.} Commençons par noter que, par définition de la dérivée, si les fonctions $f$ et $g$ sont dérivables, alors on peut écrire~:
+  \[
+    f(x+h) =_0 f(x) + hf'(x) + \varepsilon(h)
+  \]
+  et
+  \[
+    g(y+k) =_0 g(y) + kg'(y) + \nu(k)
+  \]
+  avec $\lim_{h\rightarrow 0}\varepsilon(h)=0$ et $\lim_{k\rightarrow 0}\nu(k)=0$. Il s'agit d'un développement limité à l'ordre 1 des fonctions $f$ et $g$. La première équation nous dit que pour de petites valeurs de $h$ on peut approximer $f(x+h)$ par $f(x) + hf'(x)$, l'équation de la tangente à $f$ au point $x$, l'erreur d'approximation $\varepsilon(h)$ tend vers 0 quand $h$ tend vers 0. On a donc~:
+  \[
+    g\circ f(x+h) = g\Bigl(\underbrace{f(x)}_{y}+\underbrace{hf'(x) + \varepsilon(h)}_{k(h)}\Bigr)
+  \]
+  avec $\lim_{h\rightarrow 0}k(h) = 0$. En exploitant le dévelopement limité de $g$, on obtient~:
+  \[
+    g\circ f(x+h) = g(f(x)) + \Bigl( hf'(x) + \varepsilon(h) \Bigr) g'(f(x)) + \nu\Bigl( hf'(x) + \varepsilon(h) \Bigr)
+  \]
+  \[
+    \Leftrightarrow g\circ f(x+h) = g(f(x)) + h g'(f(x))f'(x) + \underbrace{\nu\Bigl( hf'(x) + \varepsilon(h) \Bigr)+\varepsilon(h)g'(f(x))}_{\eta(h)}
+  \]
+  avec $\lim_{h\rightarrow 0}\eta(h) = 0$. On a donc~:
+  \[
+    g\circ f(x+h) = g(f(x)) + h g'(f(x))f'(x) + \eta(h)
+  \]
+  et par identification~:
+  \[
+    g(f(x))' = g'(f(x))f'(x)
+  \]
+
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Règles de dérivation}
+  \framesubtitle{Dérivée d'une fonction réciproque}
+  \hypertarget{slide_derivee_reciproque_1}{}
+
+  \begin{theorem}\label{thm:composition}
+    Soit $f$ une fonction dérivable et bijective de $E$ dans $F$, alors $f^{-1}$ est dérivable en tout point $x\in J$ tel que $f'(f^{-1}(x))\neq 0$ et on a~:
+    \[
+      (f^{-1})'(x) = \frac{1}{f'(f^{-1}(x))}
+    \]
+  \end{theorem}
+
+  \bigskip
+
+  {\small \textbf{Preuve.} Nous savons déjà que la composition d'une fonction et de sa réciproque (celle-ci existe car la fonction $f$ est supposée bijective) est égale à la fonction identité~:
+    \[
+      f\Bigl(f^{-1}(x)\Bigr) = x
+    \]
+    en dérivant les deux membres et utilisant le théorème \hyperlink{slide_derivee_composition_1}{\ref{thm:composition}} sur la dérivation des fonctions composées, nous avons~:
+    \[
+      f'\Bigl(f^{-1}(x)\Bigr)(f^{-1})'(x)  = 1
+    \]
+    \[
+      (f^{-1})'(x)  = \frac{1}{f'\Bigl(f^{-1}(x)\Bigr)}\qed
+    \]
+  }
+
+\end{frame}
+
+
 \end{document}
 
 \hyperlink{slide_equivalence_logique_1}{\ref{def:equivalence}}

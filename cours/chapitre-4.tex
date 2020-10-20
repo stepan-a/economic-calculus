@@ -99,7 +99,7 @@
 \newtheorem{property}[properties]{Propriété}
 \newtheorem{example}{Exemple}
 \newtheorem*{idea}{Éléments de preuve} % no numbered block
-
+\newtheorem{corollary}{Corollaire}%[theorem]
 
 
 \setbeamertemplate{footline}{
@@ -875,9 +875,157 @@
 \end{frame}
 
 
-\end{document}
+\section{Dérivées de fonctions usuelles}
 
-\hyperlink{slide_equivalence_logique_1}{\ref{def:equivalence}}
+
+\begin{frame}
+  \frametitle{Fonctions exponentielle et logarithme, I}
+  \hypertarget{slide_derivee_exp_log_1}{}
+
+  \begin{definition}
+    L'équation fonctionnelle $f'(x) = f(x)$ avec $f(0)=1$ admet une unique solution~:
+    \[
+      f(x) = e^x
+    \]
+    la fonction exponentielle.
+  \end{definition}
+
+  \bigskip
+
+  \begin{theorem}\label{thm:log_derivee_1}
+    La dérivée de $f(x) = log(x)$, pour $x\in\mathbb R_+^*$ est $f'(x) = \frac{1}{x}$.
+  \end{theorem}
+
+  \bigskip
+
+  \begin{theorem}\label{thm:log_derivee_2}
+    Soit $f$ une fonction à valeurs dans $\mathbb R_+^{\star}$, alors~:
+    \[
+      \Bigl(\log f(x)\Bigr)' = \frac{f'(x)}{f(x)}
+    \]
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{notes}
+
+  \textbf{Preuve du théorème \hyperlink{slide_derivee_exp_log_1}{\ref{thm:log_derivee_1}}.} On sait que la fonction logarithme népérien est la fonction réciproque de la fonction expolnentielle, on a donc~:
+  \[
+    e^{\log x} = x
+  \]
+  En dérivant~:
+  \[
+    \left(e^{\log x}\right)' = 1
+  \]
+  Pour dériver le l'exponentielle d'une fonction, on utilise le théorème \hyperlink{slide_derivee_composition_1}{\ref{thm:composition}} de dérivation des fonctions composées. De façon générale, on a donc si $f(x)$ est une fonction dérivable~:
+  \[
+    \left(e^{f(x)}\right)' = f'(x)e^{f(x)}
+  \]
+  puisque par définition la dérivée de la fonction exponentielle est la fonction exponentielle. Dans le cas qui nous intéresse, il vient~:
+  \[
+    \Bigl( \log x \Bigr)' e^{\log x} = 1
+  \]
+  et donc~:
+  \[
+    x \Bigl( \log x \Bigr)' = 1
+  \]
+  d'où~:
+  \[
+    \Bigl( \log x \Bigr)' = \frac{1}{x}
+  \]
+
+  \bigskip
+
+  \textbf{Preuve du théorème \hyperlink{slide_derivee_exp_log_1}{\ref{thm:log_derivee_2}}.} direct avec le théorème \hyperlink{slide_derivee_composition_1}{\ref{thm:composition}}.
+
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Fonctions exponentielle et logarithme, II}
+  \hypertarget{slide_derivee_exp_log_1}{}
+
+  \bigskip
+
+  \begin{corollary}
+    Si $f(x)$ est une fonction positive, alors~:
+    \[
+      f'(x) = f(x) \Bigl(\log f(x)\Bigr)'
+    \]
+  \end{corollary}
+
+  \bigskip
+
+  \begin{example}
+    Soit la fonction $f(x) = x^x$ définie sur $\mathbb R_+^{\star}$. On a~:
+    \[
+      \begin{split}
+        f'(x) &= x^x \Bigl(\log x^x\Bigr)'\\
+        &= x^x \Bigl(x\log x\Bigr)'\\
+        &= x^x \Bigl(\frac{x}{x}+\log x\Bigr)\\
+        &= x^x \Bigl(1+\log x\Bigr)
+      \end{split}
+    \]
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Dérivées des fonctions usuelles}
+  \hypertarget{slide_derivee_usuelles}{}
+
+  \bigskip
+  \renewcommand{\arraystretch}{1.8}
+  \begin{table}[H]
+    \centering
+    {\small
+      \begin{tabular}{l|c|l|c|l}
+        \hline
+        $D_f$ & $f(x)$ & $D_{f'}$ & $f'(x)$ & Remarques\\ \hline
+        $\R$ & $k$ & $\R$ & 0 & $k\in\R$\\
+        $\R$ & $kx$ & $\R$ & $k$ & $k\in\R$\\
+        $\R$ & $x^n$ & $\R$ & $nx^{n-1}$ & $n\in\N$\\
+        $\R^{\star}$ & $\frac{1}{x^n}$ & $\R^{\star}$ & $-\frac{n}{x^{n+1}}$ & $n\in\N$\\
+        $\R_+^\star$ & $x^{\alpha}$  & $\R_+^{\star}$ &  $\alpha x^{\alpha - 1}$ & $\alpha\in\R$\\
+        % </math> constante réelle. Fonction prolongeable par continuité en 0 si {{math|''α'' ≥ 0}}, et de prolongée dérivable en 0 si {{math|''α'' ≥ 1}}.
+        $\R^\star$ & $\log |x|$ & $\R^\star$ & $\frac{1}{x}$ & \\
+        $\R^\star$ & $\log_a |x|$ & $\R^\star$ & $\frac{1}{x \log a}$ & $a>0$ et $a\neq 1$\\
+        $\R$ & $e^x$  & $\R$  $e^x$ & \\
+        $\R$ & $a^x$ & $\R$ & $a^x \log a$ & $a > 0$ \\ \hline\hline
+      \end{tabular}}
+  \end{table}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonction puissance: $x^n$, avec $n\in\mathbb N$}
+
+  \begin{itemize}
+
+  \item Montrons que $\left(x^n\right)' = nx^{n-1}$ par récurrence.\newline
+
+  \item Au rang 1, nous avons $x' = 1\times x^0 = 1$.\newline
+
+  \item Supposons que $\left(x^n\right)' = nx^{n-1}$ et montrons que l'on doit alors avoir $\left(x^{n+1}\right)' = (n+1)x^{n}$~:
+    \[
+      \begin{split}
+        \left(x^{n+1}\right)' &= \left(x^{n+1}\right)'\\
+        &=\left(xx^{n}\right)'\\
+        &=x^n + x n x^{n-1}\\
+        &=x^n + n x^{n} = (n+1)x^{n}\qed
+      \end{split}
+    \]
+
+  \end{itemize}
+\end{frame}
+
+
+
+
+\end{document}
 
 % Local Variables:
 % ispell-check-comments: exclusive

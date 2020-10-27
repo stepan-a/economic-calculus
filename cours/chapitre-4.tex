@@ -12,6 +12,7 @@
 \usepackage{amscd}
 \usepackage{amsxtra}
 \usepackage{amsthm}
+\usepackage{multirow}
 \usepackage{float}
 \usepackage{color, colortbl}
 \usepackage{mathrsfs}
@@ -1023,6 +1024,176 @@
 \end{frame}
 
 
+\section{Dérivées d'ordre supérieur}
+
+\begin{frame}
+  \frametitle{Dérivées d'ordre supérieur}
+  \hypertarget{slide_derivees_ordre_n_1}{}
+
+  \begin{definition}
+    Soit $f$ une fonction dérivable sur $E$, et telle que $f'$ est elle-même dérivable sur $E$, alors la dérivée de $f'$ est appelée \textbf{dérivée seconde} de la fonction $f$, et notée $f''$. On note de même $f'''$ la dérivée tierce de $f$ si elle existe, plus généralement on note $f^{(n)}$ la dérivée n-ième de la fonction $f$.
+  \end{definition}
+
+  \bigskip
+
+  \begin{itemize}
+  \item Par convention $f^{(0)} = f$.\newline
+  \item Par construction $\left(f^{(k)}\right)' = f^{(k+1)}$.\newline
+  \end{itemize}
+
+
+  \begin{definition}
+    Soit $f$ une fonction de $E\rightarrow F\subseteq \mathbb R$. Si $f$ est $k$ fois dérivable sur $E$, et sa dérivée $k$-ième est continue sur $E$, on dit que $f$ est de classe $\mathcal C^k$ sur $E$. Par convention, si $f$ est continue sur $E$ on dit que $f$ est de classe $\mathcal C^0$ sur $E$; si jamais $f$ est de classe $\mathcal C^k$ sur $E$ pour tout entier $k$ alors on dit que $f$ est de classe $\mathcal C^{\infty}$.
+  \end{definition}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Dérivées d'ordre supérieur}
+  \framesubtitle{Règles de dérivation}
+  \hypertarget{slide_derivees_ordre_n_2}{}
+
+  \begin{theorem}
+    Soient $n\in\mathbb N$, $\alpha\in \mathbb R$ et $f$ et $g$ deux fonctions de classe $\mathcal C^n$ sur un intervalle $E$, alors~:\newline
+    \begin{enumerate}
+    \item $\alpha f$ est de classe $\mathcal C^n$ sur $E$ et $\left(\alpha f\right)^{(n)} = \alpha f^{(n)}$\newline
+    \item $f+g$  est de classe $\mathcal C^n$ sur $E$ et $\left(f+g\right)^{(n)} = f^{(n)} + g^{(n)}$
+    \end{enumerate}
+  \end{theorem}
+
+  \bigskip
+
+  \begin{corollary}
+    La dérivée $n$-ième d'une fonction polynomiale de degré inférieur à $n$ est nulle.
+  \end{corollary}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Dérivées d'ordre supérieur}
+  \framesubtitle{Fonctions usuelles}
+  \hypertarget{slide_derivees_ordre_n_3}{}
+
+  \bigskip
+
+  On peut établir les formules suivantes par récurrence~:
+
+  \bigskip
+
+  \renewcommand{\arraystretch}{2}
+  \begin{table}[H]
+    \centering
+    {\small
+      \begin{tabular}{c|l|c}
+        \hline
+        $f(x)$ & $D_{f^{(n)}}$ & $f^{(n)}(x)$\\ \hline
+        $e^x$  & $\mathbb R$ & $e^x$\\
+        \multirow{2}{*}{$x^p$, $p\in\mathbb N$}  & \multirow{2}{*}{$\mathbb R$} & \multirow{2}{*}{$\begin{cases}\frac{p!}{(n-p)!}x^{b-n} & \text{ si }n\leq p\\ 0 & \text{ sinon.}\end{cases}$}\\
+               & & \\
+        $x^{\alpha}$, $\alpha\in\mathbb R\setminus\mathbb N$ & $\mathbb R_+^{\star}$ & $x^{\alpha-n}\prod_{i=0}^{n-1}(\alpha-i)$ \\
+        $\frac{1}{a+x}$ & $\mathbb R \setminus \{-a\}$ & $\frac{(-1)^nn!}{(a+x)^{n+1}}$ \\
+        $\frac{1}{a-x}$ & $\mathbb R \setminus \{a\}$ & $\frac{(-1)^nn!}{(a-x)^{n+1}}$ \\ \hline\hline
+      \end{tabular}}
+  \end{table}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Dérivées d'ordre supérieur}
+  \framesubtitle{Règles de dérivation: formule de Leibniz}
+  \hypertarget{slide_derivees_ordre_n_4}{}
+
+  \begin{theorem}\label{thm:leibniz}
+    Soit $n\in\mathbb N$. Soient $f$ et $g$ deux fonctions de classe
+    $\mathcal C^n$ sur un intervalle $E$, alors la fonction $f\cdot g$
+    est de classe $\mathcal C^n$ sur $E$ et~:
+    \[
+      (f\cdot g)^{(n)} = \sum_{k=0}^n \binom{n}{k}f^{(k)}\cdot g^{(n-k)}
+    \]
+  \end{theorem}
+
+  \bigskip
+
+  {\textbf{Rappels.}} Le coefficient binomial $\binom{n}{k}$ est défini par~:
+  \[
+    \binom{n}{k} = \frac{n!}{k!(n-k)!}
+  \]
+  Ce coefficient est aussi utilisé en combinatoire pour dénombrer le
+  nombre de façons de choisir $k$ objets parmi $n$ objets distincts et
+  que l'ordre dans lesquel les objets sont énumérés n'a pas
+  d'importance. On peut montrer que~: $\binom{n}{1} = n$, $\binom{n}{0} = 1$, $\binom{0}{0} = 1$, $\binom{n}{n} = 1$, $\binom{n}{k} = \binom{n}{n-k}$, et
+  \[
+    \binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}
+  \]
+
+\end{frame}
+
+
+\begin{notes}
+
+  \textbf{Preuve du théorème \hyperlink{slide_derivees_ordre_n_4}{\ref{thm:leibniz}}.} On utilise une preuve par récurrence. Pour $n=0$, on a~:
+  \[
+    \begin{split}
+      (f\cdot g)^{(0)} &= \sum_{k=0}^0 \binom{n}{k}f^{(k)}\cdot g^{(n-k)}\\
+      &= \binom{0}{0}f^{(0)}\cdot g^{(0)} = f \cdot g
+    \end{split}
+  \]
+  et on sait que le produit de deux fonctions continues est une fonction continue. Nous pourrions nous arrêter là est vérifier que si le théorème est vrai au rang $n$ alors il est vrai au rang $n+1$, mais vérifions tout de même que le théorème \hyperlink{slide_derivees_ordre_n_4}{\ref{thm:leibniz}} nous permet bien de retrouver le résultat connu pour la dérivée d'ordre 1. Nous avons~:
+  \[
+    \begin{split}
+      (f\cdot g)^{(1)} &= \sum_{k=0}^1 \binom{1}{k}f^{(k)}\cdot g^{(1-k)}\\
+      &= \binom{1}{0}f^{(0)}g^{(1)}+\binom{1}{1}f^{(1)}g^{(0)}\\
+      &= f'g+fg'
+    \end{split}
+  \]
+  Si $f$ et $g$ sont de classe $\mathcal C^1$ alors $f'g+fg'$ est une fonction continue (somme et produits de fonctions continues). Montrons que le théorème est vrai au rang $n+1$, c'est-à-dire que si $f$ et $g$ sont de classe $\mathcal C^{n+1}$ alors $f\cdot g$ est de classe $\mathcal C^{n+1}$ et~:
+  \[
+    (f\cdot g)^{(n+1)} = \sum_{k=0}^{n+1} \binom{n+1}{k}f^{(k)}\cdot g^{(n+1-k)}
+  \]
+  Nous avons~:
+  \[
+    \begin{split}
+      (f\cdot g)^{(n+1)} &= \left((f\cdot g)^{(n)}\right)'\\
+      &= \left(\sum_{k=0}^{n} \binom{n}{k}f^{(k)}\cdot g^{(n-k)}\right)'\\
+      &= \sum_{k=0}^{n} \binom{n}{k}f^{(k+1)}\cdot g^{(n-k)}+ \sum_{k=0}^{n}\binom{n}{k}f^{(k)}\cdot g^{(n+1-k)}\\
+      &= \sum_{k=1}^{n+1} \binom{n}{k-1}f^{(k)}\cdot g^{(n+1-k)}+ \sum_{k=0}^{n}\binom{n}{k}f^{(k)}\cdot g^{(n+1-k)}\\
+      &= \binom{n}{0}f\cdot g^{(n+1)} + \sum_{k=1}^n\left(\binom{n}{k-1}+\binom{n}{k}\right)f^{(k)}\cdot g^{(n+1-k)} + \binom{n+1}{n+1}f^{(n+1)}\cdot g\\
+      &= f\cdot g^{(n+1)} + \sum_{k=1}^n\binom{n+1}{k}f^{(k)}\cdot g^{(n+1-k)} + f^{(n+1)}\cdot g\\
+      &= \sum_{k=0}^{n+1}\binom{n+1}{k}f^{(k)}\cdot g^{(n+1-k)}\quad\quad \qed
+    \end{split}
+  \]
+
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Dérivées d'ordre supérieur}
+  \framesubtitle{Règles de dérivation: formule de Faa di Bruno}
+  \hypertarget{slide_derivees_ordre_n_5}{}
+
+  \begin{theorem}\label{thm:faa-di-bruno}
+    Soit $n\in\mathbb N$. Soient $f$ et $g$ deux fonctions de classe
+    $\mathcal C^n$ sur un intervalle $E$, alors la fonction $f\circ g$
+    est de classe $\mathcal C^n$ sur $E$ et~:
+    {\small\[
+        (f\circ g)^{(n)}(x) = \sum_{\sum_{i=1}^n im_i=n} \frac{n!}{m_1!m_2!\cdots m_n!} f^{(m_1+m_2+\dots+m_n)}(g(x)) \prod_{j=1}^n \left(\frac{g^{(j)}(x)}{j!}\right)^{m_j}
+      \]}
+  \end{theorem}
+
+  \begin{example}
+    Soient $f$ et $g$ deux fonctions de classe $\mathcal C^2$ sur un $E$, alors~:
+    \[
+      \begin{split}
+        (f\circ g)''(x) &= \Bigl(f'(g(x))g'(x)\Bigr)'\\
+        &= f''(g(x))g'(x)g'(x)+f'(g(x))g''(x)\\
+        &= f''(g(x))g'(x)^2+f'(g(x))g''(x)\\
+      \end{split}
+    \]
+  \end{example}
+\end{frame}
 
 
 \end{document}

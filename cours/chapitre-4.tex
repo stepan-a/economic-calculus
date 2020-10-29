@@ -1196,6 +1196,556 @@
 \end{frame}
 
 
+\section{Extrema et sens de variation d'une fonction}
+
+\begin{frame}
+  \frametitle{Extrema, I}
+  \hypertarget{slide_extrema_1}{}
+  \begin{definition}
+    Soit $f: E\rightarrow \mathbb R$ une fonction. On dit que $a\in E$ est un~:
+    \begin{description}
+    \item[\textbf{maximum}] de $f$ sur $E$ si pour tout $x\in E$ on a $f(x)\leq f(a)$,
+    \item[\textbf{minimum}] de $f$ sur $E$ si pour tout $x\in E$ on a $f(x)\geq f(a)$.
+    \end{description}
+    On dira que $a$ est un \textbf{extremum} de $f$ sur $E$ si $a$ est un maximum ou minimum de $f$ sur $E$.
+  \end{definition}
+
+  \bigskip
+
+  \begin{definition}
+    Soient $E$ un intervalle ouvert de $\mathbb R$, $f$ une fonction de $E$ dans $\mathbb R$ et $a\in E$. On dit que $a$ ets un~:
+    \begin{description}
+    \item[\textbf{maximum local}] de $f$ sur $E$ s'il existe $\delta>0$ pour tout $x\in E$ on ait
+      $|x-a|\leq\delta \Rightarrow f(x)\leq f(a)$,
+    \item[\textbf{minimum local}] de $f$ sur $E$ s'il existe $\delta>0$ pour tout $x\in E$ on ait
+      $|x-a|\leq\delta \Rightarrow f(x)\geq f(a)$.
+    \end{description}
+  \end{definition}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Extrema, II}
+  \hypertarget{slide_extrema_2}{}
+
+  \begin{theorem}\label{thm:local_extrema}
+    Soit $E$  un intervalle ouvert de $\mathbb R$, $f: E\rightarrow \mathbb R$ une fonction et $a$ un extremum local de $f$. \underline{Si $f$ est dérivable en $a$} alors on doit avoir $f'(a)=0$.
+  \end{theorem}
+
+  \bigskip
+
+  \begin{itemize}
+  \item[\dbend] Le théorème \hyperlink{slide_extrema_2}{\ref{thm:local_extrema}} ne donne qu'une condition nécessaire. Ce n'est pas parce que la dérivée d'une fonction est nulle en un point qu'elle admet un extremum en ce point. Par exemple, la fonction $f(x)=x^3$ de $\mathbb R$ dans $\mathbb R$ admet une dérivée nulle en 0 mais pas d'extremum local (en 0 ou ailleurs).\newline
+  \end{itemize}
+
+  \begin{theorem}[Théorème de Rolle]\label{thm:rolle}
+    Soit $a < b$ deux réels, et $f$  une fonction continue sur $[a, b]$ et dérivablesur $]a, b[$ telle que $f(a) = f(b)$. Alors il existe $c\in]a, b[$ tel que $f'(c) = 0$.
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Extrema, II}
+  \framesubtitle{Illustration du théorème de Rolle}
+  \hypertarget{slide_extrema_3}{}
+
+  \begin{center}
+    \begin{tikzpicture}[scale=1.5]
+      \begin{axis}[
+        xticklabels={,,},
+        yticklabels={,,},
+        enlargelimits=true,
+        grid style={dashed, gray!60},
+        axis x line = bottom,
+        axis y line = left,
+        axis line style={thin},
+        xmax = 9,
+        xmin = -3,
+        ymax = 8,
+        ymin = -0.5,
+        axis lines = middle,
+        small,
+        clip=false,
+        ]
+        \addplot[smooth, thick,samples=100,domain=1.4:8.5] plot(\x,{0.05*((\x)-3)^2*((\x)-9)^2+1});
+        \addplot[draw=red, dotted] coordinates {(2,0) (2,3.45) (0,3.45)};
+        \addplot[draw=red, dotted] coordinates {(7.414213562373062,0) (7.414213562373062,3.45) (2,3.45)};
+        \node[color=red, left] at (0,3.45) {\tiny{$f(a)=f(b)$}};
+        \fill [color=red] (2,3.45) circle (1.5pt);
+        \fill [color=red] (7.414213562373062,3.45) circle (1.5pt);
+        \node[color=red, below] at (2,0) {\tiny{$a$}};
+        \node[color=red, below] at (7.414213562373062,0) {\tiny{$b$}};
+        \addplot[draw=blue, dotted] coordinates {(3,0) (3,1) (0,1)};
+        \node[color=blue, left] at (0,1) {\tiny{$m$}};
+        \node[color=blue, below] at (3,0) {\tiny{$c_1$}};
+        \addplot[draw=blue, dotted] coordinates {(6,0) (6,5.05) (0,5.05)};
+        \node[color=blue, left] at (0,5.05) {\tiny{$M$}};
+        \node[color=blue, below] at (6,0) {\tiny{$c_2$}};
+        \addplot[draw=blue, <->, thick] coordinates {(2.3,1) (3.7,1)};
+        \addplot[draw=blue, <->, thick] coordinates {(5.3,5.05) (6.7,5.05)};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+
+\begin{notes}
+
+  \textbf{Preuve du théorème \hyperlink{slide_extrema_2}{\ref{thm:local_extrema}}.} Supposons que $a$ soit tel que $f'(a)>0$. Comme $f'(a)$ est la limite du taux d'accroissement $\frac{f(x)-f(a)}{x-a}$ quand $x$ tend vers $a$, celui-ci doit être positif pour $x$ assez proche de $a$, c'est-à-dire~:
+  \[
+    \exists \delta>0\,|\,\forall x\in E, |x-a|\leq\delta \Rightarrow \frac{f(x)-f(a)}{x-a}>0
+  \]
+  Ainsi pour tout $x$ tel que $0<x-a\leq\delta$ on a $f(x)>f(a)$ et pour tout $x$ tel que $-\delta\leq x-a <0$ on a $f(x)<f(a)$, donc $a$ n'est pas un extremum local (car ni maximum ni minimum). On peut suivre le même argument si $f'(a)<0$.\newline
+
+  \textbf{Preuve du théorème \hyperlink{slide_extrema_2}{\ref{thm:rolle}}.} Si $f$ est une fonction constante sur $[a,b]$, alors la dérivée de la fonction est nulle sur $]a,b[$ et le théorème est évidemment vérifié. Intéressons nous au cas où la fonction n'est pas constante. On sait alors, puisque $f$ est continue et par le théorème 13 du chapitre III, que la fonction admet un maximum $M$ et un minimum $m$ sur $[a,b]$ et que l'un des deux doit être différent de $f(a)$\footnote{Notons que si $M$ ou $m$ sont différents de $f(a)$ alors ils sont aussi différents de $f(b)$, puisque par hypothèse $f(a)=f(b)$.} (puisque la fonction n'est pas constante). Supposons que $M>f(a)$ et posons $c\in ]a,b[$ tel que $f(c)=M$. Alors $f(c)$ est le maximum de $f$ sur $]a, b[$~: c est un maximum local de $f$, et donc $f'(c) = 0$ par le théorème \hyperlink{slide_extrema_2}{\ref{thm:local_extrema}}.
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Accroissements finis}
+  \hypertarget{slide_accroissements_finis_1}{}
+
+  \begin{theorem}\label{thm:accroissements_finis}
+    Soient $a<b$ deux réels, et $f: [a,b]\rightarrow \mathbb R$ une fonction continue sur $[a, b]$ et dérivable sur $]a, b[$. Alors $\exists\, c\in]a, b[$ tel que $f(b)−f(a) = f'(c)(b−a)$.
+  \end{theorem}
+
+  \bigskip
+
+  \begin{columns}[onlytextwidth]
+    \begin{column}{0.5\textwidth}
+      {\small
+        \begin{itemize}
+        \item $\frac{f(b)-f(a)}{b-a}$ est la pente de la corde entre les points $A$ et $B$.\newline
+        \item $f'(c)$ est la pente de la tangente à la courbe représentative de $f$ en un point $c$.\newline
+        \item Le théorème nous dit qu'il existe au moins un point $c$ où la tangente à la courbe est parallèle à la corde.
+        \end{itemize}}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+      \begin{center}
+        {\small
+          \begin{tikzpicture}[scale=.7]
+            \begin{scope}
+              \clip (-3,-2) rectangle (3,2);
+              \draw[thick,smooth,domain=-3:3] plot (\x,{\x^3/3 - \x});
+              \node[black,right] at (-3,-1.8) {{\small$\mathcal  C_f$}};
+            \end{scope}
+            \node[circle,fill=red,scale=.3] (a) at (-2,-2/3) {};
+            \node[circle,fill=red,scale=.3] (b) at (2,2/3) {};
+            \node[red] at (-2.2,-1.2/3) {$A$};
+            \node[red] at (2.2,1.2/3) {$B$};
+            \node[circle,fill=red,scale=.3] (b) at (2,2/3) {};
+            \draw[red] (a) -- (b);
+            \coordinate (origin) at (-4,-3);
+            \coordinate (topright) at (3.4,2);
+            \draw[<->] (topright -| origin) -- (origin) -- (origin -| topright);
+            \draw[dashed, red] (a) -- (a|-origin) node[below] {$a$};
+            \draw[dashed, red] (b) -- (b|-origin) node[below] {$b$};
+
+            \node[circle,fill=blue,scale=.3] (x0) at ({-2/sqrt(3)},{(1/3)*(-2/sqrt(3))^3+2/sqrt(3)}) {};
+            \draw[blue] (x0) +(-1,-1/3) -- +(1,1/3);
+            \node[circle,fill=blue,scale=.3] (x1) at ({2/sqrt(3)},{(1/3)*(2/sqrt(3))^3-2/sqrt(3)}) {};
+            \draw[blue] (x1) +(-1,-1/3) -- +(1,1/3);
+            \draw[dashed, blue] (x0) -- (x0 |- origin) node[below]{$c_1$};
+            \draw[dashed, blue] (x1) -- (x1 |- origin) node[below]{$c_2$};
+          \end{tikzpicture}}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{notes}
+
+  \textbf{Preuve du théorème \hyperlink{slide_accroissements_finis_1}{\ref{thm:accroissements_finis}}.} Posons la fonction $g$ définie sur le même intervalle que $f$ à valeurs dans $\mathbb R$~:
+  \[
+    g(x) = f(x)-\frac{f(b)-f(a)}{b-a}(x-a)
+  \]
+  Par construction, $g$ est une fonction continue sur $[a,b]$ et dérivable sur $]a,b[$. La fonction $g$ est la différence de la fonction $f$ et d'une droite parallèle à la corde entre $(a,f(a))$ et $(b,f(b))$ passant par le point $(a,0)$ sur l'axe des abscisses. On note que la fonction $g$ vérifie $g(a) = g(b) = f(a)$, il s'agit en fait d'une rotation de la fonction d'origine $f$ qui nous permet d'utiliser le théorème de Rolle (dans l'illustration graphique ci-dessous, on passe de la courbe en trait plein à la courbe en tirets verts). En effet par le théorème \hyperlink{slide_extrema_2}{\ref{thm:rolle}} on sait qu'il existe $c\in]a,b[$ tel que~:
+  \[
+    g'(c) = 0
+  \]
+  \[
+    \Leftrightarrow f'(c) = \frac{f(b)-f(a)}{b-a}\quad\quad\qed
+  \]
+
+  \begin{center}
+    \begin{tikzpicture}[scale=1]
+      \begin{scope}
+        \clip (-3,-2) rectangle (3,2);
+        \draw[thick,smooth,domain=-3:3] plot (\x,{\x^3/3 - \x});
+        \node[black,right] at (-3,-1.8) {{\small$\mathcal  C_f$}};
+        \draw[thick,green,dashed,domain=-3:3] plot (\x,{\x^3/3 - \x - (1/3)*(\x+2)});
+        \node[green,left] at (2.9,0.7) {{\small$\mathcal  C_g$}};
+      \end{scope}
+      \node[circle,fill=red,scale=.5] (a) at (-2,-2/3) {};
+      \node[circle,fill=red,scale=.5] (b) at (2,2/3) {};
+      \node[circle,fill=green,scale=.5] (bb) at (2,-2/3) {};
+      \node[red] at (-2.2,-1.2/3) {$A$};
+      \node[red] at (2.2,1.2/3) {$B$};
+      \node[green] at (2.2,-2/3) {$B'$};
+      \node[circle,fill=red,scale=.5] (b) at (2,2/3) {};
+      \draw[red] (a) -- (b);
+      \draw[green] (a) -- (bb);
+      \coordinate (origin) at (-4,-3);
+      \coordinate (topright) at (3.4,2);
+      \draw[<->] (topright -| origin) -- (origin) -- (origin -| topright);
+      \draw[dashed, red] (a) -- (a|-origin) node[below] {$a$};
+      \draw[dashed, red] (b) -- (b|-origin) node[below] {$b$};
+
+      \node[circle,fill=blue,scale=.5] (x0) at ({-2/sqrt(3)},{(1/3)*(-2/sqrt(3))^3+2/sqrt(3)}) {};
+      \node[circle,fill=green,scale=.5] (xx0) at ({-2/sqrt(3)},{(1/3)*(-2/sqrt(3))^3+2/sqrt(3)-(1/3)*(2-2/sqrt(3))}) {};
+      \draw[blue] (x0) +(-1,-1/3) -- +(1,1/3);
+      \node[circle,fill=blue,scale=.5] (x1) at ({2/sqrt(3)},{(1/3)*(2/sqrt(3))^3-2/sqrt(3)}) {};
+      \node[circle,fill=green,scale=.5] (xx1) at ({2/sqrt(3)},{(1/3)*(2/sqrt(3))^3-2/sqrt(3)-(1/3)*(2+2/sqrt(3))}) {};
+      \draw[blue] (x1) +(-1,-1/3) -- +(1,1/3);
+      \draw[dashed, blue] (x0) -- (x0 |- origin) node[below]{$c_1$};
+      \draw[dashed, blue] (x1) -- (x1 |- origin) node[below]{$c_2$};
+      \draw[green] (xx0) +(-1,0) -- +(1,0);
+      \draw[green] (xx1) +(-1,0) -- +(1,0);
+    \end{tikzpicture}
+  \end{center}
+
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Sens de variation}
+  \hypertarget{slide_sens_de_variation_1}{}
+
+  \begin{theorem}\label{thm:sens_de_variation}
+    Soit $E$ un intervalle de $\mathbb R$ et $f: E\rightarrow \mathbb R$ une fonction dérivable. Alors $f$ est croissante sur $E$ si et seulement si, on a $f'(x)\geq0$ pour tout $x\in E$, et $f$ est décroissante sur $E$ si et seulement si on a $f'(x)\leq 0$ pour tout $x\in E$. De plus, si $f'(x)>0$ pour tout $x\in E$  alors $f$  est strictement croissante, et si $f'(x)<0$ pour tout $x\in E$ alors $f$ est strictement décroissante.
+  \end{theorem}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Ce théorème (voir la preuve) est une conséquence direct du théorème \hyperlink{slide_accroissements_finis_1}{\ref{thm:accroissements_finis}}, dit des accroissements finis.\newline
+
+  \item Si la dérivée est nulle pour tout $x\in E$ alors la fonction est constante (simultanément croissante et décroissante).\newline
+
+  \item C'est ce théorème qui nous permet de construire des tableaux de variation pour décrire les fonctions.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{notes}
+
+  \textbf{Preuve du théorème \hyperlink{slide_sens_de_variation_1}{\ref{thm:sens_de_variation}}.} Si $f$ est croissante sur $E$ alors pour tout $(x,y)\in E^2$ avec $y\neq x$ le signe de $f(y)-f(x)$ doit être identique au signe de $y-x$ (de sorte que $f(y)>f(x)$ si et seulement si $y>x$). Ainsi la dérivée~:
+  \[
+    f'(x) = \lim_{y\rightarrow x}\frac{f(y)-f(x)}{y-x}
+  \]
+  doit être positive ou nulle puisque le taux de variation sous la limite est positif. Pour la réciproque, si $f'(x)\geq 0$ pour tout $x\in E$, alors considérons $(x,y)\in E^2$ avec $y\neq x$. Par le théorème \hyperlink{slide_accroissements_finis_1}{\ref{thm:accroissements_finis}} on sait qu'il existe $c\in]x,y[$ tel que~:
+  \[
+    f(y)-f(x) = f'(c)(y-x)
+  \]
+  ainsi le signe de $f(y)\geq f(x)$ si $y>x$ et $f(y)\leq f(x)$ si $y<x$, puisque $f'(c)\geq 0$, $f$ est donc une fonction croissante. Si la fonction est strictement positive alors la fonction est strictement croissante, c'est-à-dire~: $f(y)>f(x)$ si $y>x$ et $f(y)<f(x)$ si $y<x$.
+
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Inégalité des accroissements finis}
+  \hypertarget{slide_inegalite_accroissements_finis_1}{}
+
+  \begin{theorem}\label{thm:inegalite_accroissements_finis}
+    Soient $a<b$ deux réels, et $f: [a,b]\rightarrow \mathbb R$ une fonction continue sur $[a, b]$ et dérivable sur $]a, b[$. Si $\sup_{c\in]a,b[}|f'(c)|<\infty$, alors pour tout $(x,y)\in[a,b]^2$ on a~:
+    \[
+      |f(x)-f(y)| \leq k |x-y|
+    \]
+  \end{theorem}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Si la fonction $f$ est de classe $\mathcal C^1$, alors $f'$ est une fonction continue et donc bornée. Ainsi le théorème \hyperlink{slide_inegalite_accroissements_finis_1}{\ref{thm:inegalite_accroissements_finis}} s'applique à toute fonction de classe $\mathcal C^1$.\newline
+
+  \item Sous les conditions du théorème \hyperlink{slide_inegalite_accroissements_finis_1}{\ref{thm:inegalite_accroissements_finis}}, la fonction $f$ est $k$-lipschitzienne.\newline
+
+  \item Une fonction de classe $\mathcal C^1$ est $k$-lipschitzienne.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{notes}
+  \textbf{preuve du théorème \hyperlink{slide_inegalite_accroissements_finis_1}{\ref{thm:inegalite_accroissements_finis}}.} Direct par le théorème \hyperlink{slide_accroissements_finis_1}{\ref{thm:accroissements_finis}}. Soit $(x,y)\in[a,b]^2$, sans perte de généralité on suppose que $y>x$. On peut appliquer l’égalité des accroissements finis sur l'intervalle $[x, y]$, on sait qu'il existe $c\in]x, y[$ tel que $f(y)− f(x) = f'(c)(y−x)$. Soit, en prenant la valeur absolue, $|f(y)− f(x)| = |f'(c)||y−x|$. Puisque la dérivée est finie on sait qu'il existe $k\in\mathbb R_+$ fini tel que $|f(x)− f(y)|≤ k|x− y|$.\qed
+
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Extrema, III}
+
+  \begin{itemize}
+
+  \item Le théorème \hyperlink{slide_extrema_2}{\ref{thm:local_extrema}} donne une condition pour un extremum local, mais (\textit{i}) cette condition est seulement nécessaire, et (\textit{ii}) celle-ci suppose que la fonction est dérivable en l'extremum\ldots\newline
+
+  \item En admettant que la fonction soit dérivable en l'extremum, pour que cette condition permette efectivement d'identifier un extremum local il faut qu'on ait un changement de signe de la dérivée autour de l'extremum~:\newline
+
+    \begin{itemize}
+
+    \item Pour que $a$ soit un maximum local de $f$, si $f$ est dérivable en $a$, il faut et il suffit que $f'(a)=0$, $\exists \delta_->0$ tel que $f'(x)>0$ pour tout $x\in[a-\delta_-,a[$ et $\exists \delta_+>0$ tel que $f'(x)<0$ pour tout $x\in]a, a-\delta_+]$.\newline
+
+    \item Pour que $a$ soit un minimum local de $f$, si $f$ est dérivable en $a$, il faut et il suffit que $f'(a)=0$, $\exists \delta_->0$ tel que $f'(x)<0$ pour tout $x\in[a-\delta_-,a[$ et $\exists \delta_+>0$ tel que $f'(x)>0$ pour tout $x\in]a, a-\delta_+]$.\newline
+
+    \end{itemize}
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Extrema, IV}
+  \framesubtitle{Exemple avec une fonction non dérivable en l'extremum}
+
+  \begin{columns}[onlytextwidth]
+    \begin{column}{.5\textwidth}
+      \begin{itemize}
+
+      \item $f(x) = x^{\frac{2}{3}}$\newline
+
+      \item $f'(x) = \frac{2}{3}x^{-\frac{1}{3}}$\newline
+
+      \item $f'$ a une discontinuité (infinie) en $x=0$\ldots\newline
+
+      \item La fonction admet un minimum global en 0, pourtant la dérivée
+        en 0 n'est pas définie.\newline
+
+      \item Même si $f'(0) \neq 0$, on a bien le changement de signe
+        de la dérivée autour de l'extremum.
+      \end{itemize}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{center}
+        \begin{tikzpicture}[scale=1]
+          \begin{axis}[
+            xticklabels={,,},
+            yticklabels={,,},
+            enlargelimits=true,
+            grid style={dashed, gray!60},
+            axis x line = bottom,
+            axis y line = left,
+            axis line style={thin},
+            xmax = 4,
+            xmin = -4,
+            ymax = 3,
+            ymin = -0.1,
+            axis lines = middle,
+            small,
+            clip=false,
+            ]
+            \addplot[
+            draw=black,
+            samples=5000,
+            thick,
+            domain=-3:3,
+            ]
+            {(x^2)^(1/3)};
+          \end{axis}
+        \end{tikzpicture}
+      \end{center}
+    \end{column}
+  \end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Extrema, V}
+  \framesubtitle{Comment identifier les extrema d'une fonction~?}
+
+  Il suffit de suivre les étapes suivantes~:
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item[1.] Calculer la dérivée première $f'(x)$.\newline
+
+  \item[2.] Identifier les valeurs de $x$ pour lesquelles $f'$ est nulle.\newline
+
+  \item[3.] Identifier les valeurs de $x$ pour lesquelles $f'$ est discontinue.\newline
+
+  \item[4.] Pour chaque valeur $a$ identifiée en 2.a et 2.b, déterminer si $f'$ change de signe autour de $a$~:\newline
+    \begin{itemize}
+    \item $f'$ passe du signe $-$ à $+$: minimum local,
+    \item $f'$ passe du signe $+$ à $-$: maximum local,
+
+    \end{itemize}
+
+  \end{itemize}
+
+  \bigskip
+
+  Ensuite il ne reste qu'à évaluer la fonction $f$ sur les extrema identifiés.
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Extrema, VI}
+  \framesubtitle{Exemple (a)}
+
+  \medskip
+
+  \begin{itemize}
+
+  \item Soit la fonction $f(x) = (1+x)^{\frac{2}{3}}(2-x)^{\frac{1}{3}}$. On cherche les extrema de cette fonction.\newline
+
+  \item Calculons la dérivée de la fonction~:
+    \[
+      \begin{split}
+        f'(x) &= -\frac{1}{3}(1+x)^{\frac{2}{3}}(2-x)^{-\frac{2}{3}}+\frac{2}{3}(1+x)^{-\frac{1}{3}}(2-x)^{\frac{1}{3}}\\
+        &= \frac{1}{3}(1+x)^{-\frac{1}{3}}(2-x)^{-\frac{2}{3}}\Bigl(-(1+x)+2(2-x)\Bigr)\\
+        &=\frac{1-x}{(1+x)^{\frac{1}{3}}(2-x)^{\frac{2}{3}}}
+      \end{split}
+    \]
+
+    \bigskip
+
+  \item La dérivée $f'$ est nulle lorsque $x=1$.\newline
+
+  \item La dérivée $f'$ est discontinue en $x=-1$ et $x=2$ car le dénominateur est alors nul. Il s'agit de discontinuités infinies, nous avons~:
+    \[
+      \lim_{x\rightarrow 1^-}f'(x) = -\infty \quad \text{ et } \quad \lim_{x\rightarrow 1^+}f'(x) = \infty
+    \]
+    \[
+      \lim_{x\rightarrow 2^-}f'(x) = -\infty \quad \text{ et } \quad \lim_{x\rightarrow 2^+}f'(x) = -\infty
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Extrema, VI}
+  \framesubtitle{Exemple (b)}
+
+  \medskip
+
+  \begin{itemize}
+
+  \item Déterminons les changements de signe de la dérivée $f'$ en $x=-1$, $x=1$ et $x=2$~:
+
+    \[
+      \begin{cases}
+        f'(x)<0 &\text{ si }x<-1\\
+        f'(x)>0 &\text{ si }-1<x<1
+      \end{cases}
+      \Rightarrow
+      \text{ minimum local en }x=-1
+    \]
+
+    \[
+      \begin{cases}
+        f'(x)>0 &\text{ si }-1<x<1\\
+        f'(x)<0 &\text{ si }1<x<2\\
+      \end{cases}
+      \Rightarrow
+      \text{ maximum local en }x=1
+    \]
+
+    \bigskip
+
+    \[
+      \begin{cases}
+        f'(x)<0 &\text{ si }1<x<2\\
+        f'(x)<0 &\text{ si }x>2
+      \end{cases}
+      \Rightarrow
+      \text{ pas d'extremum en }x=2
+    \]
+
+    \bigskip
+
+  \item $f(-1) = f(2) = 0$ et $f(1) = \sqrt[3]{4}$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Extrema, VI}
+  \framesubtitle{Exemple (c)}
+
+  \begin{center}
+    \begin{tikzpicture}[scale=1.8]
+      \begin{axis}[
+        xticklabels={,,},
+        yticklabels={,,},
+        enlargelimits=true,
+        grid style={dashed, gray!60},
+        axis x line = bottom,
+        axis y line = left,
+        axis line style={thin},
+        xmax = 3,
+        xmin = -3,
+        ymax = 4,
+        ymin = -3,
+        axis lines = middle,
+        small,
+        clip=false,
+        ]
+        \addplot[
+        draw=black,
+        samples=50,
+        thick,
+        domain=-3.5:-1.2,
+        ]
+        {(((1+x)^2)^(1/3))*(((2-x)^2)^(1/6))};
+        \addplot[
+        draw=black,
+        samples=1000,
+        thick,
+        domain=-1.2:-0.8,
+        ]
+        {(((1+x)^2)^(1/3))*(((2-x)^2)^(1/6))};
+        \addplot[
+        draw=black,
+        samples=200,
+        thick,
+        domain=-0.8:1.8,
+        ]
+        {(((1+x)^2)^(1/3))*(((2-x)^2)^(1/6))};
+        \addplot[
+        draw=black,
+        samples=1000,
+        thick,
+        domain=1.8:2,
+        ]
+        {(((1+x)^2)^(1/3))*(((2-x)^2)^(1/6))};
+        \addplot[
+        draw=black,
+        samples=1000,
+        thick,
+        domain=2:2.2,
+        ]
+        {-(((1+x)^2)^(1/3))*(((2-x)^2)^(1/6))};
+        \addplot[
+        draw=black,
+        samples=200,
+        thick,
+        domain=2:3.5,
+        ]
+        {-(((1+x)^2)^(1/3))*(((2-x)^2)^(1/6))};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+
 \end{document}
 
 % Local Variables:

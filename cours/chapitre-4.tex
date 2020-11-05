@@ -1746,6 +1746,522 @@
 \end{frame}
 
 
+\section{Convexité et concavité}
+
+
+\begin{frame}
+  \frametitle{Fonctions convexes et concaves}
+  \framesubtitle{Définitions}
+  \hypertarget{slide_fonctions_convexes_1}{}
+  \bigskip Une fonction $f$ est convexe (concave) si et seulement si
+  les cordes sont au dessus (dessous) de la courbe représentative de
+  $f$.\newline
+
+  \begin{definition}\label{def:convexe}
+    Une fonction $f:E\rightarrow \mathbb R$ est convexe sur $E$ si et seulement si $\forall (x,y)\in E^2$ et $\forall \lambda\in[0,1]$~:
+    \[
+      f(\lambda x + (1-\lambda)y) \leq \underbrace{\lambda f(x) + (1-\lambda)f(y)}_{\text{un point sur la corde}}
+    \]
+    On parle de convexité stricte si l'inégalité est stricte.
+  \end{definition}
+
+  \bigskip
+
+  \begin{definition}\label{def:concave}
+    Une fonction $f:E\rightarrow \mathbb R$ est concave sur $E$ si et seulement si $\forall (x,y)\in E^2$ et $\forall \lambda\in[0,1]$~:
+    \[
+      f(\lambda x + (1-\lambda)y) \geq \lambda f(x) + (1-\lambda)f(y)
+    \]
+    On parle de concavité stricte si l'inégalité est stricte.
+  \end{definition}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions convexes et concaves}
+  \framesubtitle{Illustration graphique}
+
+  \begin{center}
+    \begin{tikzpicture}[scale=1.6]
+      \begin{axis}[
+        title={},
+        xlabel= {},
+        ylabel= {},
+        xticklabels={,,},
+        yticklabels={,,},
+        enlargelimits=true,
+        grid style={dashed, gray!60},
+        axis x line = bottom,
+        axis y line = left,
+        axis lines = middle,
+        axis line style={thin},
+        xmin = -.1,
+        xmax = 3,
+        ymin = -.1,
+        ymax = 3,
+        small,
+        clip=false,
+        extra x ticks={1.25},
+        extra tick style={blue},
+        extra x tick labels={\color{red}\tiny$\lambda x + (1-\lambda)y$},
+        ]
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=200,
+        domain=-.1:2.2,
+        ]
+        {exp((x-1))} node[right] {\tiny $\mathcal C_f$} ;
+        \coordinate (x) at (.5,0.6065306597126334);
+        \coordinate (y) at (2,2.718281828459045);
+        \node[draw=red, circle, fill=red, scale=.2] at (x) {};
+        \node[draw=red, circle, fill=red, scale=.2] at (y) {};
+        \draw[red] (x) -- (y);
+        \draw[red, dotted] (.5,0) -- (x);
+        \draw[red, dotted] (0,0.6065306597126334) -- (x);
+        \node[red, left] at (0,0.6065306597126334) {\tiny $f(x)$};
+        \node[below, red] at (0.5,0) {\tiny $x$};
+        \draw[red, dotted] (2,0) -- (y);
+        \draw[red, dotted] (0,2.718281828459045) -- (y);
+        \node[red, left] at (0,2.718281828459045) {\tiny $f(y)$};
+        \node[below, red] at (2,0) {\tiny $y$};
+        \draw[dashed, red] (1.25,0) -- (1.25,1.6624062440858394);
+        \draw[dashed, red] (0,1.6624062440858394) -- (1.25,1.6624062440858394);
+        \node[red, left] at (0,1.6624062440858394) {\tiny $\lambda f(x)+(1-\lambda)f(y)$};
+        \draw[dashed, black] (0,1.2840254166877414) -- (1.25,1.2840254166877414);
+        \node[black, left] at (0,1.2840254166877414) {\tiny $f(\lambda x+(1-\lambda)y)$};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions convexes et concaves}
+  \framesubtitle{Inégalité des pentes (a)}
+  \hypertarget{slide_fonctions_convexes_3}{}
+
+  \begin{theorem}\label{thm:trois_pentes}
+    Soit une fonction $f:E\rightarrow \mathbb R$ convexe sur $E$, alors $\forall (a,c,b)\in E^3$ tels que $a<b<c$ on a~:
+    \[
+      \frac{f(c)-f(a)}{c-a} \leq \frac{f(b)-f(a)}{b-a} \leq \frac{f(b)-f(c)}{b-c}
+    \]
+    et donc~:
+    \[
+      \frac{f(c)-f(a)}{c-a} \leq \frac{f(b)-f(c)}{b-c}
+    \]
+    Réciproquement si l'une des trois inégalités est vérifiée $\forall (a,b,c)\in E^3$ tels que $a<c<b$ alors $f$ est convexe sur $E$.
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions convexes et concaves}
+  \framesubtitle{Inégalité des pentes (b)}
+
+  \begin{center}
+    \begin{tikzpicture}[scale=1.4]
+      \begin{axis}[
+        title={},
+        xlabel= {},
+        ylabel= {},
+        xticklabels={,,},
+        yticklabels={,,},
+        enlargelimits=true,
+        grid style={dashed, gray!60},
+        axis x line = bottom,
+        axis y line = left,
+        axis lines = middle,
+        axis line style={thin},
+        xmin = -.1,
+        xmax = 3.5,
+        ymin = -.1,
+        ymax = 5.5,
+        small,
+        clip=false,
+        ]
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=200,
+        domain=-.1:3.1,
+        ]
+        {(x-1)^2+1} node[right] {\tiny $\mathcal C_f$} ;
+        \coordinate (A) at (.5,1.25);
+        \coordinate (C) at (1.25,1.0625);
+        \coordinate (B) at (3,5);
+        \draw[red] (A) -- (C);
+        \draw[red] (C) -- (B);
+        \draw[red] (A) -- (B);
+        \node[draw=red, circle, fill=red, scale=.2] at (A) {};
+        \node[draw=red, circle, fill=red, scale=.2] at (C) {};
+        \node[draw=red, circle, fill=red, scale=.2] at (B) {};
+        \node[red, below] at (.5, 1.2) {\tiny $\mathbf{A}$};
+        \node[red, below] at (1.25, 1) {\tiny $\mathbf{C}$};
+        \node[red, below] at (3, 4.8) {\tiny $\mathbf{B}$};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+  $\mathcal C_f$ est la courbe représentative d'une fonction convexe. La pente entre $A$ et $C$ est inférieure à la pente entre $A$ et $B$ qui est inférieure à la pente entre $C$ et $B$.
+
+\end{frame}
+
+
+\begin{notes}
+  \textbf{preuve du théorème \hyperlink{slide_fonctions_convexes_3}{\ref{thm:trois_pentes}}.}
+  $\forall (a,b,c)\in E^3$ tels que $a<c<b$ chacune de ces trois inégalités peut se réécrire de façon équivalente~:
+  \[
+    f(c) \leq \frac{b-c}{b-a}f(a) + \frac{c-a}{b-a}f(b)
+  \]
+  Elles sont donc équivalentes. Posons $\lambda = \frac{b-c}{b-a}$, on a~:
+  \[
+    1-\lambda = \frac{b-a-b+c}{b-a} = \frac{c-a}{b-a}
+  \]
+  On note que $\lambda\in]0,1[$ puisque $c$ est strictement compris entre $a$ et $b$ et que~:
+  \[
+    \lambda a + (1-\lambda) b = \frac{(b-c)a+(c-a)b}{b-a} = \frac{c(b-a)}{b-a} = c
+  \]
+  Ainsi, nous avons~:
+  \[
+    f(\lambda a + (1-\lambda) b) \leq \lambda f(a) + (1-\lambda) f(b)
+  \]
+  et donc la fonction $f$ est convexe.
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Fonctions convexes et concaves}
+  \framesubtitle{Inégalité des pentes (c)}
+  \hypertarget{slide_fonctions_convexes_5}{}
+
+  \begin{theorem}\label{thm:pentes}
+    Soit une fonction $f:E\rightarrow \mathbb R$ une fonction. Pour tout $a\in E$ on peut définir la fonction « pente »~:
+    \[
+      \begin{split}
+        \Delta_a: E\setminus\{a\}&\rightarrow \mathbb R\\
+        x &\mapsto \frac{f(x)-f(a)}{x-a}
+      \end{split}
+    \]
+    Alors les assertions suivantes son équivalentes~:
+    \begin{enumerate}[(i)]
+    \item $f$ est convexe sur $E$,
+    \item $\forall a\in E$, $\Delta_a$ est une fonction croissante sur $\{x\in E| x>a\}$,
+    \item $\forall a\in E$, $\Delta_a$ est une fonction croissante sur $\{x\in E| x<a\}$,
+    \item $\forall a\in E$, $\Delta_a$ est une fonction croissante sur $E\setminus\{a\}$.
+    \end{enumerate}
+  \end{theorem}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Fonctions convexes et concaves}
+  \framesubtitle{Dérivées (a)}
+  \hypertarget{slide_fonctions_convexes_6}{}
+
+  \begin{itemize}
+
+  \item Les théorèmes \hyperlink{slide_fonctions_convexes_3}{\ref{thm:trois_pentes}} et \hyperlink{slide_fonctions_convexes_5}{\ref{thm:pentes}} permettent de montrer qu'une fonction $f$ convexe possède des dérivées à droite et à gauche en tout point à l'intérieur de $E$ et donc assure la continuité de la fonction à l'intérieur de $E$.\newline
+
+  \item En calculant les pentes sur des intervalles de plus en plus petit\ldots On en déduit à la limite une condition sur le sens de variation de la dérivée.\newline
+
+  \end{itemize}
+
+  \begin{theorem}
+    Une fonction $f:\, E\rightarrow \mathbb R$ est convexe si et seulement si la dérivée $f'$ est une fonction croissante (en supposant que la dérivée première existe), c'est-à-dire si et seulement si la dérivée seconde est $f''(x)>0\,\forall x\in E$ (en supposant que la dérivée seconde existe).
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions convexes et concaves}
+  \framesubtitle{Dérivées (b)}
+  \hypertarget{slide_fonctions_convexes_7}{}
+
+  \begin{itemize}
+
+  \item $f$ est concave si et seulement si $-f$ est convexe (voir les définitions \hyperlink{slide_fonctions_convexes_1}{\ref{def:convexe}} et \hyperlink{slide_fonctions_convexes_1}{\ref{def:concave}})\newline
+
+  \item On peut reprendre le théorèmes \hyperlink{slide_fonctions_convexes_3}{\ref{thm:trois_pentes}} et \hyperlink{slide_fonctions_convexes_5}{\ref{thm:pentes}} en inversant les inégalités pour les fonctions concaves.\newline
+
+  \item Si $f$ est deux fois dérivable sur $E$ alors elle est concave sur $E$ si et seulement si sa dérivée seconde est négative sur $E$.\newline
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions convexes et concaves}
+  \framesubtitle{Extrema (a)}
+  \hypertarget{slide_fonctions_convexes_8}{}
+
+  \begin{itemize}
+
+  \item Pour qu'un extremum local $x_0$ de $f$ soit un maximum local,
+    il faut que, dans un voisinage de $x_0$ la fonction $f$ soit
+    croissante puis décroissante à partir de $x_0$.\newline
+
+  \item Si la dérivée $f'$ existe dans un voisinage de $x_0$, pour
+    qu'un extremum local $x_0$ de $f$ soit un maximum local, il faut
+    que, dans un voisinage de $x_0$ la dérivée $f'$ soit positive
+    puis négative à partir de $x_0$ (la dérivée décroît).\newline
+
+  \item Si la dérivée seconde $f''$ existe dans un voisinage de $x_0$, pour
+    qu'un extremum local $x_0$ de $f$ soit un maximum local, il faut
+    que, dans un voisinage de $x_0$ la dérivée $f''$ soit négative\newline
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions convexes et concaves}
+  \framesubtitle{Extrema (b)}
+  \hypertarget{slide_fonctions_convexes_9}{}
+
+  \begin{theorem}
+    Soit $f$ une fonction de $E$ dans $\mathbb R$ telle que les dérivées $f'$ et $f''$ soient continues en $x_0\in E$. Alors~:
+    \begin{enumerate}[(i)]
+    \item $f'(x_0) = 0$ et $f''(x_0)<0$ $\Rightarrow$ maximum local en $x_0$,
+    \item $f'(x_0) = 0$ et $f''(x_0)>0$ $\Rightarrow$ minimum local en $x_0$.
+    \end{enumerate}
+  \end{theorem}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Si la fonction est concave (convexe) sur $E$, alors
+    $f'(x_0)=0$ $\Rightarrow$ $x_0$ est un maximum (minimum) global
+    sur $E$.\newline
+
+  \item Si la dérivée seconde est nulle, il faut aller chercher des
+    dérivées d'ordre supérieur pour conclure. Si les dérivées
+    $f'(x_0)$, $f''(x_0)$, \ldots, $f^{(n-1)}(x_0)$ sont nulles et
+    $f^{(n)}(x_0)\neq 0$, alors quand $n$ est impair il n'y a pas
+    d'extremum en $x_0$ et quand $n$ est pair~:
+
+    \begin{itemize}
+    \item $f^{(n)}(x_0)>0$ $\Rightarrow$ minimum local en $x_0$,
+    \item $f^{(n)}(x_0)<0$ $\Rightarrow$ maximum local en $x_0$.
+    \end{itemize}
+
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions convexes et concaves}
+  \framesubtitle{Exemple}
+  \hypertarget{slide_fonctions_convexes_10}{}
+
+  \begin{itemize}
+
+  \item Soit la fonction polynomiale $f(x) = x^3-2x^2+x+1$.\newline
+
+  \item On a~: $f'(x) = 3x^2-4x+1$ et $f''(x) = 6x-4$.\newline
+
+  \end{itemize}
+
+  \begin{columns}[onlytextwidth]
+    \begin{column}{.5\textwidth}
+      \begin{itemize}
+      \item La dérivée première est nulle en $x=1$ et $x=\frac{1}{3}$\newline
+      \item La dérivée seconde est positive ssi $x>\frac{2}{3}$\newline
+      \item La fonction $f$ est concave sur $]-\infty,\frac{2}{3}]$ et convexe sur $[\frac{2}{3},\infty[$\newline
+      \item On a un maximum local en $x=\frac{1}{3}$ et minimum local en $x=1$.
+      \end{itemize}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{center}
+        \begin{tikzpicture}[scale=1]
+          \begin{axis}[
+            xticklabels={,,},
+            yticklabels={,,},
+            enlargelimits=true,
+            grid style={dashed, gray!60},
+            axis x line = bottom,
+            axis y line = left,
+            axis line style={thin},
+            xmax = 2,
+            xmin = -2,
+            ymax = 2.5,
+            ymin = -2,
+            axis lines = middle,
+            small,
+            clip=false,
+            ]
+            \addplot[
+            draw=black,
+            samples=5000,
+            thick,
+            domain=-1:1.9,
+            ]
+            {x^3-2*x^2+x+1};
+            \coordinate (A) at (.333333,1.1481481481481481);
+            \coordinate (B) at (1,1);
+            \node[draw=red, circle, fill=red, scale=.2] at (A) {};
+            \node[draw=red, circle, fill=red, scale=.2] at (B) {};
+            \draw[red,dotted] (A) -- (.333333,0);
+            \draw[red,dotted] (B) -- (1,0);
+            \node[below] at (.333333,0) {\tiny $\frac{1}{3}$};
+            \node[below] at (1,0) {\tiny $1$};
+          \end{axis}
+        \end{tikzpicture}
+      \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Fonctions convexes et concaves}
+  \framesubtitle{Point d'inflexion (a)}
+  \hypertarget{slide_fonctions_convexes_11}{}
+
+  \begin{itemize}
+
+  \item Dans l'exemple, la fonction est concave puis convexe au delà de $x=\frac{2}{3}$.\newline
+
+  \item Un point où la courbure d'une fonction change (concavité/convexité) est appelé un point d'infléxion.\newline
+
+  \item Si la fonction $f\in\mathcal C^2$, alors on trouve les points d'inflexions en (i) identifiant les points $\bar x$ tels que $f''(\bar x)=0$, (ii) vérifiant si $f''$ change de signe en $\bar x$.\newline
+
+  \item[\dbend] Si la fonction $f$ n'est pas de classe $\mathcal C^2$, il faut aussi s'intéresser aux points $\tilde x$ où $f''$ est discontinue et vérifier s'il y a un changement de signe de $f''$ autour de ces points.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions convexes et concaves}
+  \framesubtitle{Point d'inflexion (b)}
+  \hypertarget{slide_fonctions_convexes_12}{}
+
+  \begin{example}
+    Soit la fonction de $\mathbb R$ dans $\mathbb R$ $f(x) = x^5$
+
+    \begin{columns}[onlytextwidth]
+      \begin{column}{.5\textwidth}
+        \begin{itemize}
+        \item On a $f'(x) = 5x^4>0$.\newline
+        \item La fonction $f$ est donc croissante.\newline
+        \item On a aussi $f''(x) = 20x^3$.\newline
+        \item $f''(x) = 0$ ssi $x=0$, et $f''(x)<0$ ssi $x<0$.\newline
+        \item On a donc un point d'inflexion en 0.
+        \end{itemize}
+      \end{column}
+      \begin{column}{.5\textwidth}
+        \begin{center}
+          \begin{tikzpicture}[scale=1]
+            \begin{axis}[
+              xticklabels={,,},
+              yticklabels={,,},
+              enlargelimits=true,
+              grid style={dashed, gray!60},
+              axis x line = bottom,
+              axis y line = left,
+              axis line style={thin},
+              xmax = 1.1,
+              xmin = -1.1,
+              ymax = 1.1,
+              ymin = -1.1,
+              axis lines = middle,
+              small,
+              clip=false,
+              ]
+              \addplot[
+              draw=black,
+              samples=500,
+              thick,
+              domain=-1:1,
+              ]
+              {x^5};
+              \node[below] at (-.1,0) {\tiny $0$};
+            \end{axis}
+          \end{tikzpicture}
+        \end{center}
+      \end{column}
+    \end{columns}
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Fonctions convexes et concaves}
+  \framesubtitle{Point d'inflexion (c)}
+  \hypertarget{slide_fonctions_convexes_13}{}
+
+  \begin{example}
+    Soit la fonction de $\mathbb R$ dans $\mathbb R$ $f(x) = \sqrt[3]{x}$
+
+    \begin{columns}[onlytextwidth]
+      \begin{column}{.5\textwidth}
+        \begin{itemize}
+        \item On a $f'(x) = \frac{1}{3}x^{-\frac{2}{3}}>0$.\newline
+        \item La fonction $f$ est donc croissante.\newline
+        \item On a aussi $f''(x) = -\frac{2}{9}x^{-\frac{5}{3}}\neq 0$ $\forall x\in\mathbb R$.\newline
+        \item La dérivée seconde (comme la dérivée première) n'est pas définie en zéro.\newline
+        \item Comme $f''(x)>0$ ssi $x<0$, on a un point d'inflexion en 0.
+        \end{itemize}
+      \end{column}
+      \begin{column}{.5\textwidth}
+        \begin{center}
+          \begin{tikzpicture}[scale=1]
+            \begin{axis}[
+              xticklabels={,,},
+              yticklabels={,,},
+              enlargelimits=true,
+              grid style={dashed, gray!60},
+              axis x line = bottom,
+              axis y line = left,
+              axis line style={thin},
+              xmax = 1.1,
+              xmin = -1.1,
+              ymax = 1.1,
+              ymin = -1.1,
+              axis lines = middle,
+              small,
+              clip=false,
+              ]
+              \addplot[
+              draw=black,
+              smooth,
+              samples=500,
+              thick,
+              domain=0:1,
+              ]
+              {x^.333333};
+              \addplot[
+              draw=black,
+              smooth,
+              samples=5000,
+              thick,
+              domain=-1:0,
+              ]
+              {-1*(-x)^.333333};
+              \node[below] at (-.1,0) {\tiny $0$};
+            \end{axis}
+          \end{tikzpicture}
+        \end{center}
+      \end{column}
+    \end{columns}
+  \end{example}
+
+\end{frame}
+
+
+
 \end{document}
 
 % Local Variables:

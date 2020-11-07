@@ -2260,6 +2260,481 @@
 
 \end{frame}
 
+\section{Approximation polynomiale}
+
+\begin{frame}
+  \frametitle{Approximation polynomiale en un point}
+  \framesubtitle{Le problème}
+  \hypertarget{slide_taylor_1}{}
+
+  \begin{itemize}
+
+  \item On peut appliquer le calcul des dérivées pour approximer une fonction en un point.\newline
+
+  \item Supposons que nous souhaitions approximer une fonction $f: E\rightarrow \mathbb R$ de classe $\mathcal C^n$ dans un voisinage d'un point $x_0\in E$ à l'aide d'une fonction polynomiale $p_n(x) = \alpha_0+\alpha_1x+\alpha_2x^2+\ldots+\alpha_nx^n$\newline
+
+  \item En exploitant seulement des informations sur la fonction $f$ au point $x_0$~: $f(x_0)$, $f'(x_0)$, $f''(x_0)$, \ldots, $f^{(n)}(x_0)$ (par exemple parce qu'il est trop coûteux d'évaluer la fonction $f$ en un autre point).\newline
+
+  \item On cherche la fonction polynomiale, c'est-à-dire les paramètres $(\alpha_i)_{i=1}^n$, la plus proche possible de la fonction $f$ (dans un voisinage de $x_0$).\newline
+
+  \item Le degré du polynôme $n$ est l'ordre d'appoximation.
+
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Approximation polynomiale en un point}
+  \framesubtitle{Approximation de $f(x) = \frac{1}{1-x}$ autour de 0}
+  \hypertarget{slide_taylor_2}{}
+
+  \begin{center}
+    \begin{tikzpicture}[scale=1.5]
+      \begin{axis}[
+        xticklabels={,,},
+        yticklabels={,,},
+        enlargelimits=true,
+        grid style={dashed, gray!60},
+        axis x line = bottom,
+        axis y line = left,
+        axis line style={thin},
+        xmax = 1,
+        xmin = -1,
+        ymax = 5,
+        ymin = -.5,
+        axis lines = middle,
+        small,
+        clip=false,
+        ]
+        \addplot[
+        draw=red,
+        smooth,
+        samples=100,
+        ultra thick,
+        domain=-.9:.8,
+        ]
+        {1/(1-x)};
+        \addplot[
+        draw=red!10!blue,
+        samples=2,
+        domain=-.9:.9,
+        ]
+        {1};
+        \node[red!10!blue, right] at (.975, 1) {\tiny $n=0$};
+        \addplot[
+        draw=red!20!blue,
+        samples=2,
+        domain=-.9:.9,
+        ]
+        {1+x};
+        \node[red!20!blue, right] at (.975, 1.9) {\tiny $n=1$};
+        \addplot[
+        draw=red!30!blue,
+        samples=200,
+        smooth,
+        domain=-.9:.9,
+        ]
+        {1+x+x^2};
+        \node[red!30!blue, right] at (.975, 2.71) {\tiny $n=2$};
+        \addplot[
+        draw=red!40!blue,
+        samples=200,
+        smooth,
+        domain=-.9:.9,
+        ]
+        {1+x+x^2+x^3};
+        \node[red!40!blue, right] at (.975, 3.439) {\tiny $n=3$};
+        \addplot[
+        draw=red!50!blue,
+        samples=200,
+        smooth,
+        domain=-.9:.9,
+        ]
+        {1+x+x^2+x^3+x^4};
+        \node[red!50!blue, right] at (.975, 4.0951) {\tiny $n=4$};
+        \addplot[
+        draw=red!60!blue,
+        samples=200,
+        smooth,
+        domain=-.9:.9,
+        ]
+        {1+x+x^2+x^3+x^4+x^5};
+        \node[red!60!blue, right] at (.975, 4.68559) {\tiny $n=5$};
+        \addplot[
+        draw=red!80!blue,
+        samples=200,
+        smooth,
+        domain=-.9:.9,
+        ]
+        {1+x+x^2+x^3+x^4+x^5+x^6+x^7+x^8+x^9+x^10};
+        \node[red!80!blue, right] at (.975, 6.861894039100001) {\tiny $n=10$};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Approximation polynomiale en un point}
+  \framesubtitle{Approximation d'ordre 0}
+  \hypertarget{slide_taylor_3}{}
+
+  \begin{itemize}
+
+  \item On veut approximer $f(x)$ dans un voisinag!e de $x_0$ par la fonction polynomiale $p_0(x) = \alpha_0$, une constante.\newline
+
+  \item Nous n'avons qu'un paramètre à déterminer ($\alpha_0$).\newline
+
+  \item Étant donnée l'information disponible (les propriétés de $f$ en $x_0$) on obtient la meilleure approximation possible en s'assurant qu'en $x_0$ les niveaux de $p_0(x)$ et $f(x)$ sont identiques.\newline
+
+  \item On pose $\alpha_0 = f(x_0)$, de sorte que notre approximation de $f(x)$ est~:
+    \[
+      p_0(x) = f(x_0)
+    \]
+
+  \item Il y a de fortes chances pour que cette approximation ne soit pas très bonne, sauf si le niveau de $f$ est peu variable (ou mieux si $f$ est constante auquel cas il n'y a pas d'erreur d'appoximation).
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Approximation polynomiale en un point}
+  \framesubtitle{Approximation d'ordre 1}
+  \hypertarget{slide_taylor_4}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item On veut approximer $f(x)$ dans un voisinage de $x_0$ par la fonction polynomiale $p_1(x) = \alpha_0+\alpha_1 x$, une droite.\newline
+
+  \item Nous avons deux paramètres à déterminer ($\alpha_0$ et $\alpha_1$).\newline
+
+  \item Étant donnée l'information disponible (les propriétés de $f$ en $x_0$) on obtient la meilleure approximation possible en s'assurant qu'en $x_0$ les pentes de $p_0(x)$ et $f(x)$ sont identiques.\newline
+
+  \item On veut que $p_1(x)$ soit tel que $p_1(x_0) = f(x_0)$ et $p_1'(x_0) = f'(x_0)$, c'est-à-dire~:
+    \[
+      \begin{cases}
+        \alpha_0+\alpha_1x_0 &= f(x_0)\\
+        \alpha_1 &= f'(x_0)
+      \end{cases}
+      \quad\Leftrightarrow\quad
+      \begin{cases}
+        \alpha_0 &= f(x_0)-f'(x_0)x_0\\
+        \alpha_1 &= f'(x_0)
+      \end{cases}
+    \]
+
+    \bigskip
+
+  \item La fonction $f$ est donc approximée par~:
+    \[
+      p_1(x) = f(x_0) + f'(x_0)(x-x_0)
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Approximation polynomiale en un point}
+  \framesubtitle{Approximation d'ordre 2}
+  \hypertarget{slide_taylor_5}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item On veut approximer $f(x)$ dans un voisinage de $x_0$ par la fonction polynomiale $p_2(x) = \alpha_0+\alpha_1 x + \alpha_2 x^2$, une parabole.\newline
+
+  \item Les trois paramètres $\alpha_0$, $\alpha_1$ et $\alpha_2$ sont identifiés en égalisant les dérivées d'ordre 0, 1 et 2 de $f$ et $p_2$ en $x_0$.\newline
+    {\small
+      \[
+        \begin{cases}
+          \alpha_0+\alpha_1x_0+\alpha_2x_0^2 &= f(x_0)\\
+          \alpha_1+2\alpha_2x_0 &= f'(x_0)\\
+          2\alpha_2 &= f''(x_0)
+        \end{cases}
+        \quad\Leftrightarrow\quad
+        \begin{cases}
+          \alpha_0 &= f(x_0)-f'(x_0)x_0-\frac{1}{2}f''(x_0)x_0^2\\
+          \alpha_1 &= f'(x_0)-f''(x_0)x_0\\
+          \alpha_2 &= \frac{1}{2}f''(x_0)
+        \end{cases}
+      \]}
+
+    \medskip
+
+  \item La fonction $f$ est donc approximée par~:
+    \[
+      p_2(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{1}{2}f''(x_0)(x-x_0)^2
+    \]
+
+    \medskip
+
+  \item On note que le coefficient associé à $(x-x_0)$ n'a pas changé
+    entre les approximations à l'ordre 1 et 2 (de même pour la
+    constante).
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Approximation polynomiale en un point}
+  \framesubtitle{Approximation d'ordre 3}
+  \hypertarget{slide_taylor_6}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item On veut approximer $f(x)$ dans un voisinage de $x_0$ par la fonction polynomiale $p_3(x) = \alpha_0+\alpha_1 x + \alpha_2 x^2 + \alpha_3 x^3$.\newline
+
+  \item Les quatre paramètres $\alpha_0$, $\alpha_1$, $\alpha_2$ et $\alpha_3$ sont identifiés en égalisant les dérivées d'ordre 0, 1, 2 et 3 de $f$ et $p_3$ en $x_0$.\newline
+
+  \item On peut montrer que $f$ doit être approximée par~:
+    \[
+      p_3(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{1}{2}f''(x_0)(x-x_0)^2 + \frac{1}{3\cdot 2}f'''(x_0)(x-x_0)^3
+    \]
+
+    \medskip
+
+  \item À nouveau, on note que le coefficient associé à $(x-x_0)$ est identique avec les approximations à l'ordre 1, 2 et 3, ou que le coefficient associé à $(x-x_0)^2$ est identique pour les approximations aux ordres 2 et 3.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{notes}
+  En identifiant les dérivées de $f$ et de $p_3$ on obtient le système suivant~:
+  \[
+    \begin{cases}
+      \alpha_0+\alpha_1x_0+\alpha_2x_0^2 +\alpha_3x_0^3&= f(x_0)\\
+      \alpha_1+2\alpha_2x_0+3\alpha_3 x_0^2 &= f'(x_0)\\
+      2\alpha_2+6\alpha_3 x_0 &= f''(x_0)\\
+      6\alpha_3 &= f'''(x_0)
+    \end{cases}
+  \]
+  On peut résoudre ce système en remontant par le bas. Avec la dernière équation on obtient directement $\alpha_3 = \frac{1}{3\cdot 2}f'''(x_0)$. En substituant dans la troisième équation il vient $\alpha_2 = \frac{1}{2}f''(x_0)-\frac{1}{2}f'''(x_0)x_0$. Par substitution dans la deuxième équation on obtient~:
+  \[
+    \alpha_1 = f'(x_0)-f''(x_0)x_0+\frac{1}{2}f'''(x_0)x_0^2
+  \]
+  Et finalement, en substituant le tout dans la première équation~:
+  \[
+    \alpha_0 = f(x_0)-f'(x_0)x_0+\frac{1}{2}f''(x_0)x_0^2-\frac{1}{6}f'''(x_0)x_0^3
+  \]
+  Le polynôme de degré trois est donc~:
+  \[
+    p_3(x) = f(x_0)+f'(x_0)(x-x_0)+\frac{1}{2}f''(x_0)(x^2-2x_0x+x_0^2)+\frac{1}{6}f'''(x_0)(x^3-3x_0x^2+3x_0^2x-x_0^3)
+  \]
+  d'où le résultât annoncé en reconnaissant les identités remarquables.
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Approximation polynomiale en un point}
+  \framesubtitle{Approximation d'ordre $n$}
+  \hypertarget{slide_taylor_7}{}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item On veut approximer $f(x)$ dans un voisinage de $x_0$ par la fonction polynomiale $p_n(x) = \alpha_0+\alpha_1 x + \alpha_2 x^2 +\ldots+ \alpha_n x^n$.\newline
+
+  \item Les $n+1$ paramètres $\alpha_0$, $\alpha_1$, $\alpha_2$, \ldots $\alpha_n$ sont identifiés en égalisant les dérivées d'ordre 0 à $n$ de $f$ et $p_n$ en $x_0$.\newline
+
+  \item On peut montrer que $f$ peut alors être approximée par~:
+    \[
+      p_n(x) = \sum_{i=0}^n\frac{f^{(i)}(x_0)}{i!}(x-x_0)^i
+    \]
+
+  \item[\dbend] Il ne faut pas oublier que si $x\neq x_0$ alors $f(x)\neq p_n(x)$... Il ne s'agit que d'une approximation.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{notes}
+  Postulons que la fonction polynomiale utilisée pour approximer la fonction $f$ a la forme suivante~:
+  \[
+    p_n(x) = \sum_{i=0}^n c_i (x-x_0)^i
+  \]
+  Les dérivées de cette fonction sont~:
+  \[
+    p_n'(x) = \sum_{i=1}^nc_i i (x-x_0)^{i-1}
+  \]
+  \[
+    p_n''(x) = \sum_{i=2}^nc_i i (i-1)(x-x_0)^{i-2}
+  \]
+  \[
+    \vdots
+  \]
+  \[
+    p_n^{(j)}(x) = \sum_{i=j}^nc_i i (i-1)\ldots(i-j+1)(x-x_0)^{i-j}
+  \]
+  \[
+    \vdots
+  \]
+  \[
+    p_n^{(n)}(x) = c_n n (n-1) \ldots 2
+  \]
+  En évaluant ces dérivées en $x_0$, on trouve $p'(x_0)=c_1$, $p''(x_0)=2c_2$, $p'''(x_0)=6c_3$, ..., $p^{(j)}(x_0) = c_j j!$, ..., $p^{(n)}(x_0) = c_n n!$. En identifiant avec les dérivées de $f$ évaluées en $x_0$, on trouve directement la formule données sur la page précédente.
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Approximation polynomiale en un point}
+  \framesubtitle{Formule de Taylor Young}
+  \hypertarget{slide_taylor_8}{}
+
+  \bigskip
+
+  \begin{theorem}
+    Soit $f$ de $E$ dans $\mathbb R$ une fonction de classe $\mathcal C^n$. Soit $a\in E$, alors il existe une fonction $\epsilon$ de $E$ dans $\mathbb R$ vérifiant $\lim_{x\rightarrow a}\epsilon(x) = 0$ telle que pour tout $x\in E$~:
+    \[
+      f(x) = f(a) + \sum_{k=1}^n\frac{f^{(k)}(a)}{k!}(x-a)^k + (x-a)^n\epsilon(x)
+    \]
+  \end{theorem}
+
+  \begin{example}
+    On sait que si $|x|<1$ alors $\sum_{i=0}^\infty x^i = \frac{1}{1-x}$ (il s'agit d'une série gémétrique). On a donc~:
+    {\small
+      \[
+        \frac{1}{1-x} = \underbrace{\sum_{i=0}^nx^i}_{p_n(x)} + \sum_{i=n+1}^\infty x^i
+        = \sum_{i=0}^nx^i + x^{n+1}\sum_{i=0}^\infty x^i
+        = \sum_{i=0}^nx^i + x^{n}\underbrace{\frac{x}{1-x}}_{\epsilon(x)}
+      \]}
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Approximation polynomiale en un point}
+  \framesubtitle{Une expression pour le reste}
+  \hypertarget{slide_taylor_9}{}
+  \bigskip
+
+  \begin{theorem}\label{thm:taylor}
+    Soit $f$ de $E$ dans $\mathbb R$ une fonction de classe $\mathcal C^{n+1}$. Soit $a\in E$, alors pour tout $x\in E$~:
+    \[
+      f(x) = f(a) + \sum_{k=1}^n\frac{f^{(k)}(a)}{k!}(x-a)^k + R_n(x)
+    \]
+    avec le reste~:
+    \[
+      R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x-a)^{n+1}
+    \]
+    où $c$ est compris entre $a$ et $x$.
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{notes}
+  \textbf{Preuve du théorème \hyperlink{slide_taylor_9}{\ref{thm:taylor}}.} On utilise le théorème de Rolle \hyperlink{slide_extrema_2}{\ref{thm:rolle}}. Posons~:
+  \[
+    g(\lambda) = f(\lambda) - p_n(\lambda) - \frac{f(x)-p_n(x)}{(x-a)^{n+1}}(\lambda-a)^{n+1}
+  \]
+  avec
+  \[
+    p_n(x) = \sum_{k=1}^n\frac{f^{(k)}(a)}{k!}(x-a)^k
+  \]
+  La fonction $g$, continue sur l'intervalle compris entre $x$ et $a$, vérifie~:
+  \[
+    g(x) = f(x) - p_n(x) - \frac{f(x)-p_n(x)}{(x-a)^{n+1}}(x-a)^{n+1} = f(x) - p_n(x) - f(x) + p_n(x) = 0
+  \]
+  et
+  \[
+    g(a) = f(a) - p_n(a) = 0
+  \]
+  par construction du polynôme $p_n(x)$. On peut donc appliquer le théorème de Rolle~: on sait qu'il existe $c_1$ compris entre $x$ et $a$ tel que $g'(c_1)=0$. La dérivée de $g$ est~:
+  \[
+    g'(\lambda) = f'(\lambda) - p_n'(\lambda) - (n+1)\frac{f(x)-p_n(x)}{(x-a)^{n+1}}(\lambda-a)^{n}
+  \]
+  et on observe que l'on a encore $g'(a)=0$ (par construction de $p_n(x)$ en identifiant ses dérivées en $a$ avec celles de $f$ en $a$) et bien sûr $g'(c_1)=0$, puisque la fonction est continue, on peut à nouveau appliquer le théorème de Rolle. On sait donc qu'il existe $c_2$ entre $c_1$ et $a$ tel que $g''(c_2) = 0$, avec~:
+  \[
+    g''(\lambda) = f''(\lambda) - p_n''(\lambda) - (n+1)n\frac{f(x)-p_n(x)}{(x-a)^{n+1}}(\lambda-a)^{n-1}
+  \]
+  En notant que $g''(a)=0$, on sait qu'il existe $c_3$ compris entre $a$ et $c_2$ tel que $g'''(c_3) = 0$ par le théorème de Rolle, avec~:
+  \[
+    g'''(\lambda) = f'''(\lambda) - p_n'''(\lambda) - (n+1)n(n-1)\frac{f(x)-p_n(x)}{(x-a)^{n+1}}(\lambda-a)^{n-2}
+  \]
+  On peut continuer ainsi jusqu'à la dérivée $n$-ième de $g$, et conclure qu'il existe $c$ tel que~:
+  \[
+    g^{(n+1)}(c) = 0 = f^{(n+1)}(c) - p_n^{(n+1)}(c) - (n+1)!\frac{f(x)-p_n(x)}{(x-a)^{n+1}}
+  \]
+  Comme $p_n(x)$ est une fonction polynomiale de degré $n$, on sait que $p_n^{(n+1)}(x) = 0$ pour tout $x$, on a donc~:
+  \[
+    f^{(n+1)}(c) - (n+1)!\frac{f(x)-p_n(x)}{(x-a)^{n+1}} = 0
+  \]
+  soit encore~:
+  \[
+    \underbrace{f(x)-p_n(x)}_{R_n(x)} = \frac{f^{(n+1)}(c)}{(n+1)!}\qed
+  \]
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Approximation polynomiale en un point}
+  \framesubtitle{Série de Taylor}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item Si la fonction $f$ est de classe $\mathcal C^{\infty}$, on peut aller plus loin\ldots\newline
+
+  \item Une \textbf{série entière} en $x$ est une série de terme général $c_nx^n$, on note~: $\sum_n c_nx^n$.\newline
+
+  \item La série converge si la somme $\sum_{n=0}^{\infty} c_nx^n$ est définie. Le \textbf{radius de convergence} $r>0$ est un réel tel que la série converge pour tout $x$ tel que $|x|<r$.\newline
+
+  \item Soit $f:\, E\rightarrow \mathbb R$ une fonction indéfiniment dérivable en $x_0\in E$, la série de Taylor associée à $f$ est~:
+    \[
+      \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n
+    \]
+    On peut montrer, sous certaines conditions, que si la série converge alors elle converge vers $f(x)$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Approximation polynomiale en un point}
+  \framesubtitle{Application~: convexité et tangentes}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item La courbe représentative d'une fonction convexe (concave) est au dessus (dessous) de toutes ses tangentes.\newline
+
+  \item Pour le comprendre, considérons un développement de Taylor à l'ordre 2 d'une fonction $f$ dans un voisinage de $a$:
+    \[
+      f(x) = f(a) +  f'(a)(x-a) + \frac{1}{2}f''(a)(x-a)^2 + (x-a)^2\epsilon(x)
+    \]
+
+  \item En considérant des valeurs de $x$ suffisament proches de $a$, on peut ommettre le reste~:
+    \[
+      f(x) \approx_a f(a) +  f'(a)(x-a) + \frac{1}{2}f''(a)(x-a)^2
+    \]
+
+  \item Si la fonction est convexe le dernier terme est positif, et donc~:
+    \[
+      f(x) \gtrapprox_a f(a) +  f'(a)(x-a)
+    \]
+    où sur la droite nous reconnaissons l'équation de la tangente à $f$ au point $a$.
+
+  \end{itemize}
+
+\end{frame}
 
 
 \end{document}

@@ -2737,6 +2737,130 @@
 \end{frame}
 
 
+\section{Règle de l'Hôpital}
+
+
+\begin{frame}
+  \frametitle{Règle de l'Hôpital, I}
+
+  \begin{itemize}
+
+  \item Quand on s'intéresse à la limite d'une fonction de la forme
+    $\frac{f(x)}{g(x)}$ lorsque $x\rightarrow a$, il arrive que l'on
+    soit confronté à une forme indéterminée de type $0/0$ ou
+    $\infty/\infty$.\newline
+
+  \item La règle de l'Hôpital peut nous tirer de l'embarras.\newline
+
+  \end{itemize}
+
+  \begin{block}{Règle de l'Hôpital}
+    Soient $f$ et $g$ deux fonctions dérivables (on suppose que $g'$ ne s'annule pas). Alors si $\lim_{x\rightarrow a}f(x) = 0$ et $\lim_{x\rightarrow a}g(x) = 0$ (ou si les limites de $f$ et $g$ ne sont pas finies) on a~:
+    \[
+      \lim_{x\rightarrow a} \frac{f(x)}{g(x)} = \lim_{x\rightarrow a} \frac{f'(x)}{g'(x)}
+    \]
+  \end{block}
+
+  \medskip
+
+  \begin{itemize}
+
+  \item On éventuellement appliquer cette règle plusieurs fois (si les dérivées d'ordre supérieurs existent).
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{notes}
+  Nous ne montrerons pas la validité de la règle de l'Hôpital ici (il faut utiliser une généralisation du théorème de Rolle que nous n'avons pas présentée). On peut néanmoins, au moins dans le cas des formes indéterminées de type $0/0$, donner l'intuition et voir que cette règle est directement liée à la définiton même de la dérivée.\newline
+
+  Soient $f$ et $g$ deux fonctions dérivables telles que $\lim_{x\rightarrow a}f(x) = 0$ et $\lim_{x\rightarrow a}g(x) = 0$. Nous avons donc~:
+  \[
+    \frac{f(x)}{g(x)} = \frac{f(x)-f(a)}{g(x)-g(a)}
+  \]
+  Puisque les deux fonctions sont dérivables, elles sont aussi continues et donc $f(a)=g(a)=0$. En divisant le numérateur et dénominateur par $x-a$ il vient~:
+  \[
+    \frac{f(x)}{g(x)} = \frac{\frac{f(x)-f(a)}{x-a}}{\frac{g(x)-g(a)}{x-a}}
+  \]
+  On reconnaît au numérateur et dénominateur les taux de variation de $f$ et $g$, ce qui explique pourquoi on peut éventuellement lever l'indétermination en considérant la limite du ratio des dérivées.
+  \[
+    \begin{split}
+      \lim_{x\rightarrow a}\frac{f(x)}{g(x)} &= \lim_{x\rightarrow a}\frac{\frac{f(x)-f(a)}{x-a}}{\frac{g(x)-g(a)}{x-a}}\\
+      &= \frac{\lim_{x\rightarrow a}\frac{f(x)-f(a)}{x-a}}{\lim_{x\rightarrow a}\frac{g(x)-g(a)}{x-a}}\\
+      &= \frac{f'(a)}{g'(a)}\\
+      &= \lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}
+    \end{split}
+  \]
+
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Règle de l'Hôpital, II}
+
+  \begin{example}
+    Soit la fonction~:
+    \[
+      f(x) = \frac{6x^2}{3e^x-x^3-3x-3}
+    \]
+    On cherche la limite quand $x$ tend vers 0, et nous sommes
+    confrontés à une forme indéterminée de type $0/0$. Par la règle de l'Hôpital, nous avons~:
+    \[
+      \begin{split}
+        \lim_{x\rightarrow 0} f(x) &= \lim_{x\rightarrow 0} \frac{12x}{3e^x-3x^2-3} \quad \text{Il s'agit encore d'une forme intéterminée.}\\
+        &= \lim_{x\rightarrow 0} \frac{12}{3e^x-6x} = \frac{12}{\lim_{x\rightarrow 0} 3e^x-6x} = 4
+      \end{split}
+    \]
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Règle de l'Hôpital, III}
+
+  \begin{example}
+    Soit la fonction~:
+    \[
+      f(x) = \frac{\log x}{5x}
+    \]
+    On cherche la limite quand $x$ tend vers l'infini, et nous sommes
+    confrontés à une forme indéterminée de type $\infty/\infty$. Par la règle de l'Hôpital, nous avons~:
+    \[
+      \begin{split}
+        \lim_{x\rightarrow \infty} f(x) &= \lim_{x\rightarrow \infty} \frac{\frac{1}{x}}{5}\\
+        &= \frac{1}{5}\lim_{x\rightarrow \infty} \frac{1}{x} = 0
+      \end{split}
+    \]
+  \end{example}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Règle de l'Hôpital, IV}
+
+  \begin{example}
+    Soit la fonction~:
+    \[
+      f(x) = \frac{2}{x}-\frac{2}{e^x-1}
+    \]
+    On cherche la limite quand $x$ tend vers 0, et nous sommes
+    confrontés à une forme indéterminée de type $\infty-\infty$. Posons $u(x) = \frac{2}{x}$ et $v(x)=\frac{2}{e^x-1}$, on a~:
+    \[
+      \begin{split}
+        \lim_{x\rightarrow 0} f(x) &= \lim_{x\rightarrow 0} \frac{\frac{1}{g(x)}-\frac{1}{f(x)}}{\frac{1}{g(x)f(x)}}\\
+        &= \lim_{x\rightarrow 0} \frac{e^x-x-1}{\frac{x}{2}\left(e^x-1\right)}\quad \text{une forme indéterminée de type $0/0$.}\\
+        &= \lim_{x\rightarrow 0} \frac{e^x-1}{\frac{1}{2}\left(xe^x+e^x-1\right)}\\
+        &= \lim_{x\rightarrow 0} \frac{e^x}{\frac{1}{2}\left(xe^x+e^x+e^x\right)} = 1\\
+      \end{split}
+    \]
+  \end{example}
+
+\end{frame}
+
+
 \end{document}
 
 % Local Variables:

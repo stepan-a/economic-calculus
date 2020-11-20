@@ -1160,8 +1160,9 @@
       &= \left(\sum_{k=0}^{n} \binom{n}{k}f^{(k)}\cdot g^{(n-k)}\right)'\\
       &= \sum_{k=0}^{n} \binom{n}{k}f^{(k+1)}\cdot g^{(n-k)}+ \sum_{k=0}^{n}\binom{n}{k}f^{(k)}\cdot g^{(n+1-k)}\\
       &= \sum_{k=1}^{n+1} \binom{n}{k-1}f^{(k)}\cdot g^{(n+1-k)}+ \sum_{k=0}^{n}\binom{n}{k}f^{(k)}\cdot g^{(n+1-k)}\\
-      &= \binom{n}{0}f\cdot g^{(n+1)} + \sum_{k=1}^n\left(\binom{n}{k-1}+\binom{n}{k}\right)f^{(k)}\cdot g^{(n+1-k)} + \binom{n+1}{n+1}f^{(n+1)}\cdot g\\
+      &= \binom{n}{0}f\cdot g^{(n+1)} + \sum_{k=1}^n\left(\binom{n}{k-1}+\binom{n}{k}\right)f^{(k)}\cdot g^{(n+1-k)} + \binom{n}{n}f^{(n+1)}\cdot g\\
       &= f\cdot g^{(n+1)} + \sum_{k=1}^n\binom{n+1}{k}f^{(k)}\cdot g^{(n+1-k)} + f^{(n+1)}\cdot g\\
+      &= \binom{n+1}{0}f\cdot g^{(n+1)} + \sum_{k=1}^n\binom{n+1}{k}f^{(k)}\cdot g^{(n+1-k)} + \binom{n+1}{n+1}f^{(n+1)}\cdot g\\
       &= \sum_{k=0}^{n+1}\binom{n+1}{k}f^{(k)}\cdot g^{(n+1-k)}\quad\quad \qed
     \end{split}
   \]

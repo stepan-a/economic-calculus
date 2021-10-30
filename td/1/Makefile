@@ -4,5 +4,5 @@ all: td.pdf correction.pdf
 	rubber --unsafe --pdf $<
 	rubber --clean $<
 
-clean-all: clean
+clean-all:
 	rm td.pdf correction.pdf git.hash

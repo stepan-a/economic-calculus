@@ -1,6 +1,6 @@
 ROOT_PATH = .
 
-all: td1-build td2-build td3-build td4-build
+all: td1-build td2-build td3-build td4-build fk-build
 
 td1-build:
 	$(MAKE) -C $(ROOT_PATH)/1 all
@@ -26,4 +26,10 @@ td4-build:
 td4-clean:
 	$(MAKE) -C $(ROOT_PATH)/4 clean-all
 
-clean-all: td1-clean td2-clean td3-clean td4-clean
+fk-build:
+	$(MAKE) -C $(ROOT_PATH)/fk all
+
+fk-clean:
+	$(MAKE) -C $(ROOT_PATH)/fk clean-all
+
+clean-all: td1-clean td2-clean td3-clean td4-clean fk-clean

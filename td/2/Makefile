@@ -1,21 +1,8 @@
-LATEX = pdflatex
+all: td.pdf
 
-td.pdf: td.tex
-	while ($(LATEX) td.tex ; \
-	grep -q "Rerun to get cross" td.log ) do true ; \
-	done
+%.pdf: %.tex
+	rubber --unsafe --pdf $<
+	rubber --clean $<
 
-correction-td.pdf: correction-td.tex
-	while ($(LATEX) correction-td.tex ; \
-	grep -q "Rerun to get cross" correction-td.log ) do true ; \
-	done
-
-clean:
-	rm -rf *.aux
-	rm -rf *.log
-	rm -rf auto
-
-clean-all: clean
-	rm -f *.pdf
-
-all: td.pdf clean
+clean-all:
+	rm *.pdf

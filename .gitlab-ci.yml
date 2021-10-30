@@ -35,10 +35,15 @@ pdf:
       - exam/2018-a/economic-calculus.pdf
       - exam/2018-b/economic-calculus.pdf
       - td/1/td.pdf
+      - td/1/correction.pdf
       - td/1/Exo-12-td-1.pdf
       - td/2/td.pdf
       - td/3/td.pdf
       - td/4/td.pdf
+      - td/4/correction.pdf
+      - td/fk/ctd-2.pdf
+      - td/fk/ctd-3.pdf
+      - td/fk/ctd-4.pdf
     expire_in: 1 day
 
 web:
@@ -66,6 +71,11 @@ web:
     - cp exam/2018-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2018-b
     - cp -r td/1/Exo-12-td-1.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/1/Exo-12-td-1.pdf
     - cp -r td/1/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/1/td.pdf
+    - cp -r td/1/correction.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/1/correction.pdf
     - cp -r td/2/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/2/td.pdf
+    - cp -r td/fk/ctd-2.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/2/ctd-2.pdf
     - cp -r td/3/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/3/td.pdf
+    - cp -r td/fk/ctd-3.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/3/ctd-3.pdf
     - cp -r td/4/td.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/4/td.pdf
+    - cp -r td/fk/ctd-4.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/4/ctd-4.pdf
+    - cp -r td/4/correction.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/4/correction.pdf

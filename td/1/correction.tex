@@ -1,0 +1,823 @@
+\synctex=1
+
+\documentclass[10pt,notheorems]{beamer}
+
+\usepackage{etex}
+\usepackage{fourier-orns}
+\usepackage{ccicons}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsbsy}
+\usepackage{amsopn}
+\usepackage{amscd}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{color, colortbl}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{lastpage}
+\usepackage[nice]{nicefrac}
+\usepackage{setspace}
+\usepackage{ragged2e}
+\usepackage{listings}
+\usepackage{algorithms/algorithm}
+\usepackage{algorithms/algorithmic}
+\usepackage[frenchb]{babel}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{patterns, arrows, decorations.pathreplacing, decorations.markings, calc}
+\pgfplotsset{plot coordinates/math parser=false}
+\newlength\figureheight
+\newlength\figurewidth
+\usepackage[utf8x]{inputenc}
+\usepackage{cancel}
+\usepackage{tikz-qtree}
+\usepackage{dcolumn}
+\usepackage{adjustbox}
+\usepackage{environ}
+\usepackage[cal=boondox]{mathalfa}
+\usepackage{manfnt}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=black,
+  urlcolor=black,
+}
+\usepackage{venndiagram}
+
+% Git hash
+\usepackage{xstring}
+\usepackage{catchfile}
+\immediate\write18{git rev-parse HEAD > git.hash}
+\CatchFileDef{\HEAD}{git.hash}{\endlinechar=-1}
+\newcommand{\gitrevision}{\StrLeft{\HEAD}{7}}
+
+\newcommand{\trace}{\mathrm{tr}}
+\newcommand{\vect}{\mathrm{vec}}
+\newcommand{\tracarg}[1]{\mathrm{tr}\left\{#1\right\}}
+\newcommand{\vectarg}[1]{\mathrm{vec}\left(#1\right)}
+\newcommand{\vecth}[1]{\mathrm{vech}\left(#1\right)}
+\newcommand{\iid}[2]{\mathrm{iid}\left(#1,#2\right)}
+\newcommand{\normal}[2]{\mathcal N\left(#1,#2\right)}
+\newcommand{\dynare}{\href{http://www.dynare.org}{\color{blue}Dynare}}
+\newcommand{\sample}{\mathcal Y_T}
+\newcommand{\samplet}[1]{\mathcal Y_{#1}}
+\newcommand{\slidetitle}[1]{\fancyhead[L]{\textsc{#1}}}
+
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\C}{{\mathbb C}}
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\binomial}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+\newcommand{\bigO}[1]{\mathcal O \left(#1\right)}
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+
+\renewcommand{\qedsymbol}{C.Q.F.D.}
+
+\newcolumntype{d}{D{.}{.}{-1}}
+\definecolor{gray}{gray}{0.9}
+\newcolumntype{g}{>{\columncolor{gray}}c}
+
+\setbeamertemplate{theorems}[numbered]
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Théorème}
+
+\theoremstyle{definition} % insert bellow all blocks you want in normal text
+\newtheorem{definition}{Définition}
+\newtheorem{properties}{Propriétés}
+\newtheorem{lemma}{Lemme}
+\newtheorem{property}[properties]{Propriété}
+\newtheorem{example}{Exemple}
+\newtheorem*{idea}{Éléments de preuve} % no numbered block
+
+
+
+\setbeamertemplate{footline}{
+  {\hfill\vspace*{1pt}\href{http://creativecommons.org/licenses/by-sa/3.0/legalcode}{\ccbysa}\hspace{.1cm}
+    \raisebox{-.075cm}{\href{https://git.adjemian.eu/stepan/economic-calculus}{\includegraphics[scale=.1]{../../img/gitlab.png}}}\enspace
+    \href{https://git.adjemian.eu/stepan/economic-calculus/-/blob/\HEAD/td/1/correction.tex}{\gitrevision}\enspace\today
+  }\hspace{1cm}}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{caption}[numbered]
+
+\NewEnviron{notes}{\justifying\tiny\begin{spacing}{1.0}\BODY\vfill\pagebreak\end{spacing}}
+
+\newenvironment{exercise}[1]
+{\bgroup \small\begin{block}{Ex. #1}}
+  {\end{block}\egroup}
+
+\newenvironment{defn}[1]
+{\bgroup \small\begin{block}{Définition. #1}}
+  {\end{block}\egroup}
+
+\newenvironment{exemple}[1]
+{\bgroup \small\begin{block}{Exemple. #1}}
+  {\end{block}\egroup}
+
+
+\begin{document}
+
+\title{Calcul Économique\\\small{Éléments de correction du TD 1}}
+\author[S. Adjemian]{Stéphane Adjemian}
+\institute{\texttt{stephane.adjemian@univ-lemans.fr}} \date{Octobre 2021}
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 1}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+    
+  \item Montrons que $P\lor P \Leftrightarrow P$, c'est-à-dire que la disjonction est idempotente~:\newline
+    \begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|cc|c|}
+        \hline
+        $P$ & $P\lor P$ & $P\lor P \Leftrightarrow P$\\ \hline
+        V & V & V \\
+        F & F & V \\
+        \hline\hline
+      \end{tabular}
+      \label{tab:or:idempotence}
+    \end{table}
+
+    \bigskip
+    
+  Si $P$ est vraie, alors $P\lor P$ est vraie quand $P$ est vraie et fausse
+  quand $P$ est fausse. Ainsi la disjonction de $P$ avec lui même a toujours la
+  même valeur de vérité que $P$ et les deux propositions sont donc équivalentes.\newline
+
+  \item Montrons que $P\land P \Leftrightarrow P$, c'est-à-dire que la conjonction est idempotente~:\newline
+    \begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|cc|c|}
+        \hline
+        $P$ & $P\lor P$ & $P\land P \Leftrightarrow P$\\ \hline
+        V & V & V \\
+        F & F & V \\
+        \hline\hline
+      \end{tabular}
+      \caption{Idempotence de la conjonction}
+      \label{tab:and:idempotence}
+    \end{table}
+
+    \bigskip
+    
+  Si $P$ est vraie, alors $P\land P$ est vraie quand $P$ est vraie et fausse
+  quand $P$ est fausse. Ainsi la conjonction de $P$ avec lui même a toujours la
+  même valeur de vérité que $P$ et les deux propositions sont donc équivalentes.
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 2}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+    
+  \item Montrons que la conjonction est commutative (on se souvient qu'une conjonction est vraie si et seulement si les deux propositions sont vraies)~:
+    \begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|cc|cc|}
+        \hline
+        $P$ & $Q$ & $P \land Q$ & $Q \land P$\\ \hline
+        V & V & V & V\\
+        V & F & F & F\\
+        F & V & F & F\\
+        F & F & F & F \\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+    On observe que les troisième et quatrième colonnes ont toujours
+    la même valeur sur chaque ligne, les deux propositions associées
+    $P \land Q$ et $Q \land P$ sont donc équivalentes.\qed\newline
+
+    \item Montrons que la disjonction est commutative (on se souvient qu'une disjonction est vraie si et seulement si au moins une des deux propositions est vraie)~:
+    \begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|cc|cc|}
+        \hline
+        $P$ & $Q$ & $P \lor Q$ & $Q \lor P$\\ \hline
+        V & V & V & V\\
+        V & F & V & V\\
+        F & V & V & V\\
+        F & F & F & F \\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+    On observe que les troisième et quatrième colonnes ont toujours
+    la même valeur sur chaque ligne, les deux propositions associées
+    $P \lor Q$ et $Q \lor P$ sont donc équivalentes.\qed\newline
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 2 (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+    
+  \item Montrons que la conjonction est associative, c'est-à-dire que $(P\land Q)\land R \Leftrightarrow P\land (Q\land R)$~:\newline
+    \begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|ccc|cgcg|}
+        \hline
+        $P$ & $Q$ & $R$ & $P\land Q$ & $(P\land Q)\land R$ & $Q\land R$ & $P \land (Q \land R)$ \\ \hline
+        V & V & V & V & V & V & V\\
+        V & V & F & V & F & F & F\\
+        V & F & V & F & F & F & F\\
+        V & F & F & F & F & F & F\\
+        F & V & V & F & F & V & F\\
+        F & V & F & F & F & F & F\\
+        F & F & V & F & F & F & F\\
+        F & F & F & F & F & F & F\\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+
+    \bigskip
+    
+    On note que la cinquième et la septième colonnes sont identiques, d'où
+    l'équivalence des propositions $(P\land Q)\land R$ et $P\land (Q\land R)$.\qed\newline
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 2 (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+    
+  \item Montrons que la disjonction est associative, c'est-à-dire que $(P\lor Q)\lor R \Leftrightarrow P\lor (Q\lor R)$~:\newline
+    \begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|ccc|cgcg|}
+        \hline
+        $P$ & $Q$ & $R$ & $P\lor Q$ & $(P\lor Q)\lor R$ & $Q\lor R$ & $P \lor (Q \lor R)$ \\ \hline
+        V & V & V & V & V & V & V\\
+        V & V & F & V & V & V & V\\
+        V & F & V & V & V & V & V\\
+        V & F & F & V & V & F & V\\
+        F & V & V & V & V & V & V\\
+        F & V & F & V & V & V & V\\
+        F & F & V & F & V & V & V\\
+        F & F & F & F & F & F & F\\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+
+    \bigskip
+    
+    On note que la cinquième et la septième colonnes sont identiques, d'où
+    l'équivalence des propositions $(P\lor Q)\lor R$ et $P\lor (Q\lor R)$.\qed\newline
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 2 (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+    
+  \item Montrons que la disjonction est distributive par rapport à la conjonction, c'est-à-dire que $(P\land Q)\lor R \Leftrightarrow (P\lor R) \land (Q\lor R)$~:\newline
+  \begin{table}[H]
+    \centering
+    \begin{tabular}[H]{|ccc|cgccg|}
+      \hline
+      $P$ & $Q$ & $R$ & $P\land Q$ & $(P\land Q)\lor R$ & $P\lor R$ & $Q \lor R$ & $(P\lor R)\land (Q \lor R)$ \\ \hline
+      V & V & V & V & V & V & V & V \\
+      V & V & F & V & V & V & V & V \\
+      V & F & V & F & V & V & V & V \\
+      V & F & F & F & F & V & F & F \\
+      F & V & V & F & V & V & V & V \\
+      F & V & F & F & F & F & V & F \\
+      F & F & V & F & V & V & V & V \\
+      F & F & F & F & F & F & F & F \\
+      \hline\hline
+    \end{tabular}
+  \end{table}
+
+  \bigskip
+
+  On note que la cinquième et huitième colonnes sont identiques, les propositions $(P\land Q)\lor R$ et $(P\lor R) \land (Q\lor R)$ sont donc équivalentes.\qed 
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 2 (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+    
+  \item Montrons que la conjonction est distributive par rapport à la disjonction, c'est-à-dire que $(P\lor Q)\land R \Leftrightarrow (P\land R) \lor (Q\land R)$~:\newline
+  \begin{table}[H]
+    \centering
+    \begin{tabular}[H]{|ccc|cgccg|}
+      \hline
+      $P$ & $Q$ & $R$ & $P\lor Q$ & $(P\lor Q)\land R$ & $P\land R$ & $Q \land R$ & $(P\land R)\lor (Q \land R)$ \\ \hline
+      V & V & V & V & V & V & V & V \\
+      V & V & F & V & F & F & F & F \\
+      V & F & V & V & V & V & F & V \\
+      V & F & F & V & F & F & F & F \\
+      F & V & V & V & V & F & V & V \\
+      F & V & F & V & F & F & F & F \\
+      F & F & V & F & F & F & F & F \\
+      F & F & F & F & F & F & F & F \\
+      \hline\hline
+    \end{tabular}
+  \end{table}
+
+  \bigskip
+
+  On note que la cinquième et huitième colonnes sont identiques, les propositions $(P\land Q)\lor R$ et $(P\lor R) \land (Q\lor R)$ sont donc équivalentes.\qed 
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 3}
+  \fontsize{8}{10}\selectfont
+    
+  Montrons que l'implication logique est transitive, c'es-à-dire que~:
+    \[
+      ((P \Rightarrow Q) \land (Q \Rightarrow R)) \Rightarrow (P \Rightarrow R)
+    \]
+    \fontsize{4}{5}\selectfont
+    \begin{table}[H]
+    \begin{tabular}[H]{|ccc|ccccg|}
+      \hline
+      $P$ & $Q$ & $R$ & $P\Rightarrow Q$ & $Q\Rightarrow R$ & $(P\Rightarrow Q) \land (Q\Rightarrow R)$ & $P\Rightarrow R$ & $((P\Rightarrow Q) \land (Q\Rightarrow R))\Rightarrow (P\Rightarrow R)$\\ \hline
+      V & V & V & V & V & V & V & V \\
+      V & V & F & V & F & F & F & V \\
+      V & F & V & F & V & F & V & V \\
+      V & F & F & F & V & F & F & V \\
+      F & V & V & V & V & V & V & V \\
+      F & V & F & V & F & F & V & V \\
+      F & F & V & V & V & V & V & V \\
+      F & F & F & V & V & V & V & V \\
+      \hline\hline
+    \end{tabular}
+  \end{table}
+  \fontsize{8}{10}\selectfont
+  \bigskip
+  {\tiny \textdbend} Les colonnes 6 et 7 sont différentes, $(P \Rightarrow Q) \land (Q \Rightarrow R)$ et $P \Rightarrow R$ ne sont donc pas des propositions équivalentes.\newline
+  
+  $(P \Rightarrow Q) \land (Q \Rightarrow R)$ est une condition suffisante pour $P \Rightarrow R$, mais il ne s'agit pas d'une condition nécessaire.\newline
+
+  On obtient la dernière colonne en utilisant la définiton de l'implication logique.
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 4}
+  \fontsize{8}{10}\selectfont
+    
+  Montrons que l'on peut exprimer l'équivalence sous la forme de la conjonction de deux implcations, c'est-à-dire que pour deux propositions $P$ et $Q$ on a~:
+  \[
+    (P \Leftrightarrow Q) \Leftrightarrow (P \Rightarrow Q) \land (Q
+    \Rightarrow P)
+  \]
+
+  \begin{table}[H]
+    \begin{tabular}[H]{|cc|gccg|}
+      \hline
+      $P$ & $Q$ & $P\Leftrightarrow Q$ & $P\Rightarrow Q$ & $Q \Rightarrow P$ & $(P\Rightarrow Q) \land (Q \Rightarrow P)$ \\ \hline
+      V & V & V & V & V & V \\
+      V & F & F & F & V & F \\
+      F & V & F & V & F & F \\
+      F & F & V & V & V & V \\
+      \hline\hline
+    \end{tabular}
+  \end{table}
+
+  \bigskip
+
+  Puisque les colonnes 3 et 6 ont les mêmes valeurs de vérité sur
+  chaque ligne les propositions $P\Leftrightarrow Q$ et
+  $(P\Rightarrow Q) \land (Q \Rightarrow P)$ sont équivalentes.\qed
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 5}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Notons $P_n$ la proposition « $10^n$ est divisible par 9 » (avec $n\in\mathbb N$).\newline
+
+  \item Montrons que la proposition $P_n \Rightarrow P_{n+1}$ est vraie.\newline
+
+  \item Si $P_n$ alors il existe $k\in \mathbb N$ tel que $10^n+1 = 9k$.\newline
+
+  \item Notons qu'il est possible d'écrire $P_{n+1}$ en fonction de $P_n$. En effet, on a~:
+    \[
+      \begin{split}
+        10^{n+1}+1 &= 10\left(10^n+1\right)-10+1\\
+        &= 10\left(10^n+1\right)-9
+      \end{split}
+    \]
+  \item Si $P_n$ alors on sait que l'on peut trouver un entier $k$ tel que l'on puisse remplacer $10^n+1$ par $9k$, et donc~:
+    \[
+      10^{n+1}+1 = 9 (10k-1)
+    \]
+  
+  \item $10^{n+1}+1$ est donc nécessairement divisible par 9.\newline
+
+  \item[\textdbend] $P_n \Rightarrow P_{n+1}$ est une proposition vraie, pourtant $P_n$ et $P_{n+1}$ sont des propositions fausses (essayer avec $n=0$).
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 6}
+  \framesubtitle{$\sum_{i=1}^n i$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Notons $P_n$ la proposition $\sum_{i=1}^n i = \frac{n(n+1)}{2}$.\newline
+
+  \item $P_1$ est vraie, en effet on a bien $\frac{1 \times (1+1)}{2} = 1$\newline
+
+  \item Supposons que $P_n$ est une proposition vraie et montrons que $P_{n+1}$ est vraie, c'est-à-dire  que l'on doit avoir~:
+    \[
+      \sum_{i=1}^{n+1} i = \frac{(n+1)(n+2)}{2}
+    \]
+
+  \item On exprime la somme jusqu'à $n+1$ en fonction de la somme jusqu'à $n$:
+    \[
+      \sum_{i=1}^{n+1} i = \sum_{i=1}^{n} i + (n+1)
+    \]
+
+  \item On utilise $P_n$ (supposée vraie)~:
+    \[
+        \sum_{i=1}^{n+1} i = \frac{n(n+1)}{2} + (n+1)
+        = \frac{n(n+1)+2(n+1)}{2}
+        = \frac{(n+1)(n+2)}{2}
+    \]
+
+  \item $P_{n+1}$ est donc nécessairement vraie si $P_{n}$ est vraie.\newline
+
+  \item $P_n$ est vraie pour tout $n\in\mathbb N$.
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 6}
+  \framesubtitle{$\sum_{i=1}^n i^2$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Notons $P_n$ la proposition $\sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}$.\newline
+
+  \item $P_1$ est vraie, en effet on a bien $\frac{1 \times (1+1) \times (2\times 1 + 1)}{6} = 1$\newline
+
+  \item Supposons que $P_n$ est une proposition vraie et montrons que $P_{n+1}$ est vraie, c'est-à-dire  que l'on doit avoir~:
+    \[
+      \sum_{i=1}^{n+1} i = \frac{(n+1)(n+2)(2n+3)}{6}
+    \]
+
+  \item On exprime la somme jusqu'à $n+1$ en fonction de la somme jusqu'à $n$:
+    \[
+      \sum_{i=1}^{n+1} i^2 = \sum_{i=1}^{n} i^2 + (n+1)^2
+    \]
+
+  \item On utilise $P_n$ (supposée vraie)~:
+    \[
+      \begin{split}
+        \sum_{i=1}^{n+1} i^2 &= \frac{n(n+1)(2n+1)}{6} + (n+1)^2\\
+        &= \frac{(n+1)\left[n(2n+1)+6(n+1)\right]}{6}
+      \end{split}
+    \]
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 6}
+  \framesubtitle{$\sum_{i=1}^n i^2$ (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item On fait apparaître $(n+2)$ dans le dernier facteur~:
+    \[
+      \begin{split}
+        \sum_{i=1}^{n+1} i^2 &= \frac{(n+1)\left[(n+2)(2n+1){\red -2(2n+1)}+6(n+2){\red-6}\right]}{6}\\
+        &= \frac{(n+1)\left[(n+2)(2n+7){\red -4n-8}\right]}{6}\\
+        &= \frac{(n+1)\left[(n+2)(2n+7)-4(n+2)\right]}{6}\\
+        &= \frac{(n+1)(n+2)(2n+3)}{6}\\
+      \end{split}
+    \]
+
+  \item $P_{n+1}$ est donc nécessairement vraie si $P_{n}$ est vraie.\newline
+
+  \item $P_n$ est vraie pour tout $n\in\mathbb N$.
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 6}
+  \framesubtitle{$\sum_{i=1}^n x^{i-1}$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Notons $P_n$ la proposition $\sum_{i=1}^n x^{i-1} = \frac{1-x^n}{1-x}$ pour $x\neq 0$.\newline
+
+  \item $P_1$ est vraie, en effet on a bien $\frac{1-x}{1-x} = 1^0$\newline
+
+  \item Supposons que $P_n$ est une proposition vraie et montrons que $P_{n+1}$ est vraie, c'est-à-dire  que l'on doit avoir~:
+    \[
+      \sum_{i=1}^{n+1} x^{i-1} = \frac{1-x^{n+1}}{1-x}
+    \]
+
+  \item On exprime la somme jusqu'à $n+1$ en fonction de la somme jusqu'à $n$:
+    \[
+      \sum_{i=1}^{n+1} x^{i-1} = \sum_{i=1}^{n} x^{i-1} + x^n
+    \]
+
+  \item On utilise $P_n$ (supposée vraie)~:
+    \[
+        \sum_{i=1}^{n+1} x^{i-1} = \frac{1-x^n}{1-x} + x^n = \frac{1-x^n+(1-x)x^n}{1-x} = \frac{1-x^{n+1}}{1-x}
+    \]
+
+  \item $P_{n+1}$ est donc nécessairement vraie si $P_{n}$ est vraie.\newline
+
+  \item $P_n$ est vraie pour tout $n\in\mathbb N$.
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 7}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item $A\cap B$ est l'ensemble des multiples de 2 et 3~:
+    \[
+      A = \left\{2, 4, {\red 6}, 8, 10, {\red 12}, 14, 16, {\red 18}, 20, \ldots\right\}
+    \]
+    \[
+      B = \left\{3, {\red 6}, 9, {\red 12}, 15, {\red 18}, 21, \ldots\right\}
+    \]
+    \[
+      \begin{split}
+        A\cap B &= \left\{6, 12, 18, \ldots\right\}\\
+        &= \left\{x\in\mathbb N | x\text{ est un multiple de 6}\right\} = C
+      \end{split}
+    \]
+
+  \item $A \cap C = C$ car $C \subset A$.\newline
+
+  \item $A \cup C = A$ car $C \subset A$.\newline
+
+  \item $B \cup C = B$ car $C \subset B$.\newline
+
+  \item $C \cap D$  est l'ensemble des multiples de 6 et 8 :
+    \[
+      C = \left\{6, 12, 18, {\red 24}, 30, 36, 42, {\red 48}, 54, 60, 66, {\red 72}, \ldots\right\}
+    \]
+    \[
+      D = \left\{8, 16, {\red 24}, 32, 40, {\red 48}, 56, 64, {\red 72}, 80, 88, {\red 96}, \ldots\right\}
+    \]
+    \[
+      C\cap D = \left\{24, 48, 72, \ldots\right\}
+    \]
+     
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 9}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item $A\times (B\cup C) = \{a,b\}\times\{1,3,4,5\}$
+    \[
+      \begin{split}
+        A\times (B\cup C) = \bigl\{ &(a, 1), (a,3), (a, 4), (a, 5)\\
+        &(b, 1), (b,3), (b, 4), (b, 5)\bigr\}
+      \end{split}
+    \]
+
+  \item On a~:
+    \[
+      A\times B = \bigl\{ (a, 1), (a,3), (b, 1), (b,3)\bigr\}
+    \]
+    et
+    \[
+      A\times C = \bigl\{ (a, 4), (a,5), (b, 4), (b,5)\bigr\}
+    \]
+    puis~:
+    \[
+      \begin{split}
+        (A\times B)\cup(A\times C) &= \bigl\{(a, 1), (a,3), (a, 4), (a, 5), (b, 1), (b,3), (b, 4), (b, 5)\bigr\}\\
+        &= A\times (B\cup C)
+      \end{split}
+    \]
+    $\rightarrow$ Distributivité du produit cartésien par rapport à l'union.  
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 9 (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Notons que $B\cap C = \emptyset$ est un ensemble vide, le produit cartésien d'un ensemble avec l'ensemble vide est un ensemble vide, $A\times (B\cap C) = \emptyset$.\newline
+
+  \item Nous avons déjà calculé $A\times B$ et $A\times C$, qui n'ont aucun élément commun. On a donc
+    $(A\times B)\cap(A\times C) = \emptyset$.
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 10}
+  \fontsize{8}{10}\selectfont
+
+
+  On utilise~:
+    \[
+      \textrm{Card}(A \cup B) = \textrm{Card}(A) + \textrm{Card}(B) - \textrm{Card}(A\cap B) 
+    \]
+
+    En remplaçant les valeurs fournies dans l'ennoncé, on obtient~:
+    \[
+      \textrm{Card}(A \cup B) = 20+15-6 = 29
+    \]
+    
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 13}
+  \fontsize{8}{10}\selectfont
+
+
+  \begin{itemize}
+  \item L'ensemble (relation binaire) $\mathcal E_1$ n'est pas une fonction car l'élément 2 possède deux images distinctes (8 et 3).\newline
+  \item L'ensemble $\mathcal E_2$ n'est pas un ensemble car chaque élément dans l'ensemble de départ possède une infinité d'images.\newline
+  \item L'ensemble $\mathcal E_3$ est une fonction (non bijective).\newline
+  \item L'ensemble $\mathcal E_4$ est une fonction (non bijective).
+    
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 14}
+  \fontsize{8}{10}\selectfont
+
+
+  Nous avons~:
+  \[
+    \begin{split}
+      f(x+h) &= (x+h)^2 + 2(x+h) + 4\\
+      &= x^2+2hx+h^2+2x+2h+4\\
+      &=x^2+2x+4+2hx+2h
+    \end{split}
+  \]
+  et donc~:
+  \[
+    f(x+h)-f(x) = 2hx + 2h 
+  \]
+  puis~:
+  \[
+    \frac{f(x+h)-f(x)}{h} = 2x + 2
+  \]
+
+  \bigskip
+  
+  Ce ratio représente la pente de la corde de la fonction entre les points $(x, f(x))$ et $(x+h, f(x+h))$. Plus tard on fera tendre $h$ vers zéro et la limite du ratio correspondra à la pente de la tangente de la fonction au point $x$ (la dérivée).
+    
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 15}
+  \fontsize{8}{10}\selectfont
+
+  Pour qu'une fonction $f$ soit injective il faut et il suffit que deux éléments distincts dans l'ensemble de départ aient des images distinctes par $f$.\newline
+
+  Ce n'est clairement pas le cas de cette fonction, à cause du terme en $x^2$ (parabole). Par exemple $x=1$ et $x=-2$ ont la même image par $f$ (0). Ces deux valeurs de $x$ sont les racines (évidentes) du polynôme d'ordre 2. 
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 16}
+  \fontsize{8}{10}\selectfont
+
+  \begin{enumerate}
+  \item[i] On a~:
+    \[
+      h(x) = g(f(x)) = 2 ( {\red x + 2} ) + 5 = 2x+9
+    \]
+    et
+    \[
+      m(x) = f(g(x)) = ({\red 2x+5}) + 2 = 2x+ 7 
+    \]
+    on note que ces deux fonctions sont différentes, la composition de fonctions n'est généralement pas commutative.\newline
+    
+  \item[ii] Les fonctions réciproques sont~:
+    \[
+      f^{-1}(x) = x - 2 \quad\text{ et }\quad g^{-1}(x) = \frac{1}{2}x - \frac{5}{2}
+    \]
+
+  \item[iii] On a~:
+    \[
+      h^{-1}(x) = \frac{x}{2}-\frac{9}{2} \quad\text{ et }\quad m^{-1}(x) = \frac{x}{2}-\frac{7}{2}
+    \]
+
+  \item[iv] On a~:
+    \[
+      f^{-1}\left(g^{-1}(x)\right) = \frac{x}{2}-\frac{9}{2}  \quad\text{ et }\quad g^{-1}\left(f^{-1}(x)\right) = \frac{x}{2}-\frac{7}{2}
+    \]
+  \end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 17}
+  \fontsize{8}{10}\selectfont
+
+  \begin{enumerate}
+  \item $\exists x\in\mathbb R$ tel que $f(x)\neq 0$,\newline
+  \item $\forall x\in\mathbb R, f(x)\neq 0$,\newline
+  \item $\exists x\in\mathbb R$ tel que $f(x)\neq x$,\newline
+  \item $\forall (x,y)\in\mathbb R^2$ tel que $x<y$, $f(x)<f(y)$, et\newline
+  \item $\exists (x,y)\in\mathbb R^2$ tel que $x<y$ et $f(x)\geq f(y)$.
+  \end{enumerate}
+  
+\end{frame}
+
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+% ispell-check-comments: exclusive
+% ispell-local-dictionary: "francais"
+%%% TeX-master: t
+%%% TeX-master: t
+%%% TeX-master: t
+%%% End:

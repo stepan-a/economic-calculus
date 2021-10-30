@@ -1,6 +1,6 @@
 \documentclass[9pt,professionalfonts,handout,hyperref]{beamer}
 \mode<presentation>
-\usetheme{Frankfurt} 
+\usetheme{Frankfurt}
 \usecolortheme{seahorse}
 \usepackage[french]{babel}
 \usepackage{times}
@@ -14,7 +14,7 @@
 
 \title{Calcul Economique 1\\Fiche de TD 3}
 \author{F.~Karamé}
-\date{Année universitaire 2020-2021}
+\date{Année universitaire 2021-2022}
 \subject{Talks}
 
 \setbeamertemplate{navigation symbols}{}
@@ -22,81 +22,79 @@
 \begin{document}
 
 \begin{frame}
-	\titlepage
-	%\centering{\includegraphics[scale=.3]{../../lemanslogofac.jpg}}
-	
+  \titlepage
 \end{frame}
 
 \section{Exercice 1}
 
-%\exercice{1} Soit la suite de terme général $u_n = u_{n-1} + 1$ pour
-%$n \geq 1$, avec la condition initiale $u_1 = 1$. \textbf{(1)} Donner
-%une expression de $u_n$ en fonction du rang $n$ et de sa condition
-%initiale. \textbf{(2)} Soit la suite $v_n = \sum_{i=1}^n u_i$ pour
-%$n\geq 1$. Quelle est la condition initiale de cette suite ?
-%Déterminer $v_n$.
+% \exercice{1} Soit la suite de terme général $u_n = u_{n-1} + 1$ pour
+% $n \geq 1$, avec la condition initiale $u_1 = 1$. \textbf{(1)} Donner
+% une expression de $u_n$ en fonction du rang $n$ et de sa condition
+% initiale. \textbf{(2)} Soit la suite $v_n = \sum_{i=1}^n u_i$ pour
+% $n\geq 1$. Quelle est la condition initiale de cette suite ?
+% Déterminer $v_n$.
 
 \begin{frame}
 
-\[
-\begin{cases}
-u_n = u_{n-1} + 1~~\alert{\forall n \ge 2}\\
-u_1 = 1
-\end{cases}
-\]
+    \[
+      \begin{cases}
+        u_n = u_{n-1} + 1~~\alert{\forall n \ge 2}\\
+        u_1 = 1
+      \end{cases}
+    \]
 
-\pause Exprimons $u_n$ en fonction de $n$ et de sa condition initiale.\newline 
+    \pause Exprimons $u_n$ en fonction de $n$ et de sa condition initiale.\newline
 
-\pause On passe d'une expression du type "chaîne de nombres" $u_n = f(u_{n-1})$ \pause à une expression du type $u_n = g(n,u_1)$ uniquement en fonction du rang et de la condition initiale.\newline 
+    \pause On passe d'une expression du type "chaîne de nombres" $u_n = f(u_{n-1})$ \pause à une expression du type $u_n = g(n,u_1)$ uniquement en fonction du rang et de la condition initiale.\newline
 
-\pause La première expression signifie :
+    \pause La première expression signifie :
 
-\[\begin{aligned}
-u_n &= {\color{blue}{{u_{n-1}}}} + 1\\
-\pause {\color{blue}{u_{n-1}}} &= {\color{green}{u_{n-2}}} + 1\\
-\pause {\color{green}{u_{n-2}}} &= u_{n-3} + 1\\
-\pause \dots\\
-\pause u_{3} &= {\color{red}{u_{2}}} + 1\\
-\pause {\color{red}{u_{2}}} &= u_{1} + 1
-\end{aligned}\]
+    \[\begin{aligned}
+        u_n &= {\color{blue}{{u_{n-1}}}} + 1\\
+        \pause {\color{blue}{u_{n-1}}} &= {\color{green}{u_{n-2}}} + 1\\
+        \pause {\color{green}{u_{n-2}}} &= u_{n-3} + 1\\
+        \pause \dots\\
+        \pause u_{3} &= {\color{red}{u_{2}}} + 1\\
+        \pause {\color{red}{u_{2}}} &= u_{1} + 1
+      \end{aligned}\]
 
-\pause On réinjecte les expressions inférieures en cascade dans la première expression.
+    \pause On réinjecte les expressions inférieures en cascade dans la première expression.
 
-\end{frame}
+  \end{frame}
 
-\begin{frame}
-	
-\[\begin{aligned}
-u_n &= u_{n-1} + 1\\
-u_{n-1} &= u_{n-2} + 1\\
-\pause \Rightarrow u_n &= (u_{n-2} + 1) + 1 \pause = u_{n-2} + 2
-\end{aligned}\]
-	
-\pause Comme $u_{n-2} = u_{n-3} + 1$ : 
+  \begin{frame}
 
-\[\begin{aligned}
-\pause u_n 
-& = u_{n-2} + 2\\
-\pause & = (u_{n-3} + 1) + 2\\
-\pause & = u_{n-3} + 3
-\end{aligned}\]
+    \[\begin{aligned}
+        u_n &= u_{n-1} + 1\\
+        u_{n-1} &= u_{n-2} + 1\\
+        \pause \Rightarrow u_n &= (u_{n-2} + 1) + 1 \pause = u_{n-2} + 2
+      \end{aligned}\]
 
-\pause Comme $u_{n-3} = u_{n-4} + 1$ : 
+    \pause Comme $u_{n-2} = u_{n-3} + 1$ :
 
-\[\begin{aligned}
-\pause u_n &= u_{n-3} + 3\\
-\pause & = (u_{n-4} + 1) + 3\\
-\pause & = u_{n-4} + 4
-\end{aligned}\]
+    \[\begin{aligned}
+        \pause u_n
+        & = u_{n-2} + 2\\
+        \pause & = (u_{n-3} + 1) + 2\\
+        \pause & = u_{n-3} + 3
+      \end{aligned}\]
 
-\pause Et ainsi de suite.
+    \pause Comme $u_{n-3} = u_{n-4} + 1$ :
 
-\pause Il faut remarquer les relations entre les nombres et les indices...
- 	
-\end{frame}
+    \[\begin{aligned}
+        \pause u_n &= u_{n-3} + 3\\
+        \pause & = (u_{n-4} + 1) + 3\\
+        \pause & = u_{n-4} + 4
+      \end{aligned}\]
 
-\begin{frame}
-	
+    \pause Et ainsi de suite.
+
+    \pause Il faut remarquer les relations entre les nombres et les indices...
+
+  \end{frame}
+
+  \begin{frame}
+
 	\[\begin{aligned}
 	u_{\alert{n}} &= u_{\alert{n-1}} + \alert{1}\\
 	u_{\alert{n}} &= u_{\alert{n-2}} + \alert{2}\\
@@ -108,37 +106,37 @@ u_{n-1} &= u_{n-2} + 1\\
 
 \pause de sorte que $1+n-1 = n$ aussi...
 
-\bigskip 
-\pause Il vient donc : 
+\bigskip
+\pause Il vient donc :
 
 \[\begin{aligned}
-u_n 
+u_n
 &= u_{1} + (n-1)\\
 \pause & = 1+n-1 \\
-\pause & = n	
+\pause & = n
 \end{aligned}\]
 
-\bigskip 
+\bigskip
 \pause Conclusion : $u_n = n$.
-		
-\end{frame}
-
-\begin{frame}
-
-On définit $v_n = \sum_{i=1}^n u_i$ pour $n\geq 1$.\newline  
-
-\pause Rappel : $v_{\alert{n}} = \sum_{i=1}^{\alert{n}} u_i = \pause u_1 \pause + u_2 \pause + u_3 \pause+ \dots + u_{n-1}  \pause + u_{\alert{n}}$. \newline  
-
-La condition initiale est $v_{\alert{1}} = \pause \sum_{i=1}^{\alert{1}} u_i \pause = u_{\alert{1}} \pause = 1$. \newline 
 
 \end{frame}
 
 \begin{frame}
 
-Déterminons $v_n$ : \pause si $u_n=n$, alors $u_i\pause =i$ \pause donc \newline 
+On définit $v_n = \sum_{i=1}^n u_i$ pour $n\geq 1$.\newline
+
+\pause Rappel : $v_{\alert{n}} = \sum_{i=1}^{\alert{n}} u_i = \pause u_1 \pause + u_2 \pause + u_3 \pause+ \dots + u_{n-1}  \pause + u_{\alert{n}}$. \newline
+
+La condition initiale est $v_{\alert{1}} = \pause \sum_{i=1}^{\alert{1}} u_i \pause = u_{\alert{1}} \pause = 1$. \newline
+
+\end{frame}
+
+\begin{frame}
+
+Déterminons $v_n$ : \pause si $u_n=n$, alors $u_i\pause =i$ \pause donc \newline
 
 \[\begin{aligned}
-v_n 
+v_n
 \pause &= \sum_{i=1}^n u_i\\
 \pause &= \sum_{i=1}^n i\\
 \pause &= 1+2+3+\dots+n\\
@@ -164,105 +162,105 @@ v_n
 %
 
 \begin{frame}
-	
+
 	\[
 	\begin{cases}
 	u_n = \rho u_{n-1} ~~\alert{\forall n \ge 2}\\
 	u_1 = 1
 	\end{cases}
 	\]
-	
-\pause 	$u_n$ en fonction du rang $n$ et de sa condition initiale.\newline 
-	
-\pause 	On passe d'une expression du type $u_n = f(u_{n-1})$ à une expression du type $u_n = g(n,u_1)$.\newline 
-	
+
+\pause 	$u_n$ en fonction du rang $n$ et de sa condition initiale.\newline
+
+\pause 	On passe d'une expression du type $u_n = f(u_{n-1})$ à une expression du type $u_n = g(n,u_1)$.\newline
+
 \pause 	La première expression signifie :
-	
+
 	\[\begin{aligned}
 	u_n &= {\color{blue}{{\rho u_{n-1}}}} \\
 \pause 	{\color{blue}{u_{n-1}}} &= {\color{green}{\rho u_{n-2}}} \\
 \pause 	{\color{green}{u_{n-2}}} &= \rho u_{n-3} \\
 \pause 	\dots\\
 \pause 	u_{3} &= {\color{red}{\rho u_{2}}}\\
-\pause 	{\color{red}{u_{2}}} &= \rho u_{1} 
+\pause 	{\color{red}{u_{2}}} &= \rho u_{1}
 	\end{aligned}\]
-	
+
 \pause On réinjecte les expressions inférieures en cascade dans la première expression.
-	
+
 \end{frame}
 
 \begin{frame}
-	
+
 	\[\begin{aligned}
 	u_n &= \rho u_{n-1}\\
 	u_{n-1} &= \rho u_{n-2} \\
 	\Rightarrow u_n &= \pause \rho (\rho u_{n-2}) \pause = \rho^2 u_{n-2}
 	\end{aligned}\]
-	
-\pause 	Comme $u_{n-2} = \rho u_{n-3}$ : 
-	
+
+\pause 	Comme $u_{n-2} = \rho u_{n-3}$ :
+
 	\[\begin{aligned}
 \pause 	u_n &= \rho^2 u_{n-2}\\
 \pause 	& = \rho^2 \pause (\rho u_{n-3})\\
 \pause 	& = \rho^3 u_{n-3}
 	\end{aligned}\]
-	
-\pause 	Comme $u_{n-3} = \rho  u_{n-4}$ : 
-	
+
+\pause 	Comme $u_{n-3} = \rho  u_{n-4}$ :
+
 	\[\begin{aligned}
 \pause 	u_n &= \rho^3 u_{n-3}\\
 \pause 	& = \rho^3 (\rho u_{n-4})\\
 \pause 	& = \rho^4 u_{n-4}
 	\end{aligned}\]
-	
+
 \pause 	Et ainsi de suite.
-	
+
 \pause 	Il faut remarquer les relations entre les nombres et les indices...
-	
+
 \end{frame}
 
 \begin{frame}
-	
+
 	\[\begin{aligned}
 	u_{\alert{n}} &= \rho^{\alert{1}} u_{\alert{n-1}}\\
 	u_{\alert{n}} &= \rho^{\alert{2}} u_{\alert{n-2}}\\
 	u_{\alert{n}} &= \rho^{\alert{3}} u_{\alert{n-3}}\\
 	u_{\alert{n}} &= \rho^{\alert{4}} u_{\alert{n-4}}\\
 	\dots \\
-	u_{\alert{n}} &= \pause \rho^{\alert{n-1}} \pause u_{\alert{1}} 
+	u_{\alert{n}} &= \pause \rho^{\alert{n-1}} \pause u_{\alert{1}}
 	\end{aligned}\]
-	
-	\pause de sorte que $1+n-1 = n$... \pause Il vient donc : 
-	
+
+	\pause de sorte que $1+n-1 = n$... \pause Il vient donc :
+
 	\[\begin{aligned}
-	u_n 
+	u_n
 	&= \rho^{n-1} u_{1} \\
 	\pause & = \pause \rho^{n-1} \times 1  \\
-	\pause & = \rho^{n-1}	
+	\pause & = \rho^{n-1}
 	\end{aligned}\]
-	
+
 	\bigskip \pause Conclusion : $u_n =\rho^{n-1}$.
-	
+
 \end{frame}
 
 \begin{frame}
 
-Comportement \alert{asymptotique} de $u_n =\rho^{n-1}$ en fonction de la valeur de $\rho$.\newline  
+Comportement \alert{asymptotique} de $u_n =\rho^{n-1}$ en fonction de la valeur de $\rho$.\newline
 
 \[
 \begin{cases}
-\text{si } |\rho|<1, \pause \underset{n \rightarrow +\infty}\lim \rho^{n-1}=0 
+\text{si } |\rho|<1, \pause \underset{n \rightarrow +\infty}\lim \rho^{n-1}=0
 \begin{cases}
 \pause\text{ si } \rho>0 \text{ (convergence monotone)}\\
 \pause\text{ si } \rho<0 \text{ (convergence avec oscillations)}
 \end{cases}\\
-\pause \text{si } |\rho|>1, \pause \underset{n \rightarrow +\infty}\lim \rho^{n-1} \pause = 
+\pause \text{si } |\rho|>1, \pause \underset{n \rightarrow +\infty}\lim \rho^{n-1} \pause =
 \begin{cases}
 \pause +\infty \text{ si } \rho>0 \text{ (divergence monotone)}\\
 \pause \pm\infty \text{ si } \rho<0 \text{ (divergence avec oscillations)}
 \end{cases}
 \\
-\pause \text{si } |\rho|=1, \pause \underset{n \rightarrow \infty}\lim \rho^{n-1} \pause = 
+\pause \text{si } |\rho|=1, \pause \underset{n \rightarrow \infty}\lim \rho^{n-1} \pause =
 \begin{cases}
 \pause 1 \text{ si } \rho=1 \\
 \pause \pm1 \text{ si } \rho=-1
@@ -274,7 +272,7 @@ Comportement \alert{asymptotique} de $u_n =\rho^{n-1}$ en fonction de la valeur 
 
 \begin{frame}
 
-Par exemple : \newline 
+Par exemple : \newline
 
 \[\begin{aligned}
 \begin{cases}
@@ -283,7 +281,7 @@ Par exemple : \newline
 \pause\text{ si } \rho=\frac{1}{2} : &u_1 = 1, u_2 = \frac{1}{2}, u_3 = \frac{1}{4}, \dots, 0 \\
 \pause\text{ si } \rho=-\frac{1}{2} : &u_1 = 1, u_2 = -\frac{1}{2}, u_3 =\frac{1}{4}, u_4=-\frac{1}{8}, \dots, 0
 \end{cases}\\
-\pause \text{si } |\rho|>1:~~ 
+\pause \text{si } |\rho|>1:~~
 \begin{cases}
 \pause \text{ si } \rho=2 : & u_1 = 1, u_2 =2, u_3=4, u_4=8, \dots, +\infty \\
 \pause \text{ si } \rho=-2 : &u_1=1, u_2=-2, u_3=4, u_4=-8, \dots, \pm\infty
@@ -299,16 +297,16 @@ Par exemple : \newline
 \end{frame}
 
 \begin{frame}
-	
+
 %\textbf{(3)} Dans le cas où la suite admet une limite, combien de temps faut-il pour réduire de moitié la distance à la limite ?
 
-	Posons $0<\rho<1$ pour que $u_n$ ait une limite unique. \newline 
-	
-	\pause La condition initiale est $u_1=1$ et la limite 0.\newline  
-	
-	\pause La moitié de la distance à la limite est donc $\frac{1}{2}$. \newline 
-	
-	\pause Il faut donc déterminer l'indice $n^\star$ tel que $u_{n^\star} \le \frac{1}{2}$.\pause  
+	Posons $0<\rho<1$ pour que $u_n$ ait une limite unique. \newline
+
+	\pause La condition initiale est $u_1=1$ et la limite 0.\newline
+
+	\pause La moitié de la distance à la limite est donc $\frac{1}{2}$. \newline
+
+	\pause Il faut donc déterminer l'indice $n^\star$ tel que $u_{n^\star} \le \frac{1}{2}$.\pause
 
 \[\begin{aligned}
 u_{n^\star} \le \frac{1}{2}
@@ -316,9 +314,9 @@ u_{n^\star} \le \frac{1}{2}
 \pause &\Leftrightarrow \ln(\rho^{n^\star-1}) \alert{\le} \ln(\frac{1}{2}) ~~~~~~~~~~~~~~\pause\text{ $\ln()$ est une fonction croissante}\\
 \pause &\Leftrightarrow (n^\star-1)\ln(\rho) \le \ln(\frac{1}{2}) ~~~~~~~\pause\ln(A^\alpha)=\alpha\ln(A)  \\
 \pause &\Leftrightarrow (n^\star-1) \alert{\ge} \frac{\ln(\frac{1}{2})}{\ln(\rho)} ~~~~~~~~~~~~~~~~\pause\text{ $\ln(\rho)$<0 }\\
-\pause &\Leftrightarrow n^\star \ge \frac{\ln(\frac{1}{2})}{\ln(\rho)} +1 
+\pause &\Leftrightarrow n^\star \ge \frac{\ln(\frac{1}{2})}{\ln(\rho)} +1
 \end{aligned}\]
-	
+
 \end{frame}
 
 \section{Exercice 3}
@@ -344,14 +342,14 @@ Premiers termes de la suite :
 &\dots
 \end{aligned}\]
 
-Décroissance monotone... 
+Décroissance monotone...
 
 \end{frame}
 
 \begin{frame}
 
-Il suffit d'étudier le signe de $u_{n+1} - u_n, \forall n$. 
-	
+Il suffit d'étudier le signe de $u_{n+1} - u_n, \forall n$.
+
 \[\begin{aligned}
 \begin{cases}
 u_{n+1} - u_n >0 \text{ : $u_n$ est croissante}\\
@@ -362,9 +360,9 @@ u_{n+1} - u_n <0 \text{ : $u_n$ est décroissante}
 \end{frame}
 
 \begin{frame}
-	
+
 \[\begin{aligned}
-u_{n+1} - u_n 
+u_{n+1} - u_n
 \pause &=  \frac{\alert{(n+1)}+2}{\alert{(n+1)}} \pause - \frac{\alert{n}+2}{\alert{n}}\\
 \pause &= \frac{n+3}{n+1} - \frac{n+2}{n}\\
 \pause &= \frac{\alert{n}(n+3)}{\alert{n}(n+1)} \pause - \frac{\alert{(n+1)}(n+2)}{n\alert{(n+1)}}\\
@@ -373,21 +371,21 @@ u_{n+1} - u_n
 \pause &= \frac{n^2+3n - n^2-3n-2}{n(n+1)}\\
 \pause &= \frac{-2}{n(n+1)}\pause <0 \\
 \end{aligned}\]
-	
-Donc $u_n$ est décroissante.	
-	
+
+Donc $u_n$ est décroissante.
+
 \end{frame}
 
 \begin{frame}
-	
+
 	\[\begin{aligned}
 	\underset{n \rightarrow +\infty}\lim u_n
 \pause	&= \underset{n \rightarrow +\infty}\lim \frac{n+2}{n}\\
 \pause	&= \underset{n \rightarrow +\infty}\lim (1+\frac{2}{n})\\
 \pause	&= 1+ \underset{n \rightarrow +\infty}\lim \frac{2}{n}\\
-\pause	&= 1 
+\pause	&= 1
 	\end{aligned}\]
-	
+
 \end{frame}
 
 \section{Exercice 5}
@@ -398,7 +396,7 @@ Donc $u_n$ est décroissante.
 %\bigskip
 %
 \begin{frame}
-	
+
 $$\forall n\ge 0, u_n = -n$$
 
 Premiers termes de la suite :
@@ -410,31 +408,31 @@ Premiers termes de la suite :
 \pause &\dots
 \end{aligned}\]
 
-Décroissance monotone... 
-	
+Décroissance monotone...
+
 \end{frame}
 
 \begin{frame}
-	
+
 \[\begin{aligned}
-u_{n+1} - u_n 
+u_{n+1} - u_n
 \pause &=  (\alert{-(n+1)}) \pause - (\alert{-n})\\
 \pause &= -n-1 + n\\
 \pause &= -1<0 \\
 \end{aligned}\]
-	
+
 \end{frame}
 
 \begin{frame}
-	
+
 \[\begin{aligned}
 \underset{n \rightarrow +\infty}\lim u_n
 \pause &= \underset{n \rightarrow +\infty}\lim -n\\
-\pause &= -\infty  
+\pause &= -\infty
 \end{aligned}\]
 
 La suite est divergente.
-	
+
 \end{frame}
 
 \section{Exercice 6}
@@ -445,19 +443,19 @@ La suite est divergente.
 %\bigskip
 
 \begin{frame}
-	
+
 	$$\alert{\forall n\ge 1}, ~~u_n = \frac{(-1)^{n+1}}{\alert{n}^2}$$
-	
+
 \pause $(-1)^{n+1}$ va induire une alternance de signes selon que la puissance est paire ou impaire :
 
 \[
-(-1)^{n+1} = 
+(-1)^{n+1} =
 \begin{cases}
 \pause -1 \text{ si $n$ pair et donc $n+1$ impair} \\
 \pause +1 \text{ si $n$ impair et donc $n+1$ pair}\\
 \end{cases}
 \]
-	
+
 \pause 	Premiers termes de la suite :
 \[\begin{aligned}
 \pause 	&u_1 = \frac{(-1)^{2}}{1^2} = +1 \\
@@ -466,23 +464,23 @@ La suite est divergente.
 \pause 	&u_4 = \frac{(-1)^{4+1}}{4^2} = \frac{-1}{16} \\
 &\dots
 \end{aligned}\]
-	
-\pause Alternance de signes donc non monotone... 
-	
+
+\pause Alternance de signes donc non monotone...
+
 \end{frame}
 
 \begin{frame}
-	
+
 \[\begin{aligned}
 \underset{n \rightarrow +\infty}\lim u_n
 \pause = \underset{n \rightarrow +\infty}\lim \frac{(-1)^{n+1}}{n^2}
-\pause = 
+\pause =
 \begin{cases}
 \pause \text{si $n$ pair et donc $n+1$ impair, }\pause \underset{n \rightarrow +\infty}\lim \frac{-1}{n^2} \pause = 0^{-} \\
 \pause \text{si $n$ impair et donc $n+1$ pair, }\pause \underset{n \rightarrow +\infty}\lim \frac{+1}{n^2} \pause = 0^{+}\\
-\end{cases}	
+\end{cases}
 \end{aligned}\]
-	
+
 \end{frame}
 
 \section{Exercice 7}
@@ -526,13 +524,13 @@ D(p): &\quad q = 2-p\\
 \]
 
 \[\begin{aligned}
-\pause S(p^{\star}) = D(p^{\star}) 
+\pause S(p^{\star}) = D(p^{\star})
 \pause \Leftrightarrow & 1+p^\star = 2-p^\star\\
 \pause \Leftrightarrow & 2p^\star = 1\\
 \pause \Leftrightarrow & p^\star = \frac{1}{2}\\
 \end{aligned}\]
 
-Il vient : 
+Il vient :
 
 \[\begin{aligned}
 q^{\star}=
@@ -545,7 +543,7 @@ q^{\star}=
 \end{frame}
 
 \begin{frame}
-Supposons que le marché ne soit pas	équilibré. \pause Le prix augmente si et seulement si la demande est supérieure à l'offre. \newline  
+Supposons que le marché ne soit pas	équilibré. \pause Le prix augmente si et seulement si la demande est supérieure à l'offre. \newline
 
 \pause On admet que le prix est mis à jour à l'aide de la récurrence suivante :
 \[
@@ -555,7 +553,7 @@ p_{t+1} = p_t + \alpha [D(p_t)-S(p_t)]
 Posons $\alpha>0$. \\
 \begin{itemize}
 \pause 	\item[-] Si $D(p_t)-S(p_t)>0$, le prix augmente.\\
-\pause 	\item[-] Si $D(p_t)-S(p_t)<0$, le prix diminue.\newline  
+\pause 	\item[-] Si $D(p_t)-S(p_t)<0$, le prix diminue.\newline
 \end{itemize}
 
 \end{frame}
@@ -571,7 +569,7 @@ Déterminons le point fixe de cette récurrence, le prix $\bar p = p_t = p_{t+1}
 \pause \Leftrightarrow & D(\bar p)-S(\bar p) = 0\\
 \pause \Leftrightarrow & D(\bar p)=S(\bar p)\\
 \end{aligned}\]
-	
+
 \pause \bigskip C'est la condition de détermination du prix d'équilibre $p^{\star}$. \pause Donc $$\bar p = p^{\star} = \frac{1}{2}$$
 
 \end{frame}
@@ -579,9 +577,9 @@ Déterminons le point fixe de cette récurrence, le prix $\bar p = p_t = p_{t+1}
 \begin{frame}
 
 \begin{itemize}
-\item[-]Si $p_1=p^\star$, alors on part de l'équilibre et comme c'est le point fixe, on reste à l'équilibre.\newline 
+\item[-]Si $p_1=p^\star$, alors on part de l'équilibre et comme c'est le point fixe, on reste à l'équilibre.\newline
 
-\pause \item[-]Dans le cas contraire, que se passe-t-il ? Rejoint-on l'équilibre (convergence) ou non (divergence) ? 
+\pause \item[-]Dans le cas contraire, que se passe-t-il ? Rejoint-on l'équilibre (convergence) ou non (divergence) ?
 \end{itemize}
 
 \end{frame}
@@ -589,28 +587,28 @@ Déterminons le point fixe de cette récurrence, le prix $\bar p = p_t = p_{t+1}
 \begin{frame}
 
 \[\begin{aligned}
-p_{t+1} 
+p_{t+1}
 \pause &= p_t  + \alpha \left[D(p_t)-S(p_t)\right]\\
 \pause &= p_t  + \alpha \left(2-p_t-1-p_t\right)\\
 \pause &= p_t  + \alpha \left(1-2p_t\right)\\
 \pause &= (1-2\alpha)p_t  + \alpha
 \end{aligned}\]
 
-\pause C'est une suite arithmético-géométrique ! 
+\pause C'est une suite arithmético-géométrique !
 
 \end{frame}
 
 \begin{frame}
-	
+
 \[\begin{aligned}
 &p_{t+1} = (1-2\alpha)p_t  + \alpha\\
 \pause &\color{blue}{p_{t} = (1-2\alpha)p_{t-1}  + \alpha}\\
 \pause &\color{orange}{p_{t-1} = (1-2\alpha)p_{t-2}  + \alpha}\\
 &\dots
 \end{aligned}\]
-	
-\pause Réinjectons les lignes inférieures dans l'expression de la première ligne.  
-	
+
+\pause Réinjectons les lignes inférieures dans l'expression de la première ligne.
+
 \[\begin{aligned}
 \pause &p_{t+1} = (1-2\alpha){\color{blue}{p_t}}  + \alpha\\
 \pause \Leftrightarrow &p_{t+1} = (1-2\alpha){\color{blue}{[(1-2\alpha)p_{t-1}  + \alpha]}} + \alpha\\
@@ -632,11 +630,11 @@ p_{t+1} &= (1-2\alpha)^{\alert{3}}p_{\alert{t-2}}  + \alpha[1+(1-2\alpha)+(1-2\a
 \pause &= (1-2\alpha)^{\alert{t}}p_{\alert{1}}  \pause + \alpha[1+(1-2\alpha)+(1-2\alpha)^2+(1-2\alpha)^3+\dots+(1-2\alpha)^{\alert{t-1}}]
 \end{aligned}\]
 
-\bigskip 
+\bigskip
 \pause ou en l'écrivant pour $p_t$ :
 
 \[\begin{aligned}
-p_{t} 
+p_{t}
 \pause &= (1-2\alpha)^{\alert{t-1}}p_{\alert{1}}  + \alpha[{1+(1-2\alpha)+(1-2\alpha)^2+(1-2\alpha)^3+\dots+(1-2\alpha)^{\alert{t-2}}}]
 \end{aligned}\]
 
@@ -645,7 +643,7 @@ p_{t}
 \begin{frame}
 
 \[\begin{aligned}
-p_{t} 
+p_{t}
 &= (1-2\alpha)^{{t-1}}p_{{1}}  + \alpha\alert{[\underbrace{1+(1-2\alpha)+(1-2\alpha)^2+(1-2\alpha)^3+\dots+(1-2\alpha)^{{t-2}}}_{\pause \text{somme de $(t-1)$ termes d'une suite géométrique de premier terme 1 et de raison $(1-2\alpha)$}}]}\\
 \pause &= (1-2\alpha)^{{t-1}}p_{{1}}  + \alpha \alert{\frac{1-(1-2\alpha)^{t-1}}{1-(1-2\alpha)}}\\
 \pause &= (1-2\alpha)^{{t-1}}p_{{1}}  + \alpha \frac{1-(1-2\alpha)^{t-1}}{2\alpha}\\
@@ -654,7 +652,7 @@ p_{t}
 \pause &= {\color{blue}{(1-2\alpha)^{t-1}}}\alert{(p_{{1}}-\frac{1}{2})}  + \frac{1}{2}\\
 \end{aligned}\]
 
-\pause Remarque : si $p_{{1}}=\frac{1}{2}$, alors $ \forall t, p_t=\frac{1}{2}$. \pause Donc si on part du point fixe qui est aussi l'équilibre, on reste toujours à l'équilibre. 
+\pause Remarque : si $p_{{1}}=\frac{1}{2}$, alors $ \forall t, p_t=\frac{1}{2}$. \pause Donc si on part du point fixe qui est aussi l'équilibre, on reste toujours à l'équilibre.
 
 \end{frame}
 
@@ -665,62 +663,62 @@ p_{t}
 %Quelles sont les prédictions du modèle si $\alpha$ est en dehors de
 %cet intervalle ?
 
-Question : si on ne part pas de l'équilibre (ici $p_1 \ne \bar p = \frac{1}{2}$), est-ce qu'on va y arriver (convergence) ?\newline 
+Question : si on ne part pas de l'équilibre (ici $p_1 \ne \bar p = \frac{1}{2}$), est-ce qu'on va y arriver (convergence) ?\newline
 
-\pause On étudie donc $\underset{t \rightarrow +\infty}\lim p_t$. 
+\pause On étudie donc $\underset{t \rightarrow +\infty}\lim p_t$.
 
 \[\begin{aligned}
-\underset{t \rightarrow +\infty}\lim p_{t} 
+\underset{t \rightarrow +\infty}\lim p_{t}
 \pause &= \underset{t \rightarrow +\infty}\lim [(1-2\alpha)^{t-1}(p_{{1}}-\frac{1}{2})  + \frac{1}{2}]\\
 \pause &= \frac{1}{2} + (p_{{1}}-\frac{1}{2})\underset{t \rightarrow +\infty}\lim (1-2\alpha)^{t-1}\\
 \end{aligned}\]
 
-\bigskip 
+\bigskip
 
-\pause Dépend si $\underset{t \rightarrow +\infty}\lim (1-2\alpha)^{t-1} = 0 $ \pause et donc si $|1-2\alpha|<1$. \newline 
+\pause Dépend si $\underset{t \rightarrow +\infty}\lim (1-2\alpha)^{t-1} = 0 $ \pause et donc si $|1-2\alpha|<1$. \newline
 
-\pause Si c'est le cas, alors $\underset{t \rightarrow +\infty}\lim p_{t} = \frac{1}{2} = \bar p$. 
+\pause Si c'est le cas, alors $\underset{t \rightarrow +\infty}\lim p_{t} = \frac{1}{2} = \bar p$.
 
 \end{frame}
 
 \begin{frame}
-	
+
 	%\textbf{(4)} Montrer que la chronique de prix converge de
 	%façon monotone vers $\bar p$ si $0<\alpha<\frac{1}{2}$. \textbf{(5)}
 	%Quelles sont les prédictions du modèle si $\alpha$ est en dehors de
 	%cet intervalle ?
 \[\begin{aligned}
-\underset{t \rightarrow +\infty}\lim p_{t} 
+\underset{t \rightarrow +\infty}\lim p_{t}
 \pause &= \frac{1}{2} + (p_{{1}}-\frac{1}{2})\underset{t \rightarrow +\infty}\lim (1-2\alpha)^{t-1}\\
 \end{aligned}\]
 
-\bigskip 
+\bigskip
 
-\pause Etudions les différents cas de figure de $\underset{t \rightarrow +\infty}\lim (1-2\alpha)^{t-1}$.\newline 	
+\pause Etudions les différents cas de figure de $\underset{t \rightarrow +\infty}\lim (1-2\alpha)^{t-1}$.\newline
 
-\bigskip 
-
-\begin{itemize}
-\item[-] si $|1-2\alpha|<1$ : \pause convergence :\newline 
+\bigskip
 
 \begin{itemize}
-\pause \item[-] 	si $0<1-2\alpha<1$ : \pause convergence vers $\bar p$ de façon monotone.\newline 
-
-\pause \item[-] 	si $-1<1-2\alpha<0$ : \pause convergence avec oscillations vers $\bar p$.\newline 
-\end{itemize}
-
-\medskip 
-
-\pause \item[-] si $|1-2\alpha|>1$ : \pause divergence.\newline   
+\item[-] si $|1-2\alpha|<1$ : \pause convergence :\newline
 
 \begin{itemize}
-\pause 	\item[-] 	si $1-2\alpha>1$ : \pause divergence vers $+\infty$ de façon monotone.\newline  
+\pause \item[-] 	si $0<1-2\alpha<1$ : \pause convergence vers $\bar p$ de façon monotone.\newline
 
-\pause 	\item[-] 	si $1-2\alpha<-1$ : \pause divergence avec oscillations de signe.\newline 
+\pause \item[-] 	si $-1<1-2\alpha<0$ : \pause convergence avec oscillations vers $\bar p$.\newline
+\end{itemize}
+
+\medskip
+
+\pause \item[-] si $|1-2\alpha|>1$ : \pause divergence.\newline
+
+\begin{itemize}
+\pause 	\item[-] 	si $1-2\alpha>1$ : \pause divergence vers $+\infty$ de façon monotone.\newline
+
+\pause 	\item[-] 	si $1-2\alpha<-1$ : \pause divergence avec oscillations de signe.\newline
 \end{itemize}
 
 \end{itemize}
-	
+
 \end{frame}
 
 \section{Exercice 8}
@@ -740,7 +738,7 @@ Question : si on ne part pas de l'équilibre (ici $p_1 \ne \bar p = \frac{1}{2}$
 \begin{frame}
 $$\lim_{x\rightarrow\infty} \frac{2x+5}{x^2-3}\pause =\frac{\infty}{\infty}$$
 
-\bigskip 
+\bigskip
 
 \[\begin{aligned}
 \lim_{x\rightarrow\infty} \frac{2x+5}{x^2-3}
@@ -756,9 +754,9 @@ $$\lim_{x\rightarrow\infty} \frac{2x+5}{x^2-3}\pause =\frac{\infty}{\infty}$$
 
 \begin{frame}
 	$$\lim_{x\rightarrow\infty} \frac{x^3-4x^2+8}{x^2+6}\pause =\frac{\infty}{\infty}$$
-	
-	\bigskip 
-	
+
+	\bigskip
+
 	\[\begin{aligned}
 	\lim_{x\rightarrow\infty} \frac{x^3-4x^2+8}{x^2+6}
 \pause 	&= \lim_{x\rightarrow\infty} \frac{x^2(x-4+\frac{8}{x^2})}{x^2(1+\frac{6}{x^2})}\\
@@ -767,14 +765,14 @@ $$\lim_{x\rightarrow\infty} \frac{2x+5}{x^2-3}\pause =\frac{\infty}{\infty}$$
 \pause 	&= \frac{\lim_{x\rightarrow\infty} x-4}{1}\\
 \pause 	&= \infty \\
 	\end{aligned}\]
-	
+
 \end{frame}
 
 \begin{frame}
 	$$\lim_{x\rightarrow\infty} \frac{ax^2+bx+c}{kx^2+lx+m}\pause =\frac{\infty}{\infty}$$
 
-\bigskip 
-	
+\bigskip
+
 	\[\begin{aligned}
 	\lim_{x\rightarrow\infty} \frac{ax^2+bx+c}{kx^2+lx+m}
 \pause 	&= \lim_{x\rightarrow\infty} \frac{x^2(a+\frac{b}{x}+\frac{c}{x^2})}{x^2(k+\frac{l}{x}+\frac{m}{x^2})}\\
@@ -785,14 +783,14 @@ $$\lim_{x\rightarrow\infty} \frac{2x+5}{x^2-3}\pause =\frac{\infty}{\infty}$$
 
 \pause Dans le cas contraire, $	\lim_{x\rightarrow\infty} \frac{ax^2+bx+c}{kx^2+lx+m}
 =\infty$.
-	
+
 \end{frame}
 
 \begin{frame}
 	$$\lim_{x\rightarrow -4} \frac{x^2-16}{x+4}=\frac{0}{0}$$
-	
-	\bigskip 
-	
+
+	\bigskip
+
 	\[\begin{aligned}
 	\lim_{x\rightarrow -4} \frac{x^2-16}{x+4}
 \pause &= \lim_{x\rightarrow -4} \frac{(x-4)(x+4)}{x+4}\\
@@ -800,22 +798,22 @@ $$\lim_{x\rightarrow\infty} \frac{2x+5}{x^2-3}\pause =\frac{\infty}{\infty}$$
 \pause &= \lim_{x\rightarrow -4} x - 4 \\
 \pause &=-8\\
 	\end{aligned}\]
-	
+
 \end{frame}
 
 
 \begin{frame}
-	
-Rappel : 
+
+Rappel :
 \[
 |x| =
 \begin{cases}
 \pause  x & \pause \text{ si } x>0 \\
 \pause -x & \pause \text{ si } x<0
-\end{cases}	
+\end{cases}
 \]
 
-Exemple : 
+Exemple :
 \[\begin{aligned}
 |2| &= 2 \text{ puisque } 2>0 \\
 |-2| &= -(-2) = 2 \text{ puisque } -2<0
@@ -824,22 +822,22 @@ Exemple :
 \end{frame}
 
 \begin{frame}
-	
+
 	$$\lim_{x\rightarrow 0^+} \frac{|x|}{x}$$
-	
-\pause 	$x\rightarrow 0^+$ \pause donc $x>0$ \pause donc $|x| = x$ ici. 
-	
-	
+
+\pause 	$x\rightarrow 0^+$ \pause donc $x>0$ \pause donc $|x| = x$ ici.
+
+
 	\[\begin{aligned}
 \pause 	\lim_{x\rightarrow 0^+} \frac{|x|}{x} \pause = \lim_{x\rightarrow 0^+} \frac{x}{x} \pause = 1
 	\end{aligned}\]
-	
-	\bigskip 
-	\bigskip 
+
+	\bigskip
+	\bigskip
 
 \pause	$$\lim_{x\rightarrow 0^-} \frac{|x|}{x}$$
 
-\pause $x\rightarrow 0^-$ \pause donc $x<0$ \pause donc $|x| = -x$ ici. 
+\pause $x\rightarrow 0^-$ \pause donc $x<0$ \pause donc $|x| = -x$ ici.
 
 \[\begin{aligned}
 \pause \lim_{x\rightarrow 0^-} \frac{|x|}{x} \pause = \lim_{x\rightarrow 0^-} \frac{-x}{x} \pause = -1
@@ -874,41 +872,41 @@ Exemple :
 	$$\lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h} = f^{'}(x) = \frac{d}{d x}f$$
 
 $$f(x) = 4x^2+3$$
-\pause Avec les formules automatiques, on s'attend à ce que $f^{'}(x) = 8x$. 
+\pause Avec les formules automatiques, on s'attend à ce que $f^{'}(x) = 8x$.
 
 \[\begin{aligned}
-\pause f(\alert{x+h})-f(x) 
+\pause f(\alert{x+h})-f(x)
 \pause &= [4(\alert{x+h})^2+3] - (4x^2+3)\\
 \pause &= 4[({x+h})^2 - x^2]\\
 \pause &= 4(x+h-x)(x+h+x)\\
 \pause &= 4h(2x+h)\\
-\pause \frac{f({x+h})-f(x)}{h}  
+\pause \frac{f({x+h})-f(x)}{h}
 \pause &= \frac{4h(2x+h)}{h}\\
 \pause &= 4(2x+h)\\
-\pause \lim_{h\rightarrow 0} \frac{f({x+h})-f(x)}{h}  
+\pause \lim_{h\rightarrow 0} \frac{f({x+h})-f(x)}{h}
 \pause &= \lim_{h\rightarrow 0} 4(2x+h)\\
 \pause &= 4(2x+\lim_{h\rightarrow 0}h)\\
-\pause &= 8x 
+\pause &= 8x
 \end{aligned}\]
 
 \end{frame}
 
 \begin{frame}
 	$$\lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h} = f^{'}(x)= \frac{d}{d x}f$$
-	
+
 	$$f(x) = \frac{1}{x} ~~\forall x\in \mathbb R^*$$
-\pause 	Avec les formules automatiques, on s'attend à ce que $f^{'}(x) = -\frac{1}{x^2}$. 
-	
+\pause 	Avec les formules automatiques, on s'attend à ce que $f^{'}(x) = -\frac{1}{x^2}$.
+
 	\[\begin{aligned}
-\pause 	f(\alert{x+h})-f(x) 
+\pause 	f(\alert{x+h})-f(x)
 \pause 	&= \frac{1}{\alert{x+h}} - \frac{1}{{x}}\\
 \pause 	&= \frac{{\color{blue}{x}}}{{\color{blue}{x}}({x+h})} - \frac{{\color{orange}{(x+h)}}}{{x}\color{orange}{(x+h)}}\\
 \pause 	&= \frac{{x}- (x+h)}{{x}({x+h})}\\
 \pause 	&= \frac{-h}{{x}({x+h})}\\
-\pause 	\frac{f({x+h})-f(x)}{h} &=  \frac{-1}{{x}({x+h})} \\ 
+\pause 	\frac{f({x+h})-f(x)}{h} &=  \frac{-1}{{x}({x+h})} \\
 \pause 	\lim_{h\rightarrow 0} \frac{f({x+h})-f(x)}{h} \pause &= \lim_{h\rightarrow 0} \frac{-1}{{x}({x+h})} \pause =  \frac{-1}{{x}({x+\lim_{h\rightarrow 0} h})}\pause =  -\frac{1}{{x^2}}
 	\end{aligned}\]
-	
+
 \end{frame}
 
 \end{document}

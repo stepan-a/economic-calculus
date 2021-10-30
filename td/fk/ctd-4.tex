@@ -1,6 +1,6 @@
 \documentclass[9pt,handout,professionalfonts,hyperref]{beamer}
 \mode<presentation>
-\usetheme{Frankfurt} 
+\usetheme{Frankfurt}
 \usecolortheme{seahorse}
 \usepackage[french]{babel}
 \usepackage{amssymb}
@@ -31,7 +31,7 @@
 \usepackage{adjustbox}
 
 \title{Calcul Economique 1\\Fiche de TD 4\\F.~Karamé}
-\date{Année universitaire 2020-2021}
+\date{Année universitaire 2021-2022}
 \subject{Talks}
 
 \setbeamertemplate{navigation symbols}{}
@@ -40,7 +40,6 @@
 
 \begin{frame}
 \titlepage
-	%\centering{\includegraphics[scale=.3]{../../lemanslogofac.jpg}}
 \end{frame}
 
 \section{Exercice 1}
@@ -52,7 +51,7 @@ $$f(x)=\ln(x^2+x^4+1)$$
 
 \pause
 avec $$U=x^2+x^4+1$$
-et donc  
+et donc
 \pause $$U'=2x+4x^3+0$$
 \medskip
 \pause donc :
@@ -70,7 +69,7 @@ $$
 \pause de la forme $$(UV)'=U'V+UV'$$
 
 \medskip
- 
+
 \pause avec $U=x^2$ et $V=\ln(x^2+x^4+1)$
 
 \pause
@@ -80,7 +79,7 @@ donc $U'=2x$ \pause et $V'=\dfrac{2x+4x^3}{x^2+x^4+1}$ (question 1)
  \pause
 \medskip
 
-Donc : 
+Donc :
 $$
 g'(x)=(2x)\pause\ln(x^2+x^4+1)\pause+(x^2)\pause\left(\dfrac{2x+4x^3}{x^2+x^4+1}\right)
 $$
@@ -101,7 +100,7 @@ $$
  \pause
 \medskip
 
-Donc : 
+Donc :
 $$
 h'(x)=2e^{2x}
 $$
@@ -115,15 +114,15 @@ $$
 j(x)=\ln\left(\dfrac{x^3-2}{x^2+1}\right)
 $$
 
- \pause de la forme $$[\ln(Z)]'=\frac{Z'}{Z}$$ 
+ \pause de la forme $$[\ln(Z)]'=\frac{Z'}{Z}$$
  \medskip
- 
+
 \pause  avec $Z=\frac{x^3-2}{x^2+1}$ \pause et donc $$Z'=\left(\frac{U}{V}\right)'=\frac{U'V-UV'}{V^2}$$
 \pause
 
 avec $U = x^3-2$ et $V=x^2+1$ \pause et donc $U' = 3x^2$ \pause et $V'=2x$ \\
 \medskip
-\pause 
+\pause
 $$j'(x)=\frac{\dfrac{(3x^2)(x^2+1)-(x^3-2)(2x)}{(x^2+1)^2}}{\dfrac{x^3-2}{x^2+1}}=\dots$$
 
 \end{frame}
@@ -133,7 +132,7 @@ $$j'(x)=\frac{\dfrac{(3x^2)(x^2+1)-(x^3-2)(2x)}{(x^2+1)^2}}{\dfrac{x^3-2}{x^2+1}
 Plus simple : on voit que $$j(x)=\ln\left(\dfrac{x^3-2}{x^2+1}\right)\pause=\ln(x^3-2)-\ln(x^2+1)$$
  \pause
 \medskip
- 
+
 Comme la dérivée d'une somme est la somme des dérivées ($(U+V)' = U'+V'$), en utilisant deux fois $$[\ln(Z)]'=\frac{Z'}{Z}$$ il vient très facilement :
 
 $$
@@ -168,11 +167,11 @@ Par récurrence ? \pause au rang $n+1$ : \pause \alert{$f^{(n+1)}(x)\pause =\the
  \pause
 \medskip
 
-$f^{(n+1)}(x)=[f^{(n)}(x)]^{'}\pause =(\theta^n  e^{\theta x})'\pause =\theta^n  (e^{\theta x})'\pause =\theta^n (\theta e^{\theta x})\pause =\theta^{n+1} e^{\theta x} $\newline 
+$f^{(n+1)}(x)=[f^{(n)}(x)]^{'}\pause =(\theta^n  e^{\theta x})'\pause =\theta^n  (e^{\theta x})'\pause =\theta^n (\theta e^{\theta x})\pause =\theta^{n+1} e^{\theta x} $\newline
 
-Si la proposition est vraie au rang $n$, alors elle est vraie au rang $n+1$. 
+Si la proposition est vraie au rang $n$, alors elle est vraie au rang $n+1$.
 
-Comme elle est vraie au rang 1, elle est vraie au rang 2, $\dots$, et de proche en proche, elle est vraie pour tout $n$. 
+Comme elle est vraie au rang 1, elle est vraie au rang 2, $\dots$, et de proche en proche, elle est vraie pour tout $n$.
 
 \end{frame}
 
@@ -181,7 +180,7 @@ $$
 g(x)=\dfrac{1}{x}\pause = \alert{x^{-1}}
 $$
  \pause
-de la forme $(x^\alpha)^{'} = \alpha x^{\alpha-1}$. 
+de la forme $(x^\alpha)^{'} = \alpha x^{\alpha-1}$.
 \pause
 \medskip
 
@@ -210,12 +209,12 @@ $$g^{(n)}(x)=(-1)^n\dfrac{n!}{x^{n+1}}$$
  \pause
 \medskip
 
-Par récurrence, vraie au rang $n+1$ ? \pause $\alert{g^{(n+1)}(x) \pause =(-1)^{n+1}\dfrac{(n+1)!}{x^{n+2}}}$ ? 
+Par récurrence, vraie au rang $n+1$ ? \pause $\alert{g^{(n+1)}(x) \pause =(-1)^{n+1}\dfrac{(n+1)!}{x^{n+2}}}$ ?
 \pause
 \medskip
 
 \[\begin{aligned}
-g^{(n+1)}(x) 
+g^{(n+1)}(x)
 & =[g^{(n)}(x)]' \\
 \pause & = \left((-1)^n\dfrac{n!}{x^{n+1}}\right)'\\
 \pause & = (-1)^n n! \left(x^{-(n+1)}\right)'\\
@@ -223,11 +222,11 @@ g^{(n+1)}(x)
 \pause & = {\color{orange}{(-1)^n}} n! {\color{orange}{(-1)}}(n+1) x^{-(n+2)} \\
 \pause & ={\color{orange}{(-1)^{n+1}}} {\color{cyan}{n!(n+1)}} x^{-(n+2)} \\
 \pause & =(-1)^{n+1} {\color{cyan}{(n+1)!}} \dfrac{1}{x^{n+2}} \\
-\end{aligned}\]\newline 
+\end{aligned}\]\newline
 
-Si la proposition est vraie au rang $n$, alors elle est vraie au rang $n+1$. 
+Si la proposition est vraie au rang $n$, alors elle est vraie au rang $n+1$.
 
-Comme elle est vraie au rang 1, elle est vraie au rang 2, $\dots$, et de proche en proche, elle est vraie pour tout $n$. 
+Comme elle est vraie au rang 1, elle est vraie au rang 2, $\dots$, et de proche en proche, elle est vraie pour tout $n$.
 
 \end{frame}
 
@@ -244,7 +243,7 @@ $$h^{(1)}(x)\pause =\dfrac{1}{x}\pause =g(x)$$
 
 $$h^{(2)}(x)=g^{(1)}(x)$$
 
-\pause et donc : 
+\pause et donc :
 
 $$h^{(n)}(x)=g^{(n-1)}(x)$$
 
@@ -262,10 +261,10 @@ f(x)
 &=f(0)+\dfrac{f^{(1)}(0)[x-0]}{1!}+\dfrac{f^{(2)}(0)[x-0]^2}{2!}+\dfrac{f^{(3)}(0)[x-0]^3}{3!}+\dots
 \end{aligned}\]
 
-\medskip 
-\pause Rappels : $n! = n\times (n-1)\times (n-2)\times \dots\times 1$ \pause et $0! = 1$. 
+\medskip
+\pause Rappels : $n! = n\times (n-1)\times (n-2)\times \dots\times 1$ \pause et $0! = 1$.
 
-\medskip 
+\medskip
 \pause Attention : $f^{(i)}(0)$ est la dérivée $ieme$ de $f$ qu'on évalue ensuite en $0$.
 
 \end{frame}
@@ -296,9 +295,9 @@ e^x
 \end{frame}
 
 \begin{frame}
-si $x=1$, on trouve la constante d'Euler notée $e$ : 
+si $x=1$, on trouve la constante d'Euler notée $e$ :
 
-$$e^1= \pause e\pause =\sum_{i=0}^{\infty}\dfrac{1}{i!} \approxeq 2.718281828459045$$ 
+$$e^1= \pause e\pause =\sum_{i=0}^{\infty}\dfrac{1}{i!} \approxeq 2.718281828459045$$
 
 La précision de l'approximation augmente avec l'ordre du DL.
 \[\begin{aligned}
@@ -309,7 +308,7 @@ e
 &\approxeq \sum_{i=0}^{3}\dfrac{1}{i!} = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} = 2.6666\\
 &\approxeq \sum_{i=0}^{4}\dfrac{1}{i!} = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!}= 2.708333\\
 &\approxeq \sum_{i=0}^{5}\dfrac{1}{i!} = 1 + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!}+ \frac{1}{5!}= 2.716666\\
-\dots 
+\dots
 \end{aligned}\]
 
 \end{frame}
@@ -317,12 +316,12 @@ e
 \section{Exercice 4}
 \begin{frame}
 $$
-\dfrac{1}{1-x}=\sum_{i=0}^{\infty}x^i 
+\dfrac{1}{1-x}=\sum_{i=0}^{\infty}x^i
 $$
 \pause
 \medskip
 
-Posons $\dfrac{1}{1-x} = (1-x)^{-1} $ \pause et $(U^\alpha)^{'} = \alpha U^{'} U^{\alpha-1}$ \pause avec $U = 1-x$ \pause et $U^{'} = -1$. 
+Posons $\dfrac{1}{1-x} = (1-x)^{-1} $ \pause et $(U^\alpha)^{'} = \alpha U^{'} U^{\alpha-1}$ \pause avec $U = 1-x$ \pause et $U^{'} = -1$.
 
 \pause
 \medskip
@@ -347,27 +346,27 @@ $$f^{(n)}(x) =\dfrac{n!}{(1-x)^{n+1}}$$
 \end{frame}
 
 \begin{frame}
-	
+
 	\textbf{Théorème de Taylor Young (développement limité en 0)}
 	\[\begin{aligned}
 	f(x)=\sum_{i=0}^{\infty}\dfrac{f^{(i)}(0)[x-0]^i}{i!}
 	\end{aligned}\]
 	\pause
-	
-	
+
+
 \[\begin{aligned}
-f^{(n)}(x) =\dfrac{n!}{(1-x)^{n+1}} \Leftrightarrow 
+f^{(n)}(x) =\dfrac{n!}{(1-x)^{n+1}} \Leftrightarrow
 &f^{(i)}(x) =\dfrac{i!}{(1-x)^{i+1}}\\
-\pause &f^{(i)}(0) =\dfrac{i!}{(1-0)^{i+1}} \pause = i! 
+\pause &f^{(i)}(0) =\dfrac{i!}{(1-0)^{i+1}} \pause = i!
 \end{aligned}\]
 
-Donc : 
+Donc :
 
 \[\begin{aligned}
 \dfrac{1}{1-x}
 &=\sum_{i=0}^{\infty}\dfrac{f^{(i)}(0)[x-0]^i}{i!}\\
 \pause &=\sum_{i=0}^{\infty}\dfrac{i!}{i!}x^i \\
-\pause &=\sum_{i=0}^{\infty}x^i 
+\pause &=\sum_{i=0}^{\infty}x^i
 \end{aligned}\]\\
 
 Cela ressemble bcp au résultat sur la somme des termes d'une suite géométrique de raison $x$ (si $|x|<1$).
@@ -385,7 +384,7 @@ $$
 $$f(x)=0 \Leftrightarrow -x^3+x^2+2x=0$$
 \pause
 
-$x=0$ est racine évidente puisqu'il n'y a pas de constante. \pause En factorisant, il reste un polynôme du second degré : 
+$x=0$ est racine évidente puisqu'il n'y a pas de constante. \pause En factorisant, il reste un polynôme du second degré :
 $$-x(x^2-x-2)=0$$
 
 \pause En utilisant la méthode du discriminant ou en trouvant les racines évidentes $x=2$ et $x=-1$, il reste :
@@ -401,20 +400,20 @@ $$-x(x-2)(x+1)=0$$
 &\pause f'(x)=-3x^2+2x+2
 \end{aligned}\]\\
 
-\pause \medskip 
-$f'(x)=0$ : polynôme du second degré, \pause $\Delta=28>0$ \newline 
+\pause \medskip
+$f'(x)=0$ : polynôme du second degré, \pause $\Delta=28>0$ \newline
 
-\pause Les deux racines sont : $\dfrac{1-\sqrt{7}}{3}$ et  $\dfrac{1+\sqrt{7}}{3}$.\newline 
+\pause Les deux racines sont : $\dfrac{1-\sqrt{7}}{3}$ et  $\dfrac{1+\sqrt{7}}{3}$.\newline
 
-\pause Le signe devant $x^2$ étant négatif, \pause la fonction est positive entre les racines et négatives en dehors.\newline 
+\pause Le signe devant $x^2$ étant négatif, \pause la fonction est positive entre les racines et négatives en dehors.\newline
 
-\pause En ces deux points, la dérivée s'annule et change de signes : ce sont donc des points de retournement.\newline 
+\pause En ces deux points, la dérivée s'annule et change de signes : ce sont donc des points de retournement.\newline
 
 \pause Enfin on calcule les limites de $f$ au bord de l'ensemble de définition :
 
 \[\begin{aligned}
 &\lim_{x \to -\infty} f(x)=\lim_{x \to -\infty} (-x^3+x^2+2x) =\lim_{x \to -\infty} -x^3 = +\infty \\
-&\lim_{x \to +\infty} f(x)=\lim_{x \to +\infty} (-x^3+x^2+2x) =\lim_{x \to +\infty} -x^3 = -\infty 
+&\lim_{x \to +\infty} f(x)=\lim_{x \to +\infty} (-x^3+x^2+2x) =\lim_{x \to +\infty} -x^3 = -\infty
 \end{aligned}\]\\
 
 
@@ -426,9 +425,9 @@ $f'(x)=0$ : polynôme du second degré, \pause $\Delta=28>0$ \newline
    \tkzTabInit{$x$ / 1 , $f'(x)$ / 1,$f(x)$ / 2}{$-\infty$, $\dfrac{1-\sqrt{7}}{3}$, $\dfrac{1+\sqrt{7}}{3}$, $+\infty$}
 \pause   \tkzTabLine{, -, z,+,z, -, }
 \pause   \tkzTabVar{+/ $+\infty$, -/  , +/  , -/ $-\infty$}
-   \tkzTabVal{1}{2}{0.5}{$-1$}{0} 
-   \tkzTabVal{2}{3}{0.5}{$0$}{0} 
-   \tkzTabVal{3}{4}{0.5}{$2$}{0} 
+   \tkzTabVal{1}{2}{0.5}{$-1$}{0}
+   \tkzTabVal{2}{3}{0.5}{$0$}{0}
+   \tkzTabVal{3}{4}{0.5}{$2$}{0}
 \end{tikzpicture}
 \end{adjustbox}
 
@@ -442,9 +441,9 @@ $$
 \forall x \in \mathbb{R}^{+*}, ~f(x)=\dfrac{[\ln(x)]^2}{x}
 $$
 
-\pause La fonction est toujours positive. \newline 
+\pause La fonction est toujours positive. \newline
 
-\pause Dérivée de la forme $(\frac{U}{V})^{'}=\frac{U'V-UV'}{V^2}$ \pause avec $U=[\ln(x)]^2$ et $V=x$.\newline  
+\pause Dérivée de la forme $(\frac{U}{V})^{'}=\frac{U'V-UV'}{V^2}$ \pause avec $U=[\ln(x)]^2$ et $V=x$.\newline
 
 \pause D'où $V^{'} = 1$ \pause et $U^{'} = \left\{[\ln(x)]^2\right\}^{'}$ \pause de la forme $(W^2)^{'} \pause = 2W^{'}W$ \pause en posant $W=\ln(x)$ \pause donc $W^{'}=\frac{1}{x}$ :
 
@@ -467,19 +466,19 @@ f'(x)
 f'(x)&=\dfrac{\ln(x) [2-\ln(x)]}{x^2}
 \end{aligned}\]
 
-\pause Le signe de la dérivée dépend du signe de $\ln(x) [2-\ln(x)]$. \pause Elle s'annule ssi 
-$$\begin{cases} 
+\pause Le signe de la dérivée dépend du signe de $\ln(x) [2-\ln(x)]$. \pause Elle s'annule ssi
+$$\begin{cases}
 \pause \ln(x) =0 \pause \Leftrightarrow e^{\ln(x)} = e^0 \pause \Leftrightarrow  x=1 \\
-\pause 2-\ln(x)=0 \pause \Leftrightarrow \ln(x)=2 \pause \Leftrightarrow e^{\ln(x)} = e^2 \pause \Leftrightarrow x=e^2 
+\pause 2-\ln(x)=0 \pause \Leftrightarrow \ln(x)=2 \pause \Leftrightarrow e^{\ln(x)} = e^2 \pause \Leftrightarrow x=e^2
 \end{cases}$$
 
-\medskip 
+\medskip
 
 Reste à calculer les limites de $f$ au bord de l'ensemble de définition :
 
 \[\begin{aligned}
 &\lim_{x \to 0^+} f(x)= +\infty \\
-&\lim_{x \to +\infty} f(x)=0^+ 
+&\lim_{x \to +\infty} f(x)=0^+
 \end{aligned}\]\\
 
 \end{frame}
@@ -502,10 +501,10 @@ Reste à calculer les limites de $f$ au bord de l'ensemble de définition :
 \[\begin{aligned}
 &f(x)=ax^3+bx^2+cx+d \\
 \pause &f'(x)= \pause 3ax^2+2bx+c
-\end{aligned}\]\newline 
-un polynôme du second degré.\newline 
+\end{aligned}\]\newline
+un polynôme du second degré.\newline
 
-\pause Avec la méthode du discriminant : \alert{attention à la confusion possible avec les formules automatiques du discriminant du fait de la présence de $a,b,c$.} 
+\pause Avec la méthode du discriminant : \alert{attention à la confusion possible avec les formules automatiques du discriminant du fait de la présence de $a,b,c$.}
 
 $$\Delta = (\alert{2b})^2\pause -4\times\pause (\alert{3a})\times\pause  c \pause = 4b^2 -12ac$$
 \pause
@@ -515,16 +514,16 @@ $$\Delta = (\alert{2b})^2\pause -4\times\pause (\alert{3a})\times\pause  c \paus
 \[\begin{cases}
 x_1 = \dfrac{-\alert{2b}-\sqrt\Delta}{2\times \alert{3a}}\pause=\dfrac{-2b-\sqrt\Delta}{6a} \\
 x_2 = \dfrac{-\alert{2b}+\sqrt\Delta}{2\times \alert{3a}}\pause =\dfrac{-2b+\sqrt\Delta}{6a}
-\end{cases}\]\newline 
+\end{cases}\]\newline
 
-Deux cas possibles selon le signe de $a$ (les deux extrema évoqués dans l'énoncé excluent $a=0$). 
+Deux cas possibles selon le signe de $a$ (les deux extrema évoqués dans l'énoncé excluent $a=0$).
 \end{frame}
 
 \begin{frame}
 Si $\alert{a>0}$ :
 \[\begin{aligned}
 \pause &\lim_{x \to -\infty} f(x)=\lim_{x \to -\infty} ax^3 =a\times -\infty = -\infty \\
-\pause &\lim_{x \to +\infty} f(x)=\lim_{x \to +\infty} ax^3 =a\times +\infty = +\infty 
+\pause &\lim_{x \to +\infty} f(x)=\lim_{x \to +\infty} ax^3 =a\times +\infty = +\infty
 \end{aligned}\]
 
 \pause
@@ -541,10 +540,10 @@ Si $\alert{a>0}$ :
 \end{frame}
 
 \begin{frame}
-Si $\alert{a<0}$ : 
+Si $\alert{a<0}$ :
 \[\begin{aligned}
 &\lim_{x \to -\infty} f(x)=\lim_{x \to -\infty} ax^3 = a\times -\infty = +\infty \\
-&\lim_{x \to +\infty} f(x)=\lim_{x \to +\infty} ax^3 = a\times +\infty =-\infty 
+&\lim_{x \to +\infty} f(x)=\lim_{x \to +\infty} ax^3 = a\times +\infty =-\infty
 \end{aligned}\]
 
 \pause
@@ -566,12 +565,12 @@ $$\lim_{x \to +\infty} \dfrac{x^2}{e^x}\pause =\dfrac{+\infty}{+\infty} \pause =
 
 \medskip
 \begin{itemize}
-\pause 	\item[-] soit par le théorème des croissances comparées : \pause l'exponentielle l'emporte sur la puissance : $$\lim_{x \to +\infty} \dfrac{x^2}{e^x}=0^+$$ \newline 
-\pause 	\item[-] soit par le théorème de l'Hospital (TH) : \pause on prend les dérivées du numérateur et du dénominateur jusqu'à trouver une forme non indéterminée. 
+\pause 	\item[-] soit par le théorème des croissances comparées : \pause l'exponentielle l'emporte sur la puissance : $$\lim_{x \to +\infty} \dfrac{x^2}{e^x}=0^+$$ \newline
+\pause 	\item[-] soit par le théorème de l'Hospital (TH) : \pause on prend les dérivées du numérateur et du dénominateur jusqu'à trouver une forme non indéterminée.
 \end{itemize}
 
 \[\begin{aligned}
-\lim_{x \to +\infty} \dfrac{x^2}{e^x} 
+\lim_{x \to +\infty} \dfrac{x^2}{e^x}
 \pause &\overset{TH}{=}\lim_{x \to +\infty} \dfrac{2x}{e^x} \pause = \dfrac{+\infty}{+\infty} \pause = \text{forme indéterminée}\\
 \pause &\overset{TH}{=} \lim_{x \to +\infty} \dfrac{2}{e^x} \pause = \dfrac{2}{+\infty} \pause =0^+
 \end{aligned}\]
@@ -584,7 +583,7 @@ $$\lim_{x \to +\infty} \dfrac{\ln(x)}{x}\pause =\dfrac{+\infty}{+\infty}\pause =
 \begin{itemize}
 \pause 	\item[-] soit par le théorème des croissances comparées : \pause la puissance l'emporte sur le logarithme : $$\lim_{x \to +\infty} \dfrac{\ln(x)}{x}=0^+$$ \newline
 
-\pause 	\item[-] soit par le théorème de l'Hospital (TH) :  
+\pause 	\item[-] soit par le théorème de l'Hospital (TH) :
 \end{itemize}
 
 \[\begin{aligned}
@@ -598,9 +597,9 @@ $$\lim_{x \to +\infty} \dfrac{e^x+3x^2}{4e^x+2x^2}\pause =\dfrac{+\infty}{+\inft
 \pause
 \medskip
 \begin{itemize}
-	\item[-] soit par le théorème des croissances comparées : $$\dfrac{e^x+3x^2}{4e^x+2x^2} \pause= \dfrac{e^x(1+\frac{3x^2}{e^x})}{e^x(4+\frac{2x^2}{e^x})} \pause= \dfrac{1+\overbrace{\frac{3x^2}{e^x}}^{\to 0}}{4+\underbrace{\frac{2x^2}{e^x}}_{\to 0}} \pause \underset{x \to +\infty}{\to} \frac{1}{4} $$ \newline 
-	
- \pause	\item[-] soit par le théorème de l'Hospital (TH) :  
+	\item[-] soit par le théorème des croissances comparées : $$\dfrac{e^x+3x^2}{4e^x+2x^2} \pause= \dfrac{e^x(1+\frac{3x^2}{e^x})}{e^x(4+\frac{2x^2}{e^x})} \pause= \dfrac{1+\overbrace{\frac{3x^2}{e^x}}^{\to 0}}{4+\underbrace{\frac{2x^2}{e^x}}_{\to 0}} \pause \underset{x \to +\infty}{\to} \frac{1}{4} $$ \newline
+
+ \pause	\item[-] soit par le théorème de l'Hospital (TH) :
 \end{itemize}
 
 \[\begin{aligned}
@@ -619,9 +618,9 @@ $$\lim_{x \to +\infty} \dfrac{e^x+3x^2}{4e^x+2x^2}\pause =\dfrac{+\infty}{+\inft
 \pause
 \medskip
 \begin{itemize}
-	\item[-] soit par le théorème des croissances comparées : $$\lim_{x \to +\infty} \dfrac{3 \ln(x)}{x-1} \pause= \dfrac{x(\frac{3 \ln(x)}{x})}{x(1-\frac{1}{x})} \pause= \dfrac{\overbrace{\frac{3\ln(x)}{x}}^{\to 0}}{1-\underbrace{\frac{1}{x}}_{\to 0}} \pause \underset{x \to +\infty}{\to} 0 $$ \newline 
-	
-	\pause	\item[-] soit par le théorème de l'Hospital (TH) :  
+	\item[-] soit par le théorème des croissances comparées : $$\lim_{x \to +\infty} \dfrac{3 \ln(x)}{x-1} \pause= \dfrac{x(\frac{3 \ln(x)}{x})}{x(1-\frac{1}{x})} \pause= \dfrac{\overbrace{\frac{3\ln(x)}{x}}^{\to 0}}{1-\underbrace{\frac{1}{x}}_{\to 0}} \pause \underset{x \to +\infty}{\to} 0 $$ \newline
+
+	\pause	\item[-] soit par le théorème de l'Hospital (TH) :
 \end{itemize}
 
 \[\begin{aligned}
@@ -635,16 +634,16 @@ $$\lim_{x \to +\infty} \dfrac{e^x+3x^2}{4e^x+2x^2}\pause =\dfrac{+\infty}{+\inft
 
 \begin{frame}
 
-Soit ici : \newline 
+Soit ici : \newline
 
 \[\begin{aligned}
 \begin{cases}
 \underset{x,y}{\max}~xy \\
 \pause \pause \text{sc : } x + y =100
 \end{cases}
-\end{aligned}\]\newline 
+\end{aligned}\]\newline
 
-\pause C'est un programme type programme du consommateur. 
+\pause C'est un programme type programme du consommateur.
 
 \[\begin{aligned}
 \begin{cases}
@@ -653,12 +652,12 @@ Soit ici : \newline
 \end{cases}
 \end{aligned}\]\\
 
-qui est un programme de maximisation d'une fonction à 2 variables sous contrainte linéaire.  
+qui est un programme de maximisation d'une fonction à 2 variables sous contrainte linéaire.
 \end{frame}
 
 \begin{frame}
 
-Comme 
+Comme
 $$
 x+y=100  \Leftrightarrow y=100-x
 $$
@@ -666,7 +665,7 @@ $$
 \pause on remplace $y$ par son expression :
 
 \[\begin{aligned}
-\underset{x}{\max}~\pause x(100-x) 
+\underset{x}{\max}~\pause x(100-x)
 \end{aligned}\]
 
 \pause qui devient donc un programme de maximisation d'une fonction à 1 variable $x$ sans contrainte.
@@ -675,13 +674,13 @@ $$
 
 \begin{frame}
 \[\begin{aligned}
-\underset{x}{\max}~x(100-x) \pause = 100x-x^2 
+\underset{x}{\max}~x(100-x) \pause = 100x-x^2
 \end{aligned}\]
 
 \pause En la solution $x^\star$, la dérivée de la fonction s'annule. On commence donc par calculer la dérivée :
 
 \[\begin{aligned}
-\frac{d(100x-x^2)}{dx} \pause = 100-2x 
+\frac{d(100x-x^2)}{dx} \pause = 100-2x
 \end{aligned}\]
 
 \pause puis on l'écrit en la solution donc :
@@ -691,8 +690,8 @@ $$
 \pause \Leftrightarrow&2x^\star=100\\
 \pause \Leftrightarrow&x^\star=50\\
 \end{aligned}\]
- 
-\pause On déduit $y^{\star}$ grâce à la contrainte : 
+
+\pause On déduit $y^{\star}$ grâce à la contrainte :
 \[\begin{aligned}
 &x+y=100  \\
 \pause \Leftrightarrow &x^\star+y^\star=100 \\
@@ -703,17 +702,17 @@ $$
 
 \begin{frame}
 
-Soit ici : \newline 
-	
+Soit ici : \newline
+
 	\[\begin{aligned}
 	\begin{cases}
 	\underset{x,y}{\min}~x^2 + y^2 \\
 	\pause \text{sc : } x + y =100
 	\end{cases}
-	\end{aligned}\]\newline 
-	
+	\end{aligned}\]\newline
 
-C'est un programme de minimisation 
+
+C'est un programme de minimisation
 
 \[\begin{aligned}
 \begin{cases}
@@ -722,64 +721,64 @@ C'est un programme de minimisation
 \end{cases}
 \end{aligned}\]\\
 
-d'une fonction à 2 variables sous contrainte linéaire. \pause 
+d'une fonction à 2 variables sous contrainte linéaire. \pause
 
 \end{frame}
 
 \begin{frame}
-	
-	Comme 
+
+	Comme
 	$x+y=100  \Leftrightarrow y=100-x
 	$, on remplace $y$ :
-	
+
 	\[\begin{aligned}
-	\underset{x}{\min}~\pause x^2 + (100-x)^2 
+	\underset{x}{\min}~\pause x^2 + (100-x)^2
 	\end{aligned}\]
-	
+
 	qui devient donc un programme de minimisation d'une fonction à 1 variable $x$ sans contrainte.
-	
+
 \end{frame}
 
 \begin{frame}
 	\[\begin{aligned}
 	\underset{x}{\min}~x^2 + (100-x)^2  \pause &= x^2 + 100^2 + x^2 - 200x \\\pause &= 2x^2 -200x + 100^2
 	\end{aligned}\]
-	
+
 \pause 	En la solution $x^\star$, la dérivée de la fonction s'annule. On commence donc par calculer la dérivée :
-	
+
 	\[\begin{aligned}
-	\frac{d(2x^2 -200x + 100^2)}{dx} \pause = 4x -200 
+	\frac{d(2x^2 -200x + 100^2)}{dx} \pause = 4x -200
 	\end{aligned}\]
-	
+
 \pause puis on l'écrit en la solution donc :
-	
+
 	\[\begin{aligned}
 	&4x^\star -200=0\\
 	\pause \Leftrightarrow&4x^\star=200\\
 	\pause \Leftrightarrow&x^\star=50\\
 	\end{aligned}\]
-	
-	On déduit $y^\star$ grâce à la contrainte : 
+
+	On déduit $y^\star$ grâce à la contrainte :
 	\[\begin{aligned}
 	\pause y^\star=100-x^\star \pause = 50
 	\end{aligned}\]
-	
+
 \end{frame}
 
 \begin{frame}
 
 Remarques :
-\begin{itemize} 
-\pause \item[-] La démarche est la même pour un programme de maximisation ou de minimisation. Donc comment savoir si $x^\star$ est un maximum ou un minimum ?\newline 
+\begin{itemize}
+\pause \item[-] La démarche est la même pour un programme de maximisation ou de minimisation. Donc comment savoir si $x^\star$ est un maximum ou un minimum ?\newline
 
 \pause \item[-] Il faut caractériser le signe de la dérivée seconde de la fonction (éventuellement en la solution si elle dépend de l'inconnue) :
 
-\begin{itemize} 
-\pause \item[o] si la dérivée seconde >0 : on est à un minimum 
-\pause \item[o] si la dérivée seconde <0 : on est à un maximum. \newline 
+\begin{itemize}
+\pause \item[o] si la dérivée seconde >0 : on est à un minimum
+\pause \item[o] si la dérivée seconde <0 : on est à un maximum. \newline
 \end{itemize}
 
-\pause \item[-] Q1 : $\frac{d^2(100x-x^2)}{dx^2} \pause = \frac{d\left(\frac{d(100x-x^2)}{dx}\right)}{dx}\pause = \frac{d(100-2x)}{dx} \pause = -2\pause <0   $ \pause donc maximum. \newline 
+\pause \item[-] Q1 : $\frac{d^2(100x-x^2)}{dx^2} \pause = \frac{d\left(\frac{d(100x-x^2)}{dx}\right)}{dx}\pause = \frac{d(100-2x)}{dx} \pause = -2\pause <0   $ \pause donc maximum. \newline
 
 \pause \item[-] Q2 : $\frac{d^2(2x^2 -200x + 100^2)}{dx^2} \pause = \frac{d\left(\frac{d(2x^2 -200x + 100^2)}{dx}\right)}{dx}\pause = \frac{d(4x -200)}{dx} \pause = 4 \pause >0 $ \pause donc minimum.
 
@@ -791,13 +790,13 @@ Remarques :
 
 \begin{frame}{Dérivées}
 
-Soit $U$ la fonction d'utilité d'un agent. On définit l'aversion absolue pour le risque par : 
+Soit $U$ la fonction d'utilité d'un agent. On définit l'aversion absolue pour le risque par :
 
 \[A_U(x) = -\frac{U^{''}(x)}{U^{'}(x)}\]
 
-avec $x$ le niveau de richesse de l'agent, $U^{'}(.)$ et $U^{''}(.)$ respectivement les dérivées première et seconde de la fonction $U(.)$ si elles existent. \newline 
+avec $x$ le niveau de richesse de l'agent, $U^{'}(.)$ et $U^{''}(.)$ respectivement les dérivées première et seconde de la fonction $U(.)$ si elles existent. \newline
 
-Calculer l'aversion absolue pour le risque pour les fonctions suivantes~: 
+Calculer l'aversion absolue pour le risque pour les fonctions suivantes~:
 \begin{itemize}
 	\item $U(x) = ax+b$
 	\item $U(x) = \ln(x) $
@@ -809,115 +808,115 @@ Calculer l'aversion absolue pour le risque pour les fonctions suivantes~:
 
 \begin{frame}{Dérivées partielles}
 
-Soient les fonctions de demande de biens 1 et 2 à l'optimum : 
+Soient les fonctions de demande de biens 1 et 2 à l'optimum :
 
 $$x_1^d(p_1,p_2,R) = \frac{R}{5~p_1} \text{ et } x_2^d(p_1,p_2,R) = \frac{4~R}{5~p_2}$$
 
-Calculer 
+Calculer
 
 \begin{itemize}
-	\item[-] les élasticités revenu des demandes en biens 1 et 2 : $$\epsilon_{R,1} 
-	= \frac{\frac{\partial x_1^d(p_1,p_2,R)}{\partial R}}{\frac{x_1^d(p_1,p_2,R) }{R}}\text{ et } \epsilon_{R,2} 
+	\item[-] les élasticités revenu des demandes en biens 1 et 2 : $$\epsilon_{R,1}
+	= \frac{\frac{\partial x_1^d(p_1,p_2,R)}{\partial R}}{\frac{x_1^d(p_1,p_2,R) }{R}}\text{ et } \epsilon_{R,2}
 	= \frac{\frac{\partial x_2^d(p_1,p_2,R)}{\partial R}}{\frac{x_2^d(p_1,p_2,R) }{R}}$$
-	\item[-] leurs élasticités prix directes : $$\epsilon_{1,1} 
-	= \frac{\frac{\partial x_1^d(p_1,p_2,R)}{\partial p_1}}{\frac{x_1^d(p_1,p_2,R) }{p_1}}\text{ et } \epsilon_{2,2} 
+	\item[-] leurs élasticités prix directes : $$\epsilon_{1,1}
+	= \frac{\frac{\partial x_1^d(p_1,p_2,R)}{\partial p_1}}{\frac{x_1^d(p_1,p_2,R) }{p_1}}\text{ et } \epsilon_{2,2}
 	= \frac{\frac{\partial x_2^d(p_1,p_2,R)}{\partial p_2}}{\frac{x_2^d(p_1,p_2,R) }{p_2}}$$
-	\item[-] leurs élasticités prix croisées : $$\epsilon_{2,1} 
-	= \frac{\frac{\partial x_2^d(p_1,p_2,R)}{\partial p_1}}{\frac{x_2^d(p_1,p_2,R) }{p_1}}\text{ et }\epsilon_{1,2} 
+	\item[-] leurs élasticités prix croisées : $$\epsilon_{2,1}
+	= \frac{\frac{\partial x_2^d(p_1,p_2,R)}{\partial p_1}}{\frac{x_2^d(p_1,p_2,R) }{p_1}}\text{ et }\epsilon_{1,2}
 	= \frac{\frac{\partial x_1^d(p_1,p_2,R)}{\partial p_2}}{\frac{x_1^d(p_1,p_2,R) }{p_2}}$$
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}
-	Commençons par le numérateur : 
-	
+	Commençons par le numérateur :
+
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
-			$$x_1^d(p_1,p_2,R) = \frac{R}{5p_1}$$ 
-			
+			$$x_1^d(p_1,p_2,R) = \frac{R}{5p_1}$$
+
 			\[\begin{aligned}
 			\frac{\partial x_1^d(p_1,p_2,R) }{\partial R} \pause= \frac{\partial (\frac{R}{5p_1}) }{\partial R} \pause= \frac{1}{5p_1}\frac{\partial R}{\partial R} = \frac{1}{5p_1}\\
 			\end{aligned}\]
 		\end{column}
 		\begin{column}{0.5\textwidth}
-			\pause	$$x_2^d(p_1,p_2,R) = \frac{4R}{5p_2}$$ 
+			\pause	$$x_2^d(p_1,p_2,R) = \frac{4R}{5p_2}$$
 			\[\begin{aligned}
 			\frac{\partial x_2^d(p_1,p_2,R) }{\partial R} \pause= \frac{\partial (\frac{4R}{5p_2}) }{\partial R} \pause= \frac{4}{5p_2}\frac{\partial R}{\partial R}\pause =\frac{4}{5p_2}\\
 			\end{aligned}\]
 		\end{column}
 	\end{columns}
-	
-	\bigskip 
-	
-	Et l'élasticité revenu :\newline 
-	
+
+	\bigskip
+
+	Et l'élasticité revenu :\newline
+
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
-			\Large 
+			\Large
 			\[\begin{aligned}
-			\epsilon_{R,1} 
+			\epsilon_{R,1}
 			\pause&= \frac{\frac{\partial x_1^d(p_1,p_2,R)}{\partial R}}{\frac{x_1^d(p_1,p_2,R) }{R}} \pause= \frac{\frac{1}{5p_1}}{\frac{\frac{R}{5p_1}}{R}} \\
 			\pause&= \frac{\frac{1}{5p_1}}{\frac{R}{5Rp_1}} \pause=1
 			\end{aligned}\]
 		\end{column}
 		\begin{column}{0.5\textwidth}
-			\Large 
+			\Large
 			\[\begin{aligned}
-			\pause\epsilon_{R,2} 
+			\pause\epsilon_{R,2}
 			\pause &= \frac{\frac{\partial x_2^d(p_1,p_2,R)}{\partial R}}{\frac{x_2^d(p_1,p_2,R) }{R}} \pause = \frac{\frac{4}{5p_2}}{\frac{\frac{4R}{5p_2}}{R}} \\
 			\pause&= \frac{\frac{4}{5p_2}}{\frac{4R}{5Rp_2}} \pause=1
 			\end{aligned}\]
 		\end{column}
 	\end{columns}
-	
-\end{frame} 
+
+\end{frame}
 
 \begin{frame}
-	
-	Les élasticités prix directes :\newline 
-	
+
+	Les élasticités prix directes :\newline
+
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
-			\large 
+			\large
 			\[\begin{aligned}
-			\epsilon_{1,1} 
+			\epsilon_{1,1}
 			&= \frac{\frac{\partial x_1^d(p_1,p_2,R)}{\partial p_1}}{\frac{x_1^d(p_1,p_2,R) }{p_1}} \pause= \frac{\frac{-R}{5p_1^2}}{\frac{\frac{R}{5p_1}}{p_1}} \\
 			\pause&= \frac{\frac{-R}{5p_1^2}}{\frac{R}{5p_1^2}}\pause= -1
 			\end{aligned}\]
 		\end{column}
 		\begin{column}{0.5\textwidth}
-			\large 
+			\large
 			\[\begin{aligned}
-			\pause 	\epsilon_{2,2} 
+			\pause 	\epsilon_{2,2}
 			\pause 	&= \frac{\frac{\partial x_2^d(p_1,p_2,R)}{\partial p_2}}{\frac{x_2^d(p_1,p_2,R) }{p_2}} \pause= \frac{\frac{-4R}{5p_2^2}}{\frac{\frac{4R}{5p_2}}{p_2}} \\
 			\pause&= \frac{\frac{-4R}{5p_2^2}}{\frac{4R}{5p_2^2}}\pause= -1
 			\end{aligned}\]
 		\end{column}
 	\end{columns}
-	
-	\bigskip 	
-	
-	Les élasticités prix croisées  :\newline 
-	
+
+	\bigskip
+
+	Les élasticités prix croisées  :\newline
+
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
-			\large 
+			\large
 			\[\begin{aligned}
-			\epsilon_{1,2} 
-			\pause 	&= \frac{\frac{\partial x_1^d(p_1,p_2,R)}{\partial p_2}}{\frac{x_1^d(p_1,p_2,R) }{p_2}} \pause= \frac{0}{\frac{\frac{R}{5p_1}}{p_2}} = 0 
-			\end{aligned}\]
+			\epsilon_{1,2}
+			\pause 	&= \frac{\frac{\partial x_1^d(p_1,p_2,R)}{\partial p_2}}{\frac{x_1^d(p_1,p_2,R) }{p_2}} \pause= \frac{0}{\frac{\frac{R}{5p_1}}{p_2}} = 0
+          \end{aligned}\]
 		\end{column}
 		\begin{column}{0.5\textwidth}
-			\large 
+			\large
 			\[\begin{aligned}
-			\pause 		\epsilon_{2,1} 
+			\pause 		\epsilon_{2,1}
 			\pause 		&= \frac{\frac{\partial x_2^d(p_1,p_2,R)}{\partial p_1}}{\frac{x_2^d(p_1,p_2,R) }{p_1}} \pause= \frac{0}{\frac{\frac{4R}{5p_2}}{p_2}} = 0
 			\end{aligned}\]
 		\end{column}
 	\end{columns}
-	
-\end{frame} 
+
+  \end{frame}
 
 \end{document}
 

@@ -1,6 +1,6 @@
 \documentclass[9pt,professionalfonts,handout,hyperref]{beamer}
 \mode<presentation>
-\usetheme{Frankfurt} 
+\usetheme{Frankfurt}
 \usecolortheme{seahorse}
 \usepackage[french]{babel}
 \usepackage{times}
@@ -14,7 +14,7 @@
 
 \title{Calcul Economique 1\\Fiche de TD 2}
 \author{F.~Karamé}
-\date{Année universitaire 2020-2021}
+\date{Année universitaire 2021-2022}
 \subject{Talks}
 
 \setbeamertemplate{navigation symbols}{}
@@ -22,90 +22,89 @@
 \begin{document}
 
 \begin{frame}
-	\titlepage
-	%\centering{\includegraphics[scale=.3]{../../lemanslogofac.jpg}}
+  \titlepage
 \end{frame}
 
 \section{Exercice 1}
 
-%\exercice{1} La demande de montres SLOUK est de 10 unités si le prix est
-%égal à 160 euros et elle est de 20 unités si le prix est 120
-%euros. Calculer la fonction de demande supposée linéaire.
+% \exercice{1} La demande de montres SLOUK est de 10 unités si le prix est
+% égal à 160 euros et elle est de 20 unités si le prix est 120
+% euros. Calculer la fonction de demande supposée linéaire.
 %
-%\bigskip
+% \bigskip
 %
 
 \begin{frame}
 
-La demande de montres étant supposée linéaire, elle est de la forme : $$q = a + bp $$ avec $p$ les prix et $q$ les quantités (les prix déterminent les quantités demandées).\newline
+    La demande de montres étant supposée linéaire, elle est de la forme : $$q = a + bp $$ avec $p$ les prix et $q$ les quantités (les prix déterminent les quantités demandées).\newline
 
-\pause Les points $(q=10,p=160)$ et $(q=20,p=120)$ vérifient l'équation de demande. \pause Donc : 
-\[
-\begin{aligned}
-\pause 10 \pause &= \pause a + \pause b\times 160  \\
-\pause 20 \pause &= \pause a + \pause b\times 120 
-\end{aligned}
-\]
+    \pause Les points $(q=10,p=160)$ et $(q=20,p=120)$ vérifient l'équation de demande. \pause Donc :
+    \[
+      \begin{aligned}
+        \pause 10 \pause &= \pause a + \pause b\times 160  \\
+        \pause 20 \pause &= \pause a + \pause b\times 120
+      \end{aligned}
+    \]
 
-\pause On résout en combinant les deux équations, par exemple en les soustrayant : \pause cela fera disparaître $a$ et on aura donc une équation à une inconnue $b$ : 
+    \pause On résout en combinant les deux équations, par exemple en les soustrayant : \pause cela fera disparaître $a$ et on aura donc une équation à une inconnue $b$ :
 
-\[
-\begin{aligned}
-\pause &10-20 = a-a + 160b -120b \\
-\pause \Leftrightarrow&-10 = 40b \pause \Leftrightarrow b = -\frac{10}{40} \pause = -\frac{1}{4} \\
-\end{aligned}
-\]
+    \[
+      \begin{aligned}
+        \pause &10-20 = a-a + 160b -120b \\
+        \pause \Leftrightarrow&-10 = 40b \pause \Leftrightarrow b = -\frac{10}{40} \pause = -\frac{1}{4} \\
+      \end{aligned}
+    \]
 
-\pause On en déduit $a$ : 
-\[
-\begin{aligned}
-\pause 10 \pause &= \pause a -\frac{1}{4}\times 160\pause \Leftrightarrow 10 = a - 40 \pause \Leftrightarrow  a = 50\\
-\pause 20 \pause &= \pause a -\frac{1}{4} \times 120\pause \Leftrightarrow 20 = a - 30 \pause \Leftrightarrow  a = 50
-\end{aligned}
-\]
+    \pause On en déduit $a$ :
+    \[
+      \begin{aligned}
+        \pause 10 \pause &= \pause a -\frac{1}{4}\times 160\pause \Leftrightarrow 10 = a - 40 \pause \Leftrightarrow  a = 50\\
+        \pause 20 \pause &= \pause a -\frac{1}{4} \times 120\pause \Leftrightarrow 20 = a - 30 \pause \Leftrightarrow  a = 50
+      \end{aligned}
+    \]
 
-\pause Conclusion : l'équation de demande est $q = 50 -\frac{1}{4}p $. 
-\end{frame}
+    \pause Conclusion : l'équation de demande est $q = 50 -\frac{1}{4}p $.
+  \end{frame}
 
-\section{Exercice 2}
+  \section{Exercice 2}
 
-%\exercice{2} Quand le prix est de 100 euros la quantité d'appareils
-%photos de marque PISTOL offerte sur le marché est 50 unités. Quand le
-%prix est 50\% plus élevé le nombre d'unités offertes est de
-%100. Calculer la fonction d'offre supposée linéaire.
-%
-%\bigskip
-\begin{frame}
-	
+  % \exercice{2} Quand le prix est de 100 euros la quantité d'appareils
+  % photos de marque PISTOL offerte sur le marché est 50 unités. Quand le
+  % prix est 50\% plus élevé le nombre d'unités offertes est de
+  % 100. Calculer la fonction d'offre supposée linéaire.
+  %
+  % \bigskip
+  \begin{frame}
+
 	L'offre de montres étant supposée linéaire, elle est aussi de la forme : $$q = a + bp $$ avec $p$ les prix et $q$ les quantités (les prix déterminent les quantités offertes).\newline
-	
-	\pause D'après l'énoncé, les points $(q=50,p=100)$ et $(q=100,p=150)$ vérifient l'équation d'offre. \pause Donc : 
+
+	\pause D'après l'énoncé, les points $(q=50,p=100)$ et $(q=100,p=150)$ vérifient l'équation d'offre. \pause Donc :
 	\[
 	\begin{aligned}
 \pause 	50 \pause &= a \pause + b\times 100 \\
-\pause 	100 \pause &= a \pause + b\times 150 
+\pause 	100 \pause &= a \pause + b\times 150
 	\end{aligned}
 	\]
-	
-\pause 	On résout en combinant les deux équations, par exemple en les soustrayant : cela fera disparaître $a$ et on aura donc une équation à une inconnue $b$ : 
-	
+
+\pause 	On résout en combinant les deux équations, par exemple en les soustrayant : cela fera disparaître $a$ et on aura donc une équation à une inconnue $b$ :
+
 	\[
 	\begin{aligned}
-\pause 	&100-50 \pause = a-a \pause + 150b -100b 
+\pause 	&100-50 \pause = a-a \pause + 150b -100b
 \pause 	\Leftrightarrow50 = 50b 	\pause \Leftrightarrow b = 1 \\
 	\end{aligned}
 	\]
-	
-\pause 	On en déduit $a$ : 
+
+\pause 	On en déduit $a$ :
 	\[
 	\begin{aligned}
 \pause 	50 \pause &= a \pause + 100\times 1 \pause \Leftrightarrow  a = -50\\
 \pause 	100 \pause &= a \pause + 150 \times 1 \pause \Leftrightarrow  a = -50
 	\end{aligned}
 	\]
-	
-\medskip 	
-\pause Conclusion : l'équation d'offre est $q = -50 +p $. 
+
+\medskip
+\pause Conclusion : l'équation d'offre est $q = -50 +p $.
 
 \end{frame}
 
@@ -126,12 +125,12 @@ La demande de montres étant supposée linéaire, elle est de la forme : $$q = a
 %
 
 \begin{frame}
-	
+
 \pause Le prix d'équilibre $p^{\star}$ permet d'égaliser l'offre et la demande sur un marché : $$D(p^{\star}) = S(p^{\star})$$
-\pause D'après l'énoncé, 
-	
+\pause D'après l'énoncé,
+
 \[\begin{aligned}
-\pause D(p^{\star}) = S(p^{\star}) 
+\pause D(p^{\star}) = S(p^{\star})
 \pause \Leftrightarrow& -2 p^{\star}  + 6 = \frac{1}{2} p^{\star}  + 1\\
 \pause \Leftrightarrow& -2 p^{\star} -\frac{1}{2} p^{\star} \pause  = 1 - 6\\
 \pause \Leftrightarrow& -\frac{5}{2} p^{\star}  = -5\\
@@ -140,7 +139,7 @@ La demande de montres étant supposée linéaire, elle est de la forme : $$q = a
 \pause \Leftrightarrow& p^{\star}  = 2\\
 \end{aligned}\]
 
-\pause On en déduit les quantités d'équilibre : 
+\pause On en déduit les quantités d'équilibre :
 
 \[\begin{aligned}
 \pause D(p^\star): \pause q^\star \pause &= -2 p^\star  + 6 \pause = -2\times 2 +6 \pause = 2\\
@@ -148,7 +147,7 @@ La demande de montres étant supposée linéaire, elle est de la forme : $$q = a
 \end{aligned}\]
 
 \pause Conclusion : à l'équilibre, le prix est $p^\star = 2$ et les quantités échangées $q^\star = 2$.
-	
+
 \end{frame}
 
 
@@ -173,16 +172,16 @@ La demande de montres étant supposée linéaire, elle est de la forme : $$q = a
 %\bigskip
 %
 \begin{frame}
-	
+
 \pause On remarque que $f(x) = x^2+2x+1$ est une identité remarquable : \pause $$f(x) = x^2+2x+1= (x+1)^2$$
 
 
-\pause On a exprimé le polynôme comme un polynôme d'ordre 1 au carré. \pause Donc il n'y a qu'une racine et $f(x)\ge0$. \newline 
+\pause On a exprimé le polynôme comme un polynôme d'ordre 1 au carré. \pause Donc il n'y a qu'une racine et $f(x)\ge0$. \newline
 
-\pause $f(x)=0$ est donc la valeur minimale prise par la fonction si et seulement si $x=-1$. \newline 
+\pause $f(x)=0$ est donc la valeur minimale prise par la fonction si et seulement si $x=-1$. \newline
 
-\pause Donc $x=-1$ est le minimum unique de la fonction. 
-	
+\pause Donc $x=-1$ est le minimum unique de la fonction.
+
 \end{frame}
 
 
@@ -204,31 +203,31 @@ La demande de montres étant supposée linéaire, elle est de la forme : $$q = a
 %
 
 \begin{frame}
-	
-Le prix d'équilibre $p^{\star}$ permet d'égaliser l'offre et la demande sur un marché : 		
+
+Le prix d'équilibre $p^{\star}$ permet d'égaliser l'offre et la demande sur un marché :
 	\[\begin{aligned}
-\pause 	D(p^{\star}) = S(p^{\star}) 
+\pause 	D(p^{\star}) = S(p^{\star})
 \pause 	\Leftrightarrow&-2 p^{\star2}  + 3 \pause = p^{\star2} + 5p^{\star} +2\\
 \pause 	\Leftrightarrow& 3 p^{\star2} + 5p^{\star} -1=0\\
 	\end{aligned}\]
-	
-\pause On a tout regroupé d'un coté pour égaliser à 0. \pause On est en présence d'un polynôme d'ordre 2 en $p^{\star}$ à résoudre.\newline  
 
-\pause Calculons le discriminant. \pause Pour cela, on identifie le polynôme général $ax^{2} + bx +c=0$ au polynôme étudié \pause : il vient $a = 3$, $ b=5$ et $c=-1$. \pause Le discriminant s'écrit : 
+\pause On a tout regroupé d'un coté pour égaliser à 0. \pause On est en présence d'un polynôme d'ordre 2 en $p^{\star}$ à résoudre.\newline
+
+\pause Calculons le discriminant. \pause Pour cela, on identifie le polynôme général $ax^{2} + bx +c=0$ au polynôme étudié \pause : il vient $a = 3$, $ b=5$ et $c=-1$. \pause Le discriminant s'écrit :
 
 \[
 \Delta = b^2 -4ac \pause = 5^2\pause -4\times \pause 3 \pause \times (-1) \pause = 25+12 \pause = 37 \pause >0
 \]
 
-\pause Comme $\Delta>0$, il y a deux racines réelles : 
-	
+\pause Comme $\Delta>0$, il y a deux racines réelles :
+
 \[\begin{aligned}
 \pause &p_1^{\star} = \frac{-b + \sqrt{\Delta}}{2a} \pause = \frac{-5 + \sqrt{37}}{2\times3}\pause >0\\
 \pause &p_2^{\star} = \frac{-b - \sqrt{\Delta}}{2a} \pause = \frac{-5 - \sqrt{37}}{2\times3}\pause <0\\
 \end{aligned}\]
-	
-\pause La seconde racine étant négative, la seule solution acceptable est $p^{\star} = \frac{-5 + \sqrt{37}}{2\times3} \pause \approxeq \frac{1}{6}$. 
-	
+
+\pause La seconde racine étant négative, la seule solution acceptable est $p^{\star} = \frac{-5 + \sqrt{37}}{2\times3} \pause \approxeq \frac{1}{6}$.
+
 \end{frame}
 
 
@@ -241,36 +240,36 @@ Le prix d'équilibre $p^{\star}$ permet d'égaliser l'offre et la demande sur un
 %
 
 \begin{frame}
-	
-$x^2-2x+2 = 0$ ressemble à l'identité remarquable \pause $x^2-2x+1 = 0$.\newline  
 
-En modifiant : 
+$x^2-2x+2 = 0$ ressemble à l'identité remarquable \pause $x^2-2x+1 = 0$.\newline
+
+En modifiant :
 
 \[\begin{aligned}
-\pause x^2-2x+2 
+\pause x^2-2x+2
 & = \underbrace{x^2-2x+1} \pause +1 \\
 \pause & = (x-1)^2 +1 \\
 \end{aligned}\]
 
-Comme on additionne deux nombres positifs, $x^2-2x+2>0$ pour tout $x$ réel. \newline 
+Comme on additionne deux nombres positifs, $x^2-2x+2>0$ pour tout $x$ réel. \newline
 
 \end{frame}
 
 \begin{frame}
 
-Calculons le discriminant. \pause Pour cela, on identifie le polynôme général $ax^{2} + bx +c=0$ au polynôme étudié : \pause il vient $a = 1$, \pause $ b=-2$ \pause et $c=2$. 
+Calculons le discriminant. \pause Pour cela, on identifie le polynôme général $ax^{2} + bx +c=0$ au polynôme étudié : \pause il vient $a = 1$, \pause $ b=-2$ \pause et $c=2$.
 
 \[
 \Delta = b^2 -4ac \pause = (-2)^2\pause -4\times \pause 1 \pause \times 2 \pause = 4-8 \pause = -4 \pause <0
 \]
 
-Comme $\Delta<0$, il n'y a pas de racines réelles. \pause Mais en passant dans l'ensemble des complexes \pause où les nombres sont de la forme $a+ib$ \pause et où il existe le nombre imaginaire $i$ \pause tel que : $i^2=-1$ (!!!) : 
+Comme $\Delta<0$, il n'y a pas de racines réelles. \pause Mais en passant dans l'ensemble des complexes \pause où les nombres sont de la forme $a+ib$ \pause et où il existe le nombre imaginaire $i$ \pause tel que : $i^2=-1$ (!!!) :
 
 \[
-\Delta = -4 \pause = 4\times (-1) \pause = 4i^2 \pause = (2i)^2 
+\Delta = -4 \pause = 4\times (-1) \pause = 4i^2 \pause = (2i)^2
 \]
 
-\pause La formule des racines fonctionne toujours mais les deux racines sont complexes : 
+\pause La formule des racines fonctionne toujours mais les deux racines sont complexes :
 
 \[\begin{aligned}
 &x_1 = \frac{-b + \sqrt{\Delta}}{2a} \pause = \frac{2 + \sqrt{4i^2}}{2}\pause = \frac{2 + 2i}{2} \pause = 1+i\\
@@ -298,43 +297,43 @@ Comme $\Delta<0$, il n'y a pas de racines réelles. \pause Mais en passant dans 
 
 $$x^3-2x^2+2x = 0$$
 
-\pause Pas de règle pour les polynômes d'ordre 3.\newline 
+\pause Pas de règle pour les polynômes d'ordre 3.\newline
 
-\pause Ici, pas de terme constant donc factorisons par $x$ :  
+\pause Ici, pas de terme constant donc factorisons par $x$ :
 
 \[\begin{aligned}
 &x^3-2x^2+2x =\pause x\pause (x^2\pause -2x\pause +2) \\
 \end{aligned}\]
 
-\pause A l'exercice précédent, on a vu que le polynôme $x^2-2x+2 = 0$ n'a pas de racine réelle.\newline 
+\pause A l'exercice précédent, on a vu que le polynôme $x^2-2x+2 = 0$ n'a pas de racine réelle.\newline
 
 \pause La seule solution pour $x(x^2-2x+2) = 0$ \pause est donc $x=0$.
-	
+
 \end{frame}
 
 
 \begin{frame}
-	
+
 $$x^3+2x^2-x-2 = 0$$
-	
-\pause Pas de règle pour les polynômes d'ordre 3. \pause Il faut trouver des racines évidentes. \pause Ici, il est clair que $x=1$ vérifie l'égalité :  
+
+\pause Pas de règle pour les polynômes d'ordre 3. \pause Il faut trouver des racines évidentes. \pause Ici, il est clair que $x=1$ vérifie l'égalité :
 
 \[\begin{aligned}
 &(1)^3\pause +2(1)^2\pause -(1)\pause -2 = 0
 \end{aligned}\]
 
-On peut donc factoriser par $(x-1)$. \pause Partant d'un polynôme d'ordre 3, il reste donc un polynôme d'ordre 2 : 
+On peut donc factoriser par $(x-1)$. \pause Partant d'un polynôme d'ordre 3, il reste donc un polynôme d'ordre 2 :
 
 \[\begin{aligned}
-&x^3+2x^2-x-2 = (x-1)(ax^2+bx+c) \\ 
+&x^3+2x^2-x-2 = (x-1)(ax^2+bx+c) \\
 \end{aligned}\]
 
-\pause Pour trouver $a$, $b$, $c$, on développe le terme de droite, on regroupe par puissance et on identifie au terme de gauche : 
+\pause Pour trouver $a$, $b$, $c$, on développe le terme de droite, on regroupe par puissance et on identifie au terme de gauche :
 
 \[\begin{aligned}
-\pause (x-1)(ax^2+bx+c) 
-&= \pause ax^3\pause +bx^2\pause +cx \pause - ax^2\pause -bx\pause -c\\ 
-&= ax^3\pause +(b-a)x^2\pause +(c-b)x \pause -c\\ 
+\pause (x-1)(ax^2+bx+c)
+&= \pause ax^3\pause +bx^2\pause +cx \pause - ax^2\pause -bx\pause -c\\
+&= ax^3\pause +(b-a)x^2\pause +(c-b)x \pause -c\\
 \pause &= x^3+2x^2-x-2\end{aligned}\]
 
 \end{frame}
@@ -345,10 +344,10 @@ On peut donc factoriser par $(x-1)$. \pause Partant d'un polynôme d'ordre 3, il
 ax^3+(b-a)x^2+(c-b)x -c = x^3+2x^2-x-2
 \end{aligned}\]
 
-\bigskip 
+\bigskip
 
-Il vient : 
-	
+Il vient :
+
 \[\begin{aligned}
 \begin{cases}
 	a   & = 1 \\
@@ -371,15 +370,15 @@ Il vient :
 \end{cases}
 \end{aligned}\]
 
-\bigskip 
+\bigskip
 \pause Donc :
 \[\begin{aligned}
-\pause x^3+2x^2-x-2 = (x-1)(x^2+3x+2) 
+\pause x^3+2x^2-x-2 = (x-1)(x^2+3x+2)
 \end{aligned}\]
 
-\bigskip 
+\bigskip
 
-\pause Reste à factoriser $x^2+3x+2 = 0$, soit en repérant les racines évidentes, soit avec le discriminant. 
+\pause Reste à factoriser $x^2+3x+2 = 0$, soit en repérant les racines évidentes, soit avec le discriminant.
 \end{frame}
 
 \begin{frame}
@@ -391,7 +390,7 @@ Avec le discriminant : $x^2+3x+2 = 0$ implique \pause $a=1$, \pause $b=3$ et \pa
 \]
 
 
-\pause Comme $\Delta>0$, il y a deux racines réelles : 
+\pause Comme $\Delta>0$, il y a deux racines réelles :
 
 \[\begin{aligned}
 &x_1 = \frac{-b + \sqrt{\Delta}}{2a} \pause = \frac{-3 + \sqrt{1}}{2\times1} \pause = -1\\
@@ -401,10 +400,10 @@ Avec le discriminant : $x^2+3x+2 = 0$ implique \pause $a=1$, \pause $b=3$ et \pa
 \pause On peut donc factoriser par \pause $(x-(-1)) \pause = (x+1)$ \pause et $(x-(-2)) \pause = (x+2)$.
 
 \[\begin{aligned}
-\pause x^3+2x^2-x-2 = (x-1)(x+1)(x+2)  
+\pause x^3+2x^2-x-2 = (x-1)(x+1)(x+2)
 \end{aligned}\]
 
-\bigskip 
+\bigskip
 \pause Les racines du polynôme sont donc : $x=1$, $x=-1$ et $x=-2$.
 
 \end{frame}
@@ -413,17 +412,17 @@ Avec le discriminant : $x^2+3x+2 = 0$ implique \pause $a=1$, \pause $b=3$ et \pa
 
 $$x^4-5x^2+4 = 0$$
 
-\pause Ici il n'y a que des puissances paires. \pause Posons $X = x^2$. 
+\pause Ici il n'y a que des puissances paires. \pause Posons $X = x^2$.
 
 \[\begin{aligned}
-\pause X^2-5X+4 = 0 
+\pause X^2-5X+4 = 0
 \end{aligned}\]
 
-\pause Il devient facile de résoudre en $X$, avec le discriminant ou avec des racines évidentes : \pause $X=1$ et $X=4$.\newline 
+\pause Il devient facile de résoudre en $X$, avec le discriminant ou avec des racines évidentes : \pause $X=1$ et $X=4$.\newline
 \pause Factorisons et repassons à $x$ :
 
 \[\begin{aligned}
-X^2-5X+4 
+X^2-5X+4
 \pause &= (X-1)(X-4) \\
 \pause &= (x^2-1)(x^2-4) \\
 \end{aligned}\]
@@ -431,12 +430,12 @@ X^2-5X+4
 On reconnaît l'identité remarquable : \pause $a^2-b^2 \pause = (a-b)(a+b)$.\\
 
 \[\begin{aligned}
-X^2-5X+4 
+X^2-5X+4
 \pause &= (x^2-1^2)(x^2-2^2) \\
 \pause &= (x-1)(x+1)(x-2)(x+2) \\
 \end{aligned}\]
 
-\pause Donc les racines sont $x = -2$, $x = -1$, $x = 1$ et $x = 2$. 
+\pause Donc les racines sont $x = -2$, $x = -1$, $x = 1$ et $x = 2$.
 
 \end{frame}
 
@@ -444,16 +443,16 @@ X^2-5X+4
 
 $$x^2 - 2\sqrt{2}x + 2 = 0$$
 
-\bigskip 
+\bigskip
 
-\pause Ici on reconnaît l'identité remarquable : \pause $a^2 -2ab +b^2 \pause = (a-b)^2$. 
+\pause Ici on reconnaît l'identité remarquable : \pause $a^2 -2ab +b^2 \pause = (a-b)^2$.
 
 \[\begin{aligned}
 &x^2 - 2\sqrt{2}x + 2  = 0\\
 \pause \Leftrightarrow&(x -\sqrt{2})^2 = 0
 \end{aligned}\]
 
-\pause Donc $x = \sqrt{2}$ est racine double. 
+\pause Donc $x = \sqrt{2}$ est racine double.
 \end{frame}
 
 %
@@ -488,22 +487,22 @@ $$x^2 - 2\sqrt{2}x + 2 = 0$$
 
 Supposons que le ménage décide de consommer la totalité de son revenu en
 achetant ces deux biens (on admet qu'il ne peut pas consommer une
-quantité négative de banane ou de carotte). \newline 
+quantité négative de banane ou de carotte). \newline
 
-\pause L'ensemble des couples de quantités $(q_B, q_C)$ cohérents avec cette hypothèse : 
+\pause L'ensemble des couples de quantités $(q_B, q_C)$ cohérents avec cette hypothèse :
 
 $$ \left\{(q_B, q_C) \pause \in \mathbb{R}^{+}\times\mathbb{R}^{+} \pause ~~|~~\pause p_B\pause q_B \pause + p_C\pause q_C\pause =R\right\}$$
 
-\pause C'est l'équation de la droite de budget dans le plan $(0,q_B,q_C)$. 
+\pause C'est l'équation de la droite de budget dans le plan $(0,q_B,q_C)$.
 
-\bigskip 
+\bigskip
 
 \pause Si le ménage décide de ne pas consommer la totalité de son revenu :
 
 $$ \left\{(q_B, q_C) \pause \in \mathbb{R}^{+}\times\mathbb{R}^{+} \pause ~~|~~p_Bq_B + p_Cq_C\pause <R\right\}$$
 
 
-\pause Cet ensemble est le demi-plan de consommation sous la droite de budget dans le plan $(0,q_B,q_C)$. 
+\pause Cet ensemble est le demi-plan de consommation sous la droite de budget dans le plan $(0,q_B,q_C)$.
 
 \end{frame}
 
@@ -539,17 +538,17 @@ $$ \left\{(q_B, q_C) \pause \in \mathbb{R}^{+}\times\mathbb{R}^{+} \pause ~~|~~p
 
 $$u(q_B, q_C) = q_B + q_C$$
 
-\bigskip 
+\bigskip
 
 \begin{itemize}
-\item[-] traduction numérique des préférences d'un consommateur, \newline 
+\item[-] traduction numérique des préférences d'un consommateur, \newline
 
-\item[-] mesure la satisfaction du consommateur, \newline 
-	
-\item[-] fonction croissante en $q_B$ et $q_C$.\newline 
-	
+\item[-] mesure la satisfaction du consommateur, \newline
+
+\item[-] fonction croissante en $q_B$ et $q_C$.\newline
+
 \item[-] donc plus on consomme, plus on est content.
-	
+
 \end{itemize}
 \end{frame}
 
@@ -559,9 +558,9 @@ Déterminer l'ensemble des couples $(q_B, q_C)$ permettant d'atteindre un niveau
 
 $$ \left\{\pause (q_B, q_C) \pause \in \mathbb{R}^{+}\times\mathbb{R}^{+} \pause ~~|~~u(q_B, q_C) \pause = q_B + q_C \pause =300 \right\} $$
 
-\bigskip 
+\bigskip
 
-\pause C'est une droite dans le plan $(0,q_B,q_C)$. 
+\pause C'est une droite dans le plan $(0,q_B,q_C)$.
 
 \end{frame}
 
@@ -572,16 +571,16 @@ $$ \left\{\pause (q_B, q_C) \pause \in \mathbb{R}^{+}\times\mathbb{R}^{+} \pause
 \pause \text{ Budget :   }&\left\{(q_B, q_C) \in \mathbb{R}^{+}\times\mathbb{R}^{+} ~~|~~p_Bq_B + p_Cq_C=R\right\}
 \end{aligned}\]
 
-\bigskip 
+\bigskip
 
-\pause On est en présence de deux droites dans le plan $(0,q_B,q_C)$. 
+\pause On est en présence de deux droites dans le plan $(0,q_B,q_C)$.
 
 \[\begin{aligned}
 \pause \text{ Satisfaction :   }&q_B + q_C = 300 \pause \Leftrightarrow q_C = 300-q_B \\
 \pause \text{ Budget :   }&p_Bq_B + p_Cq_C=R \pause \Leftrightarrow q_C = \frac{R}{p_C} -\frac{p_B}{p_C}q_B
 \end{aligned}\]
 
-\pause Le ménage peut atteindre son objectif d'utilité de 300 \pause si l'intersection entre les deux droites $(q_B^\star,q_C^\star)$ existe \pause ET est acceptable. 
+\pause Le ménage peut atteindre son objectif d'utilité de 300 \pause si l'intersection entre les deux droites $(q_B^\star,q_C^\star)$ existe \pause ET est acceptable.
 
 \end{frame}
 
@@ -589,20 +588,20 @@ $$ \left\{\pause (q_B, q_C) \pause \in \mathbb{R}^{+}\times\mathbb{R}^{+} \pause
 \begin{frame}
 
 
-Avec l'application numérique $R =100$, $p_B= 1$ et $p_C = \frac{1}{2}$ : 
+Avec l'application numérique $R =100$, $p_B= 1$ et $p_C = \frac{1}{2}$ :
 
 \[\begin{aligned}
 \pause \text{ Satisfaction :   }&q_C = 300-q_B \\
 \pause \text{ Budget :   }q_C = \frac{100}{1/2} -\frac{1}{1/2}q_B\pause \Leftrightarrow &q_C = 200-2q_B
 \end{aligned}\]
 
-\pause L'intersection vérifie : 
+\pause L'intersection vérifie :
 
 \[\begin{aligned}
 \pause &300-q_B^\star \pause = 200-2q_B^\star \pause \Leftrightarrow \pause 2q_B^\star-q_B^\star \pause = 200-300 \pause \Leftrightarrow q_B^\star = -100
 \end{aligned}\]
 
-\bigskip 
+\bigskip
 
 \pause Impossible pour une quantité !
 
@@ -612,53 +611,53 @@ Avec l'application numérique $R =100$, $p_B= 1$ et $p_C = \frac{1}{2}$ :
 \begin{frame}
 
 Réécrivons le problème avec un niveau d'utilité inconnu $U$ :
-	
+
 	\[\begin{aligned}
 \pause 	\text{ Satisfaction :   }&\left\{(q_B, q_C) \in \mathbb{R}^{+}\times\mathbb{R}^{+} ~~|~~u(q_B, q_C) = q_B + q_C = \alert{U} \right\} \\
 \pause 	\text{ Budget :   }&\left\{(q_B, q_C) \in \mathbb{R}^{+}\times\mathbb{R}^{+} ~~|~~p_Bq_B + p_Cq_C=R\right\}
 	\end{aligned}\]
-	
-	\bigskip 
-	
+
+	\bigskip
+
 \pause 	On est en présence de deux droites dans le plan $(0,q_B,q_C)$. Avec l'application numérique $R =100$, $p_B= 1$ et $p_C = \frac{1}{2}$ :
-	
+
 	\[\begin{aligned}
 \pause 	\text{ Satisfaction :   }&q_B + q_C = U \pause \Leftrightarrow q_C = U-q_B \\
 \pause 	\text{ Budget :   }&q_C = 200-2q_B
 	\end{aligned}\]
-	
+
 \pause  En substituant :
-	
+
 	\[\begin{aligned}
 \pause 	&U-q_B^\star = 200-2q_B^\star \pause \Leftrightarrow U = 200-q_B^\star
 	\end{aligned}\]
-	
+
 \pause Si on veut $U$ maximum, \pause il faut que $q_B^\star = 0$ \pause (et donc $U=200$). \pause Donc l'agent ne consomme pas de bananes \pause mais que des carottes : \pause $$q_C^\star = 200-2q_B^\star \pause = 200$$
-	
+
 \end{frame}
 
 
 \begin{frame}
-	
+
 	Soit la fonction d'utilité $u(q_B, q_C) = \alpha q_B + \beta q_C$ avec $(\alpha>0, \beta>0)$ :
-	
+
 	\[\begin{aligned}
 \pause 	\text{ Satisfaction :   }&\left\{(q_B, q_C) \in \mathbb{R}^{+}\times\mathbb{R}^{+} ~~|~~u(q_B, q_C) = \alert{\alpha q_B + \beta q_C = U} \right\} \\
 \pause 	\text{ Budget :   }&\left\{(q_B, q_C) \in \mathbb{R}^{+}\times\mathbb{R}^{+} ~~|~~p_Bq_B + p_Cq_C=R\right\}
 	\end{aligned}\]
-	
-	\bigskip 
-	
+
+	\bigskip
+
 \pause 	On est en présence de deux droites dans le plan $(0,q_B,q_C)$. Avec l'application numérique $R =100$, $p_B= 1$ et $p_C = \frac{1}{2}$ :
-	
+
 	\[\begin{aligned}
 \pause 	\text{ Satisfaction :   }\alpha q_B + \beta q_C = U \Leftrightarrow &q_C = \frac{U}{\beta}-\frac{\alpha}{\beta}q_B \\
 \pause 	\text{ Contrainte de budget : }&q_C = 200-2q_B
 	\end{aligned}\]
-	
-\bigskip 
 
-\pause On va résoudre graphiquement en fonction des pentes relatives de la droite d'utilité $(-\frac{\alpha}{\beta})$ et de la droite budgétaire $(-2)$. 
+\bigskip
+
+\pause On va résoudre graphiquement en fonction des pentes relatives de la droite d'utilité $(-\frac{\alpha}{\beta})$ et de la droite budgétaire $(-2)$.
 
 \end{frame}
 
@@ -669,16 +668,16 @@ Réécrivons le problème avec un niveau d'utilité inconnu $U$ :
 \text{ Contrainte de budget :   }&q_C = 200-2q_B
 \end{aligned}\]
 
-\bigskip 
+\bigskip
 
 \begin{itemize}
-\pause 	\item si $-\frac{\alpha}{\beta}>-2$ (donc $\frac{\alpha}{\beta}<2$) : \pause la droite d'utilité est moins pentue que la droite de budget \pause : donc $q_C^\star=200$ et $q_B^\star=0$ pour une utilité maximum...\newline 
+\pause 	\item si $-\frac{\alpha}{\beta}>-2$ (donc $\frac{\alpha}{\beta}<2$) : \pause la droite d'utilité est moins pentue que la droite de budget \pause : donc $q_C^\star=200$ et $q_B^\star=0$ pour une utilité maximum...\newline
 
-\pause 	\item si $-\frac{\alpha}{\beta}<-2$ (donc $\frac{\alpha}{\beta}>2$) : \pause la droite d'utilité est plus pentue que la droite de budget \pause : donc $q_C^\star=0$ et $q_B^\star=100$ pour une utilité maximum...\newline 
+\pause 	\item si $-\frac{\alpha}{\beta}<-2$ (donc $\frac{\alpha}{\beta}>2$) : \pause la droite d'utilité est plus pentue que la droite de budget \pause : donc $q_C^\star=0$ et $q_B^\star=100$ pour une utilité maximum...\newline
 
-\pause 	\item si $-\frac{\alpha}{\beta}=-2$ (donc $\frac{\alpha}{\beta}=2$) : \pause même pente, même droite et donc infinité de solutions possibles. 
+\pause 	\item si $-\frac{\alpha}{\beta}=-2$ (donc $\frac{\alpha}{\beta}=2$) : \pause même pente, même droite et donc infinité de solutions possibles.
 \end{itemize}
-	
+
 \end{frame}
 
 
@@ -696,17 +695,17 @@ Réécrivons le problème avec un niveau d'utilité inconnu $U$ :
 %
 
 \begin{frame}
-	
-Soit la fonction d'utilité $u(q_B, q_C) = \sqrt{q_Bq_C} = q_B^{1/2}q_C^{1/2}$, $p_B = p_C = 1$ et $R=100$. 
+
+Soit la fonction d'utilité $u(q_B, q_C) = \sqrt{q_Bq_C} = q_B^{1/2}q_C^{1/2}$, $p_B = p_C = 1$ et $R=100$.
 
 \[\begin{aligned}
 \pause \text{ Satisfaction :   }q_B^{1/2}q_C^{1/2} = U \Leftrightarrow q_C^{1/2} = \frac{U}{q_B^{1/2}} \Leftrightarrow &q_C = \frac{U^2}{q_B} \\
-\pause \text{ Contrainte budgétaire :   }q_B+q_C = 100 \Leftrightarrow &q_C = 100-q_B 
+\pause \text{ Contrainte budgétaire :   }q_B+q_C = 100 \Leftrightarrow &q_C = 100-q_B
 \end{aligned}\]
 
-\bigskip 
+\bigskip
 
-\pause Soit la solution $(q_B^\star,q_C^\star)$ le couple de quantités permettant de maximiser l'utilité sous la contrainte de budget. \pause C'est aussi le point d'intersection entre la droite de budget et la courbe d'utilité la plus haute. \pause Par substitution : 
+\pause Soit la solution $(q_B^\star,q_C^\star)$ le couple de quantités permettant de maximiser l'utilité sous la contrainte de budget. \pause C'est aussi le point d'intersection entre la droite de budget et la courbe d'utilité la plus haute. \pause Par substitution :
 
 \[\begin{aligned}
 \pause &q_C^\star = \frac{U^2}{q_B^\star} \pause = 100-q_B^\star\\
@@ -720,28 +719,27 @@ Soit la fonction d'utilité $u(q_B, q_C) = \sqrt{q_Bq_C} = q_B^{1/2}q_C^{1/2}$, 
 \end{frame}
 
 \begin{frame}
-	
+
 \[\begin{aligned}
 q_B^{\star 2} -100q_B^\star + U^2 = 0\\
 \end{aligned}\]
-		
-\pause Identifions les paramètres du polynôme \pause ($a=1$, \pause $b=-100$ \pause et $c=U^2$) \pause et calculons le discriminant $\Delta =0$ ici car on sait que la solution est unique :	
+
+\pause Identifions les paramètres du polynôme \pause ($a=1$, \pause $b=-100$ \pause et $c=U^2$) \pause et calculons le discriminant $\Delta =0$ ici car on sait que la solution est unique :
 \[
 \Delta = b^2 -4ac \pause = 100^2 \pause - 4 \times \pause 1 \pause \times U^2 \pause = 100^2 - (2U)^2 \pause = (100- 2U)(100+ 2U) \pause = 0
 \]
 
-\pause Dans ce cas, $100- 2U = 0$ est la seule solution possible car $100+ 2U = 0$ implique $U<0$. \pause On en déduit donc $U = 50$. \newline 
+\pause Dans ce cas, $100- 2U = 0$ est la seule solution possible car $100+ 2U = 0$ implique $U<0$. \pause On en déduit donc $U = 50$. \newline
 
-\pause Comme il n'y a qu'une racine, on a facilement (et sans $U$) : 
+\pause Comme il n'y a qu'une racine, on a facilement (et sans $U$) :
 
 \[\begin{aligned}
 \pause &q_B^\star = \frac{-b}{2a} \pause = \frac{100}{2\times1} \pause = 50\\
 \end{aligned}\]
-	
-\pause Et on en déduit facilement $q_C^\star$ \pause par la fonction d'utilité : \pause $$q_C^\star= \frac{U^2}{q_B^\star} \pause = \frac{50^2}{50} \pause = 50$$ \pause ou la contrainte de budget : 
+
+\pause Et on en déduit facilement $q_C^\star$ \pause par la fonction d'utilité : \pause $$q_C^\star= \frac{U^2}{q_B^\star} \pause = \frac{50^2}{50} \pause = 50$$ \pause ou la contrainte de budget :
 $$q_C^\star = 100-q_B^\star \pause = 100-50 \pause = 50$$
- 	
+
 \end{frame}
 
 \end{document}
-

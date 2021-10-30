@@ -1,11 +1,11 @@
-\documentclass[9pt,professionalfonts,handout,hyperref]{beamer}
+\documentclass[9pt,handout,hyperref]{beamer}
 \mode<presentation>
 \usetheme{Frankfurt}
 \usecolortheme{seahorse}
 \usepackage[french]{babel}
-\usepackage{times}
+%\usepackage{times}
 \usepackage{caption}
-\usepackage[T1]{fontenc}
+%\usepackage[T1]{fontenc}
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{palatino}
@@ -560,199 +560,199 @@ Posons $\alpha>0$. \\
 
 \begin{frame}
 
-Déterminons le point fixe de cette récurrence, le prix $\bar p = p_t = p_{t+1}$ :
+  Déterminons le point fixe de cette récurrence, le prix $\bar{p} = p_t = p_{t+1}$ :
 
-\[\begin{aligned}
-&p_{t+1} = p_t + \alpha [D(p_t)-S(p_t)]\\
-\Rightarrow\pause & \bar p = \bar p + \alpha [D(\bar p)-S(\bar p)]\\
-\pause \Leftrightarrow & \alpha \left[D(\bar p)-S(\bar p)\right] = 0\\
-\pause \Leftrightarrow & D(\bar p)-S(\bar p) = 0\\
-\pause \Leftrightarrow & D(\bar p)=S(\bar p)\\
-\end{aligned}\]
+  \[\begin{aligned}
+        &p_{t+1} = p_t + \alpha [D(p_t)-S(p_t)]\\
+        \Rightarrow\pause & \bar p = \bar p + \alpha [D(\bar p)-S(\bar p)]\\
+        \pause \Leftrightarrow & \alpha \left[D(\bar p)-S(\bar p)\right] = 0\\
+        \pause \Leftrightarrow & D(\bar p)-S(\bar p) = 0\\
+        \pause \Leftrightarrow & D(\bar p)=S(\bar p)\\
+      \end{aligned}\]
 
-\pause \bigskip C'est la condition de détermination du prix d'équilibre $p^{\star}$. \pause Donc $$\bar p = p^{\star} = \frac{1}{2}$$
+    \pause \bigskip C'est la condition de détermination du prix d'équilibre $p^{\star}$. \pause Donc $$\bar p = p^{\star} = \frac{1}{2}$$
 
-\end{frame}
+  \end{frame}
 
-\begin{frame}
+  \begin{frame}
 
-\begin{itemize}
-\item[-]Si $p_1=p^\star$, alors on part de l'équilibre et comme c'est le point fixe, on reste à l'équilibre.\newline
+    \begin{itemize}
+    \item[-]Si $p_1=p^\star$, alors on part de l'équilibre et comme c'est le point fixe, on reste à l'équilibre.\newline
 
-\pause \item[-]Dans le cas contraire, que se passe-t-il ? Rejoint-on l'équilibre (convergence) ou non (divergence) ?
-\end{itemize}
+      \pause \item[-]Dans le cas contraire, que se passe-t-il ? Rejoint-on l'équilibre (convergence) ou non (divergence) ?
+    \end{itemize}
 
-\end{frame}
+  \end{frame}
 
-\begin{frame}
+  \begin{frame}
 
-\[\begin{aligned}
-p_{t+1}
-\pause &= p_t  + \alpha \left[D(p_t)-S(p_t)\right]\\
-\pause &= p_t  + \alpha \left(2-p_t-1-p_t\right)\\
-\pause &= p_t  + \alpha \left(1-2p_t\right)\\
-\pause &= (1-2\alpha)p_t  + \alpha
-\end{aligned}\]
+    \[\begin{aligned}
+        p_{t+1}
+        \pause &= p_t  + \alpha \left[D(p_t)-S(p_t)\right]\\
+        \pause &= p_t  + \alpha \left(2-p_t-1-p_t\right)\\
+        \pause &= p_t  + \alpha \left(1-2p_t\right)\\
+        \pause &= (1-2\alpha)p_t  + \alpha
+      \end{aligned}\]
 
-\pause C'est une suite arithmético-géométrique !
+    \pause C'est une suite arithmético-géométrique !
 
-\end{frame}
+  \end{frame}
 
-\begin{frame}
+  \begin{frame}
 
-\[\begin{aligned}
-&p_{t+1} = (1-2\alpha)p_t  + \alpha\\
-\pause &\color{blue}{p_{t} = (1-2\alpha)p_{t-1}  + \alpha}\\
-\pause &\color{orange}{p_{t-1} = (1-2\alpha)p_{t-2}  + \alpha}\\
-&\dots
-\end{aligned}\]
+    \[\begin{aligned}
+        &p_{t+1} = (1-2\alpha)p_t  + \alpha\\
+        \pause &\color{blue}{p_{t} = (1-2\alpha)p_{t-1}  + \alpha}\\
+        \pause &\color{orange}{p_{t-1} = (1-2\alpha)p_{t-2}  + \alpha}\\
+        &\dots
+      \end{aligned}\]
 
-\pause Réinjectons les lignes inférieures dans l'expression de la première ligne.
+    \pause Réinjectons les lignes inférieures dans l'expression de la première ligne.
 
-\[\begin{aligned}
-\pause &p_{t+1} = (1-2\alpha){\color{blue}{p_t}}  + \alpha\\
-\pause \Leftrightarrow &p_{t+1} = (1-2\alpha){\color{blue}{[(1-2\alpha)p_{t-1}  + \alpha]}} + \alpha\\
-\pause \Leftrightarrow &p_{t+1} = (1-2\alpha)^2p_{t-1}  + (1-2\alpha) \alpha + \alpha\\
-\pause \Leftrightarrow &p_{t+1} = (1-2\alpha)^2{\color{orange}{p_{t-1}}}  + \alpha[1+(1-2\alpha)] 	\\
-\pause \Leftrightarrow &p_{t+1} = (1-2\alpha)^2{\color{orange}{[(1-2\alpha)p_{t-2}  + \alpha]}}  + \alpha[1+(1-2\alpha)]\\
-\pause \Leftrightarrow &p_{t+1} = (1-2\alpha)^3p_{t-2}  + \alpha[1+(1-2\alpha)+(1-2\alpha)^2]\\
-\end{aligned}\]
+    \[\begin{aligned}
+        \pause &p_{t+1} = (1-2\alpha){\color{blue}{p_t}}  + \alpha\\
+        \pause \Leftrightarrow &p_{t+1} = (1-2\alpha){\color{blue}{[(1-2\alpha)p_{t-1}  + \alpha]}} + \alpha\\
+        \pause \Leftrightarrow &p_{t+1} = (1-2\alpha)^2p_{t-1}  + (1-2\alpha) \alpha + \alpha\\
+        \pause \Leftrightarrow &p_{t+1} = (1-2\alpha)^2{\color{orange}{p_{t-1}}}  + \alpha[1+(1-2\alpha)] 	\\
+        \pause \Leftrightarrow &p_{t+1} = (1-2\alpha)^2{\color{orange}{[(1-2\alpha)p_{t-2}  + \alpha]}}  + \alpha[1+(1-2\alpha)]\\
+        \pause \Leftrightarrow &p_{t+1} = (1-2\alpha)^3p_{t-2}  + \alpha[1+(1-2\alpha)+(1-2\alpha)^2]\\
+      \end{aligned}\]
 
-\end{frame}
+  \end{frame}
 
-\begin{frame}
+  \begin{frame}
 
-\[\begin{aligned}
-p_{t+1} &= (1-2\alpha)^{\alert{3}}p_{\alert{t-2}}  + \alpha[1+(1-2\alpha)+(1-2\alpha)^{\alert{2}}]\\
-\pause &= (1-2\alpha)^{\alert{4}}p_{\alert{t-3}}  + \alpha[1+(1-2\alpha)+(1-2\alpha)^2+(1-2\alpha)^{\alert{3}}]\\
-\pause &= (1-2\alpha)^{\alert{5}}p_{\alert{t-4}}  + \alpha[1+(1-2\alpha)+(1-2\alpha)^2+(1-2\alpha)^3+(1-2\alpha)^{\alert{4}}] \\
-\pause &\dots\\
-\pause &= (1-2\alpha)^{\alert{t}}p_{\alert{1}}  \pause + \alpha[1+(1-2\alpha)+(1-2\alpha)^2+(1-2\alpha)^3+\dots+(1-2\alpha)^{\alert{t-1}}]
-\end{aligned}\]
+    \[\begin{aligned}
+        p_{t+1} &= (1-2\alpha)^{\alert{3}}p_{\alert{t-2}}  + \alpha[1+(1-2\alpha)+(1-2\alpha)^{\alert{2}}]\\
+        \pause &= (1-2\alpha)^{\alert{4}}p_{\alert{t-3}}  + \alpha[1+(1-2\alpha)+(1-2\alpha)^2+(1-2\alpha)^{\alert{3}}]\\
+        \pause &= (1-2\alpha)^{\alert{5}}p_{\alert{t-4}}  + \alpha[1+(1-2\alpha)+(1-2\alpha)^2+(1-2\alpha)^3+(1-2\alpha)^{\alert{4}}] \\
+        \pause &\dots\\
+        \pause &= (1-2\alpha)^{\alert{t}}p_{\alert{1}}  \pause + \alpha[1+(1-2\alpha)+(1-2\alpha)^2+(1-2\alpha)^3+\dots+(1-2\alpha)^{\alert{t-1}}]
+      \end{aligned}\]
 
-\bigskip
-\pause ou en l'écrivant pour $p_t$ :
+    \bigskip
+    \pause ou en l'écrivant pour $p_t$ :
 
-\[\begin{aligned}
-p_{t}
-\pause &= (1-2\alpha)^{\alert{t-1}}p_{\alert{1}}  + \alpha[{1+(1-2\alpha)+(1-2\alpha)^2+(1-2\alpha)^3+\dots+(1-2\alpha)^{\alert{t-2}}}]
-\end{aligned}\]
+    \[\begin{aligned}
+        p_{t}
+        \pause &= (1-2\alpha)^{\alert{t-1}}p_{\alert{1}}  + \alpha[{1+(1-2\alpha)+(1-2\alpha)^2+(1-2\alpha)^3+\dots+(1-2\alpha)^{\alert{t-2}}}]
+      \end{aligned}\]
 
-\end{frame}
+  \end{frame}
 
-\begin{frame}
+  \begin{frame}
 
-\[\begin{aligned}
-p_{t}
-&= (1-2\alpha)^{{t-1}}p_{{1}}  + \alpha\alert{[\underbrace{1+(1-2\alpha)+(1-2\alpha)^2+(1-2\alpha)^3+\dots+(1-2\alpha)^{{t-2}}}_{\pause \text{somme de $(t-1)$ termes d'une suite géométrique de premier terme 1 et de raison $(1-2\alpha)$}}]}\\
-\pause &= (1-2\alpha)^{{t-1}}p_{{1}}  + \alpha \alert{\frac{1-(1-2\alpha)^{t-1}}{1-(1-2\alpha)}}\\
-\pause &= (1-2\alpha)^{{t-1}}p_{{1}}  + \alpha \frac{1-(1-2\alpha)^{t-1}}{2\alpha}\\
-\pause &= (1-2\alpha)^{{t-1}}p_{{1}}  + \frac{1-(1-2\alpha)^{t-1}}{2}\\
-\pause &= {\color{blue}{(1-2\alpha)^{{t-1}}}\alert{p_{{1}}}}  + \frac{1}{2} \alert{-}\frac{\color{blue}{(1-2\alpha)^{t-1}}}{\alert{2}}\\
-\pause &= {\color{blue}{(1-2\alpha)^{t-1}}}\alert{(p_{{1}}-\frac{1}{2})}  + \frac{1}{2}\\
-\end{aligned}\]
+    \[\begin{aligned}
+        p_{t}
+        &= (1-2\alpha)^{{t-1}}p_{{1}}  + \alpha\alert{[\underbrace{1+(1-2\alpha)+(1-2\alpha)^2+(1-2\alpha)^3+\dots+(1-2\alpha)^{{t-2}}}_{\pause \text{somme de $(t-1)$ termes d'une suite géométrique de premier terme 1 et de raison $(1-2\alpha)$}}]}\\
+        \pause &= (1-2\alpha)^{{t-1}}p_{{1}}  + \alpha \alert{\frac{1-(1-2\alpha)^{t-1}}{1-(1-2\alpha)}}\\
+        \pause &= (1-2\alpha)^{{t-1}}p_{{1}}  + \alpha \frac{1-(1-2\alpha)^{t-1}}{2\alpha}\\
+        \pause &= (1-2\alpha)^{{t-1}}p_{{1}}  + \frac{1-(1-2\alpha)^{t-1}}{2}\\
+        \pause &= {\color{blue}{(1-2\alpha)^{{t-1}}}\alert{p_{{1}}}}  + \frac{1}{2} \alert{-}\frac{\color{blue}{(1-2\alpha)^{t-1}}}{\alert{2}}\\
+        \pause &= {\color{blue}{(1-2\alpha)^{t-1}}}\alert{(p_{{1}}-\frac{1}{2})}  + \frac{1}{2}\\
+      \end{aligned}\]
 
-\pause Remarque : si $p_{{1}}=\frac{1}{2}$, alors $ \forall t, p_t=\frac{1}{2}$. \pause Donc si on part du point fixe qui est aussi l'équilibre, on reste toujours à l'équilibre.
+    \pause Remarque : si $p_{{1}}=\frac{1}{2}$, alors $ \forall t, p_t=\frac{1}{2}$. \pause Donc si on part du point fixe qui est aussi l'équilibre, on reste toujours à l'équilibre.
 
-\end{frame}
+  \end{frame}
 
-\begin{frame}
+  \begin{frame}
 
-%\textbf{(4)} Montrer que la chronique de prix converge de
-%façon monotone vers $\bar p$ si $0<\alpha<\frac{1}{2}$. \textbf{(5)}
-%Quelles sont les prédictions du modèle si $\alpha$ est en dehors de
-%cet intervalle ?
+    % \textbf{(4)} Montrer que la chronique de prix converge de
+    % façon monotone vers $\bar p$ si $0<\alpha<\frac{1}{2}$. \textbf{(5)}
+    % Quelles sont les prédictions du modèle si $\alpha$ est en dehors de
+    % cet intervalle ?
 
-Question : si on ne part pas de l'équilibre (ici $p_1 \ne \bar p = \frac{1}{2}$), est-ce qu'on va y arriver (convergence) ?\newline
+    Question : si on ne part pas de l'équilibre (ici $p_1 \ne \bar p = \frac{1}{2}$), est-ce qu'on va y arriver (convergence) ?\newline
 
-\pause On étudie donc $\underset{t \rightarrow +\infty}\lim p_t$.
+    \pause On étudie donc $\underset{t \rightarrow +\infty}\lim p_t$.
 
-\[\begin{aligned}
-\underset{t \rightarrow +\infty}\lim p_{t}
-\pause &= \underset{t \rightarrow +\infty}\lim [(1-2\alpha)^{t-1}(p_{{1}}-\frac{1}{2})  + \frac{1}{2}]\\
-\pause &= \frac{1}{2} + (p_{{1}}-\frac{1}{2})\underset{t \rightarrow +\infty}\lim (1-2\alpha)^{t-1}\\
-\end{aligned}\]
+    \[\begin{aligned}
+        \underset{t \rightarrow +\infty}\lim p_{t}
+        \pause &= \underset{t \rightarrow +\infty}\lim [(1-2\alpha)^{t-1}(p_{{1}}-\frac{1}{2})  + \frac{1}{2}]\\
+        \pause &= \frac{1}{2} + (p_{{1}}-\frac{1}{2})\underset{t \rightarrow +\infty}\lim (1-2\alpha)^{t-1}\\
+      \end{aligned}\]
 
-\bigskip
+    \bigskip
 
-\pause Dépend si $\underset{t \rightarrow +\infty}\lim (1-2\alpha)^{t-1} = 0 $ \pause et donc si $|1-2\alpha|<1$. \newline
+    \pause Dépend si $\underset{t \rightarrow +\infty}\lim (1-2\alpha)^{t-1} = 0 $ \pause et donc si $|1-2\alpha|<1$. \newline
 
-\pause Si c'est le cas, alors $\underset{t \rightarrow +\infty}\lim p_{t} = \frac{1}{2} = \bar p$.
+    \pause Si c'est le cas, alors $\underset{t \rightarrow +\infty}\lim p_{t} = \frac{1}{2} = \bar p$.
 
-\end{frame}
+  \end{frame}
 
-\begin{frame}
+  \begin{frame}
 
-	%\textbf{(4)} Montrer que la chronique de prix converge de
-	%façon monotone vers $\bar p$ si $0<\alpha<\frac{1}{2}$. \textbf{(5)}
-	%Quelles sont les prédictions du modèle si $\alpha$ est en dehors de
-	%cet intervalle ?
-\[\begin{aligned}
-\underset{t \rightarrow +\infty}\lim p_{t}
-\pause &= \frac{1}{2} + (p_{{1}}-\frac{1}{2})\underset{t \rightarrow +\infty}\lim (1-2\alpha)^{t-1}\\
-\end{aligned}\]
+	% \textbf{(4)} Montrer que la chronique de prix converge de
+	% façon monotone vers $\bar p$ si $0<\alpha<\frac{1}{2}$. \textbf{(5)}
+	% Quelles sont les prédictions du modèle si $\alpha$ est en dehors de
+	% cet intervalle ?
+    \[\begin{aligned}
+        \underset{t \rightarrow +\infty}\lim p_{t}
+        \pause &= \frac{1}{2} + (p_{{1}}-\frac{1}{2})\underset{t \rightarrow +\infty}\lim (1-2\alpha)^{t-1}\\
+      \end{aligned}\]
 
-\bigskip
+    \bigskip
 
-\pause Etudions les différents cas de figure de $\underset{t \rightarrow +\infty}\lim (1-2\alpha)^{t-1}$.\newline
+    \pause Etudions les différents cas de figure de $\underset{t \rightarrow +\infty}\lim (1-2\alpha)^{t-1}$.\newline
 
-\bigskip
+    \bigskip
 
-\begin{itemize}
-\item[-] si $|1-2\alpha|<1$ : \pause convergence :\newline
+    \begin{itemize}
+    \item[-] si $|1-2\alpha|<1$ : \pause convergence :\newline
 
-\begin{itemize}
-\pause \item[-] 	si $0<1-2\alpha<1$ : \pause convergence vers $\bar p$ de façon monotone.\newline
+      \begin{itemize}
+        \pause \item[-] 	si $0<1-2\alpha<1$ : \pause convergence vers $\bar p$ de façon monotone.\newline
 
-\pause \item[-] 	si $-1<1-2\alpha<0$ : \pause convergence avec oscillations vers $\bar p$.\newline
-\end{itemize}
+        \pause \item[-] 	si $-1<1-2\alpha<0$ : \pause convergence avec oscillations vers $\bar p$.\newline
+      \end{itemize}
 
-\medskip
+      \medskip
 
-\pause \item[-] si $|1-2\alpha|>1$ : \pause divergence.\newline
+      \pause \item[-] si $|1-2\alpha|>1$ : \pause divergence.\newline
 
-\begin{itemize}
-\pause 	\item[-] 	si $1-2\alpha>1$ : \pause divergence vers $+\infty$ de façon monotone.\newline
+      \begin{itemize}
+        \pause 	\item[-] 	si $1-2\alpha>1$ : \pause divergence vers $+\infty$ de façon monotone.\newline
 
-\pause 	\item[-] 	si $1-2\alpha<-1$ : \pause divergence avec oscillations de signe.\newline
-\end{itemize}
+        \pause 	\item[-] 	si $1-2\alpha<-1$ : \pause divergence avec oscillations de signe.\newline
+      \end{itemize}
 
-\end{itemize}
+    \end{itemize}
 
-\end{frame}
+  \end{frame}
 
-\section{Exercice 8}
+  \section{Exercice 8}
 
-%\exercice{8} Identifier les limites suivantes :
-%\begin{enumerate}
-%	\item $\lim_{x\rightarrow\infty} \frac{2x+5}{x^2-3}$
-%	\item $\lim_{x\rightarrow\infty} \frac{x^3-4x^2+8}{x^2+6}$
-%	\item $\lim_{x\rightarrow\infty} \frac{ax^2+bx+c}{kx^2+lx+m}$
-%	\item $\lim_{x\rightarrow -4} \frac{x^2-16}{x+4}$
-%	\item $\lim_{x\rightarrow 0^+} \frac{|x|}{x}$ et $\lim_{x\rightarrow 0^-} \frac{|x|}{x}$
-%\end{enumerate}
-%
-%\bigskip
-%
+  % \exercice{8} Identifier les limites suivantes :
+  % \begin{enumerate}
+  %	\item $\lim_{x\rightarrow\infty} \frac{2x+5}{x^2-3}$
+  %	\item $\lim_{x\rightarrow\infty} \frac{x^3-4x^2+8}{x^2+6}$
+  %	\item $\lim_{x\rightarrow\infty} \frac{ax^2+bx+c}{kx^2+lx+m}$
+  %	\item $\lim_{x\rightarrow -4} \frac{x^2-16}{x+4}$
+  %	\item $\lim_{x\rightarrow 0^+} \frac{|x|}{x}$ et $\lim_{x\rightarrow 0^-} \frac{|x|}{x}$
+  % \end{enumerate}
+  % 
+  % \bigskip
+  % 
 
-\begin{frame}
-$$\lim_{x\rightarrow\infty} \frac{2x+5}{x^2-3}\pause =\frac{\infty}{\infty}$$
+  \begin{frame}
+    $$\lim_{x\rightarrow\infty} \frac{2x+5}{x^2-3}\pause =\frac{\infty}{\infty}$$
 
-\bigskip
+    \bigskip
 
-\[\begin{aligned}
-\lim_{x\rightarrow\infty} \frac{2x+5}{x^2-3}
-\pause &= \lim_{x\rightarrow\infty} \frac{x(2+\frac{5}{x})}{x(x-\frac{3}{x})}\\
-\pause &= \lim_{x\rightarrow\infty} \frac{2+\frac{5}{x}}{x-\frac{3}{x}}\\
-\pause &= \frac{2+\lim_{x\rightarrow\infty} \frac{5}{x}}{\lim_{x\rightarrow\infty} x-\lim_{x\rightarrow\infty} \frac{3}{x}}\\
-\pause &= \frac{2}{\lim_{x\rightarrow\infty} x} \\
-\pause &= 0\\
-\end{aligned}\]
+    \[\begin{aligned}
+        \lim_{x\rightarrow\infty} \frac{2x+5}{x^2-3}
+        \pause &= \lim_{x\rightarrow\infty} \frac{x(2+\frac{5}{x})}{x(x-\frac{3}{x})}\\
+        \pause &= \lim_{x\rightarrow\infty} \frac{2+\frac{5}{x}}{x-\frac{3}{x}}\\
+        \pause &= \frac{2+\lim_{x\rightarrow\infty} \frac{5}{x}}{\lim_{x\rightarrow\infty} x-\lim_{x\rightarrow\infty} \frac{3}{x}}\\
+        \pause &= \frac{2}{\lim_{x\rightarrow\infty} x} \\
+        \pause &= 0\\
+      \end{aligned}\]
 
-\end{frame}
+  \end{frame}
 
 
-\begin{frame}
+  \begin{frame}
 	$$\lim_{x\rightarrow\infty} \frac{x^3-4x^2+8}{x^2+6}\pause =\frac{\infty}{\infty}$$
 
 	\bigskip
@@ -895,19 +895,19 @@ $$f(x) = 4x^2+3$$
 	$$\lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h} = f^{'}(x)= \frac{d}{d x}f$$
 
 	$$f(x) = \frac{1}{x} ~~\forall x\in \mathbb R^*$$
-\pause 	Avec les formules automatiques, on s'attend à ce que $f^{'}(x) = -\frac{1}{x^2}$.
+    \pause 	Avec les formules automatiques, on s'attend à ce que $f^{'}(x) = -\frac{1}{x^2}$.
 
-	\[\begin{aligned}
-\pause 	f(\alert{x+h})-f(x)
-\pause 	&= \frac{1}{\alert{x+h}} - \frac{1}{{x}}\\
-\pause 	&= \frac{{\color{blue}{x}}}{{\color{blue}{x}}({x+h})} - \frac{{\color{orange}{(x+h)}}}{{x}\color{orange}{(x+h)}}\\
-\pause 	&= \frac{{x}- (x+h)}{{x}({x+h})}\\
-\pause 	&= \frac{-h}{{x}({x+h})}\\
-\pause 	\frac{f({x+h})-f(x)}{h} &=  \frac{-1}{{x}({x+h})} \\
-\pause 	\lim_{h\rightarrow 0} \frac{f({x+h})-f(x)}{h} \pause &= \lim_{h\rightarrow 0} \frac{-1}{{x}({x+h})} \pause =  \frac{-1}{{x}({x+\lim_{h\rightarrow 0} h})}\pause =  -\frac{1}{{x^2}}
-	\end{aligned}\]
+    \[\begin{aligned}
+        \pause 	f(\alert{x+h})-f(x)
+        \pause 	&= \frac{1}{\alert{x+h}} - \frac{1}{{x}}\\
+        \pause 	&= \frac{{\color{blue}{x}}}{{\color{blue}{x}}({x+h})} - \frac{{\color{orange}{(x+h)}}}{{x}\color{orange}{(x+h)}}\\
+        \pause 	&= \frac{{x}- (x+h)}{{x}({x+h})}\\
+        \pause 	&= \frac{-h}{{x}({x+h})}\\
+        \pause 	\frac{f({x+h})-f(x)}{h} &=  \frac{-1}{{x}({x+h})} \\
+        \pause 	\lim_{h\rightarrow 0} \frac{f({x+h})-f(x)}{h} \pause &= \lim_{h\rightarrow 0} \frac{-1}{{x}({x+h})} \pause =  \frac{-1}{{x}({x+\lim_{h\rightarrow 0} h})}\pause =  -\frac{1}{{x^2}}
+      \end{aligned}\]
 
-\end{frame}
+  \end{frame}
 
 \end{document}
 %%% Local Variables:

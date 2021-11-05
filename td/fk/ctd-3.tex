@@ -11,6 +11,7 @@
 \usepackage{palatino}
 \usepackage{eulervm}
 \usepackage{epstopdf}
+\usepackage{nicefrac}
 
 \title{Calcul Economique 1\\Fiche de TD 3}
 \author{F.~Karamé}
@@ -471,15 +472,32 @@ La suite est divergente.
 
 \begin{frame}
 
-\[\begin{aligned}
-\underset{n \rightarrow +\infty}\lim u_n
-\pause = \underset{n \rightarrow +\infty}\lim \frac{(-1)^{n+1}}{n^2}
-\pause =
-\begin{cases}
-\pause \text{si $n$ pair et donc $n+1$ impair, }\pause \underset{n \rightarrow +\infty}\lim \frac{-1}{n^2} \pause = 0^{-} \\
-\pause \text{si $n$ impair et donc $n+1$ pair, }\pause \underset{n \rightarrow +\infty}\lim \frac{+1}{n^2} \pause = 0^{+}\\
-\end{cases}
-\end{aligned}\]
+  \begin{itemize}
+  \item Montrons que la limite de la suite $u_n$ est 0.\newline
+    
+  \item Pour que cela soit bien le cas il faut et il suffit que la distance entre $u_n$ et 0, mesurée par la valeur absolue de la différence entre $u_n$ et sa limite 0, puisse être rendue arbitrairement petite ($<\varepsilon$) à partir du moment où $n$ est plus grand qu'un certain rang ($n>N(\varepsilon)$, a priori le rang $N(\varepsilon)$ est une fonction décroissante de $\varepsilon$).\newline
+    
+  \item Pour tout $\varepsilon>0$, nous avons~:
+    \[
+      \begin{split}
+        |u_n - 0| < \varepsilon \Leftrightarrow &  |u_n| < \varepsilon \\
+        \Leftrightarrow & \frac{1}{n^2} < \varepsilon \\
+        \Leftrightarrow & n > \frac{1}{\sqrt{\varepsilon}} \quad\small{\text{puisque les valeurs négatives de $n$ ne sont pas pertinentes ici.}}
+      \end{split}
+    \]
+
+  \item Ainsi, si $n>N(\varepsilon)=\nicefrac{1}{\sqrt{\varepsilon}}$ on a forcément $|u_n-0|<\varepsilon$ et ce pour tout $\epsilon>0$ (arbitrairement petit).\newline
+
+  \item Et donc~:\newline
+    \[
+      \forall \varepsilon>0, \exists N(\varepsilon) \text{ tel que } n>N(\varepsilon) \Rightarrow |u_n-0|<\varepsilon 
+    \]
+    
+    \bigskip
+
+    \noindent on a donc bien $\lim_{n\rightarrow\infty}u_n=0$.
+    
+  \end{itemize}
 
 \end{frame}
 

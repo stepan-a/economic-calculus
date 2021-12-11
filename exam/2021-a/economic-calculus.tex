@@ -1,0 +1,138 @@
+\documentclass[10pt,a4paper,notitlepage,twocolumn]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique}}
+\author{Stéphane Adjemian\thanks{Université du Maine, Gains. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+\thispagestyle{empty}
+
+\exercice{1} Soient deux propositions $P$ et $Q$. Montrer que les
+propositions $\bar Q \Rightarrow \bar P$ et $P \Rightarrow Q$ sont
+équivalentes. Donner un exemple de raisonnement utilisant ce résultat.
+
+\bigskip
+
+\exercice{2} Soient deux propositions $P$ et $Q$. Montrer que si
+$\bar P \Rightarrow Q$ est une proposition vraie et si $Q$ est une proposition
+fausse, alors la proposition $P$ est nécessairement vraie. Dans quel type de
+raisonnement ce résultat est-il utilisé ?
+	
+\bigskip
+
+\exercice{3} \textbf{(a)} Donnez la définition de la dérivée d'une fonction en
+un point. \textbf{(b)} En utilisant cette définition calculez la dérivée de la
+fonction~:
+\[
+f(x) = \frac{1}{1-2x}
+\]
+en précisant auparavant le domaine de définition de cette fonction. \textbf{(c)}
+Quelle formule usuelle de dérivation auriez-vous pu utiliser pour arriver au
+même résultat~?
+
+\bigskip
+
+\exercice{4} Montrer par récurrence que~:
+\begin{equation}
+  \sum_{i=1}^n i^3  = \frac{n^2(n+1)^2}{4}
+\end{equation}
+
+\bigskip
+
+\exercice{5} Soit le polynôme suivant~:
+\[
+P(X) = X^3 + \frac{1}{4}X - \frac{5}{4}
+\]    
+\textbf{(a)} Calculez les racines de ce polynôme. \textbf{(b)} Montrez que la
+fonction $f(x)=x^3+\frac{1}{4}x-\frac{5}{4}$ est monotone croissante.
+\textbf{(c)} Montrez que la fonction est concave pour les valeurs négatives de
+$x$ puis convexe pour les valeurs positives de $x$. \textbf{(d)} Que pouvez vous
+dire du point $(0,-\frac{5}{4})$~? \textbf{(e)} Représentez graphiquement la fonction $f(x)$.
+
+\bigskip
+
+\exercice{6} Soient $f$ et $g$ deux fonctions de $\mathbb R$ dans $\mathbb R$ de
+classe $\mathcal C^2$. Calculez la dérivée d'ordre deux de la fonction~:
+$h(x) = \bigl(f \circ g\bigr) (x)$.
+
+\bigskip
+
+\exercice{6} On suppose que la demande, adressée à une entreprise en situation
+de monopole sur un marché, dépend du prix $p$ de la façon suivante~:
+\[
+D(p) = p^{-\epsilon}\quad\forall p>0
+\]
+avec $\epsilon>1$. \textbf{(a)} Montrer que la demande est bien une fonction
+monotone décroissante du prix. \textbf{(b)} On définit l'élasticité de la
+demande par rapport au prix de la façon suivante :
+\[
+\sigma(p) = -D'(p)\frac{p}{D(p)}
+\]
+Calculez cette élasticité et montrez que celle-ci est constante, c'est-à-dire
+qu'elle ne dépend pas du diveau du prix. L'élasticité prix de la demande
+quantifie la variation de la demande induite par une variation du prix. Si
+l'élasticité est constante, cela veut dire qu'une augmentation de $1\%$ du prix
+induira toujours une baisse de $\sigma\%$ de la demande quelle que soit le
+niveau du prix. \textbf{(c)} Pour répondre à la demande l'entreprise doit
+supporter un coût de production. On suppose que l'entreprise doit payer $c>0$
+pour chaque unité de bien produite, c'est à dire que la fonction de coût est de
+la forme~:
+\[
+C(q) = cq
+\]
+où $q$ est la quantité de bien produite. Calculez $C'(q)$, c'est à dire le coût
+marginal. \textbf{(d)} Le profit de la firme est la différence entre ses
+recettes et ses dépenses. Les recettes de la firme sont données par la quantité
+de bien produite multipliée par le prix de chaque unité de bien, c'est-à-dire
+$R(p) = p\times p^{-\epsilon} = p^{1-\epsilon}$. Les dépenses de la firme sont
+données par ses coûts de production :
+$\mathcal C(p) = C(D(p)) = c p^{-\epsilon}$. Ainsi, au total, le profit de la
+firme comme une fonction du prix $p$ est:
+\[
+\Pi(p) = R(p)-\mathcal C(p) = p^{1-\epsilon} - c p^{-\epsilon} 
+\]
+Puisque la firme est en situation de monopole, elle peut choisir le prix du
+bien. Cependant, sa liberté est limitée par la demande~: elle n'a pas intérêt à
+choisir un prix trop élevé car elle sait qu'une augmentation du prix (qui
+devrait augmenter sa recette) induira aussi une baisse de la demande (ce qui
+contribuera, à l'inverse, à diminuer sa recette). La firme va choisir le prix
+qui maximise son profit, c'est ce prix optimal que nous allons chercher dans les
+questions suivantes, mais auparavant montrez que~:
+\begin{enumerate}[(i)]
+\item La recette du monopole est une fonction décroissante du prix
+\item Le coût du monopole est une fonction décroissante du prix
+\end{enumerate}
+en interprétant ces résultats et en discutant les arbitrages de l'entreprise (par
+rapport à sa décision sur le prix du bien). \textbf{(e)} Calculez la dérivée de la fonction de
+profit. \textbf{(f)} On notera $p^{\star}$ le prix qui annule la dérivée du
+profit, calculez $p^{^\star}$ en l'exprimant en fonction de $c$ et $
+\epsilon$.
+\textbf{(g)} Montrez que $\Pi'(p)>0 \Leftrightarrow p<p^{\star}$. Le prix $p^{\star}$
+est-il le prix qui maximise le profit du monopole~?
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

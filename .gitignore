@@ -5,6 +5,7 @@
 *.fls
 *.synctex.gz
 *.el
+*.rubbercache
 
 cours/*.nav
 cours/*.out
@@ -14,6 +15,8 @@ cours/*.dvi
 cours/*.ps
 
 cours/git.hash
+
+td/1/git.hash
 
 cours/_minted-chapitre-2/*
 

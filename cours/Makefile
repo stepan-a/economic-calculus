@@ -15,6 +15,7 @@ clean:
 	@rm -f *.aux *.log *.out *.nav *.rel *.toc *.snm *.synctex.gz *.vrb *.ps *.dvi
 	@rm -rf _minted-*
 	@rm -rf auto
+	@rm -f *.rubbercache
 
 clean-all:
 	@rm -f *.pdf

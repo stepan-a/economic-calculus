@@ -1,0 +1,96 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+\exercice{1} Soient $P$ et $Q$ deux propositions. Montrer qu'il est possible
+d'exprimer la proposition $P\lor Q$ à l'aide de négations et du connecteur
+logique $\land$.
+
+\bigskip
+
+\exercice{2} Montrer par récurrence que :
+\[
+\sum_{i=1}^n (2i-1) = n^2
+\]
+	
+\bigskip
+
+\exercice{3} Traduire avec des mots la proposition suivante :
+\[
+\forall \epsilon>0, \exists \delta(\epsilon)>0\text{ tel que } \forall x \in I, |x-a|<\delta(\epsilon)\Rightarrow |f(x)-f(a)|<\epsilon
+\]
+où $I$ est un interval réel, $f$ une fonction de $I$ dans $\mathbb R$. Que
+pouvez-vous dire de la fonction $f$ si cette proposition est vraie ?
+
+\bigskip
+
+\exercice{4} Soit la fonction définie sur $\mathbb R$ : $f(x) = |x|$.
+\begin{enumerate}
+\item Cette fonction est-elle bijective ? Pourquoi ?
+\item Cette fonction est-elle continue ? Pourquoi ?
+\item Cette fonction est-elle dérivable ? Pourquoi ? 
+\end{enumerate}
+	
+\bigskip
+
+\exercice{5} Soit la fonction $f(x) = \frac{1}{1-x}$. Quel est son domaine de définition ? Calculer
+$h(x)=\left(f\circ f\circ f \right)(x)$. Quel est le domaine de définiton de la
+fonction $h$ ? Cette fonction est-elle continue ? Si la fonction admet des points
+de discontinuité, ceux-ci sont-ils réparables ?
+
+\bigskip
+
+\exercice{6} \textbf{(1)} Donner la définition de la dérivée d'une fonction.
+\textbf{(2)} Soit la fonction $f(x) = \log x$ (le logarithme népérien). En
+utilisant la définition de la dérivée montrer que
+$f'(x)=\frac{1}{x}$. On admet la propriété suivante de la fonction
+  $\log$ : $\lim_{u\rightarrow 0} \frac{\log(1+u)}{u}=1$.
+
+\pagebreak
+
+\exercice{7} Calculer les racines du polynôme :
+\[
+P(X) = X^3 - \frac{1}{6}X^2 - \frac{4}{6}X - \frac{1}{6}
+\]    
+
+\bigskip
+
+\exercice{8} Le taux de croissance observé d'une variable $X$ sur deux années
+est 10\%. On vous demande de calculer le taux de croissance annuel moyen, vous
+devez donc évaluer :
+\[
+g = (1,1^{\frac{1}{2}}-1)\times 100 = \left(\sqrt{1,1}-1\right)\times 100
+\]
+En supposant que vous ne ne connaissez pas la racine carrée de 1,1 par c\oe ur
+(c'est mon cas) et que vous ne disposez pas d'une calculatrice (c'est votre cas
+durant l'épreuve), proposez une approximation de $\sqrt{1,1}$ et donc du taux de
+croissance annuel moyen.
+ 
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

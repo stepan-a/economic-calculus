@@ -45,6 +45,9 @@
   urlcolor=black,
 }
 \usepackage{venndiagram}
+\usepackage{caption}
+\usepackage{subcaption}
+
 
 % Git hash
 \usepackage{xstring}
@@ -630,6 +633,100 @@
      
   \end{itemize}
   
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 8}
+  \framesubtitle{$\overline{A \cap B} = \overline{A} \cup \overline{B}$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+  \item L'ensemble $A \cap B$ correspond à la surface dans la lentille (en blanc dans la figure \ref{fig:8:1a}), $\overline{A \cap B}$ correspond à tout ce qui n'est pas dans la lentille (en gris dans la figure \ref{fig:8:1a}).
+  \item L'ensemble $\overline{A} \cup \overline{B}$ est l'union des surfaces grisées dans les figures \ref{fig:8:1b} et \ref{fig:8:1c}, qui est identique à la surface grisée dans la figure \ref{fig:8:1a}.
+  \end{itemize}
+
+  \bigskip
+
+  \begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.3\textwidth}
+       \centering
+       \begin{venndiagram2sets}[tikzoptions={scale=.5}]
+         \fillNotAorNotB
+       \end{venndiagram2sets}
+       \caption{$\overline{A \cap B}$}
+       \label{fig:8:1a}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+       \centering
+       \begin{venndiagram2sets}[tikzoptions={scale=.5}]
+         \fillNotA
+       \end{venndiagram2sets}
+       \caption{$\overline{A}$}
+       \label{fig:8:1b}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+       \centering
+       \begin{venndiagram2sets}[tikzoptions={scale=.5}]
+         \fillNotB
+       \end{venndiagram2sets}
+       \caption{$\overline{B}$}
+       \label{fig:8:1c}
+     \end{subfigure}
+     \caption{Diagramme de Venn et loi de Morgan}
+     \label{fig:8:1}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice 8 (suite)}
+  \framesubtitle{$\overline{A \cup B} = \overline{A} \cap \overline{B}$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+  \item L'ensemble $A \cup B$ correspond à la surface dans la « double patate » (en blanc dans la figure \ref{fig:8:2a}), $\overline{A \cup B}$ correspond à tout ce qui n'est pas dans la « double patate » (en gris dans la figure \ref{fig:8:2a}).
+  \item L'ensemble $\overline{A} \cap \overline{B}$ est l'intersection des surfaces grisées dans les figures \ref{fig:8:2b} et \ref{fig:8:2c}, qui est identique à la surface grisée dans la figure \ref{fig:8:2a}.
+  \end{itemize}
+
+  \bigskip
+
+  \begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.3\textwidth}
+       \centering
+       \begin{venndiagram2sets}[tikzoptions={scale=.5}]
+         \fillNotAorB
+       \end{venndiagram2sets}
+       \caption{$\overline{A \cup B}$}
+       \label{fig:8:2a}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+       \centering
+       \begin{venndiagram2sets}[tikzoptions={scale=.5}]
+         \fillNotA
+       \end{venndiagram2sets}
+       \caption{$\overline{A}$}
+       \label{fig:8:2b}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.3\textwidth}
+       \centering
+       \begin{venndiagram2sets}[tikzoptions={scale=.5}]
+         \fillNotB
+       \end{venndiagram2sets}
+       \caption{$\overline{B}$}
+       \label{fig:8:2c}
+     \end{subfigure}
+     \caption{Diagramme de Venn et loi de Morgan}
+     \label{fig:8:2}
+\end{figure}
+
 \end{frame}
 
 

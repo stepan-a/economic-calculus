@@ -795,8 +795,58 @@
       \textrm{Card}(A \cup B) = 20+15-6 = 29
     \]
     
-  
+  \end{frame}
+
+\begin{frame}
+  \frametitle{Exercice 11}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+  \item On commence par traduire l'énoncé. On note $\mathcal O$ l'ensemble des obèses, $\mathcal H$ l'ensemble des salariés avec de l'hypertension et $\mathcal C$ l'ensemble des salariés avec du cholestérol.\newline
+  \item On sait que~:
+    \begin{itemize}
+    \item $\mathrm{Card}(\mathcal O) = 30$, $\mathrm{Card}(\mathcal H) = 25$, $\mathrm{Card}(\mathcal C) = 20$.
+    \item $\mathrm{Card}(\mathcal H \cap \mathcal C) = 12$, $\mathrm{Card}(\mathcal H \cap \mathcal O) = 15$, $\mathrm{Card}(\mathcal C \cap \mathcal O) = 10$
+    \item $\mathrm{Card}(\mathcal H \cap \mathcal C \cap \mathcal O) = 5$\newline
+    \end{itemize}
+  \item On peut déduire~:
+    \begin{itemize}
+    \item $\mathrm{Card}((\mathcal O \cap \mathcal H)\setminus\mathcal C) = 15-5 = 10$, $\mathrm{Card}((\mathcal O \cap \mathcal C)\setminus\mathcal H) = 10-5 = 5$, $\mathrm{Card}(\mathcal O \setminus\mathcal C \setminus\mathcal H) = 30-10-5-5 = 10$
+    \item $\mathrm{Card}((\mathcal H \cap \mathcal C)\setminus\mathcal O) = 12-5 = 7$, $\mathrm{Card}(\mathcal H \setminus\mathcal C \setminus \mathcal O) = 25-10-5-7 = 3$
+    \item $\mathrm{Card}(\mathcal C \setminus\mathcal H \setminus \mathcal O) = 20-5-5-7 = 3$\newline
+    \end{itemize}
+  \item On cherche à déterminer la valeur de $\mathrm{Card}(\overline{\mathcal H \cup \mathcal C \cup \mathcal O})$, c'est-à-dire le nombre de salariés sans aucune de ces pathologies.\newline
+  \item Il faut compter le nombre d'éléments dans $\mathcal H \cup \mathcal C \cup \mathcal O$ et retrancher ce total au nombre de salariés dans l'entreprise (50).\newline
+  \end{itemize}
+
 \end{frame}
+
+\begin{frame}
+  \frametitle{Exercice 11 (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{figure}[H]
+    \centering
+    \begin{venndiagram3sets}[tikzoptions={scale=1}, labelA=$\mathcal O$, labelB=$\mathcal H$, labelC=$\mathcal C$,
+      labelABC={5},
+      labelOnlyA={10},   % 30-10-5-5
+      labelOnlyAC={5},   % 10-5
+      labelOnlyAB={10},  % 15-5
+      labelOnlyB={3},    % 25-10-5-7
+      labelOnlyBC={7},   % 12-5
+      labelOnlyC={3},    % 20-5-5-7
+      labelNotABC={7}]   % 50-10-10-5-5-3-7-3
+       \end{venndiagram3sets}
+       \caption{Pathologies des salariés.}
+       \label{fig:11}
+  \end{figure}
+
+  \bigskip
+
+  Seulement $7$ ($50-10-10-5-5-3-7-3$) salariés ne souffrent d'aucune des trois pathologies.
+\end{frame}
+
+
 
 
 \begin{frame}

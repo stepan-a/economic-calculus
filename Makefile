@@ -45,7 +45,6 @@ publish: td-build exam-build cours-build ds-build
 	scp exam/2017-b/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2017-b
 	scp exam/2018-a/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2018-a
 	scp exam/2018-b/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2018-b
-	scp -r td/1/Exo-12-td-1.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/1/Exo-12-td-1.pdf
 	scp -r td/1/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/1/td.pdf
 	scp -r td/1/correction.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/1/correction.pdf
 	scp -r td/2/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/2/td.pdf

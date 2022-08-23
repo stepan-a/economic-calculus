@@ -12,9 +12,14 @@
  \usepackage[active]{srcltx}
 \usepackage{scrtime}
 
-\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcounter{xnumber}
+\setcounter{xnumber}{0}
+
+\newcommand{\exercice}{\textsc{\textbf{Exercice}} \textbf{\addtocounter{xnumber}{1}\thexnumber}\,\,}
 \newcommand{\question}[1]{\textbf{(#1)}}
 \setlength{\parindent}{0cm}
+
+
 
 \begin{document}
 
@@ -24,20 +29,20 @@
 
 \maketitle
 
-\exercice{1} La demande de montres SLOUK est de 10 unités si le prix est
+\exercice La demande de montres SLOUK est de 10 unités si le prix est
 égal à 160 euros et elle est de 20 unités si le prix est 120
 euros. Calculer la fonction de demande supposée linéaire.
 
 \bigskip
 
-\exercice{2} Quand le prix est de 100 euros la quantité d'appareils
+\exercice Quand le prix est de 100 euros la quantité d'appareils
 photos de marque PISTOL offerte sur le marché est 50 unités. Quand le
 prix est 50\% plus élevé le nombre d'unités offertes est de
 100. Calculer la fonction d'offre supposée linéaire.
 
 \bigskip
 
-\exercice{3} Sur un marché, la demande et l'offre pour un bien sont
+\exercice Sur un marché, la demande et l'offre pour un bien sont
 caractérisés par :
 \[
 \begin{split}
@@ -50,7 +55,7 @@ d'équilibre et le prix d'équilibre.
 
 \bigskip
 
-\exercice{4} Supposons que la consommation agrégée dans une économie,
+\exercice Supposons que la consommation agrégée dans une économie,
 notée $C$, soit une fonction linéaire du revenu disponible (hors
 taxes), noté $Y$. Supposons qu'il existe un niveau de consommation
 incompressible, noté $C_0$. Il s'agit du niveau de consommation
@@ -61,12 +66,12 @@ forme de la fonction de consommation.
 
 \bigskip
 
-\exercice{5} Montrer que la fonction $f(x) = x^2+2x+1$ admet un unique
+\exercice Montrer que la fonction définie sur $\mathbb R$ $f(x) = x^2+2x+1$ admet un unique
 minimum en $x=-1$.
 
 \bigskip
 
-\exercice{6} Sur un marché, la demande et l'offre pour un bien sont
+\exercice Sur un marché, la demande et l'offre pour un bien sont
 caractérisés par :
 \[
 \begin{split}
@@ -80,12 +85,12 @@ d'équilibre et le prix d'équilibre.
 
 \bigskip
 
-\exercice{7} Sans calculer le discriminant, montrer que l'équation
+\exercice Sans calculer le discriminant, montrer que l'équation
 $x^2-2x+2 = 0$ n'admet pas de solution réelle.
 
 \bigskip
 
-\exercice{8} Chercher les solutions des équations suivantes :
+\exercice Chercher les solutions des équations suivantes :
 \begin{enumerate}[(i)]
 \item $x^3-2x^2+2x = 0$
 \item $x^3+2x^2-x-2 = 0$
@@ -95,7 +100,7 @@ $x^2-2x+2 = 0$ n'admet pas de solution réelle.
 
 \bigskip
 
-\exercice{9} Représenter graphiquement à l'aide d'un tableur les
+\exercice Représenter graphiquement à l'aide d'un tableur les
 fonctions suivantes :
 \begin{enumerate}[(i)]
 \item $f(x) = x^5- 5x^3 + 4x$
@@ -106,7 +111,7 @@ dans chaque cas.
 
 \bigskip
 
-\exercice{10} Soit un ménage disposant d'un revenu de 100. On suppose
+\exercice Soit un ménage disposant d'un revenu de 100. On suppose
 qu'il ne peut acheter que des bananes et des carottes et que les prix
 de ces deux biens sont respectivement $p_B= 1$ et $p_C = \frac{1}{2}$
 (l'unité dans les deux cas est le kilogramme). \textbf{(1)} Supposons
@@ -120,7 +125,7 @@ revenu. \textbf{(3)} Représenter graphiquement ces deux ensembles.
 
 \bigskip
 
-\exercice{11} (Suite de l'exercice 10) Supposons que l'on puisse
+\exercice Supposons que l'on puisse
 quantifier la satisfaction du ménage à l'aide de la fonction :
 \[
 u(q_B, q_C) = q_B + q_C
@@ -144,7 +149,7 @@ u(q_B, q_C) = \alpha q_B + \beta q_C
 où $\alpha$ et $\beta$ sont deux réels positifs. Déterminer les choix
 du ménage en fonction de $\alpha$ et $\beta$. Commenter le résultat.
 
-\exercice{12} On reprend les exercices 9 et 10 en supposant que $p_B =
+\exercice On reprend les exercices 9 et 10 en supposant que $p_B =
 p_C = 1$ et que $u(q_B, q_C) = \sqrt{q_Bq_C}$. \textbf{(1)} Exprimer
 $q_C$ en fonction du niveau d'utilité, $\bar u$ par exemple, et de
 $q_B$. La fonction ainsi construite est la fonction d'iso-utilité :

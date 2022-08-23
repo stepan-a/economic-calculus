@@ -12,7 +12,10 @@
  \usepackage[active]{srcltx}
 \usepackage{scrtime}
 
-\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcounter{xnumber}
+\setcounter{xnumber}{0}
+
+\newcommand{\exercice}{\textsc{\textbf{Exercice}} \textbf{\addtocounter{xnumber}{1}\thexnumber}\,\,}
 \newcommand{\question}[1]{\textbf{(#1)}}
 \setlength{\parindent}{0cm}
 
@@ -24,7 +27,7 @@
 
 \maketitle
 
-\exercice{1} Calculer les dérivées des fonctions suivantes :
+\exercice Calculer les dérivées des fonctions suivantes :
 \begin{enumerate}[(i)]
 \item $f(x) = \log (x^2+x^4+1)$
 \item $g(x) = x^2\log (x^2+x^4+1)$
@@ -35,7 +38,7 @@
 
 \bigskip
 
-\exercice{2} Trouver l'expression générale de la dérivée d'ordre $n$ des
+\exercice Trouver l'expression générale de la dérivée d'ordre $n$ des
 fonctions suivantes :
 \begin{enumerate}[(i)]
 \item $f(x) = e^{\theta x}$
@@ -45,7 +48,7 @@ fonctions suivantes :
 
 \bigskip
 
-\exercice{3} Montrer qu'il est possible d'écrire la fonction
+\exercice Montrer qu'il est possible d'écrire la fonction
 exponentielle sous la forme :
 \[
 e^{x} = \sum_{i=0}^{\infty} \frac{x^n}{n!}
@@ -54,7 +57,7 @@ En déduire une approximation de la constante $e$.
 
 \bigskip
 
-\exercice{4} Montrer l'égalité suivante dans un voisinage de 0 :
+\exercice Montrer l'égalité suivante dans un voisinage de 0 :
 \[
 \frac{1}{1-x} = \sum_{i=0}^{\infty} x^n
 \]
@@ -62,26 +65,26 @@ Quel est le radius de convergence ?.
 
 \bigskip
 
-\exercice{5} Faire une étude de la fonction (en identifiant les optima) :
+\exercice Faire une étude de la fonction (en identifiant les optima) :
 \[
 f(x) = -x^3+x^2+2x
 \]
 
 \bigskip
 
-\exercice{6} Faire une étude de la fonction :
+\exercice Faire une étude de la fonction :
 \[
 f(x) = \frac{(\log x)^2}{x}
 \]
 
 \bigskip
 
-\exercice{7} Montrer que si la fonction $f(x)=ax^3+bx^2+cx+d$ admet
+\exercice Montrer que si la fonction $f(x)=ax^3+bx^2+cx+d$ admet
 deux extrema, alors l'un est un maximum et l'autre un minimum.
 
 \bigskip
 
-\exercice{8} Déterminer les limites des fonctions suivantes :
+\exercice Déterminer les limites des fonctions suivantes :
 \begin{enumerate}
 \item $\lim_{x\rightarrow\infty} \frac{x^2}{e^x}$
 \item $\lim_{x\rightarrow\infty} \frac{\log x}{x}$
@@ -91,7 +94,7 @@ deux extrema, alors l'un est un maximum et l'autre un minimum.
 
 \bigskip
 
-\exercice{9} La somme de deux nombres positifs est égale à
+\exercice La somme de deux nombres positifs est égale à
 100. Trouver les couples de nombres tels que :
 \begin{enumerate}
 \item Le produit de ces nombres est maximal.

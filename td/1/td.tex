@@ -12,7 +12,10 @@
  \usepackage[active]{srcltx}
 \usepackage{scrtime}
 
-\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcounter{xnumber}
+\setcounter{xnumber}{0}
+
+\newcommand{\exercice}{\textsc{\textbf{Exercice}} \textbf{\addtocounter{xnumber}{1}\thexnumber}\,\,}
 \newcommand{\question}[1]{\textbf{(#1)}}
 \setlength{\parindent}{0cm}
 
@@ -24,13 +27,13 @@
 
 \maketitle
 
-\exercice{1} Soit une proposition $P$. Montrer, à l'aide d'un tableau
+\exercice Soit une proposition $P$. Montrer, à l'aide d'un tableau
 de vérité, que $P \land P \Leftrightarrow P$ et $P \lor P
 \Leftrightarrow P$.
 
 \bigskip
 
-\exercice{2} Soient $P$, $Q$ et $R$ trois propositions. Montrer, à l'aide d'un tableau
+\exercice Soient $P$, $Q$ et $R$ trois propositions. Montrer, à l'aide d'un tableau
 de vérité, que~:
 \begin{enumerate}[(i)]
 \item $P \land Q \Leftrightarrow Q \land P$
@@ -43,7 +46,7 @@ de vérité, que~:
 
 \bigskip
 
-\exercice{3} Montrer la transitivité de l'implication logique, c'est-à-dire
+\exercice Montrer la transitivité de l'implication logique, c'est-à-dire
 que~:
 \[
 ((P \Rightarrow Q) \land (Q \Rightarrow R)) \Rightarrow (P \Rightarrow R)
@@ -52,7 +55,7 @@ avec $P$, $Q$ et $R$ trois propositions.
 
 \bigskip
 
-\exercice{4} Exprimer l'équivalence logique en termes d'implication logique, en
+\exercice Exprimer l'équivalence logique en termes d'implication logique, en
 établissant que~:
 \[
 (P \Leftrightarrow Q) \Leftrightarrow (P \Rightarrow Q) \land (Q
@@ -62,7 +65,7 @@ avec $P$ et $Q$ deux propositions.
 
 \bigskip
 
-\exercice{5} Montrer que l'implication logique suivante~:
+\exercice Montrer que l'implication logique suivante~:
 \[
 (10^n+1 \text{ est divisible par } 9) \Rightarrow (10^{n+1}+1 \text{
   est divisible par 9})
@@ -71,7 +74,7 @@ est vraie, avec $n\in\mathbb N$. Que pensez vous de ces propositions ?
 
 \bigskip
 
-\exercice{6} Montrer les propositions suivantes~:
+\exercice Montrer les propositions suivantes~:
 \begin{enumerate}[(i)]
 \item $\sum_{i=1}^n i = \frac{n(n+1)}{2}$.
 \item $\sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}$.
@@ -80,7 +83,7 @@ est vraie, avec $n\in\mathbb N$. Que pensez vous de ces propositions ?
 
 \bigskip
 
-\exercice{7} Soient les ensembles~:
+\exercice Soient les ensembles~:
 \[
 A = \{x \in \mathbb N | x \text{ est un multiple de 2}\}
 \]
@@ -98,7 +101,7 @@ C$, $C\cap D$.
 
 \bigskip
 
-\exercice{8} Soient $A$ et $B$ deux sous ensembles de
+\exercice Soient $A$ et $B$ deux sous ensembles de
 $\Omega$. Illustrer avec des diagrammes de Venn les deux règles de
 Morgan~:
 \[
@@ -110,7 +113,7 @@ Morgan~:
 
 \bigskip
 
-\exercice{9} Soient les ensembles $A = \{a, b\}$, $B = \{1, 3\}$ et $C
+\exercice Soient les ensembles $A = \{a, b\}$, $B = \{1, 3\}$ et $C
 = \{4, 5\}$. Déterminer les ensembles suivants~:
 \begin{enumerate}[(i)]
 \item $A \times (B\cup C)$
@@ -121,7 +124,7 @@ Morgan~:
 
 \bigskip
 
-\exercice{10} Soit $E$ un ensemble tel que $\mathrm{Card}(E)=30$. Si
+\exercice Soit $E$ un ensemble tel que $\mathrm{Card}(E)=30$. Si
 $A$ et $B$ sont deux sous ensembles de $E$ non disjoints (\emph{ie}
 $A\cap B \neq \emptyset$) tels que $\mathrm{Card}(A)=20$,
 $\mathrm{Card}(B)=15$ et $\mathrm{Card}(A\cap B)=6$. Déterminer
@@ -129,7 +132,7 @@ $\mathrm{Card}(A\cup B)$.
 
 \bigskip
 
-\exercice{11} Les résultats d'une entreprise ont montré que sur 50
+\exercice Les résultats d'une entreprise ont montré que sur 50
 employés, 30 sont obèses, 25 souffrent d'hypertension artérielle
 tandis que 20 ont un taux de cholestérol trop élevé. Parmi les 25 qui
 souffrent d'hypertension, 12 ont un taux de cholestérol trop élevé; 15
@@ -140,7 +143,7 @@ l'aide d'un diagramme de Venn.
 
 \bigskip
 
-\exercice{12}  Sur 100 étudiants, on considère les ensembles $S$ de ceux qui étudient
+\exercice  Sur 100 étudiants, on considère les ensembles $S$ de ceux qui étudient
 la sociologie, $E$ de ceux qui étudient l'économie et $G$ de ceux qui étudient la gestion. Sur ces 100 étudiants, 55 étudient la sociologie, 9 la
 sociologie et la gestion, 7 la sociologie et l'économie, 8 l'économie et la
 gestion, 6 la sociologie et la gestion mais pas l'économie, 80 la sociologie
@@ -154,7 +157,7 @@ ou la gestion et 12 l'économie seulement.
 
 \bigskip
 
-\exercice{13} Soient les ensembles~:
+\exercice Soient les ensembles~:
 \[
 \mathcal E_1 = \{(1;2), (2;8), (2;3)\}
 \]
@@ -172,7 +175,7 @@ Déterminez quels ensembles représentent une fonction.
 
 \bigskip
 
-\exercice{14} Soit la fonction~:
+\exercice Soit la fonction~:
 \[
 \begin{split}
   f: &\mathbb R \rightarrow \mathbb R\\
@@ -187,7 +190,7 @@ Interpréter cette expression.
 
 \bigskip
 
-\exercice{15} La fonction suivante est-elle injective ?
+\exercice La fonction suivante est-elle injective ?
 \[
 \begin{split}
   f: &\mathbb R \rightarrow \mathbb R\\
@@ -197,7 +200,7 @@ Interpréter cette expression.
 
 \bigskip
 
-\exercice{16} Soient les fonctions $f(x) = x+2$ et $g(x) = 2x + 5$.
+\exercice Soient les fonctions $f(x) = x+2$ et $g(x) = 2x + 5$.
 \begin{enumerate}[(i)]
 \item Calculer $h(x) = (g \circ f)(x) = g\left(f(x)\right)$ et $m(x) = (f \circ g)(x) = f\left(g(x)\right)$.
 \item Calculer $f^{-1}(x)$ et $g^{-1}(x)$.
@@ -208,7 +211,7 @@ Comparer les résultats des deux dernières questions.
 
 \bigskip
 
-\exercice{17} Exprimer à l'aide de quantificateurs les propositions
+\exercice Exprimer à l'aide de quantificateurs les propositions
 suivantes~:
 \begin{enumerate}
 \item La fonction $f: \mathbb R \rightarrow \mathbb R$ n'est pas

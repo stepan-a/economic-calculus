@@ -6,6 +6,7 @@
 *.synctex.gz
 *.el
 *.rubbercache
+*.hash
 
 cours/*.nav
 cours/*.out
@@ -13,10 +14,6 @@ cours/*.snm
 cours/*.toc
 cours/*.dvi
 cours/*.ps
-
-cours/git.hash
-
-td/1/git.hash
 
 cours/_minted-chapitre-2/*
 

@@ -1,0 +1,1182 @@
+\synctex=1
+
+\documentclass[10pt,notheorems]{beamer}
+
+\usepackage{etex}
+\usepackage{fourier-orns}
+\usepackage{ccicons}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsbsy}
+\usepackage{amsopn}
+\usepackage{amscd}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{color, colortbl}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{lastpage}
+\usepackage[nice]{nicefrac}
+\usepackage{setspace}
+\usepackage{ragged2e}
+\usepackage{listings}
+\usepackage{polynom}
+\usepackage{algorithms/algorithm}
+\usepackage{algorithms/algorithmic}
+\usepackage[frenchb]{babel}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{patterns, arrows, decorations.pathreplacing, decorations.markings, calc}
+\pgfplotsset{plot coordinates/math parser=false}
+\newlength\figureheight
+\newlength\figurewidth
+\usepackage{cancel}
+\usepackage{tikz-qtree}
+\usepackage{dcolumn}
+\usepackage{adjustbox}
+\usepackage{environ}
+\usepackage[cal=boondox]{mathalfa}
+\usepackage{manfnt}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=black,
+  urlcolor=black,
+}
+\usepackage{venndiagram}
+\usepackage{caption}
+\usepackage{subcaption}
+
+
+% Git hash
+\usepackage{xstring}
+\usepackage{catchfile}
+\immediate\write18{git rev-parse HEAD > git.hash}
+\CatchFileDef{\HEAD}{git.hash}{\endlinechar=-1}
+\newcommand{\gitrevision}{\StrLeft{\HEAD}{7}}
+
+\newcommand{\trace}{\mathrm{tr}}
+\newcommand{\vect}{\mathrm{vec}}
+\newcommand{\tracarg}[1]{\mathrm{tr}\left\{#1\right\}}
+\newcommand{\vectarg}[1]{\mathrm{vec}\left(#1\right)}
+\newcommand{\vecth}[1]{\mathrm{vech}\left(#1\right)}
+\newcommand{\iid}[2]{\mathrm{iid}\left(#1,#2\right)}
+\newcommand{\normal}[2]{\mathcal N\left(#1,#2\right)}
+\newcommand{\dynare}{\href{http://www.dynare.org}{\color{blue}Dynare}}
+\newcommand{\sample}{\mathcal Y_T}
+\newcommand{\samplet}[1]{\mathcal Y_{#1}}
+\newcommand{\slidetitle}[1]{\fancyhead[L]{\textsc{#1}}}
+
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\C}{{\mathbb C}}
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\binomial}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+\newcommand{\bigO}[1]{\mathcal O \left(#1\right)}
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+
+\renewcommand{\qedsymbol}{C.Q.F.D.}
+
+\newcolumntype{d}{D{.}{.}{-1}}
+\definecolor{gray}{gray}{0.9}
+\newcolumntype{g}{>{\columncolor{gray}}c}
+
+\setbeamertemplate{theorems}[numbered]
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Théorème}
+
+\theoremstyle{definition} % insert bellow all blocks you want in normal text
+\newtheorem{definition}{Définition}
+\newtheorem{properties}{Propriétés}
+\newtheorem{lemma}{Lemme}
+\newtheorem{property}[properties]{Propriété}
+\newtheorem{example}{Exemple}
+\newtheorem*{idea}{Éléments de preuve} % no numbered block
+
+
+
+\setbeamertemplate{footline}{
+  {\hfill\vspace*{1pt}\href{http://creativecommons.org/licenses/by-sa/3.0/legalcode}{\ccbysa}\hspace{.1cm}
+    \raisebox{-.1cm}{\href{https://github.com/stepan-a/economic-calculus}{\includegraphics[scale=.015]{../../img/git.png}}}\enspace
+    \href{https://github.com/stepan-a/economic-calculus/blob/\HEAD/td/2/correction.tex}{\gitrevision}\enspace--\enspace\today\enspace
+  }}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{caption}[numbered]
+
+\NewEnviron{notes}{\justifying\tiny\begin{spacing}{1.0}\BODY\vfill\pagebreak\end{spacing}}
+
+\newenvironment{exercise}[1]
+{\bgroup \small\begin{block}{Ex. #1}}
+  {\end{block}\egroup}
+
+\newenvironment{defn}[1]
+{\bgroup \small\begin{block}{Définition. #1}}
+  {\end{block}\egroup}
+
+\newenvironment{exemple}[1]
+{\bgroup \small\begin{block}{Exemple. #1}}
+  {\end{block}\egroup}
+
+\newcounter{xnumber}
+\setcounter{xnumber}{0}
+\newcommand\exonumber{\addtocounter{xnumber}{1}\thexnumber}
+
+\begin{document}
+
+\title{Calcul Économique\\\small{Éléments de correction du TD 2}}
+\author[S. Adjemian]{Stéphane Adjemian}
+\institute{\texttt{stephane.adjemian@univ-lemans.fr}} \date{Septembre 2022}
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Postulons la fonction de demande linéaire~:
+    \[
+      D(p) = a + b \times p
+    \]
+    où $p$ est le prix d'une montre et $D(p)$ la quantité de montres demandées pour ce prix, $a$ et $b$ sont des paramètres réels que nous devons déterminer.\newline
+
+  \item On sait que les paramètres $a$ et $b$ doivent satisfaire~:
+    \[
+      \begin{cases}
+        10 &= a  + b \times 160\\
+        20 &= a  + b \times 120
+      \end{cases}
+    \]
+    la droite, pour l'instant inconnue, doit passer par les points $(160,10)$ et $(120,20)$.\newline
+
+  \item Nous avons deux inconnues ($a$ et $b$) et deux équations (deux contraintes sur $a$ et $b$). Pour résoudre ce système nous pouvons, par exemple, considérer la différence entre la seconde et la première équation (ce qui permet d'éliminer le paramètre $a$ et d'obtenir une équation avec une seule inconnue)~:
+    \[
+      20-10 = b \times (120-160)
+    \]
+    nous déduisons directement que $b = -\nicefrac{1}{4}$, puis en substituant dans la première équation $a = 10+160/4 = 50$.\newline
+
+  \item La fonction de demande est donc $D(p) = 50-p/4$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Postulons la fonction d'offre linéaire~:
+    \[
+      S(p) = a + b \times p
+    \]
+    où $p$ est le prix d'une montre et $S(p)$ la quantité offerte pour ce prix, $a$ et $b$ sont des paramètres réels que nous devons déterminer.\newline
+
+  \item On sait que les paramètres $a$ et $b$ doivent satisfaire~:
+    \[
+      \begin{cases}
+        50 &= a  + b \times 100\\
+        100 &= a  + b \times 150
+      \end{cases}
+    \]
+    la droite, pour l'instant inconnue, doit passer par les points $(100,50)$ et $(150,100)$.\newline
+
+  \item Pour résoudre ce système, c'est-à-dire déterminer $a$ et $b$, nous pouvons, par exemple, substituer la première équation (qui nous dit que $a = 50 - b \times 100$) dans la seconde (ce qui permet d'éliminer le paramètre $a$ et d'obtenir une équation avec une seule inconnue)~:
+    \[
+      100 = \underbrace{50 - b \times 100}_{a} + b \times 150 \Leftrightarrow 100 = 50 + b \times 50 \Leftrightarrow b = 1
+    \]
+puis on obtient la valeur de $a$ en substituant dans la première équation~: $a = 50 - 1 \times 100 = -50$.\newline
+
+  \item La fonction d'offre est donc $S(p) = -50+p$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Le prix d'équilibre $p^{\star}>0$, est tel que l'offre et de la demande soient égales, c'est-à-dire~:
+    \[
+      -2p^{\star} + 6 = \frac{1}{2}p^{\star} + 1
+    \]
+    \[
+      \Leftrightarrow 5 = \frac{5}{2}p^{\star}
+    \]
+    \[
+      \Leftrightarrow p^{\star} = 2
+    \]
+
+  \item On déduit les quantités échangées à l'équilibre en substituant $p^{\star}$ dans la fonction de demande~:
+    \[
+      q^{\star} = D(p^{\star})
+    \]
+    \[
+      \Leftrightarrow q^{\star} = -2 \times 2 + 6
+    \]
+    \[
+      \Leftrightarrow q^{\star} = 2
+    \]
+
+  \item[\textbf{Remarque}] Nous aurions obtenu le même résultat sur les quantités échangées à l'équilibre en substituant $p^{\star}$ dans la fonction d'offre puisque, par définition, en $p^{\star}$ l'offre et la demande sont identiques.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item La consommation est donnée par $C = C_0 + a Y$, où le paramètre réel $a$ est inconnu.\newline
+
+  \item De façon équivalente on a $C-C_0 = a Y$.\newline
+
+  \item Soit $Z$ une variable (quelconque), on note $\Delta Z$ la variation de cette variable.\newline
+
+  \item On doit avoir $\Delta (C-C_0) = a \Delta Y$.\newline
+
+  \item On sait que si $\Delta Y = x$ alors on doit avoir $\Delta (C-C_0) = 0,8 Y$.\newline
+
+  \item Par identification, on a directement $a=0,8$ et donc~:
+    \[
+      C = C_0 + 0,8 Y
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item On reconnaît une identité remarquable~:
+    \[
+      x^2 + 2x + 1 = (x+1)^2
+    \]
+
+  \item Puisque le carré d'une variable réelle est forcément positif ou nul, on sait que~:
+    \[
+      f(x) \geq 0 \quad \forall x \in \mathbb R
+    \]
+
+  \item Le carré d'un nombre est nul si et seulement si ce nombre est nul. On sait donc que $f(x)$ est nul si et seulement si $x+1=0$, c'est-à-dire $x=-1$.\newline
+
+  \item Comme $f(x)$ ne peut atteindre des valeurs négatives, la fonction $f$ admet donc un unique minimum en $x=-1$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Le prix d'équilibre $p^{\star}>0$ est tel que $S(p^{\star})=D(p^{\star})$, c'est-à-dire tel que~:
+    \[
+      -2 \left.p^{\star}\right.^2+3 = \left.p^{\star}\right.^2 + 5p^{\star} + 2
+    \]
+    \[
+      \Leftrightarrow 3 \left.p^{\star}\right.^2 + 5p^{\star} - 1 = 0
+    \]
+
+  \item Le prix d'équilibre, s'il existe, doit être une solution positive de la dernière équation.\newline
+
+  \item Le discriminant associé au polynôme d'ordre 2 est $\Delta = 5^2+4 \times 3 = 37$\newline
+
+  \item Les solutions de l'équation polynomiale d'ordre deux sont~:
+    \[
+      p_1  = \frac{-5+\sqrt{37}}{6}\quad \text{et} \quad p_2  = \frac{-5+\sqrt{37}}{6}
+    \]
+  \item La seule solution positive est $p_1$ (car $\sqrt{37}>\sqrt{25}=5$), le prix d'équilibre (unique puisque $p_2<0$) est~:
+    \[
+      p^{\star} = \frac{-5+\sqrt{37}}{6} \approx 0,18046
+    \]
+  \end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item On postule un polynôme d'ordre deux $P(x) = a x^2+ b x + c$ avec des coefficients réels inconnus.\newline
+
+  \item Si nous pouvons déterminer de façon unique les coefficients $a$, $b$ et $c$, alors nous aurons montré l'existence et l'unicité d'un polynôme passant par les points $(0,2)$, $(-2,16)$ et $(1,4)$.\newline
+
+  \item En évaluant le polynôme en ces points, nous savons que le polynôme doit satisfaire les équations suivantes~:
+    \[
+      \begin{cases}
+        a(0)^2+b(0)+c &=2\\
+        a(-2)^2+b(-2)+c &=16\\
+        a(1)^2+b(1)+c &=4
+      \end{cases}
+      \Leftrightarrow
+      \begin{cases}
+        c & =2\\
+        4 a - 2b &=14\\
+        a+b &=2
+      \end{cases}
+      \Leftrightarrow
+      \begin{cases}
+        c & =2\\
+        b &= 2-a\\
+        4 a - 2(2-a) &=14
+      \end{cases}
+    \]
+    \[
+      \Leftrightarrow
+      \begin{cases}
+        c & =2\\
+        b &= -1\\
+        a &= 3
+      \end{cases}
+    \]
+
+  \item Il existe donc un unique polynôme d'ordre deux passant par  $(0,2)$, $(-2,16)$ et $(1,4)$~:
+    \[
+      P(x) = 3x^2-x+2
+    \]
+
+  \item[Remarque] En postulant un polynôme d'ordre 1 nous ne trouverions pas de solution, en postulant un polynôme d'ordre supérieur nous obtiendrions des coefficients nuls au delà de l'ordre deux.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item On utilise les deux identités remarquables utilisées en cours pour établir les formules usuelles.\newline
+
+  \item On a~:
+    \[
+      P(x) = x^2 - 2x + 1 -4
+    \]
+
+    \item En exploitant $(a-b)^2 = a^2-2ab+b^2$, on obtient~:
+      \[
+        P(x) = (x-1)^2 - 4
+      \]
+
+    \item En exploitant $a^2-b^2 = (a-b)(a+b)$, on obtient~:
+      \[
+        P(x) = (x-1-2)(x-1+2)
+      \]
+
+  \item Finalement~:
+    \[
+      P(x) = (x-3)(x+1)
+    \]
+
+  \item Les racines sont donc 3 et -1.
+
+  \end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item On peut réécrire le polynôme sous la forme~:
+    \[
+      P(x) = x^2 - 2x + 1 + 1
+    \]
+
+  \item Ou encore, en reconnaissant l'identité remarquable $(a-b)^2 = a^2-2ab+b^2$~:
+    \[
+      P(x) = (x-1)^2+1
+    \]
+
+  \item Puisque le carré d'une variable réelle est nécessairement non négatif, on a~:
+    \[
+      (x-1)^2\geq 0 \quad\forall x\in\mathbb R
+    \]
+    et donc~:
+    \[
+      P(x)\geq 1 \quad\forall x\in\mathbb R
+    \]
+
+  \item Il n'existe donc pas de valeur de $x$ dans $\mathbb R$ telle que
+    $P(x)=0$. Les deux racines du polynôme sont complexes.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Notons $x_1$, $x_2$ et $x_3$ les racines du polynôme $P$. On pose $x_3=x_1+x_2$.\newline
+
+  \item Le polynôme peut se factoriser sous la forme~: $P(x)=(x-x_1)(x-x_2)(x-x_3)$.\newline
+
+  \item En développant la forme factorisée, on obtient des restrictions sur les racines. En effet~:
+    \[
+      P(x) = (x-x_1)\left(x^2-x(x_2+x_3)+x_2x_3\right)
+    \]
+    \[
+      P(x) = x^3-x^2\underbrace{(x_1+x_2+x_3)}_{8}+x \underbrace{\left(x_2x_3+x_1(x_2+x_3)\right)}_{23}-\underbrace{x_1x_2x_3}_{28}
+    \]
+
+  \item On doit avoir $x_1+x_2+x_3 = 8$ et $x_3 = x_1+x_2$, c'est-à-dire $2x_3=8$ et donc $x_3=4$.\newline
+
+  \item On peut donc réécrire le polynôme $P$  sous la forme $P(x)=(x-4)Q(x)$ où $Q(x)$ est un polynôme d'ordre deux.
+
+  \end{itemize}
+
+\end{frame}
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item On peut trouver le polynôme $Q(x)$ à l'aide d'une division euclidienne~:
+
+    \begin{Center}
+      \polyset{style=D}
+      \polylongdiv{x^3-8x^2+23x-28}{x-4}
+    \end{Center}
+
+  \item Il ne nous reste plus qu'à calculer les deux racines du polynôme $Q(x)=x^2-4x+7$.\newline
+
+  \item Le discriminant est $\Delta = 16-4\times 7 = -12$. Ce polynôme n'admet donc pas de racines réelles, mais deux racines complexes conjuguées~:
+    \[
+      x_1 = \frac{4-\sqrt{-12}}{2} = \frac{4-2\sqrt{-3}}{2} = 2-\sqrt{-1\times 3} = 2-\sqrt{-1}\sqrt{3} = 2-i\sqrt{3}
+    \]
+    et
+    \[
+      x_2 = 2+i\sqrt{3}
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \framesubtitle{$P(x) = x^3-2x^2+2x$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Zéro est une racine évidente du polynôme, $P(0)=0$, que nous pouvons donc réécrire sous la forme~:
+    \[
+      P(x) = x(x²-2x+2)
+    \]
+
+  \item Pour trouver les deux autres racines, nous devons trouver les racines de $Q(x)=x²-2x+2$.\newline
+
+  \item Le discriminant est $\Delta = 4 - 4 \times 2 = -4 = (2i)^2$, les deux racines de $Q$ sont donc complexes conjugées~:
+    \[
+      x_1 = \frac{2-\sqrt{(2i)^2}}{2} = 1-i
+    \]
+    et
+    \[
+      x_2 = 1+i
+    \]
+
+  \item Les solutions de $x^3-2x^2+2x = 0$ sont donc $0$, $1-i$ et $1+i$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber (suite)}
+  \framesubtitle{$P(x) = x^3+2x^2-x-2$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Un est une racine évidente du polynôme, $P(1)=0$, que nous pouvons donc réécrire sous la forme~:
+    \[
+      P(x) = (x-1)Q(x)
+    \]
+    où $Q$ est un polynôme d'ordre 2.\newline
+
+  \item Pour trouver les deux autres racines, nous devons d'abord identifier le polynôme $Q$.\newline
+
+  \item Nous utilisons la méthode des coefficients indéterminés (nous pourrions  alternativement faire une division euclidienne).\newline
+
+  \item On postule~:
+    \[
+      Q(x) = a x^2 + bx + c
+    \]
+    où les paramètres réels $a$, $b$ et $c$ sont inconnus. Le but est d'identifier ces paramètres.\newline
+
+  \item On a~:
+    \[
+      \begin{split}
+        (x-1)Q(x) &= (x-1)(a x^2 + bx + c)\\
+                  &= a x^3 + bx^2 + cx - a x^2 - bx - c\\
+                  &=a x^3 + (b-a)x^2 + (c-b)x -c
+       \end{split}
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber (suite)}
+  \framesubtitle{$P(x) = x^3+2x^2-x-2$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item En comparant le développement de $(1-x)Q(x)$ avec la définition de $P(x)$, on obtient le système d'équations suivant~:
+    \[
+      \begin{cases}
+        a &= 1\\
+        b-a &= 2\\
+        c-b &= -1\\
+        c &= 2
+      \end{cases}
+    \]
+    \[
+      \Leftrightarrow
+      \begin{cases}
+        a &= 1\\
+        b &= 3\\
+        c &= 2\\
+      \end{cases}
+    \]
+
+  \item Nous avons donc $Q(x) = x^2 + 3x + 2$.\newline
+
+  \item Le discriminant de $Q$ est $\Delta = 9-4 \times 2 = 1$, les deux racines de $Q$ sont $x_1 = \frac{-3-1}{2} = -2$ et $\frac{-3+1}{2} = -1$.\newline
+
+  \item Les solutions de $x^3+2x^2-x-2 = 0$ sont $-2$, $-1$ et $1$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber (suite)}
+  \framesubtitle{$P(x) = x^3+2x^2-x-2$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item En comparant le développement de $(1-x)Q(x)$ avec la définition de $P(x)$, on obtient le système d'équations suivant~:
+    \[
+      \begin{cases}
+        a &= 1\\
+        b-a &= 2\\
+        c-b &= -1\\
+        c &= 2
+      \end{cases}
+    \]
+    \[
+      \Leftrightarrow
+      \begin{cases}
+        a &= 1\\
+        b &= 3\\
+        c &= 2\\
+      \end{cases}
+    \]
+
+  \item Nous avons donc $Q(x) = x^2 + 3x + 2$.\newline
+
+  \item Le discriminant de $Q$ est $\Delta = 9-4 \times 2 = 1$, les deux racines de $Q$ sont $x_1 = \frac{-3-1}{2} = -2$ et $\frac{-3+1}{2} = -1$.\newline
+
+  \item Les solutions de $x^3+2x^2-x-2 = 0$ sont $-2$, $-1$ et $1$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber (suite)}
+  \framesubtitle{$P(x) = x^4 - 5x^2 + 4$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item $1$ et $-1$ sont des racines évidentes...\newline
+
+  \item On remarque aussi que toutes les puissances sont paires. On peut donc ici ce ramener à un polynôme d'ordre 2 en posant $z = x^2$:
+    \[
+      Q(z) = z^2 - 5z + 4
+    \]
+    Si $z^{\star}$ est une racine de $Q$ alors $\pm\sqrt{z^{\star}}$ sont des racines de $P$.\newline
+
+  \item Le discriminant associé à $Q$ est $\Delta = 25-16 = 9$.\newline
+
+  \item Les racines de $Q$ sont $z_1=\frac{5-3}{2}=1$ et $z_2=\frac{5+3}{2}=4$.\newline
+
+  \item Les solutions de $x^4 - 5x^2 + 4=0$ sont donc $-2$, $-1$, $1$ et $2$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber (suite)}
+  \framesubtitle{$P(x) = x^4 - 5x^2 + 4$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item $1$ et $-1$ sont des racines évidentes...\newline
+
+  \item On remarque aussi que toutes les puissances sont paires. On peut donc ici ce ramener à un polynôme d'ordre 2 en posant $z = x^2$:
+    \[
+      Q(z) = z^2 - 5z + 4
+    \]
+    Si $z^{\star}$ est une racine de $Q$ alors $\pm\sqrt{z^{\star}}$ sont des racines de $P$.\newline
+
+  \item Le discriminant associé à $Q$ est $\Delta = 25-16 = 9$.\newline
+
+  \item Les racines de $Q$ sont $z_1=\frac{5-3}{2}=1$ et $z_2=\frac{5+3}{2}=4$.\newline
+
+  \item Les solutions de $x^4 - 5x^2 + 4=0$ sont donc $-2$, $-1$, $1$ et $2$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber (suite)}
+  \framesubtitle{$P(x) = x^2 - 2\sqrt{2}x + 2$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item On reconnaît une identité remarquable, $(a-b)^2=a^2-2ab+b^2$, qui nous permet de factoriser directement le polynôme $P$~:
+    \[
+      P(x) = (x-\sqrt{2})^2
+    \]
+
+    \bigskip
+
+  \item $\sqrt{2}$ est donc la racine de multiplicité deux du polynôme $P$.\newline
+
+  \item $\sqrt{2}$ est l'unique solution de l'équation $x^2 - 2\sqrt{2}x + 2 = 0$
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber (suite)}
+  \framesubtitle{$x^3-4x+\frac{3}{x} = 0$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item[\dbend] L'équation n'est pas polynomiale, à cause du dernier terme, mais on peut obtenir les solutions de cette équation en cherchant les racines d'un polynôme.\newline
+
+  \item Notons que cette équation n'est pas définie en 0, à cause du dernier terme, on cherche donc des solutions sur $\mathbb R^{\star}$.\newline
+
+  \item Si on multiplie les deux membres de l'équation par $x$ cela n'affecte pas les racines. Les solutions de l'équation sont donc aussi des solutions de~:
+    \[
+      x^4-4x^2+3 = 0
+    \]
+    il s'agit d'une équation polynomiale. Les racines non nulles du polynôme d'ordre quatre sont aussi des solution du problème de départ.\newline
+
+  \item On peut se ramener à une équation polynomiale d'ordre deux en posant $z = x^2$ (car nous n'avons ici que des puissances paires)~:
+    \[
+      z^2-4z+3=0
+    \]
+    Si $z^{\star}$ est une solution de l'équation polynomiale d'ordre deux alors $\pm \sqrt{z^{\star}}$ sont des solutions de l'équation polynomiale d'ordre quatre (et donc du problème de départ).
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber (suite)}
+  \framesubtitle{$x^3-4x+\frac{3}{x} = 0$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item 1 et 3 sont des solutions évidentes de l'équation polynomiale d'ordre deux.\newline
+
+  \item Les solutions de l'équation polynomiale d'ordre quatre, et donc du problème d'origine, sont $-\sqrt{3}$, $-1$, $1$ et $\sqrt{3}$.\newline
+
+  \item Ici, nous avons calculé les solutions d'une équation non linéaire en nous ramenant à une équation polynomiale que nous savons résoudre. Ce n'est pas souvent possible...\newline
+
+  \end{itemize}
+
+    \begin{center}
+    \begin{tikzpicture}[scale=1]
+      \begin{axis}[
+        xticklabels={,,},
+        yticklabels={,,},
+        enlargelimits=true,
+        grid style={dashed, gray!60},
+        axis x line = bottom,
+        axis y line = left,
+        axis line style={thin},
+        xmax = 4.5,
+        xmin = -4.5,
+        axis lines = middle,
+        small,
+        clip=false,
+        ]
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=1000,
+        domain=-4:-0.05,
+        ]
+        {x^3-4*x+3/x} ;
+        \addplot[
+        draw=black,
+        thick,
+        smooth,
+        samples=1000,
+        domain=0.05:4,
+        ]
+        {x^3-4*x+3/x} node(p1){} ;
+        \node [right] at (p1) {$x^3-4x+\frac{3}{x}$};
+        \addplot[
+        draw=red,
+        dashed,
+        smooth,
+        samples=1000,
+        domain=-3:3.2,
+        ]
+        {x^4-4*x^2+3} node(p2){} ;
+        \node [right] at (p2) {{\red  $x^4-4x^2+3$}};
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item On cherche $n\in \mathbb N$ tel que~:
+    \[
+      n^2+(n+1)^2+(n+2)^2 = 50
+    \]
+
+  \item En développant, $n\in\mathbb N$ doit satisfaire~:
+    \[
+      n^2+n^2+2n+1+n^2+4n+4 = 50
+    \]
+    \[
+      \Leftrightarrow 3n^2+6n - 45 = 0
+    \]
+
+  \item Le discriminant associé au polynôme $P(n) = 3n^2+6n-35$ est $\Delta = 36+4\times 3 \times 45 = 476$.\newline
+
+  \item Les racines de $P$ sont donc $n_1 = \frac{-6-24}{6} = -5$ et $n_2 = \frac{-6+24}{6} = 3$.\newline
+
+  \item Comme nous cherchons $n\in\mathbb N$, la seule racine pertinente est $n_2 = 3$.\newline
+
+  \item Les trois entiers naturels consécutifs sont donc $3$, $4$ et $5$, ils vérifient $3^2+4^2+5^2=50$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{enumerate}[(i)]
+
+  \item Pour tout $x\in\mathbb R$, on a~:
+    \[
+      f(-x) = e^{-x}-e^{x} = -\left(e^x-e^{-x}\right) = -f(x)
+    \]
+    la fonction $f$ est donc impaire.\newline
+
+  \item Pour tout $x\in\mathbb R$, on a~:
+    \[
+      \begin{split}
+        g(-x) &= \frac{e^{-2x}-1}{e^{-2x}+1}\\
+              &= \frac{e^{-2x}\left(1-e^{2x}\right)}{e^{-2x}\left(1+e^{-2x}\right)}\\
+              &= -\frac{e^{-2x}-1}{e^{-2x}+1} = -g(x)
+      \end{split}
+    \]
+    la fonction $g$ est donc impaire.\newline
+
+  \end{enumerate}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{enumerate}[(i)]
+    \setcounter{enumi}{2}
+
+  \item Pour tout $x\in\mathbb R$, on a~:
+    \[
+      \begin{split}
+        h(-x) &= \frac{e^{-x}}{\left(e^{-x}+1\right)^2}\\
+              &= \frac{e^{-x}}{\left(e^{-x}\left(1+e^{x}\right)\right)^2}\\
+              &= \frac{e^{-x}}{e^{-2x}\left(1+e^{x}\right)^2}\\
+              &= \frac{e^{x}}{\left(e^{x}+1\right)^2} = h(x)
+      \end{split}
+    \]
+    la fonction $h$ est donc paire.\newline
+
+  \end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \framesubtitle{$e^{2x}-e^x-6 = 0$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Posons $u=e^x$, on peut alors réécrire l'équation en terme de $u$~:
+    \[
+      u^2-u-6 = 0
+    \]
+
+  \item On cherche une solution \underline{positive} de cette équation polynomiale, car l'exponentielle doit être positive.\newline
+
+  \item Le discriminant associé au polynôme d'ordre deux est $\Delta = 25$. Les solutions de l'équation polynomiale sont donc~:
+    \[
+      u_1 = \frac{1-5}{2} = -2\qquad\text{ et }\qquad u_2 = \frac{1+5}{2} = 3
+    \]
+
+  \item La solution pertinente, par rapport au problème initial, est $u_2=3$, car il s'agit de la seule solution positive.\newline
+
+  \item La solution du problème original est $x$ tel que $3 = e^x$, c'est-à-dire (en appliquant la fonction réciproque de l'exponentielle) $x = \log 3$ .
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \framesubtitle{$3e^x-7e^{-x}-20 = 0$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Comme dans le cas précédent, posons $u=e^x$, on peut alors réécrire l'équation en terme de $u$~:
+    \[
+      3u-\frac{7}{u}-20 = 0
+    \]
+
+  \item Les solutions de cette équation sont aussi les solutions de (en multipliant l'équation par $u$)~:
+    \[
+      3u^2-20u-7 = 0
+    \]
+
+  \item En suivant la démarche habituelle on montre facilement que les solutions sont~:
+    \[
+      u_1 = -\frac{1}{3}\qquad\text{ et }\qquad u_2 =7
+    \]
+
+  \item La solution pertinente, par rapport au problème initial, est $u_2=7$, car il s'agit de la seule solution positive.\newline
+
+  \item La solution du problème original est donc $x=\log 7$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \framesubtitle{Premier système}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item En appliquant le logarithme népérien aux deux équations, on peut réécrire le système sous la forme~:
+    \[
+      \begin{cases}
+        x+y &= \log 10\\
+        x-y &= \log 5  - \log 2
+      \end{cases}
+    \]
+
+  \item En notant que $10=5\times 2$, on peut réécrire la première équation~:
+    \[
+      \begin{cases}
+        x+y &= \log 5  +  \log 2\\
+        x-y &= \log 5  - \log 2
+      \end{cases}
+    \]
+
+  \item La solution est donc~:
+    \[
+      \begin{cases}
+        x &= \log 5\\
+        y &= \log 2
+      \end{cases}
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber (suite)}
+  \framesubtitle{Deuxième système}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item On pose $u=e^x$ et $v=e^y$ et cherche à résoudre le système suivant par rapport à $u$ et $v$~:
+    \[
+      \begin{cases}
+        u-2v &= -5\\
+        3u+v &=13
+      \end{cases}
+    \]
+
+  \item On trouve~:
+    \[
+      \begin{cases}
+        u &= 3\\
+        v &= 4
+      \end{cases}
+    \]
+
+  \item La solution est donc~:
+    \[
+      \begin{cases}
+        x &= \log 3\\
+        y &= \log 4
+      \end{cases}
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber (suite)}
+  \framesubtitle{Troisième système}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item En utilisant le même changement de variable, on obtient le système suivant~:
+    \[
+      \begin{cases}
+        5u-v &= 19\\
+        uv &= 30
+      \end{cases}
+    \]
+
+  \item En substituant la seconde équation dans la première on élimine $v$ de la première équation et trouve que $u$ doit être solution de~:
+    \[
+      5u-\frac{30}{u} = 19
+    \]
+    ou, de façon équivalente, solution de~:
+    \[
+      5u^2 - 19u - 30 = 0
+    \]
+
+  \item Le polynôme d'ordre deux en $u$ possède deux racines réelles distinctes dont une seule positive $u_2=5$ (on ne peut considérer la racine négative car $u$, comme $v$, doit être positif).\newline
+
+  \item L'unique solution pertinente du système transformé est donc $u=5$ et $v=30/5=6$.\newline
+
+  \item La solution du problème original est donc $x = \log 5$ et $y= \log 6$.
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \framesubtitle{$\log(x^2-1)-\log(2x-1)+\log 2 = 0$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Il convient d'abord de s'interroger sur l'ensembl edes valeurs possibles de $x$.\newline
+
+  \item Il faut que $x$ soit tel que $x^2-1>0$ et $2x-1>0$ (car le logarithme d'un nombre négatif n'est pas défini dans $\mathbb R$).
+    \[
+      \begin{cases}
+        x^2-1 &>0 \\
+        2x-1 &>0
+      \end{cases}
+      \Leftrightarrow
+      \begin{cases}
+        x^2 &>1 \\
+        x &>\frac{1}{2}
+      \end{cases}
+      \Leftrightarrow
+      \begin{cases}
+        x &>1 \lor x<-1 \\
+        x &>\frac{1}{2}
+      \end{cases}
+    \]
+    Il faut donc que $x$ soit strictement supérieur à 1 pour que l'équation ait un sens.\newline
+
+  \item En exploitant les propriétés du logarithme, on peut réécrire l'équation sous la forme~:
+    \[
+      \log \frac{x^2-1}{2x-1} = \log\frac{1}{2}
+    \]
+
+
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber (suite)}
+  \framesubtitle{$\log(x^2-1)-\log(2x-1)+\log 2 = 0$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Puis en appliquant la fonction exponentielle~:
+    \[
+      \frac{x^2-1}{2x-1} = \frac{1}{2}
+    \]
+    \[
+      \Leftrightarrow 2x^2-2 = 2x-1
+    \]
+    \[
+      \Leftrightarrow 2x^2-2x-1 = 0
+    \]
+
+  \item Le discriminant du polynôme d'ordre deux est $\Delta = 12$.\newline
+
+  \item Les racines du polynôme sont~:
+    \[
+      x_1 = \frac{2-2\sqrt{3}}{4}\qquad\text{ et }\qquad x_2 = \frac{2+2\sqrt{3}}{4}
+    \]
+
+  \item $x_2$ est la seule racine pertinente car $x_1<1$.\newline
+
+  \item La solution de $\log(x^2-1)-\log(2x-1)+\log 2 = 0$ est $x=\frac{1+\sqrt{3}}{2}$.
+  \end{itemize}
+
+\end{frame}
+
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber (suite)}
+  \framesubtitle{$\log(x+2)-\log(x+1)=\log(x-1)$}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Pour que l'équation ait un sens il faut que $x>1$.\newline
+
+  \item En exploitant les propriétés du logarithme et en appliquant la fonction exponentielle, on peut réécrire l'équation sous la forme~:
+    \[
+      \frac{x+2}{x+1} = x-1
+    \]
+    \[
+      \Leftrightarrow x+2 = x^2-1
+    \]
+    \[
+      \Leftrightarrow x^2-x-3 = 0
+    \]
+  \item Les solutions de cette équation polynomiale sont $x_1 = \frac{1-\sqrt{13}}{2}$ et  $x_2 = \frac{1+\sqrt{13}}{2}$.\newline
+
+  \item $x_2$ est la seule solution pertinente, car $x_1<1$.
+  \end{itemize}
+
+\end{frame}
+
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% ispell-check-comments: exclusive
+%%% ispell-local-dictionary: "francais"
+%%% TeX-master: t
+%%% TeX-master: t
+%%% TeX-master: t
+%%% End:

@@ -48,9 +48,7 @@ publish: td-build exam-build cours-build ds-build
 	scp -r td/1/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/1/td.pdf
 	scp -r td/1/correction.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/1/correction.pdf
 	scp -r td/2/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/2/td.pdf
-	scp -r td/fk/ctd-2.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/2/ctd-2.pdf
+	scp -r td/2/correction.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/2/correction.pdf
 	scp -r td/3/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/3/td.pdf
-	scp -r td/fk/ctd-3.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/3/ctd-3.pdf
 	scp -r td/4/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/4/td.pdf
-	scp -r td/fk/ctd-4.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/4/ctd-4.pdf
 	scp -r td/4/correction.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/4/correction.pdf

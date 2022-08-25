@@ -85,8 +85,21 @@ d'équilibre et le prix d'équilibre.
 
 \bigskip
 
-\exercice Sans calculer le discriminant, montrer que l'équation
-$x^2-2x+2 = 0$ n'admet pas de solution réelle.
+\exercice Montrer qu'il existe un unique polynôme passant par les points $(0,2)$, $(-2,16)$ et $(1,4)$.
+
+\bigskip
+
+\exercice Calculer les racines de $P(x) = x^2 - 2x -3$ sans utiliser les formules usuelles.
+
+\bigskip
+
+\exercice Sans calculer le discriminant, montrer que le polynôme
+$P(x) = x^2-2x+2$ défini sur $\mathbb R$  n'admet pas de solution réelle.
+
+\bigskip
+
+\exercice Soit $P(x)=x^3-8x^2+23x-28$. Déterminer les racines du polynôme $P$
+sachant que la somme de deux des racines est égale à la troisième.
 
 \bigskip
 
@@ -96,69 +109,54 @@ $x^2-2x+2 = 0$ n'admet pas de solution réelle.
 \item $x^3+2x^2-x-2 = 0$
 \item $x^4-5x^2+4 = 0$
 \item $x^2 - 2\sqrt{2}x + 2 = 0$
+\item $x^3-4x+\frac{3}{x} = 0$
 \end{enumerate}
 
 \bigskip
 
-\exercice Représenter graphiquement à l'aide d'un tableur les
-fonctions suivantes :
+\exercice Trouver trois entiers naturels consécutifs tels que la somme de leurs carrés est égale à 50.
+
+\bigskip
+
+\exercice Une fonction $f$ est dite paire si $f(-x)=f(x)$ et impair si $f(-x)=-f(x)$. Par exemple, la fonction $f(x)=x^2$ est paire car $f(-x)=(-x)^2=(-1)^2x ²=x²$, la fonction $f(x)=x^3$ est impaire car $f(-x)=(-x^3)=(-1)^3x^3=-x^3$. Étudier la parité des fonctions suivantes~:
 \begin{enumerate}[(i)]
-\item $f(x) = x^5- 5x^3 + 4x$
-\item $f(x) = \frac{x-\frac{1}{2}}{x^3-x}$
+\item $f(x) = e^x-e^{-x}$
+\item $g(x) = \frac{e^{2x}-1}{e^{2x}+1}$
+\item $h(x) = \frac{e^x}{\left(e^x+1\right)^2}$
 \end{enumerate}
-Et déterminer graphiquement les valeurs de $x$ telles que $f(x)=0$
-dans chaque cas.
 
 \bigskip
 
-\exercice Soit un ménage disposant d'un revenu de 100. On suppose
-qu'il ne peut acheter que des bananes et des carottes et que les prix
-de ces deux biens sont respectivement $p_B= 1$ et $p_C = \frac{1}{2}$
-(l'unité dans les deux cas est le kilogramme). \textbf{(1)} Supposons
-que le ménage décide de consommer la totalité de son revenu en
-achetant ces deux biens (on admet qu'il ne peut pas consommer une
-quantité négative de banane ou de carotte). Déterminer l'ensemble des
-couples de quantités $(q_B, q_C)$ cohérents avec cette
-hypothèse. \textbf{(2)} Comment cet ensemble est-il modifié si le
-ménage peut décider de ne pas consommer la totalité de son
-revenu. \textbf{(3)} Représenter graphiquement ces deux ensembles.
+\exercice Chercher des solutions réelles pour les équations suivantes~:
+\begin{enumerate}[(i)]
+\item $e^{2x}-e^x-6 = 0$
+\item $3e^x-7e^{-x}-20 = 0$
+\end{enumerate}
 
 \bigskip
 
-\exercice Supposons que l'on puisse
-quantifier la satisfaction du ménage à l'aide de la fonction :
+\exercice Résoudre en $x$ et $y$ les systèmes d'équations suivants~:
 \[
-u(q_B, q_C) = q_B + q_C
+  (\mathrm{i})
+  \begin{cases}
+    e^xe^y &= 10\\ e^{x-y} &= \frac{2}{5}
+  \end{cases}
+  \quad\quad
+  (\mathrm{ii})
+  \begin{cases}
+    e^x-2e^y &= -5\\ 3e^{x}+e^y &= 13
+  \end{cases}
+  \quad\quad
+  (\mathrm{ii})
+  \begin{cases}
+    5e^x-e^y &= 19\\ e^{x+y} &= 30
+  \end{cases}
 \]
-la satisfaction (ou l'utilité) du ménage est d'autant plus élevée que
-celui-ci consomme plus. \textbf{(0)} Interpréter cette
-fonction. \textbf{(1)} Supposons que le ménage souhaite atteindre un
-niveau de satisfaction égal à 300. Déterminer l'ensemble des couples
-$(q_B, q_C)$ compatibles avec cet objectif. \textbf{(2)} Compléter le
-graphique construit dans l'exercice 9 en représentant cet ensemble.
-\textbf{(3)} Étant donnée la contrainte de revenu définie dans
-l'exercice 9, déterminer si le ménage peut atteindre ce niveau de
-satisfaction. \textbf{(4)} Déterminer le choix du ménage (en termes de
-quantités demandées pour les bananes et les carottes) en supposant que
-celui-ci cherche à atteindre le niveau de satisfaction le plus élevé
-possible. \textbf{(5)} On adopte maintenant une fonction de
-satisfaction plus générale de la forme :
-\[
-u(q_B, q_C) = \alpha q_B + \beta q_C
-\]
-où $\alpha$ et $\beta$ sont deux réels positifs. Déterminer les choix
-du ménage en fonction de $\alpha$ et $\beta$. Commenter le résultat.
 
-\exercice On reprend les exercices 9 et 10 en supposant que $p_B =
-p_C = 1$ et que $u(q_B, q_C) = \sqrt{q_Bq_C}$. \textbf{(1)} Exprimer
-$q_C$ en fonction du niveau d'utilité, $\bar u$ par exemple, et de
-$q_B$. La fonction ainsi construite est la fonction d'iso-utilité :
-l'ensemble des points $(q_C,q_B)$ vérifiant la contrainte définie par
-cette fonction fournissent un même niveau d'utilité. \textbf{(2)}
-Représenter graphiquement la contrainte budgétaire du ménage et les
-fonctions d'iso-utilité. \textbf{(3)} Identifier les demandes optimales
-du ménage.
-
-
+\exercice Chercher les solutions réelles pour les équations suivantes~:
+\begin{enumerate}[(i)]
+\item $\log(x^2-1)-\log(2x-1)+\log 2 = 0$
+\item $\log(x+2)-\log(x+1)=\log(x-1)$
+\end{enumerate}
 
 \end{document}

@@ -31,24 +31,24 @@ exam-clean:
 clean-all: td-clean exam-clean cours-clean
 
 publish: td-build exam-build cours-build ds-build
-	scp cours/prologue.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/cours
-	scp cours/chapitre-2.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/cours
-	scp cours/chapitre-3.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/cours
-	scp cours/chapitre-4.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/cours
-	scp exam/2014-a/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2014-a
-	scp exam/2014-b/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2014-b
-	scp exam/2015-a/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2015-a
-	scp exam/2015-b/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2015-b
-	scp exam/2016-a/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2016-a
-	scp exam/2016-b/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2016-b
-	scp exam/2017-a/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2017-a
-	scp exam/2017-b/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2017-b
-	scp exam/2018-a/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2018-a
-	scp exam/2018-b/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2018-b
-	scp -r td/1/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/1/td.pdf
-	scp -r td/1/correction.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/1/correction.pdf
-	scp -r td/2/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/2/td.pdf
-	scp -r td/2/correction.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/2/correction.pdf
-	scp -r td/3/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/3/td.pdf
-	scp -r td/4/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/4/td.pdf
-	scp -r td/4/correction.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/4/correction.pdf
+	rsync -avz --progress cours/prologue.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/cours/prologue.pdf
+	rsync -avz --progress cours/chapitre-2.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/cours/chapitre-2.pdf
+	rsync -avz --progress cours/chapitre-3.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/cours/chapitre-3
+	rsync -avz --progress cours/chapitre-4.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/cours
+	rsync -avz exam/2014-a/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2014-a
+	rsync -avz exam/2014-b/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2014-b
+	rsync -avz exam/2015-a/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2015-a
+	rsync -avz exam/2015-b/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2015-b
+	rsync -avz exam/2016-a/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2016-a
+	rsync -avz exam/2016-b/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2016-b
+	rsync -avz exam/2017-a/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2017-a
+	rsync -avz exam/2017-b/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2017-b
+	rsync -avz exam/2018-a/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2018-a
+	rsync -avz exam/2018-b/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2018-b
+	rsync -avz td/1/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/1/td.pdf
+	rsync -avz td/1/correction.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/1/correction.pdf
+	rsync -avz td/2/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/2/td.pdf
+	rsync -avz td/2/correction.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/2/correction.pdf
+	rsync -avz td/3/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/3/td.pdf
+	rsync -avz td/4/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/4/td.pdf
+	rsync -avz td/4/correction.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/4/correction.pdf

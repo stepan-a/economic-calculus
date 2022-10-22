@@ -50,5 +50,6 @@ publish: td-build exam-build cours-build ds-build
 	rsync -avz td/2/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/2/td.pdf
 	rsync -avz td/2/correction.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/2/correction.pdf
 	rsync -avz td/3/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/3/td.pdf
+	rsync -avz td/3/correction.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/3/correction.pdf
 	rsync -avz td/4/td.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/4/td.pdf
 	rsync -avz td/4/correction.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/td/4/correction.pdf

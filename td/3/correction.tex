@@ -1,0 +1,872 @@
+\synctex=1
+
+\documentclass[10pt,notheorems]{beamer}
+
+\usepackage{etex}
+\usepackage{fourier-orns}
+\usepackage{ccicons}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsbsy}
+\usepackage{amsopn}
+\usepackage{amscd}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{color, colortbl}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{lastpage}
+\usepackage[nice]{nicefrac}
+\usepackage{setspace}
+\usepackage{ragged2e}
+\usepackage{listings}
+\usepackage{polynom}
+\usepackage{algorithms/algorithm}
+\usepackage{algorithms/algorithmic}
+\usepackage[frenchb]{babel}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{patterns, arrows, decorations.pathreplacing, decorations.markings, calc}
+\pgfplotsset{plot coordinates/math parser=false}
+\newlength\figureheight
+\newlength\figurewidth
+\usepackage{cancel}
+\usepackage{tikz-qtree}
+\usepackage{dcolumn}
+\usepackage{adjustbox}
+\usepackage{environ}
+\usepackage[cal=boondox]{mathalfa}
+\usepackage{manfnt}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  filecolor=black,
+  urlcolor=black,
+}
+\usepackage{venndiagram}
+\usepackage{caption}
+\usepackage{subcaption}
+
+
+% Git hash
+\usepackage{xstring}
+\usepackage{catchfile}
+\immediate\write18{git rev-parse HEAD > git.hash}
+\CatchFileDef{\HEAD}{git.hash}{\endlinechar=-1}
+\newcommand{\gitrevision}{\StrLeft{\HEAD}{7}}
+
+\newcommand{\trace}{\mathrm{tr}}
+\newcommand{\vect}{\mathrm{vec}}
+\newcommand{\tracarg}[1]{\mathrm{tr}\left\{#1\right\}}
+\newcommand{\vectarg}[1]{\mathrm{vec}\left(#1\right)}
+\newcommand{\vecth}[1]{\mathrm{vech}\left(#1\right)}
+\newcommand{\iid}[2]{\mathrm{iid}\left(#1,#2\right)}
+\newcommand{\normal}[2]{\mathcal N\left(#1,#2\right)}
+\newcommand{\dynare}{\href{http://www.dynare.org}{\color{blue}Dynare}}
+\newcommand{\sample}{\mathcal Y_T}
+\newcommand{\samplet}[1]{\mathcal Y_{#1}}
+\newcommand{\slidetitle}[1]{\fancyhead[L]{\textsc{#1}}}
+
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\C}{{\mathbb C}}
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\binomial}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+\newcommand{\bigO}[1]{\mathcal O \left(#1\right)}
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+
+\renewcommand{\qedsymbol}{C.Q.F.D.}
+
+\newcolumntype{d}{D{.}{.}{-1}}
+\definecolor{gray}{gray}{0.9}
+\newcolumntype{g}{>{\columncolor{gray}}c}
+
+\setbeamertemplate{theorems}[numbered]
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Théorème}
+
+\theoremstyle{definition} % insert bellow all blocks you want in normal text
+\newtheorem{definition}{Définition}
+\newtheorem{properties}{Propriétés}
+\newtheorem{lemma}{Lemme}
+\newtheorem{property}[properties]{Propriété}
+\newtheorem{example}{Exemple}
+\newtheorem*{idea}{Éléments de preuve} % no numbered block
+
+\setbeamertemplate{itemize subitem}{--}
+
+\setbeamertemplate{footline}{
+  {\hfill\vspace*{1pt}\href{http://creativecommons.org/licenses/by-sa/3.0/legalcode}{\ccbysa}\hspace{.1cm}
+    \raisebox{-.1cm}{\href{https://github.com/stepan-a/economic-calculus}{\includegraphics[scale=.015]{../../img/git.png}}}\enspace
+    \href{https://github.com/stepan-a/economic-calculus/blob/\HEAD/td/3/correction.tex}{\gitrevision}\enspace--\enspace\today\enspace
+  }}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{caption}[numbered]
+
+\NewEnviron{notes}{\justifying\tiny\begin{spacing}{1.0}\BODY\vfill\pagebreak\end{spacing}}
+
+\newenvironment{exercise}[1]
+{\bgroup \small\begin{block}{Ex. #1}}
+  {\end{block}\egroup}
+
+\newenvironment{defn}[1]
+{\bgroup \small\begin{block}{Définition. #1}}
+  {\end{block}\egroup}
+
+\newenvironment{exemple}[1]
+{\bgroup \small\begin{block}{Exemple. #1}}
+  {\end{block}\egroup}
+
+\newcounter{xnumber}
+\setcounter{xnumber}{0}
+\newcommand\exonumber{\addtocounter{xnumber}{1}\thexnumber}
+
+\begin{document}
+
+\title{Calcul Économique\\\small{Éléments de correction du TD 3}}
+\author[S. Adjemian]{Stéphane Adjemian}
+\institute{\texttt{stephane.adjemian@univ-lemans.fr}} \date{Octobre 2022}
+
+\begin{frame}
+  \titlepage{}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item On a $u_1= 1$, $u_2 = u_1 + 1 = 2$, $u_3 = u_2 + 1 = 3$, \ldots\newline
+
+  \item En notant que, pour ces premiers termes, la valeur de suite correspond à
+    la valeur de son indice, on devine que plus généralement on doit avoir
+    $u_n = n$.\newline
+
+  \item On montre facilement qui si cela est vrai alors on doit alors avoir
+    $u_{n+1} = n+1$ (de sorte que le terme général postulé pour $u_n$ est vrai
+    pour tout $n$) :
+    \[
+      u_{n+1} = u_n + 1 = n+1
+    \]
+    On a donc bien $u_n = n$ pour tout entier naturel $n$.\newline
+
+  \item On a $v_1 = \sum_{i=1}^1 u_i = u_1 = 1$. On a aussi :
+    \[
+      v_n = \sum_{i=1}^nu_i = \sum_{i=1}^ni = \frac{n(n+1)}{2}
+    \]
+    Voir la fiche de TD 1 (exercice 6).
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item  On a $u_1 = 1$, $u_2 = \rho u_1 = \rho$, $u_3 = \rho u_2 = \rho^2$, \ldots\newline
+
+  \item En comparant l'indice de la suite et l'exposant sur $\rho$, on devine que $u_n = \rho^{n-1}$.\newline
+
+  \item On montre facilement qui cela est vrai alors on doit avoir
+    $u_{n+1} = \rho^{n}$ (de sorte que le terme général postulé pour $u_n$ est
+    vrai pour tout $n$) :
+    \[
+      u_{n+1} = \rho u_{n} = \rho \rho^{n-1} = \rho^n
+    \]
+    On a donc bien $u_n = \rho^{n-1}$ pour tout entier naturel $n$.\newline
+
+  \item Caractériser le comportement asymptotique de la suite, c'est déterminer
+    la limite, si elle existe, de $u_n$ lorsque $n$ tend vers l'infini. Cela
+    dépend de $\rho$.\newline
+
+  \item Notons que selon le signe de $\rho$ la suite est monotone ou alternée. En effet, on a :
+    \[
+      u_{n+1}-u_{n} = \rho^{n}-\rho^{n-1} = \rho^{n-1}(\rho-1)
+    \]
+    Si $\rho>1$ la suite est monotone croissante car $u_{n+1}-u_{n}>0$. Si
+    $\rho=1$ ou $\rho=0$ la suite est constante car $u_{n+1}-u_{n}=0$. Si
+    $\rho\in]0,1[$ la suite est monotone décroissante car $u_{n+1}-u_{n}<0$. Si
+    $\rho<0$ la suite est alternée, car $u_n>0$ si et seulement si n est impair.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item La suite diverge vers $+\infty$ si $\rho>1$. Pour tout $\mathcal A>0$ on
+    peut montrer qu'il existe un rang $N$ tel que pour tout $n>N$ on ait
+    $u_n>\mathcal A$.
+    \[
+      u_n>\mathcal A \Leftrightarrow \rho^{n-1}>\mathcal A \Leftrightarrow (n-1)\log \rho > \log \mathcal A \Leftrightarrow n>1+\frac{\log \mathcal A}{\log \rho}\equiv N
+    \]
+    Conformément à l'intuition, on note que le rang $N$ est d'autant plus petit
+    que $\rho$ est grand (c'est-à-dire que $u_n$ croît vite, puisque le taux de
+    croissance de $u_n$ est
+    $100\left(\frac{u_n}{u_{n-1}}-1\right) = 100(\rho-1)$ en
+    pourcentage).\newline
+
+  \item La suite converge vers 0 si $0<\rho<1$. Pour tout $\varepsilon > 0$ on
+    peut montrer qu'il existe un rang $N$ tel que pour tout $n>N$ on ait
+    $|u_n-0|<\varepsilon$.
+    \[
+      |u_n| < \varepsilon \Leftrightarrow  \rho^{n-1} < \varepsilon \Leftrightarrow (n-1)\log \rho < \log \varepsilon \Leftrightarrow n>1+\frac{\log \mathcal \varepsilon}{\log \rho}\equiv N
+    \]
+    où on a renversé le sens de la dernière inégalité car $0<\rho<1$
+    $\Rightarrow$ $\log\rho<0$. Conformément à l'intuition, on note que le rang
+    $N$ est d'autant plus grand que $\varepsilon$ est proche de zéro (car
+    $\log \rho<0$).
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Quand $\rho<0$, on sait que la suite est alternée. Il faut alors étudier le comportement de deux suites extraites :\newline
+
+    \begin{itemize}
+    \item la sous suite extraite associée aux indices paires ($u_{2k}<0$ pour $k=, 1, 2, 3, \ldots$),\newline
+    \item la sous suite extraite associée aux indices impairs ($u_{2k+1}>0$ pour $k=, 0, 1, 2, 3, \ldots$),\newline
+    \end{itemize}
+
+  \item Si $-1<\rho<0$, en reprenant le même argument que sur la page précédente, on montre que les deux suites convergent vers 0.\newline
+
+  \item Si $\rho<-1$, on montre que la première sous suite diverge vers $-\infty$ et la seconde vers $\infty$.\newline
+
+  \item Enfin si $\rho=-1$, la suite oscille entre -1 et 1.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item La vitesse d'ajustement vers la limite, quand elle existe, est la même
+    dans le cas d'une dynamique monotone ou oscillante.\newline
+
+  \item Supposons $0<\rho<1$ (dynamique monotone). D'après le terme général de la suite, nous avons :
+    \[
+      u_n = \rho^{n-1}
+    \]
+
+    \medskip
+
+    \textit{Combien de périodes ($N$) faut-il pour passer en deçà de $1/2$ (nous partons de $u_1 = 1$) ?}
+
+    \[
+      u_N\leq\frac{1}{2} \Leftrightarrow (N-1)\log\rho \leq -\log 2 \Leftrightarrow N \geq 1 - \frac{\log 2}{\log\rho}
+    \]
+
+    \medskip
+
+    \item Il faut aller jusqu'en période $1 - \frac{\log 2}{\log\rho}$ pour que $u$
+    comble la moitié de l'écart à sa limite. L'attente est d'autant plus longue que $\rho$ est proche de un.
+
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{table}
+    \centering
+  \begin{tabular}[H]{r|ccccc}
+     \hline
+     $n$   & 1 & 2 & 3              &  4             & \ldots\\ \hline
+     $u_n$ & 3 & 2 & $\frac{5}{3}$  &  $\frac{2}{2}$ & \ldots \\ \hline\hline
+  \end{tabular}
+  \end{table}
+
+  \begin{itemize}
+
+  \item Pour établir la décroissance de $u_n$, nous devons montrer que $u_{n+1}-u_n<0$ pour tout $n$.\newline
+
+  \item Nous avons~:
+    \[
+      u_{n+1}-u_n = \frac{n+3}{n+1}-\frac{n+2}{n} = \frac{n(n+3)-(n+1)(n+2)}{n(n+1)} = -\frac{2}{n(n+1)}<0
+    \]
+
+  \item On montre que $\lim_{n\rightarrow\infty}u_n = 1$ en montrant que pour
+    tout $\varepsilon>0$ il existe un rang $N$ tel que pour tout $n>N$ on ait
+    $|u_n-1|<\varepsilon$ (à partir d'un certain rang la suite se rapproche
+    arbitrairement de 1).\newline
+
+  \item Nous avons $|u_n-1| = \left|\frac{n+2}{n}-1\right|=\frac{2}{n}$, et donc~:
+    \[
+      |u_n-1|<\varepsilon \Leftrightarrow \frac{2}{n}<\varepsilon \Leftrightarrow n > \frac{2}{\varepsilon} \equiv N
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Cette suite diverge vers $-\infty$.\newline
+
+  \item Pour le montrer, il suffit d'établir que l'on peut rendre arbitrairement petit $u_n$ (vers $-\infty$) dès lors que l'indice $n$ est assez grand.\newline
+
+  \item Il faut montrer que $\forall \mathcal A>0$, $\exists N\in \mathbb N$ tel que $u_n<-\mathcal A$ pour tout $n>N$.\newline
+
+    \[
+      u_n<-\mathcal A \Leftrightarrow -n < -\mathcal A \Leftrightarrow n > \mathcal A \equiv N
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Il s'agit d'une suite alternée (non monotone) à cause de la puissance sur $-1$.\newline
+
+  \item On a $|u_n-0| = \left|\frac{(-1)^{n+1}}{n^2}\right| = \frac{1}{n^2}$.\newline
+
+  \item Soit $\varepsilon>0$ une constante arbitrairement petite.\newline
+
+  \item On a :
+    \[
+      |u_n-0|<\varepsilon \Leftrightarrow \frac{1}{n^2}<\varepsilon \Leftrightarrow n >\frac{1}{\sqrt{\varepsilon}}\equiv N
+    \]
+
+  \item Ainsi, pour tout $\varepsilon>0$, si $n$ est plus grand que le rang $N(\varepsilon)=\frac{1}{\sqrt{\varepsilon}}$ alors $|u_n-0|<\varepsilon$.\newline
+
+  \item On peut rendre $u_n$ arbitrairement proche de 0 à partir du moment où $n$ est assez grand.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Le prix d'équilibre $p^\star$ égalise l'offre et la demande~: $S(p^\star) = D(p^\star)$.\newline
+
+  \item Le prix $p^\star$ doit donc satisfaire $1+p^\star = 2-p^\star$ $\Leftrightarrow$ $p^\star = \frac{1}{2}$.\newline
+
+  \item On en déduit la quantité échangée à l'équilibre $q^\star = S(p^\star) = \frac{3}{2}$.\newline
+
+  \item Notons $\bar p$ le point fixe de la récurrence, il est tel que~:
+    \[
+      \bar p = \bar p + \alpha \left(D(\bar p)-S(\bar p)\right)
+    \]
+    en simplifiant, on a donc~:
+    \[
+      D(\bar p)-S(\bar p) = 0
+    \]
+
+  \item[$\Rightarrow$] Le point fixe est identique au prix d'équilibre~: $\bar p = p^\star = \frac{1}{2}$.\newline
+
+  \item Il nous reste à établir sous quelle(s) condition(s), lorsque le marché n'est pas initialement équilibré, la règle d'évolution du prix assure qu'à long terme l'offre égalise la demande.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Supposons que le prix initial soit différent du prix d'équilibre $p_0\neq p^\star$.\newline
+
+  \item[Remarque] Si $p_0 = p^{\star}$ alors $p_t = p^\star$ pour tout $t$, c'est un point fixe~!\newline
+
+  \item La dynamique du prix dépend de l'excès de demande~:
+    \[
+      \mathcal D(p) = D(p)-S(p) = 2-p-1-p = 1-2p
+    \]
+
+  \item On peut réécrire la dynamique du prix :
+    \[
+      p_t = p_{t-1} + \alpha \mathcal D(p_{t-1})
+    \]
+    \[
+      \Leftrightarrow p_t = \alpha + (1-2\alpha) p_{t-1}
+    \]
+
+  \item Cette équation est vraie pour tout $t$, en particulier en $t-1$ on doit avoir~:
+    \[
+      p_{t-1} = \alpha + (1-2\alpha) p_{t-2}
+    \]
+
+  \item En substituant dans l'équation pour $p_t$ on exprime $p_t$ en fonction de $p_{t-2}$~:
+    \[
+      p_t = \alpha + (1-2\alpha)\left(\alpha+(1-2\alpha)p_{t-2}\right)
+    \]
+    \[
+      \Leftrightarrow p_t = \alpha + (1-2\alpha)\alpha +(1-2\alpha)^2p_{t-2}
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item De la même manière, en exprimant $p_{t-2}$ en fonction de $p_{t-3}$, on obtient~:
+    \[
+      p_t = \alpha + (1-2\alpha)\alpha + (1-2\alpha)^2\alpha +(1-2\alpha)^3p_{t-3}
+    \]
+
+  \item Puis~:
+    \[
+      p_t = \alpha + (1-2\alpha)\alpha + (1-2\alpha)^2\alpha + (1-2\alpha)^3\alpha  + (1-2\alpha)^4p_{t-4}
+    \]
+
+  \item Plus généralement~:
+    \[
+      p_t = \alpha\sum_{i=0}^{k-1}(1-2\alpha)^i + (1-2\alpha)^kp_{t-k}
+    \]
+
+  \item  Si on remonte jusqu'à la condition initiale $p_0$, on a donc~:
+    \[
+      p_t = \alpha\sum_{i=0}^{t-1}(1-2\alpha)^i + (1-2\alpha)^tp_{0}
+    \]
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item $\sum_{i=0}^{t-1}(1-2\alpha)^i$ est la somme des termes d'une suite géométrique de raison $1-2\alpha$, on a donc encore~:
+    \[
+      p_t = \alpha\frac{1-(1-2\alpha)^t}{1-(1-2\alpha)} + (1-2\alpha)^tp_{0}
+    \]
+    \[
+      \Leftrightarrow p_t = \frac{1-(1-2\alpha)^t}{2} + (1-2\alpha)^tp_{0}
+    \]
+    \medskip
+    \[
+      \Leftrightarrow p_t = p^\star + (1-2\alpha)^t\left(p_{0}-p^{\star}\right)
+      \]
+    \smallskip
+
+  \item Clairement, si $0<\alpha<\frac{1}{2}$ alors $p_t$ converge de façon monotone vers $p^{\star}$ car dans ce cas $0<1-2\alpha<1$ et donc $(1-2\alpha)^t$ converge de façon monotone vers 0.\newline
+
+  \item Si $\alpha<0$ alors $1-2\alpha>1$ et donc la suite de prix diverge vers $+\infty$.\newline
+
+  \item Si $\frac{1}{2}\alpha<1$ alors $-1<1-2\alpha<0$ converge vers  $p^{\star}$ avec des oscillations amorties.\newline
+
+  \item Si $\alpha>1$ la suite de prix diverge avec des oscillations.\newline
+
+  \item[Remarque] Les trajectoires avec des prix négatifs ne sont pas de sens  économique.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber}
+  \fontsize{8}{10}\selectfont
+
+    \begin{table}
+    \centering
+    \begin{tabular}[H]{r|ccccc}
+      \hline
+     $n$    & 1 & 2             & 3                &  4                 & \ldots\\ \hline
+     $u_n$  & 2 & $\frac{3}{2}$ & $\frac{17}{12}$  &  $\frac{577}{408}$ & \ldots \\
+     $u_n$  & 2 & 1,5           & 1,4166667        &  1,4142157         & \ldots\\ \hline\hline
+    \end{tabular}
+  \end{table}
+
+  \bigskip
+
+  \begin{itemize}
+
+  \item On peut écrire $u_{n+1}\geq \sqrt{2}$ de façon équivalente sous la forme~:
+    \[
+       \frac{u_n}{2}+\frac{1}{u_n} \geq \sqrt{2}
+    \]
+    \[
+      \Leftrightarrow \frac{u_n^2+2}{2u_n} \geq \sqrt{2}
+    \]
+    \[
+      \Leftrightarrow u_n^2- 2u_n\sqrt{2} + 2\geq 0
+    \]
+    \[
+      \Leftrightarrow \left(u_n- \sqrt{2}\right)^2\geq 0
+    \]
+    Le carré d'un nombre réel ne peut être négatif, cette inégalité est donc nécessairement vérifiée et $u_{n+1}$ est donc forcément supérieur ou égal à $\sqrt{2}$.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Un point fixe de la suite est une valeur réelle $\bar u$ telle que~:
+    \[
+      \bar u = \frac{\bar u}{2} + \frac{1}{\bar u}
+    \]
+
+    \medskip
+
+  \item En toute généralité une suite peut admettre plus d'un point fixe.\newline
+
+  \item Ici il existe un unique point fixe. On a~:
+    \[
+      \bar u^2 = \frac{\bar u^2}{2} + 1
+    \]
+    \[
+      \frac{\bar u^2}{2} =  1
+    \]
+    \[
+      \bar u^2 = 2
+    \]
+
+  \item Comme la suite est positive (puisque $u_n\geq \sqrt{2}$), il existe une
+    unique solution pour $\bar u$~:
+    \[
+      \bar u = \sqrt{2}
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Pour montrer que la suite est décroissante, il faut montrer que les variations sont négatives pour tout $n$.\newline
+
+  \item On a des équivalences suivantes~:
+    \[
+      u_{n+1}-u_{n} \leq 0
+    \]
+    \[
+      \Leftrightarrow \frac{1}{u_n}-\frac{u_{n}}{2} \leq 0
+    \]
+    \[
+      \Leftrightarrow \frac{2-u_n^2}{2u_n}\leq 0
+    \]
+    La dernière inégalité est vraie puisque $u_n\geq \sqrt{2}$, on a donc bien $u_{n+1}\leq u_{n}$ pour tout $n$ (l'inégalité est stricte tant que $u_n>\sqrt{2}$).\newline
+
+  \item La suite est donc monotone décroissante.
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item La suite $u_n$ est décroissante et bornée.\newline
+
+  \item La suite $u_n$ est donc convergente.\newline
+
+  \item On a $\lim_{n\rightarrow\infty}u_n = \sqrt{2}$.\newline
+
+  \item La suite $u_n$ est à valeurs dans $\mathbb Q$, mais sa limite n'appartient pas à $\mathbb Q$ ($\sqrt{2}$ est un nombre irrationnel).
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item Pour montrer l'inégalité demandée en \textbf{(6)}, on a les équivalences suivantes~:
+    \[
+      u_{n+1}-\sqrt{2}<\frac{1}{2}\left(u_n-\sqrt{2}\right)
+    \]
+    \[
+      \Leftrightarrow 2\left(\frac{u_n}{2}+\frac{1}{u_n}-\sqrt{2}\right)<u_n-\sqrt{2}
+    \]
+    \[
+      \Leftrightarrow u_n+\frac{2}{u_n}-2\sqrt{2}<u_n-\sqrt{2}
+    \]
+    \[
+      \Leftrightarrow \frac{2}{u_n}<\sqrt{2}
+    \]
+    \[
+      \Leftrightarrow u_n>\sqrt{2}
+    \]
+    Cette dernière inégalité est vraie, puisque $\sqrt{2}$ est un minorant de la suite, donc la première inégalité est vraie.\newline
+
+  \item En itérant sur l'inégalité, on obtient~:
+    \[
+      u_n-\sqrt{2} < \frac{1}{2}\left(u_{n-1}-\sqrt{2}\right) < \frac{1}{2^2}\left(u_{n-2}-\sqrt{2}\right) < \ldots\ldots<\frac{1}{2^n}\left(u_{0}-\sqrt{2}\right)
+    \]
+
+
+  \end{itemize}
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (suite)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item On a donc bien~:
+    \[
+      0 < u_n-\sqrt{2} < \frac{1}{2^n}\left(u_{0}-\sqrt{2}\right) = \frac{\sqrt{2}(\sqrt{2}-1)}{2^n}
+    \]
+
+    \bigskip
+
+  \item On voit donc qu'il est possible de rendre $|u_n-\sqrt{2}|$ arbitrairement petit à partir du moment où $n$ est assez grand.
+
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (1)}
+  \fontsize{8}{10}\selectfont
+
+  \[
+    \begin{split}
+        \lim_{x\rightarrow\infty} \frac{2x+5}{x^2-3}
+         &= \lim_{x\rightarrow\infty} \frac{x(2+\frac{5}{x})}{x(x-\frac{3}{x})}\\
+         &= \lim_{x\rightarrow\infty} \frac{2+\frac{5}{x}}{x-\frac{3}{x}}\\
+         &= \frac{2+\lim_{x\rightarrow\infty} \frac{5}{x}}{\lim_{x\rightarrow\infty} x-\lim_{x\rightarrow\infty} \frac{3}{x}}\\
+         &= \frac{2}{\lim_{x\rightarrow\infty} x} \\
+         &= 0\\
+      \end{split}
+    \]
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (2)}
+  \fontsize{8}{10}\selectfont
+
+  \[
+    \begin{split}
+      \lim_{x\rightarrow\infty} \frac{x^3-4x^2+8}{x^2+6}
+      &= \lim_{x\rightarrow\infty} \frac{x^2(x-4+\frac{8}{x^2})}{x^2(1+\frac{6}{x^2})}\\
+      &= \lim_{x\rightarrow\infty} \frac{x-4+\frac{8}{x^2}}{1+\frac{6}{x^2}}\\
+      &= \frac{\lim_{x\rightarrow\infty} x-4+\lim_{x\rightarrow\infty} \frac{8}{x^2}}{1+\lim_{x\rightarrow\infty} \frac{6}{x^2}}\\
+      &= \frac{\lim_{x\rightarrow\infty} x-4}{1}\\
+      &= \infty \\
+    \end{split}
+  \]
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (3)}
+  \fontsize{8}{10}\selectfont
+
+  \[
+    \begin{split}
+      \lim_{x\rightarrow\infty} \frac{ax^2+bx+c}{kx^2+lx+m}
+      &= \lim_{x\rightarrow\infty} \frac{x^2(a+\frac{b}{x}+\frac{c}{x^2})}{x^2(k+\frac{l}{x}+\frac{m}{x^2})}\\
+      &= \lim_{x\rightarrow\infty} \frac{a+\frac{b}{x}+\frac{c}{x^2}}{k+\frac{l}{x}+\frac{m}{x^2}}\\
+      &= \lim_{x\rightarrow\infty} \frac{a+\lim_{x\rightarrow\infty}\frac{b}{x}+\lim_{x\rightarrow\infty}\frac{c}{x^2}}{k+\lim_{x\rightarrow\infty}\frac{l}{x}+\lim_{x\rightarrow\infty}\frac{m}{x^2}}\\
+      &= \frac{a}{k}
+    \end{split}
+  \]
+
+  \bigskip
+
+  Il faut bien sûr supposer que $k\ne 0$, sinon la fonction diverge vers $+\infty$.
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (4)}
+  \fontsize{8}{10}\selectfont
+
+  \[
+    \begin{split}
+      \lim_{x\rightarrow -4} \frac{x^2-16}{x+4}
+      &= \lim_{x\rightarrow -4} \frac{(x-4)(x+4)}{x+4}\\
+      &= \lim_{x\rightarrow -4} (x-4)\\
+      &= \lim_{x\rightarrow -4} x - 4 \\
+      &=-8\\
+    \end{split}
+  \]
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (5)}
+  \fontsize{8}{10}\selectfont
+
+  \begin{itemize}
+
+  \item[$x\rightarrow 0^+$] $\Rightarrow x>0$ et donc $|x| = x$.
+    \[
+      \lim_{x\rightarrow 0^+} \frac{|x|}{x} = \lim_{x\rightarrow 0^+} \frac{x}{x} = 1
+    \]
+
+    \bigskip
+
+  \item[$x\rightarrow 0^-$] $\Rightarrow x<0$ et donc $|x| = -x$.
+    \[
+      \lim_{x\rightarrow 0^-} \frac{|x|}{x} = \lim_{x\rightarrow 0^+} -\frac{x}{x} = -1
+    \]
+
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (1)}
+  \fontsize{8}{10}\selectfont
+
+  \[
+    \begin{split}
+      f'(x) &= \lim_{h\rightarrow 0}\frac{f(x+h)-f(x)}{h}\\
+            &= \lim_{h\rightarrow 0}\frac{4(x+h)^2+3-4x^2+3}{h}\\
+            &= \lim_{h\rightarrow 0}\frac{4(x^2+2xh+h^2)-4x^2}{h}\\
+            &= \lim_{h\rightarrow 0}\frac{8xh+h^2}{h}\\
+            &= 8x + \lim_{h\rightarrow 0} h\\
+            &= 8x
+    \end{split}
+  \]
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (2)}
+  \fontsize{8}{10}\selectfont
+
+  \[
+    \begin{split}
+      g'(x) &= \lim_{h\rightarrow 0}\frac{(x+h)^n-x^n}{h}\\
+            &= \lim_{h\rightarrow 0}\frac{\sum_{k=0}^n C_n^kx^{n-k}h^k-x^n}{h}\\
+            &= \lim_{h\rightarrow 0}\frac{\sum_{k=1}^n C_n^kx^{n-k}h^k}{h}\\
+            &= \lim_{h\rightarrow 0}\sum_{k=1}^n C_n^kx^{n-k}h^{k-1}\\
+            &= C_n^1x^{n-1}\\
+            &= n x^{n-1}
+    \end{split}
+  \]
+
+\end{frame}
+
+
+\addtocounter{xnumber}{-1}
+\begin{frame}
+  \frametitle{Exercice \exonumber\, (3)}
+  \fontsize{8}{10}\selectfont
+
+  \[
+    \begin{split}
+      h'(x) &= \lim_{h\rightarrow 0}\frac{\frac{1}{x+h}-\frac{1}{x}}{h}\\
+            &= \lim_{h\rightarrow 0}\frac{\frac{x-x-h}{x(x+h)}}{h}\\
+            &= \lim_{h\rightarrow 0}\frac{-1}{x(x+h)}\\
+            &= -\frac{1}{x^2}
+    \end{split}
+  \]
+
+\end{frame}
+
+
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% ispell-check-comments: exclusive
+%%% ispell-local-dictionary: "francais"
+%%% TeX-master: t
+%%% TeX-master: t
+%%% TeX-master: t
+%%% End:

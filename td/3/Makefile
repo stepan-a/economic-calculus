@@ -1,4 +1,4 @@
-all: td.pdf
+all: td.pdf correction.pdf
 
 %.pdf: %.tex
 	rubber --unsafe --pdf $<

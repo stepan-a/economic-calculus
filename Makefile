@@ -31,9 +31,9 @@ exam-clean:
 clean-all: td-clean exam-clean cours-clean
 
 publish: td-build exam-build cours-build ds-build
-	rsync -avz --progress cours/prologue.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/cours/prologue.pdf
-	rsync -avz --progress cours/chapitre-2.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/cours/chapitre-2.pdf
-	rsync -avz --progress cours/chapitre-3.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/cours/chapitre-3
+	rsync -avz --progress cours/prologue.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/cours
+	rsync -avz --progress cours/chapitre-2.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/cours
+	rsync -avz --progress cours/chapitre-3.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/cours
 	rsync -avz --progress cours/chapitre-4.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/cours
 	rsync -avz exam/2014-a/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2014-a
 	rsync -avz exam/2014-b/*.pdf ulysses:/home/www/le-mans.adjemian.eu/calcul-économique/exam/2014-b

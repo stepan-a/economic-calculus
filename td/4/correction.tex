@@ -12,8 +12,13 @@
 
  \usepackage[active]{srcltx}
 \usepackage{scrtime}
+\usepackage{hyperref}
 
-\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcounter{xnumber}
+\setcounter{xnumber}{0}
+
+\newcommand{\exercice}{\textsc{\textbf{Exercice}} \textbf{\addtocounter{xnumber}{1}\thexnumber}\,\,}
+
 \newcommand{\question}[1]{\textbf{(#1)}}
 \setlength{\parindent}{0cm}
 
@@ -25,7 +30,7 @@
 
 \maketitle
 
-\exercice{1} \textbf{(1)} On sait que $(\log u)' = $. $f'(x) =
+\exercice \textbf{(1)} On sait que $(\log u)' = $. $f'(x) =
 \nicefrac{u'}{u}$. $f'(x) =
 \nicefrac{(2x+4x^3)}{(x^2+x^4+1)}$. \textbf{(2)} En utilisant le
 résultat précédant et la règle $(uv)'=u'v+uv'$, on obtient $g'(x) =
@@ -43,12 +48,15 @@ j'(x) = \frac{3x^2(x^2+1)-2x(x^3-2)}{\left(\frac{x^3-2}{x^2+1}\right)^2}\left(\f
 \[
 j'(x) = x\frac{x^3+3x-2}{\left(\frac{x^3-2}{x^2+1}\right)^3}
 \]
-\textbf{(5)} En utilisant la règle de dérivation des fonctions
-composées : $k'(x) = -\theta\sin(\theta x)$.
+\textbf{(5)} En utilisant la règle de dérivation des fonctions composées :
+$k'(x) = -\theta\sin(\theta x)$. \textbf{(6)} Le plus simple est de remarquer
+que $l(x)=1-\frac{1}{x}$, on obtient alors directement la dérivée
+$l'(x) = \frac{1}{x^2}$. \textbf{(7)} La fonction $p(x)$ est définie sur $\mathbb R_+^*$. On peut la réécrire de façon équivalente~:
+$p(x) = e^{x\log x}$, on a donc~: $p'(x) = (x\log x)'e^{x\log x} = (1+\log x )x^x$.
 
 \bigskip
 
-\exercice{2} \textbf{(1)} On a $f'(x) = \theta e^{\theta x}$, $f''(x)
+\exercice \textbf{(1)} On a $f'(x) = \theta e^{\theta x}$, $f''(x)
 = \theta^2 e^{\theta x}$, $f'''(x) = \theta^3 e^{\theta x}$ et plus généralement
 on admet que $f^{(n)}(x) = \theta^n e^{\theta x}$. On peut montrer
 que ce résultat est correcte en raisonnant par récurrence. On sait que
@@ -79,13 +87,90 @@ $g'''(x) = -3 \times 2 \times\nicefrac{1}{x^4}$, $g'''(x) = 4\times 3
 \[
 g^{(n)}(x) = (-1)^n \times n! \times \nicefrac{1}{x^{(n+1)}}
 \]
-On peut montrer ce résultat en utilisant un argument par
-récurrence. \textbf{(3)} On a $h'(x) = 1/x$ et plus généralement
-$h^{(n)}(x) = g^{(n-1)}(x)$ par définition de la fonction $g$.
+On peut montrer ce résultat en utilisant un argument par récurrence.
+\textbf{(3)} On a $h'(x) = 1/x$ et plus généralement $h^{(n)}(x) = g^{(n-1)}(x)$
+par définition de la fonction $g$. \textbf{(4)} On a
+$i'(x) = \frac{1}{(1-x)^2}$, $i''(x) = \frac{2}{(1-x)^3}$,
+$i'''(x) = \frac{2\times 3}{(1-x)^4}$, ... Plus généralement, on postule
+$i^{(n)}(x) = \frac{n!}{(1-x)^{n+1}}$. Pour montrer que cette formule est
+correcte, puisqu'elle est vraie au premiers rangs, il suffit de montrer que
+$i^{(n+1)}(x) = \frac{(n+1)!}{(1-x)^{n+2}}$. On a~:
+  \[
+    \begin{split}
+      i^{(n+1)}(x) &= \left(i^{(n)}(x)\right)'\\
+                   &= \left(\frac{n!}{(1-x)^{n+1}}\right)'\\
+                   &= \frac{(n+1)n!}{(1-x)^{n+1+1}}\\
+                   &= \frac{(n+1)!}{(1-x)^{n+2}}
+    \end{split}
+  \]
+\textbf{(5)} On a
+$j'(x) = \frac{-1}{(1+x)^2}$, $j''(x) = \frac{(-1)^22}{(1+x)^3}$,
+$j'''(x) = \frac{(-1)^32\times 3}{(1+x)^4}$, ... Plus généralement, on postule
+$j^{(n)}(x) = \frac{(-1)^nn!}{(1+x)^{n+1}}$. Pour montrer que cette formule est
+correcte, puisqu'elle est vraie au premiers rangs, il suffit de montrer que
+$j^{(n+1)}(x) = \frac{(-1)^{n+1}(n+1)!}{(1+x)^{n+2}}$. On a~:
+  \[
+    \begin{split}
+      j^{(n+1)}(x) &= \left(j^{(n)}(x)\right)'\\
+                   &= \left(\frac{(-1)^nn!}{(1+x)^{n+1}}\right)'\\
+                   &= \frac{(-1)(n+1)(-1)^nn!}{(1+x)^{n+1+1}}\\
+                   &= \frac{(-1)^{n+1}(n+1)!}{(1+x)^{n+2}}
+    \end{split}
+  \]
+  \textbf{(6)} On a~:
+  \[
+    k(x) = \frac{1}{(1-x)(1+x)}
+  \]
+  que nous pouvons réécrire sous la forme~:
+  \[
+    k(x) = \frac{a}{1-x}+\frac{b}{1+x}
+  \]
+  il nous reste à trouver les coefficients $a$ et $b$. Par identification, on
+  trouve $a+b=1$ et $a-b=0$. On doit donc avoir $a=b=\frac{1}{2}$, et on peut
+  écrire~:
+  \[
+    k(x) = \frac{1}{2}\frac{1}{1-x} + \frac{1}{2}\frac{1}{1+x} 
+  \]
+  On reconnaît les fonctions $i(x)$ et $j(x)$, on a donc directement~:
+  \[
+    k^{(n)}(x) = \frac{1}{2}\frac{n!}{(1-x)^{n+1}} + \frac{1}{2}\frac{(-1)^nn!}{(1+x)^{n+1}}
+  \]
 
-\bigskip
+  \bigskip
 
-\exercice{3} On établit le résultat en utilisant le théorème de Taylor
+  \exercice On remarque que l'équation ressemble à la dérivée d'un polynôme
+  d'ordre 4. On pose $f(x) = ax^4+bx^3+cx^2-(a+b+c)x$ une fonction de $[0,1]$
+  dans $\mathbb R$. La fonction $f$ est dérivable et vérifie $f(0)=f(1)=0$. En appliquant le théorème de Rolle, on sait qu'il existe $x$ entre 0 et 1 tel que $f'(x)=0$, c'est-à-dire tel que $4ax^3+bx^2+2cx = a+b+c$.  
+
+  \bigskip
+
+  \exercice La réponse est négative. On dit qu'une fonction $f$ est périodique (voir \href{https://fr.wikipedia.org/wiki/Fonction_periodique}{wikipedia}) de période $t$ sur $E$ si pour tout $x\in E$, $x+t\in E$ on a $f(x)=f(x+t)$. D'après le théorème de Rolle, si la fonction est dérivable, il doit exister $a$ entre $x$ et $x+t$ tel que $f'(a)=0$. Donc si la dérivée n'est jamais nulle, la fonction ne peut pas être périodique.
+
+  \bigskip
+
+  \exercice Notons $l$ et $l'$ les limites de $f$ et $f'$ en $+\infty$. Par le
+  théorème des accroissements finis, on sait que pour tout $x\in \mathbb R$ il existe $x<c(x)<x+1$ tel que~:
+  \[
+    f(x+1)-f(x) = f'(c(x))\bigl((x+1)-x\bigr)
+  \]
+  \[
+    \Leftrightarrow f(x+1)-f(x) = f'(c(x))
+  \]
+  Puisque $c(x)$ est dans l'intervalle $[x,x+1]$, on doit avoir $\lim_{x\rightarrow\infty}c(x)=\infty$. On a alors~:
+  \[
+    \lim_{x\rightarrow\infty}f(x+1) - \lim_{x\rightarrow\infty}f(x) = \lim_{x\rightarrow\infty}f'(c(x)) 
+  \]
+  \[
+    \Leftrightarrow l - l = \lim_{c(x)\rightarrow\infty}f'(x) 
+  \]
+  \[
+    \lim_{x\rightarrow\infty}f'(x) = 0
+  \]
+  La limite de $f'$ doit être nulle si la limite de $f$ est finie.
+  
+  \bigskip
+  
+\exercice On établit le résultat en utilisant le théorème de Taylor
 dans un voisinage de 0 et en notant que la dérivée d'ordre $n$ de
 $e^x$ est $e^x$. On a :
 \[
@@ -99,7 +184,7 @@ e = \sum_{i=0}^{\infty} \frac{1}{n!}
 
 \bigskip
 
-\exercice{4} En utilisant le théorème de Taylor dans un voisinage de 0
+\exercice En utilisant le théorème de Taylor dans un voisinage de 0
 et en notant que les dérivées de $\nicefrac{1}{1-x}$ sont :
 \[
 \left(\frac{1}{1-x}\right)' = \frac{1}{(1-x)^2} 
@@ -119,7 +204,7 @@ si $|x|<1$ il faut que le radius de convergence soit un.
 
 \bigskip
 
-\exercice{5} Puisque le coefficient devant $x^3$ est négatif, on sait
+\exercice Puisque le coefficient devant $x^3$ est négatif, on sait
 que $\lim_{x\rightarrow\infty}f(x)=-\infty$ et $\lim_{x\rightarrow
   -\infty}f(x)=\infty$. La dérivée de la fonction $f$ est donnée par :
 \[
@@ -150,7 +235,7 @@ $\overline{x}$ est un minimum local.
 
 \bigskip
 
-\exercice{6} On commence en notant que le domaine de définition est
+\exercice On commence en notant que le domaine de définition est
 $\mathbb R_+$. La limite en zéro est :
 \[
 \lim_{x\rightarrow 0} f(x) = \infty
@@ -181,7 +266,27 @@ retourne vers zéro.
 
 \bigskip
 
-\exercice{7} Trivial. Calculer $f'(x)$. C'est un polynôme d'ordre
+\exercice On note que le discriminant du polynôme au dénominateur est négatif,
+$\Delta=-4$, il n'admet donc pas de racines réelles. Ce polynôme est positif
+pour tout $x\in\mathbb R$. Le domaine de définition de $f$ est donc $\mathbb R$.
+Puisque le numérateur est non négatif, on a $f(x) \geq 0$ et la fonction est
+nulle en $x=0$. On montre facilement que
+$\lim_{x\rightarrow -\infty}f(x) = \lim_{x\rightarrow \infty}f(x) = 1$, car les
+polynômes au numérateur et dénominateur ont le même ordre. La dérivée est~:
+\[
+f'(x) = \frac{2x(x^2-2x+2)-x^2(2x-2)}{(x^2-2x+2)^2}
+\]
+\[
+f'(x) = \frac{2x(2-x)}{(x^2-2x+2)^2}
+\]
+La dérivée est positive si et seulement si $0<x<2$, elle est nulle en $x=0$ et
+$x=2$. La fonction $f$ est donc décroissante entre $-\infty$ et 0, croissante
+entre 0 et 2, puis décroissante entre 2 et $\infty$. la fonction admet un
+minimum global en 0 ($f(0)=0$) et un maximum global en 2 ($f(2)=2$).
+
+\bigskip
+
+\exercice Trivial. Calculer $f'(x)$. C'est un polynôme d'ordre
 2. Calculer le discriminant, exclure le cas où celui-ci est négatif
 ($f$ est alors monotone puisque $f'$ ne change pas de signe). Calculer
 $f''(x)$, il s'agit d'un polynôme d'ordre 1 (une droite). Montrer que
@@ -190,11 +295,11 @@ racines du polynôme d'ordre 2 ($f'$).
 
 \bigskip
 
-\exercice{8} On utilise la règle de l'Hospital.
+\exercice On utilise la règle de l'Hospital.
 
 \bigskip
 
-\exercice{9} \textbf{(a)} On cherche à résoudre le problème suivant :
+\exercice \textbf{(a)} On cherche à résoudre le problème suivant :
 \[
 \begin{split}
 (x^{\star},y^{\star}) = &\arg\max_{\{x,y\}}xy\\

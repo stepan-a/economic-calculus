@@ -3,10 +3,14 @@ ROOT_PATH = .
 all: td-build exam-build cours-build ds-build
 
 ds-build:
+	$(MAKE) -C $(ROOT_PATH)/ds/2022-nov all
+	$(MAKE) -C $(ROOT_PATH)/ds/2021-nov all
 	$(MAKE) -C $(ROOT_PATH)/ds/2018-nov all
 	$(MAKE) -C $(ROOT_PATH)/ds/2014-nov all
 
 ds-clean:
+	$(MAKE) -C $(ROOT_PATH)/ds/2022-nov clean-all
+	$(MAKE) -C $(ROOT_PATH)/ds/2021-nov clean-all
 	$(MAKE) -C $(ROOT_PATH)/ds/2018-nov clean-all
 	$(MAKE) -C $(ROOT_PATH)/ds/2014-nov clean-all
 

@@ -1,15 +1,15 @@
 LATEX = pdflatex
 
-all: ds.pdf clean
+all: ds.pdf correction.pdf clean
 
 ds.pdf: ds.tex
 	while ($(LATEX) ds.tex ; \
 	grep -q "Rerun to get cross" ds.log ) do true ; \
 	done
 
-ds-correction.pdf: ds-correction.tex
-	while ($(LATEX) ds-correction.tex ; \
-	grep -q "Rerun to get cross" ds-correction.log ) do true ; \
+correction.pdf: correction.tex
+	while ($(LATEX) correction.tex ; \
+	grep -q "Rerun to get cross" correction.log ) do true ; \
 	done
 
 clean:

@@ -1,0 +1,133 @@
+\documentclass[10pt,a4paper,notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcommand{\exercice}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique\\ \small{(Devoir surveillé)}}}
+\author{Stéphane Adjemian\thanks{Université du Mans. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Le \today\ à \thistime}
+
+\maketitle
+
+
+\exercice{1} Soient trois propositions $P$, $Q$ et $R$. On doit montrer que~:
+\[
+(P\Rightarrow Q) \land (Q\Rightarrow R) \Longrightarrow (P\Rightarrow R)
+\]
+On utilise une table de vérité~:
+
+
+\begin{table}[H]
+    \hspace*{-2cm}\begin{tabular}[H]{|ccc|ccccc|}
+      \hline
+      $P$ & $Q$ & $R$ & $P\Rightarrow Q$ & $Q\Rightarrow R$ & $(P\Rightarrow Q) \land (Q\Rightarrow R)$ & $P\Rightarrow R$ & $((P\Rightarrow Q) \land (Q\Rightarrow R))\Rightarrow (P\Rightarrow R)$\\ \hline
+      V & V & V & V & V & V & V & V \\
+      V & V & F & V & F & F & F & V \\
+      V & F & V & F & V & F & V & V \\
+      V & F & F & F & V & F & F & V \\
+      F & V & V & V & V & V & V & V \\
+      F & V & F & V & F & F & V & V \\
+      F & F & V & V & V & V & V & V \\
+      F & F & F & V & V & V & V & V \\
+      \hline\hline
+    \end{tabular}\hspace*{-2cm}
+\end{table}
+  
+  Comme la dernière colonne est vraie sur toutes les lignes, c'est-à-dire pour
+  tout triplet de valeurs de vérité des propositions $P$, $Q$ et $R$, la
+  proposition relative à la transitivité de l'implication logique est vraie.
+
+  \bigskip
+  
+  \exercice{2} On vérifie d'abord que la formule est correcte pour $n=1$. Celle-ci nous dit que la somme devrait être égale à 0. C'est bien le cas puisque nous avons~:
+  \[
+    \sum_{i=1}^1  i(i-1) = 1 \times 0 = 0
+  \]
+  Supposons que la formule est vraie au rang $n$ et montrons alors qu'elle doit être vraie au rang $n+1$, c'est-à-dire que nous avons~:
+  \[
+    \sum_{i=1}^n  i(i-1) = \frac{n(n+1)(n+2)}{3}
+  \]
+  Il suffit de découper la somme pour faire apparaître la formule au rang $n$. On a~:
+  \[
+    \begin{split}
+      \sum_{i=1}^{n+1}  i(i-1) &= \sum_{i=1}^{n}  i(i-1) + (n+1)n\\
+                               &= \frac{(n-1)n(n+1)}{3} + (n+1)n\\
+                               &= \frac{(n-1)n(n+1)+3n(n+1)}{3}\\
+                               &= \frac{n(n+1)(n+2)}{3}
+    \end{split}
+  \]
+  Nous trouvons bien l'expression attendue. La formule est donc vraie pour tout $n\geq 1$.
+
+  \bigskip
+
+  \exercice{3}\textbf{(1)} Les paramètres $a$ et $b$ sont les ordonnées à
+  l'origine des deux droites. Le paramètre $a$ est le niveau de la demande quand
+  le prix est nul. Le parmètre $b$ est le niveau de l'offre quand le prix est
+  nul. \textbf{(2)}-\textbf{(3)} L'offre est une fonction croissante du prix, la
+  demande est une fonction décroissante du prix, pour que les deux droites se
+  coupent dans l'orthan positif il faut et il suffit que $b<a$. Le prix d'équilibre est tel que~:
+  \[
+    a - p^{\star} = b + 2p^{\star}
+  \]
+  \[
+    \Leftrightarrow a-b = 3 p^{\star}
+  \]
+  \[
+    \Leftrightarrow a-b = 3 p^{\star}
+  \]
+  \[
+    p^{\star}=\frac{a-b}{3} > 0
+  \]
+  Notons que le prix est positif si et seulement si la contrainte sur les paramètres $a$ et $b$ est satisfaite.
+
+  \bigskip
+
+  \exercice{4} Le discriminant est~:
+  \[
+    \Delta = \left(\frac{11}{6}\right)^2-4\frac{3}{6} = \frac{121}{36}-\frac{72}{36} = \frac{49}{36}>0
+  \]
+  Le polynôme d'ordre deux possède donc deux racines distinctes ~:
+  \[
+    x^{\star} = \frac{\frac{11}{6}\pm \frac{7}{6}}{2} = \frac{11\pm 7}{12}
+  \]
+  Les racines sont $1/3$ et $3/2$.
+
+  \bigskip
+
+  \exercice{5} Le discriminant est~:
+  
+\end{document}
+
+
+\exercice{4} Déterminer les solutions de l'équation suivante~:
+\[
+x^2 - \frac{11}{6}x + \frac{3}{6} = 0
+\]
+
+\bigskip
+
+\exercice{5} Soient trois ensembles $A$, $B$ et $C$. L'égalité~:
+\[
+  \mathrm{card}(A \cup B \cup C) = \mathrm{card}(A) + \mathrm{card}(B) + \mathrm{card}(C)
+\]
+est-elle vraie~? Pourquoi~? Justifiez votre réponse à l'aide d'une démonstration.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

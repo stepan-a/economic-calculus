@@ -1,0 +1,158 @@
+\documentclass[10pt,a4paper,notitlepage,twocolumn]{article}
+\synctex=1
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+ \usepackage{scrtime}
+ \usepackage{exercise}
+
+\newcommand{\exercise}[1]{\textsc{\textbf{Exercice}} #1}
+\newcommand{\question}[1]{\textbf{(#1)}}
+\setlength{\parindent}{0cm}
+
+\begin{document}
+
+\title{\textsc{Calcul Économique}}
+\author{Stéphane Adjemian\thanks{Université du Mans. \texttt{stephane DOT adjemian AT univ DASH lemans DOT fr}}}
+\date{Lundi 10 juin 2024}
+
+\maketitle
+\thispagestyle{empty}
+
+\exercise{1} \question{a} Rappeler à l'aide d'une table de vérité la
+définition de l'implication logique entre deux propositions $P$ et
+$Q$. Montrer qu'il est possible de l'exprimer à l'aide d'un connecteur
+logique ($\land$ ou $\lor$) et d'une (ou plusieurs)
+négation(s). \question{b} Rappeler à l'aide d'une table de vérité la
+définition de l'équivalence logique entre deux propositions $P$ et
+$Q$. Montrer qu'il est possible de l'exprimer à l'aide de deux
+implications logiques et du connecteur logique $\land$. \question{c}
+Exprimer l'équivalence logique à l'aide de l'implication et du
+connecteur logique. Expliquer en quoi ce résultat est important.
+
+\bigskip
+  
+\exercise{2} Soient deux propositions $P$ et $Q$. Montrer que les
+propositions $\bar Q \Rightarrow \bar P$ et $P \Rightarrow Q$ sont
+équivalentes. Donner un exemple de raisonnement utilisant ce résultat.
+
+\bigskip
+
+\exercise{3} \question{a} Rappeler la défintion de la dérivée première
+dne fonction. \question{b} Soit la fonction suivante :
+\[
+f(x) = \frac{1}{1-x^2}
+\]
+en utilisant la réponse à la question précédente, calculer la dérivée
+de cette fonction lorsqu'elle existe.
+
+\bigskip
+
+\exercise{4} Soit une fonction $f(x)$ telle que sa dérivée $f'(x)$ est
+égale à $f(x)$. \question{a} Posons $g(x) = f(\theta x)$ avec
+$\theta\in\mathbb R$. Montrer par récurrence que la dérivée d'ordre
+$n$ de $g$ vérifie :
+\[
+g^{(n)}(x) = \theta^{n}g(x)
+\]
+\question{b} Connaissez vous une fonction satisfaisant la même
+propriété que la fonction $f$ ? Laquelle ?
+
+\bigskip
+
+\exercise{5} Calculer les racines du polynôme suivant : 
+\[
+P(x) = 4x^3+4x^2-3x-5
+\]
+
+\bigskip
+
+\exercise{6} Soit l'équation une fonction $f$ inconnue satisfaisant la contrainte suivante :
+\[
+\frac{f'(x)}{f(x)} = \alpha\quad \forall x\in \mathbb R
+\]
+avec $\alpha\in\mathbb R^{\star}$ donné. \question{a} Montrer qu'une
+fonction de la forme $f(x) = ax+b$ ne peut satisfaire cette
+contrainte. \question{b} Montrer qu'une fonction de la forme
+$f(x)=e^{ax+b}$ satisfait la contrainte. Quelles doivent être les valeurs de
+$a$ et $b$ ? La solution est-elle unique ?
+
+\bigskip
+
+\exercise{7} Soit la fonction de $\mathbb R$ dans $\mathbb R$:
+\[
+f(x) = x^{4}+4x^{3}+6x^{2}+4x+2
+\]
+\question{a} Identifier une valeur de $x$ qui minimise cette
+fonction. \question{b} Montrer que le minimum est unique et global.
+
+\bigskip
+
+\exercise{8} \question{a} Représenter graphiquement une fonction convexe monotone croissante $f$. \question{b} Tracer une tangente à cette fonction en un point quelconque, disons $x_{0}$. \question{c} Donner l'équation de cette tangente.
+
+\end{document}
+
+
+	
+\bigskip
+
+\exercice{3} Soit la fonction de $\mathbb R$ dans $\mathbb R$ $f(x) = x^n$ avec $n\in\mathbb N$. \textbf{(a)} Rappeler la définition de la dérivée première d'une fonction. \textbf{(b)} Dans le cas $n=1$, montrer que $f'(x) = 1$ pour tout $x$. \textbf{(c)} Dans le cas $n=2$, montrer que $f'(x) = 2x$ pour tout $x$. \textbf{(d)} On suppose que la propriété :
+\begin{center}
+$P_{n}$ : \textit{Si $f(x)=x^{n}$ alors $f'(x) = n x^{n-1}$}  
+\end{center}
+est vraie. Montrer que la propriété :
+\begin{center}
+$P_{n+1}$ : \textit{Si $f(x)=x^{n+1}$ alors $f'(x) = (n+1) x^{n}$}  
+\end{center}
+ est nécessairement vraie. \textbf{(e)} Conclure sur la dérivée première de la fonction $f(x)$.
+
+\bigskip
+
+\exercice{4} Montrer que la proposition:
+\begin{center}
+  $P_n$: $2^{2\times n}+2$ est un entier divisible par trois
+\end{center}
+est vraie pour tout $n\in\mathbb N$.
+
+\bigskip
+
+\exercice{5} Calculer les racines du polynôme suivant :
+\[
+P(x) = x^3 + \frac{1}{4}x - \frac{5}{4}
+\]    
+
+\bigskip
+
+\exercice{6} On suppose que la demande, qui dépend du prix $p$, adressée à une entreprise est caractérisée par la fonction suivante :
+\[
+D(p) = p^{-\epsilon}
+\]
+avec $\epsilon>0$. Dans la suite \textit{nous supposerons que $0<\epsilon<1$}. \textbf{(1)} Montrer que la demande est bien une fonction monotone décroissante du prix. \textbf{(2)} On définit
+l'élasticité de la demande au prix de la façon suivante :
+\[
+\varepsilon(p) = D'(p)\frac{p}{D(p)}
+\]
+Calculer cette élasticité et montrer qu'elle est constante. Comment s'interprète cette quantité ? \textbf{(3)} Pour répondre à la demande l'entreprise doit supporter un coût (de production). On suppose que l'entreprise doit payer $c>0$ pour chaque unité de bien produite, c'est à dire que la fonction de coût est de la forme :
+\[
+C(q) = cq
+\]
+où $q$ est la quantité de bien produite. Calculer $C'(q)$. Comment s'interprète cette quantité ? \textbf{(4)} Justifier la forme de la fonction de profit de l'entreprise :
+\[
+\Pi(q) = p^{1-\epsilon} - c p^{-\epsilon}
+\]
+\textbf{(5)} Calculer les dérivées d'ordre 1 et 2 de la fonction de profit. Montrer que la fonction de profit est concave. \textbf{(6)} Calculer le prix qui maximise le profit. Interpréter le résultat.
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

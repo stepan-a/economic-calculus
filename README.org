@@ -1,6 +1,4 @@
-#+html:<div align="left">
- <a href="https://mnemosyne.ithaca.fr/stephane/economic-calculus-1/-/commits/master"><img alt="pipeline status" src="https://mnemosyne.ithaca.fr/stephane/economic-calculus-1/badges/master/pipeline.svg" /></a>
-#+html:</div>
+[[https://mnemosyne.ithaca.fr/stephane/economic-calculus-1/badges/master/pipeline.svg]]
 #+html:<div align="center">
 * Cours de Calcul Économique
    (Le Mans, L1)

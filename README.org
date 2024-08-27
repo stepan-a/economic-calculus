@@ -1,0 +1,21 @@
+#+html:<div align="left">
+ <a href="https://mnemosyne.ithaca.fr/stephane/economic-calculus-1/-/commits/master"><img alt="pipeline status" src="https://mnemosyne.ithaca.fr/stephane/economic-calculus-1/badges/master/pipeline.svg" /></a>
+#+html:</div>
+#+html:<div align="center">
+* Cours de Calcul Économique
+   (Le Mans, L1)
+#+html:</div>
+
+\\
+
+ - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/cours/prologue.pdf][Chapitre I]]. Logique et calcul propositionnel. Ensembles. Fonctions. Quantificateurs.
+ - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/cours/chapitre-2.pdf][Chapitre II]]. Quelques fonctions à connaître.
+ - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/cours/chapitre-3.pdf][Chapitre III]]. Limites. Continuité. Propriétés des fonctions continues.
+ - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/cours/chapitre-4.pdf][Chapitre IV]]. Dérivées. Convexité. Applications du calcul des dérivées.
+
+\\
+
+ - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/1/td.pdf][Fiche de TD n°1]].  [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/1/correction.pdf][Éléments de correction]].
+ - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/2/td.pdf][Fiche de TD n°2]].  [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/2/correction.pdf][Éléments de correction]].
+ - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/3/td.pdf][Fiche de TD n°3]].  [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/3/correction.pdf][Éléments de correction]].
+ - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/4/td.pdf][Fiche de TD n°4]].  [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/4/correction.pdf][Éléments de correction]].

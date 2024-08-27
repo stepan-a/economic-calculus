@@ -1,0 +1,45 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  TERM: linux
+  GIT_STRATEGY: clone
+
+cours:
+  stage: build
+  only:
+    - master@stephane/economic-calculus-1
+  script:
+    - make
+    - rsync -avz --progress cours/prologue.pdf /home/www/le-mans.adjemian.eu/calcul-économique/cours
+    - rsync -avz --progress cours/chapitre-2.pdf /home/www/le-mans.adjemian.eu/calcul-économique/cours
+    - rsync -avz --progress cours/chapitre-3.pdf /home/www/le-mans.adjemian.eu/calcul-économique/cours
+    - rsync -avz --progress cours/chapitre-4.pdf /home/www/le-mans.adjemian.eu/calcul-économique/cours
+    - rsync -avz exam/2014-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2014-a
+	- rsync -avz exam/2014-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2014-b
+	- rsync -avz exam/2015-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2015-a
+	- rsync -avz exam/2015-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2015-b
+	- rsync -avz exam/2016-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2016-a
+	- rsync -avz exam/2016-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2016-b
+	- rsync -avz exam/2017-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2017-a
+	- rsync -avz exam/2017-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2017-b
+	- rsync -avz exam/2018-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2018-a
+	- rsync -avz exam/2018-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2018-b
+	- rsync -avz td/1/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/1/
+    - rsync -avz td/2/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/2/
+	- rsync -avz td/3/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/3/
+    - rsync -avz td/4/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/4/
+  artifacts:
+    paths:
+      - cours/prologue.pdf
+      - cours/chapitre-2.pdf
+      - cours/chapitre-3.pdf
+      - cours/chapitre-4.pdf
+      - td/1/td.pdf
+      - td/1/correction.pdf
+      - td/2/td.pdf
+      - td/2/correction.pdf
+      - td/3/td.pdf
+      - td/3/correction.pdf
+      - td/4/td.pdf
+      - td/4/correction.pdf
+  tags:
+    - stepan@puck

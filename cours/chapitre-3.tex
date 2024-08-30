@@ -140,24 +140,24 @@
 \end{frame}
 
 
-\section{Suites}
+\section{Limite d'une suite}
 
 \begin{frame}
-  \frametitle{Suites, I}
-  \framesubtitle{Définition}
-  \hypertarget{slide_suites_1}{}
+  \frametitle{Suites}
 
   \begin{itemize}
 
   \item Une suite est une famille d'éléments, les « termes » de la suite, indexée par $\mathbb N$.\newline
 
-  \item Lorsque tous les éléments d'une suite appartiennent à un même ensemble $E$, cette suite peut être assimilée à une fonction de $\mathbb N$ dans $E$.\newline
+  \item Lorsque les éléments d'une suite appartiennent à un même ensemble $E$, cette suite peut être assimilée à une fonction de $\mathbb N$ dans $E$.\newline
 
-  \item Une suite est dite entière si $E$ est un sous ensemble de $\mathbb Z$, réelle si $E$ est un sous ensemble de $\mathbb R$, ou complexe si $E$ est un sous-ensemble $\mathbb C$.\newline
+  \item Une suite est dite entière si $E$ est un sous ensemble de $\mathbb Z$, réelle si $E$ est un sous ensemble de $\mathbb R$, \dots\newline
 
   \item On note habituellement $u_0$, $u_1$, $u_2$, \ldots les termes d'une suite.\newline
 
-  \item Une suite peut être définie en donnant une expression générale de ses termes, ou à l'aide d'une expression récursive en définissant chaque terme en fonction de termes précédents.\newline
+  \item Une suite peut être définie à l'aide d'une expression récursive, $u_n = \varphi(u_{n-1})$ avec $u_0$ donné, ou  d'un terme général, $u_n = \psi(n)$.\newline
+
+  \item La fonction $\psi$ doit être telle que $\psi(n) = \varphi(\psi(n-1))$.
 
   \end{itemize}
 
@@ -165,235 +165,8 @@
 
 
 \begin{frame}
-  \frametitle{Suites, I}
-  \framesubtitle{Exemple}
-  \hypertarget{slide_suites_2}{}
+  \frametitle{Limite d'une suite, I}
 
-  \begin{itemize}
-
-  \item On définit la suite $(u_n)_{n\in\mathbb N}$~, en donnant l'expression générale du $n$-ième terme~:
-    \[
-      u_n = (-1)^n
-    \]
-
-  \item Cela donne~:\newline
-    \begin{center}
-      \begin{table}[H]
-        \centering
-        \begin{tabular}{c|cccccccc}
-          $n$ & 0 & 1 & 2 & 3 & 4 & \ldots & $n$ & \ldots\\\hline
-          $u_n$ & 1 & -1 & 1 & -1 & 1 &     & $(-1)^n$ &
-        \end{tabular}
-      \end{table}
-    \end{center}
-
-    \bigskip
-
-  \item Alternativement, nous pouvons définir la suite récursivement~:
-    \[
-      u_n = -1\times u_{n-1}
-    \]
-    avec la condition initiale $u_0 = 1$.\newline
-
-  \item Quand les signes des termes successifs sont toujours opposés, on dit que la suite est \textbf{alternée}.
-  \end{itemize}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Suites, I}
-  \framesubtitle{Monotonie}
-  \hypertarget{slide_suites_3}{}
-
-  \begin{itemize}
-
-  \item Une suite est dite \textbf{monotone croissante} si $u_n>u_{n-1}$ pour tout $n\geq 1$.\newline
-
-  \item Une suite est dite \textbf{monotone décroissante} si $u_n<u_{n-1}$ pour tout $n\geq 1$.\newline
-
-  \item On dira qu'une suite est croissante (décroissante) si $u_n\geq u_{n-1}$ (respectivement $u_n\leq u_{n-1}$.\newline
-
-  \end{itemize}
-
-  \begin{example}
-    La suite $(u_n)_{n\in\mathbb N^{\star}}$ de terme général $u_n = \frac{1}{n}$ est monotone décroissante. En effet~:
-    \[
-      u_n - u_{n-1} = \frac{1}{n}-\frac{1}{n-1} = \frac{n-1-n}{n(n-1)} = -\frac{1}{n(n-1)}<0 \forall n\geq 2
-    \]
-  \end{example}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Suites, I}
-  \framesubtitle{Majorant et minorant}
-  \hypertarget{slide_suites_4}{}
-
-  \begin{itemize}
-
-  \item Une suite est \textbf{bornée} s'il existe $k$ et $K$ tels que $k\leq u_n\leq K$ $\forall n\geq 0$.\newline
-
-  \item $k$ ($K$) est un \textbf{minorant} (\textbf{majorant}) de la suite.\newline
-
-  \item Le plus grand minorant (petit majorant) est la \textbf{borne inférieure} (\textbf{borne supérieure}) de la suite.\newline
-
-  \end{itemize}
-
-  \begin{example}
-    La suite $(u_n)_{n\in\mathbb N^{\star}}$ de terme général $u_n = \frac{n-2}{2n}$ est bornée. En effet $-\frac{1}{2}\leq u_n\leq \frac{1}{2}$~:
-    \[
-      u_n - \frac{1}{2} =  \frac{n-2}{2n}-\frac{1}{2}=\frac{1}{2}-\frac{2}{2n}-\frac{1}{2}=-\frac{1}{n}<0 \quad\forall n\geq 1
-    \]
-    \[
-      u_n+\frac{1}{2} = \frac{n-2}{2n}+\frac{1}{2} = 1 - \frac{1}{n} \geq 0\quad \forall n\geq 1
-    \]
-  \end{example}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Suites, I}
-  \framesubtitle{Suites arithmétiques (a)}
-  \hypertarget{slide_suites_arithmetiques_1}{}
-
-  \bigskip
-
-  \begin{definition}
-    Une suite $(u_n)_{n\in\mathbb N}$ est dite arithmétique si ses variations sont constantes, c'est-à-dire si~:
-    \[
-      \Delta u_n \equiv u_n-u_{n-1} = r\quad \forall n\in\mathbb N^{\star}
-    \]
-    On dit que la constante $r$ est la raison de la suite.
-  \end{definition}
-
-  \bigskip
-
-  \begin{itemize}
-
-  \item La suite arithmétique est monotone croissante si et seulement si sa raison est positive.\newline
-
-  \item Nous avons ici une définition récursive de la suite arithmétique~:
-    \[
-      u_n = u_{n-1} + r
-    \]
-    avec une condition initial $u_0$.\newline
-
-  \item Il est possible de définir celle-ci en donnant son terme général.\newline
-
-  \end{itemize}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Suites, I}
-  \framesubtitle{Suites arithmétiques (b)}
-  \hypertarget{slide_suites_arithmetiques_2}{}
-
-  \bigskip
-
-  \begin{itemize}
-
-  \item Pour obtenir le terme général on substitue la définition dans le membre de droite, autant de fois que nécessaire pour remonter jusqu'à la condition initiale~:
-    \[
-      \begin{split}
-        u_n &= u_{n-1} + r\\
-        &= u_{n-2} + r + r{\color{gray}\text{, car }u_{n-1}=u_{n-2}+r}\\
-        \Leftrightarrow u_n &= u_{n-2} + 2r\\
-        &\vdots\\
-        u_n &= u_0 + nr{\color{gray}\text{, le terme général de la suite.}}
-      \end{split}
-    \]
-
-    \bigskip
-
-  \item Pour vérifier que le terme général est correct, on peut le substituer dans l'expression récursive.\newline
-
-  \end{itemize}
-
-  \begin{example}
-    La suite $(u_n)_{n\in\mathbb N}$ définie par $u_n = n$ est une suite arithmétique de raison 1 et avec pour condition initiale $u_0=0$.
-  \end{example}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Suites, I}
-  \framesubtitle{Suites géométriques (a)}
-  \hypertarget{slide_suites_geometrique_1}{}
-
-  \bigskip
-
-  \begin{definition}
-    Une suite $(u_n)_{n\in\mathbb N}$ est dite géométrique si le rapport de deux termes consécutifs est constant, c'est-à-dire si~:
-    \[
-      \frac{u_n}{u_{n-1}} = r\quad \forall n\in\mathbb N^{\star}
-    \]
-    On dit que la constante $r$ est la raison de la suite.
-  \end{definition}
-
-  \bigskip
-
-  \begin{itemize}
-
-  \item La suite arithmétique est monotone croissante si et seulement si sa raison est supérieure à 1.\newline
-
-  \item Nous avons ici une définition récursive de la suite arithmétique~:
-    \[
-      u_n = r u_{n-1}
-    \]
-    avec une condition initial $u_0$.\newline
-
-  \item Il est possible de définir celle-ci en donnant son terme général.\newline
-
-  \end{itemize}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Suites, I}
-  \framesubtitle{Suites géométriques (b)}
-  \hypertarget{slide_suites_geometriques_2}{}
-
-  \bigskip
-
-  \begin{itemize}
-
-  \item Pour obtenir le terme général on substitue la définition dans le membre de droite, autant de fois que nécessaire pour remonter jusqu'à la condition initiale~:
-    \[
-      \begin{split}
-        u_n &= r u_{n-1}\\
-        &= r r u_{n-2} {\color{gray}\text{, car }u_{n-1}=r u_{n-2}}\\
-        \Leftrightarrow u_n &= r^2 u_{n-2}\\
-        &\vdots\\
-        u_n &= r^nu_0 {\color{gray}\text{, le terme général de la suite.}}
-      \end{split}
-    \]
-
-    \bigskip
-
-  \item Pour vérifier que le terme général est correct, on peut le substituer dans l'expression récursive.\newline
-
-  \end{itemize}
-
-  \begin{example}
-    La suite $(u_n)_{n\in\mathbb N}$ définie par $u_n = (1+g)^n$ est une suite géométrique de raison $1+g$ et avec pour condition initiale $u_0=1$.
-  \end{example}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Suites, II}
-  \framesubtitle{Limite d'une suite (a)}
-  \hypertarget{slide_suite_limite_1}{}
-
-  \bigskip
 
   \begin{definition}
     On dit qu'une suite $(u_n)_{n\in\mathbb N}$ converge vers une limite $u^{\star}$ quand $n$ tend vers l'infini, et on note $\lim_{n\rightarrow\infty}u_n = u^{\star}$, si et seulement si~:
@@ -418,9 +191,7 @@
 
 
 \begin{frame}
-  \frametitle{Suites, II}
-  \framesubtitle{Limite d'une suite (b)}
-  \hypertarget{slide_suite_limite_2}{}
+  \frametitle{Limite d'une suite, II}
 
   \bigskip
 
@@ -450,11 +221,7 @@
 
 
 \begin{frame}
-  \frametitle{Suites, II}
-  \framesubtitle{Limite d'une suite (c)}
-  \hypertarget{slide_suite_limite_3}{}
-
-  \bigskip
+  \frametitle{Limite d'une suite, III}
 
   \begin{theorem}
     \medskip
@@ -473,40 +240,8 @@
 
 
 \begin{frame}
-  \frametitle{Suites, II}
-  \framesubtitle{Limite d'une suite (d)}
-  \hypertarget{slide_suite_limite_4}{}
+  \frametitle{Limite d'une suite, IV}
 
-  \bigskip
-
-  \begin{example}
-
-    On peut montrer que la suite $(u_n)_{n\in\mathbb N}$ de terme général $u_n = \frac{n+2}{n}$ est décroissante et minorée par 1. En effet~:
-    \[
-      u_n-u_{n-1} = \frac{n+2}{n}-\frac{n+1}{n-1} = -\frac{2}{n(n-1)}<0\, \forall\, n>1 \text{ (décroissance)}
-    \]
-    \[
-      u_n-1 = \frac{2}{n} > 0\, \forall\, n\in\mathbb N^{\star} \text{ (la suite est minorée par 1)}
-    \]
-    Ainsi la suite $(u_n)_{n\in\mathbb N}$ est convergente. Montrons que la limite de la suite est $u^{\star}=1$. Nous avons~:
-    \[
-      |u_n-1| = \frac{2}{n}
-    \]
-    Pour que $|u_n-1|$ soit arbitrairement petit, il faut que $\frac{2}{n}<\varepsilon$ c'est-à-dire $n>\frac{2}{\varepsilon}\equiv N(\epsilon)$, et donc~:
-    \[
-      \forall \varepsilon>0, \exists N(\varepsilon) \text{ tel que } |u_n-u^{\star}|<\varepsilon\,\, \forall \, n>N(\varepsilon)
-    \]
-  \end{example}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Suites, II}
-  \framesubtitle{Limite d'une suite (e)}
-  \hypertarget{slide_suite_limite_5}{}
-
-  \bigskip
 
   \begin{theorem}
     Soient $(u_n)_{n\in\mathbb N}$ et $(v_n)_{n\in\mathbb N}$ deux suites qui convergent respectivement vers $u^{\star}$ et $v^{\star}$. Alors~:\newline
@@ -526,117 +261,9 @@
 \end{frame}
 
 
-\begin{frame}
-  \frametitle{Suites, II}
-  \framesubtitle{Suites extraites}
-  \hypertarget{slide_suites_extraites}{}
-
-  \bigskip
-
-  \begin{definition}
-    Toute suite $(u_{\varphi(n)})_{n\in\mathbb N}$ où $\varphi$ est une fonction de $\mathbb N$ dans un sous ensemble de $\mathbb N$ strictement croissante est appelée une suite extraite (ou sous suite) de la suite $(u_n)_{n\in\mathbb N}$.
-  \end{definition}
-
-  \bigskip
-
-  \begin{example}\label{ex:suite_extraite_divergente_0}
-    Soit la suite $(u_n)_{n\in\mathbb N^{\star}}$ définie par le terme général $u_n = (-1)^n\left(1-\frac{1}{n}\right)$. Posons $\varphi_1(k) = 2k$ et $\varphi_2(k)=2k+1$. Ces deux fonctions prennent des entiers naturels en entrée et retourne des entiers naturels pairs, pour $\varphi_1$, ou impairs, pour $\varphi_2$. Ces deux fonctions croissantes nous permettent de considérer une partition de $\mathbb N$.\newline
-
-    La suite extraite $(u_{\varphi_1(n)})_{n\in\mathbb N}$ est positive, alors que la suite extraite $(u_{\varphi_2(n)})_{n\in\mathbb N}$ est négative.
-  \end{example}
-
-\end{frame}
-
 
 \begin{frame}
-  \frametitle{Suites, II}
-  \framesubtitle{Limite d'une suite (f)}
-  \hypertarget{slide_suite_limite_6}{}
-
-  \bigskip
-
-  \begin{theorem}
-    Toute suite extraite d'une suite $(u_n)_{n\in\mathbb N}$ convergente converge vers la même limite.
-  \end{theorem}
-
-  \bigskip
-
-  \begin{theorem}
-    Soit une suite $(u_n)_{n\in\mathbb N}$. Pour que  cette suite converge vers $u^{\star}$ il faut et il suffit que les suites extraites $(u_{2n})_{n\in\mathbb N}$ et $(u_{2n+1})_{n\in\mathbb N}$ convergent vers $u^{\star}$.
-  \end{theorem}
-
-  \bigskip
-
-  \begin{theorem}[Bolzano-Weierstrass]
-    On peut extraire une sous suite convergente de toute suite bornée.
-  \end{theorem}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Suites, II}
-  \framesubtitle{Limite d'une suite (g)}
-  \hypertarget{slide_suite_limite_7}{}
-
-  \bigskip
-
-  \begin{example}[suite de l'exemple \hyperlink{slide_suites_extraites}{\ref{ex:suite_extraite_divergente_0}}]
-    La suite $(u_n)_{n\in\mathbb N}$ est bornée. En effet on montre
-    facilement que $u_n\leq 1$ pour tout $n$ et que que $u_n \geq
-    -1$. La première sous suite, définie par $\varphi_1$, sélectionne les
-    termes positifs, montrons qu'elle est majorée par 1~:
-    \[
-      u_{2n}-1 = 1-\frac{1}{2n}-1 = -\frac{1}{2n} < 0 \,\forall\, n\in\mathbb n
-    \]
-    La seconde sous suite, définie par $\varphi_2$, sélectionne les
-    termes négatifs, montrons qu'elle est minorée par -1~:
-    \[
-      u_{2n+1}+1 = -\left(1-\frac{1}{2n+1}\right)+1 = \frac{1}{2n+1} > 0 \,\forall\, n\in\mathbb n
-    \]
-    Donc la suite est bornée.
-  \end{example}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Suites, II}
-  \framesubtitle{Limite d'une suite (h)}
-  \hypertarget{slide_suite_limite_8}{}
-
-  \bigskip
-
-  \addtocounter{example}{-1}
-  \begin{example}[suite de l'exemple \hyperlink{slide_suites_extraites}{\ref{ex:suite_extraite_divergente_0}}]
-    On peut montrer que chaque sous suite est convergente. On montre
-    que $\lim_{n\rightarrow\infty}u_{\varphi_1(n)} = 1$~:
-    \[
-      |u_{\varphi_1(n)}-1| = \left|-\frac{1}{2n}\right| = \frac{1}{2n}
-    \]
-    Pour que $|u_{\varphi_1(n)}-1|$ soit inférieur à $\varepsilon$,
-    c'est-à-dire $\frac{1}{2n}<\varepsilon$, il faut que $n>\frac{1}{2\varepsilon}\equiv N(\varepsilon)$. Ainsi~:
-    \[
-      \forall \varepsilon>0, \exists N(\varepsilon) \text{ tel que } |u_{\varphi_1(n)}-1|<\varepsilon\,\, \forall \, n>N(\varepsilon)
-    \]
-    De la même façon on montre que $\lim_{n\rightarrow\infty}u_{\varphi_2(n)} = -1$.\newline
-
-    \textdbend Les deux suites extraites convergent vers des limites différentes !
-    \begin{center}
-      $\Rightarrow$ La suite $(u_n)_{n\in\mathbb N}$ diverge.
-    \end{center}
-
-  \end{example}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Suites, II}
-  \framesubtitle{Suite de Cauchy (a)}
-  \hypertarget{slide_suite_cauchy_1}{}
-
-  \bigskip
+  \frametitle{Existence de la limite d'une suite, I}
 
   \begin{definition}
     Une suite $(u_n)_{n\in\mathbb N}$ est dite de Cauchy si et seulement si~:
@@ -645,7 +272,7 @@
     \]
   \end{definition}
 
-  \bigskip
+  \bigskip\bigskip
 
   \begin{theorem}
     Une suite converge si et seulement si elle est une suite de Cauchy.
@@ -655,11 +282,7 @@
 
 
 \begin{frame}
-  \frametitle{Suites, II}
-  \framesubtitle{Suite de Cauchy (b)}
-  \hypertarget{slide_suite_cauchy_1}{}
-
-  \bigskip
+  \frametitle{Existence de la limite d'une suite, II}
 
   \begin{example}
     Soit la suite $(u_n)_{n\in\mathbb N}$ définie par le terme général $u_n = \frac{(-1)^n}{n}$. On peut montrer qu'il s'agit d'une suite de Cauchy. On a~:
@@ -680,11 +303,7 @@
 
 
 \begin{frame}
-  \frametitle{Suites, II}
-  \framesubtitle{Suites divergentes (a)}
-  \hypertarget{slide_suite_divergente_1}{}
-
-  \bigskip
+  \frametitle{Suites divergentes, I}
 
   \begin{definition}
     On dit qu'une suite $(u_n)_{n\in\mathbb N}$ est dite divergente si elle ne converge pas~:
@@ -713,11 +332,7 @@
 
 
 \begin{frame}
-  \frametitle{Suites, II}
-  \framesubtitle{Suites divergentes (b)}
-  \hypertarget{slide_suite_divergente_2}{}
-
-  \bigskip
+  \frametitle{Suites divergentes, II}
 
   \begin{theorem}
 
@@ -737,11 +352,7 @@
 
 
 \begin{frame}
-  \frametitle{Suites, II}
-  \framesubtitle{Suites divergentes (c)}
-  \hypertarget{slide_suite_divergente_3}{}
-
-  \bigskip
+  \frametitle{Suites divergentes, III}
 
   \begin{example}
 
@@ -757,26 +368,6 @@
     certain rang $\Rightarrow$ la suite diverge vers $+\infty$.
 
   \end{example}
-
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{Suites, II}
-  \framesubtitle{limites usuelles}
-  \hypertarget{slide_suite_limites_usuelles}{}
-
-  \begin{table}
-    \centering
-    \begin{tabular}{c|c||c|c}
-      $u_n$ & $\lim_{n\rightarrow\infty}u_n$ & $u_n$ & $\lim_{n\rightarrow\infty}u_n$\\\hline
-      $\frac{1}{n}$ & 0 & $\sqrt[n]{n}$ & 1\\
-      $\frac{1}{n^{\alpha}}$ & 0 & $\left(1+\frac{1}{n}\right)^n$ & $e$\\
-      $\sqrt[n]{q},\,q>0$ & 1 & $\frac{\log_b n}{n}$ & 0\\
-      $q^n,\,|q|<1$ & 0 & $\frac{\log_b n}{n^\alpha}$ & 0\\
-    \end{tabular}
-    \caption{Avec $\alpha>0$, $b>0$, $b\neq 1$ et $e$ la constante d'Euler.}
-  \end{table}
 
 \end{frame}
 

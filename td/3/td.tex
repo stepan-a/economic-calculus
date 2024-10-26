@@ -35,20 +35,20 @@ cette suite ? Déterminer $v_n$.
 
 \bigskip
 
-\exercice Soit la suite de terme général $u_n = \rho u_{n-1}$ pour
-$n \geq 1$ avec la condition initiale $u_1 = 1$ et $\rho$ un paramètre
-réel non nul. \textbf{(1)} Donner une expression de $u_n$ en fonction
-du rang $n$ et de sa condition initiale. \textbf{(2)} Discuter le
-comportement asymptotique de $u_n$ en fonction de la valeur de
-$\rho$. \textbf{(3)} Dans le cas où la suite admet une limite, combien
-de temps faut-il pour réduire de moitié la distance à la limite ?
+\exercice Soit la suite de terme général $u_n = \rho u_{n-1}$
+pour $n \geq 1$ avec la condition initiale $u_0 = 1$
+et $0<\rho<1$. \textbf{(1)} Donner une expression de $u_n$ en fonction
+du rang $n$ et de sa condition initiale. \textbf{(2)} Montrer
+que $u_n$ tend vers 0 quand $n$ tend vers l'infini en établissant que
+l'on peut rendre arbitrairemet petite la distance entre $u_n$ et 0 à
+partir du moment où $n$ est assez grand. \textbf{(3)} Dans le cas
+où la suite admet une limite, combien d'itérations faut-il pour réduire de
+moitié la distance à la limite~? \textbf{(4)} Montrer que la suite diverge si $\rho>1$.
 
 \bigskip
 
 \exercice Soit la suite de terme général $u_n =
-\frac{n+2}{n}$. \textbf{(1)} Donner les premiers termes de cette suite
-et montrer que la suite est monotone décroissante. \textbf{(2)}
-Montrer que cette suite a pour limite 1.
+\frac{n+2}{n}$. Montrer que cette suite a pour limite 1.
 
 \bigskip
 
@@ -57,36 +57,7 @@ terme général $u_n = -n$.
 
 \bigskip
 
-\exercice La suite de terme général $u_n = \frac{(-1)^{n+1}}{n^2}$
-est-elle monotone ? Montrer que cette suite admet 0 pour limite.
-
-\bigskip
-
-\exercice Sur un marché l'offre et la demande sont caractérisées
-par :
-\[
-\begin{split}
-  S(p): &\quad q = 1+p\\
-  D(p): &\quad q = 2-p\\
-\end{split}
-\]
-\textbf{(1)} Calculer le prix d'équilibre $p^{\star}$ et les quantités échangées à
-l'équilibre, $q^{\star}$. \textbf{(2)} Supposons que le marché ne soit pas
-équilibré. On admet que dans une situation de déséquilibre le prix
-augmente si et seulement si la demande est supérieure à l'offre. Plus
-formellement on admet que le prix est mis à jour à l'aide de la
-récurrence suivante :
-\[
-p_{t+1} = p_t + \alpha (D(p_t)-S(p_t))
-\]
-Déterminer le point fixe de cette récurrence, le prix $\bar p$ tel que
-$\bar p = \bar p + \alpha (D(\bar p)-S(\bar p))$. Comparer $\bar p$ et
-$p^{\star}$. \textbf{(3)} Supposons que le prix initial $p_1$ soit
-différent de $\bar p$. Exprimer $p_t$ en fonction de $p_0$,
-et $\alpha$. \textbf{(4)} Montrer que la chronique de prix converge de
-façon monotone vers $\bar p$ si $0<\alpha<\frac{1}{2}$. \textbf{(5)}
-Quelles sont les prédictions du modèle si $\alpha$ est en dehors de
-cet intervalle ?
+\exercice Soit la suite de terme général $u_n = \frac{(-1)^{n+1}}{n^2}$. Montrer que cette suite admet 0 pour limite.
 
 \bigskip
 
@@ -105,7 +76,56 @@ avec $u_1=2$. \textbf{(1)} Donner les premiers termes de la suite. \textbf{(2)} 
 \item $\lim_{x\rightarrow\infty} \frac{ax^2+bx+c}{kx^2+lx+m}$
 \item $\lim_{x\rightarrow -4} \frac{x^2-16}{x+4}$
 \item $\lim_{x\rightarrow 0^+} \frac{|x|}{x}$ et $\lim_{x\rightarrow 0^-} \frac{|x|}{x}$
+\item $\lim_{x\rightarrow \infty} \sqrt{x^2+1}-\sqrt{x^2-1}$
+\item $\lim_{x\rightarrow\infty}\sqrt{x^2+4x}-x$
+\item $\lim_{x\rightarrow -2}\frac{x^3+2x^2-x-2}{x^2-4}$
+
 \end{enumerate}
+
+\bigskip
+
+\exercice Soit la fonction à valeurs réelles définie par morceaux~:
+\[
+  f(x) =
+  \begin{cases}
+    6x+8  &\text{ si } x\leq -1\\
+    -3x+7 &\text{ si } -1<x<2\\
+    x-1   &\text{ sinon.}
+  \end{cases}
+\]
+Cette fonction est-elle continue sur $\mathbb R$~?
+
+\bigskip
+
+\exercice Soit la fonction à valeurs réelles définie par morceaux~:
+\[
+  f(x) =
+  \begin{cases}
+    ax^2 + bx + 1  & \text{ si } x\leq 2\\
+    x^2+ax+b       & \text{ sinon.}
+  \end{cases}
+\]
+Donner les conditions sur les paramètres $a$ et $b$ pour que la fonction soit continue sur $\mathbb R$~?
+
+\bigskip
+
+\exercice Soit la fonction $f$ sur $\mathbb R$ à valeurs réelles, définie par~:
+\[
+  f(x) =
+  \begin{cases}
+    \frac{1}{\log |x|} & \text{ si } x\notin \{-1,0,1\}\\
+    0 & \text{sinon}
+  \end{cases}
+\]
+En quels points la fonction $f$ est-elle continue~?
+
+\bigskip
+
+\exercice Soit la fonction défine sur $\mathbb R \setminus \{-1\}$~:
+\[
+  f(x) = \frac{1+x}{x^3+1}
+\]
+Cette fonction est-elle continue en -1~? Est-il possible de la prolonger par continuité en -1~?
 
 \bigskip
 
@@ -115,6 +135,7 @@ dérivées des fonctions suivantes :
 \item $f(x) = 4x^2+3$
 \item $g(x) = x^n$, $\forall\quad n\in \mathbb N$ et $\forall\quad x\in \mathbb R$
 \item $h(x) = \frac{1}{x}$, $\forall x\in \mathbb R^*$
+\item $j(x) = \sqrt{1+x}$
 \end{enumerate}
 Pour $g(x)$ vous utiliserez la formule du binôme de Newton (une
 généralisation de l'identité remarquable bien connue) :
@@ -127,6 +148,12 @@ C_n^k = \frac{n!}{k!(n-k)!}
 \]
 où $m! = m\times(m-1)\times(m-2)\times\dots\times 3\times 2\times 1$
 la fonction factorielle.
+
+\exercice Soit la fonction~:
+\[
+f(x) = \frac{x}{1+|x|}
+\]
+Calculer f'(0) si la dérivée en zéro existe.
 
 
 \end{document}
@@ -230,3 +257,8 @@ oscillante vers l'équilibre.
 
 Si $\alpha> 1$ la dynamique d'ajustement diverge (avec des
 oscillations).
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "td"
+%%% End:

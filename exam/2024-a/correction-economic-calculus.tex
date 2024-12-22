@@ -1,0 +1,219 @@
+\synctex=1
+\documentclass[11pt,a4paper,notitlepage]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{float}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\usepackage{palatino}
+
+ \usepackage[active]{srcltx}
+\usepackage{scrtime}
+
+\newcounter{xnumber}
+\setcounter{xnumber}{0}
+\newcounter{qnumber}
+
+
+\newcommand{\exercice}{\setcounter{qnumber}{0}\textsc{\textbf{Exercice}} \textbf{\addtocounter{xnumber}{1}\thexnumber}\,\,}
+\newcommand{\question}{\textbf{(\addtocounter{qnumber}{1}\theqnumber)}\,}
+\setlength{\parindent}{0cm}
+
+
+\begin{document}
+
+\title{\textsc{Calcul Économique}\\(Éléments de correction)}
+\date{Mercredi 18 décembre 2024}
+
+\pagenumbering{gobble}
+
+\maketitle
+
+\exercice Soient $P$ et $Q$ deux propositions. Le connecteur de
+Sheffer (nous ne l'avons pas vu en cours, il est très utilisé en
+informatique où il est généralement appelé \verb+nand+) est noté et
+défini comme~: $P \barwedge Q = \overline{P\land Q}$. \question Définissons le connecteur de Sheffer à l'aide d'une table de vérité~:
+\begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|cc|cc|}
+        \hline
+        $P$ & $Q$ & $P \land Q$ & $P \barwedge Q$\\ \hline
+        V & V & V & F\\
+        V & F & F & V\\
+        F & V & F & V\\
+        F & F & F & V \\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+Le connecteur de Scheffer est la négation d'une conjonction. \question On utilise une table de vérité pour montrer que 
+$(P\lor Q) \Leftrightarrow (P \barwedge P)\barwedge (Q\barwedge Q)$
+\begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|cc|c|ccc|}
+        \hline
+        $P$ & $Q$ & $P \lor Q$ & $P \barwedge P$ & $Q \barwedge Q$ & $(P \barwedge P)\barwedge (Q \barwedge Q)$\\ \hline
+        V & V & V & F & F & V \\
+        V & F & V & F & V & V \\
+        F & V & V & V & F & V \\
+        F & F & F & V & V & F \\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+    La troisième colonne et la dernière ont les mêmes valeurs de
+    vérité, on a donc bien montré l'équivalence. \question Pour montrer l'équivalence entre les propositions $P\Rightarrow Q$ et 
+    $P\barwedge (Q\barwedge Q)$, on utilise à nouveau une table de vérité~:
+\begin{table}[H]
+      \centering
+      \begin{tabular}[H]{|cc|c|cc|}
+        \hline
+        $P$ & $Q$ & $P \Rightarrow Q$ & $Q \barwedge Q$ & $P \barwedge (Q \barwedge Q)$\\ \hline
+        V & V & V & F & V \\
+        V & F & F & V & F \\
+        F & V & V & F & V \\
+        F & F & V & V & V \\
+        \hline\hline
+      \end{tabular}
+    \end{table}
+    La troisième colonne et la dernière ont les mêmes valeurs de
+    vérité, on a donc bien montré l'équivalence.\newline
+
+\bigskip
+
+\exercice Les racines du polynôme suivant~:
+\[
+  P(X) = X^3 - 4X^2 + \frac{21}{4}X - \frac{5}{2}
+\]
+sont 2 (la racine évidente), $1+\frac{i}{2}$ et $1-\frac{i}{2}$ (les racines complexes conjuguées).\newline
+
+\bigskip
+
+\exercice On veut résoudre l'équation suivante~:
+\[
+4^x-2^{x+1}-3 = 0
+\]
+On peut réécrire cette équation sous la forme~:
+\[
+\left(2^{x}\right)^2-2\times 2^x - 3 = 0
+\]
+Posons $X=2^x$, on cherche $X>0$ (car $2^x$ doit être positif) tel que~:
+\[
+X^2-2X-3 = 0
+\]
+Cette équation admet deux solutions réelles distinctes $-1$ et $3$. Seule la seconde solution est pertinente (positive). On a donc~:
+\[
+2^x = 3
+\]
+en prenant le logarithme népérien, il vient~:
+\[
+x\log 2 = \log 3
+\]
+\[
+\Leftrightarrow x = \frac{\log 3}{\log 2}
+\]
+L'unique solution de l'équation $4^x-2^{x+1}-3 = 0$.\newline
+
+\bigskip
+
+\exercice Soit la fonction à valeurs
+réelles $f(x) = \frac{1}{1-x^2}$. \question Cette fonction est
+discontinue en $x=-1$ et $x=1$ car en ces points le dénominateur est
+nul. La fonction est continue sur $\mathbb R\setminus \{-1,1\}$.\question Par définition on a~:
+\[
+  \begin{split}
+    f'(x) &= \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}\\
+          &= \lim_{h\to 0}\frac{\frac{1}{1-(x+h)^2}-\frac{1}{1-x^2}}{h}\\
+          &= \lim_{h\to 0}\frac{\frac{1-x^2-1+(x+h)^2}{\left(1-(x+h)^2\right)\left(1-x^2\right)}}{h}\\
+          &= \lim_{h\to 0}\frac{\frac{2xh+h^2}{\left(1-(x+h)^2\right)\left(1-x^2\right)}}{h}\\
+          &= \lim_{h\to 0}\frac{2x+h}{\left(1-(x+h)^2\right)\left(1-x^2\right)}\\
+          &= \frac{2x}{\left(1-x^2\right)^2}
+  \end{split}
+\]
+
+\bigskip
+
+\exercice Soit la fonction à valeurs
+réelles $f(x) = \frac{2+x}{x^3+x^2-x+2}$. \question Cette fonction
+n'est pas continue sur $\mathbb R$ car elle n'est pas définie
+en $x=-2$ où le numérateur et le dénominateur sont nuls. \question
+Calculons la limite de la fonction quand $x$ tend vers -2. Pour cela,
+notons que l'on peut factoriser le polynôme au dénominateur sous la
+forme $(2+x)\left(x^2-x+1\right)$, où le polynôme d'ordre deux n'admet
+pas de racines réelles (autrement dit $x=-2$ est le seul point de
+discontinuité). Pour le montrer vous pouvez utiliser la méthode des
+coefficients indéterminés ou la division euclidienne. On a donc~:
+\[
+  \begin{split}
+    \lim_{x\to -2}f(x) &= \lim_{x\to -2} \frac{2+x}{(2+x)(x^2-x+1)}\\
+                       &= \lim_{x\to -2} \frac{1}{x^2-x+1}\\
+                       &= \frac{1}{7}
+  \end{split}
+\]
+On pose~:
+\[
+  g(x) =
+  \begin{cases}
+    f(x) &\text{ si }x\neq -2\\
+    \frac{1}{7} &\text{ sinon}
+  \end{cases}
+\]
+La fonction $g$ est continue sur $\mathbb R$, elle est identique à la
+fonction $f$ partout sauf en un point.\newline
+
+\bigskip
+
+\exercice Soient $f: E\rightarrow F$ une fonction bijective dérivable deux fois. Pour calculer la dérivée première, on commence par noter que nous devons avoir~:
+\[
+f\left( f^{-1}(x) \right) = x
+\]
+En dérivant par rapport à $x$ et en exploitant la règle de dérivation en chaîne~:
+\[
+  f'\left(f^{-1}(x)\right)\frac{\mathrm d}{\mathrm dx}f^{-1}(x) = 1
+\]
+\[
+  \Leftrightarrow \left(f^{-1}\right)'(x) = \frac{1}{f'\left(f^{-1}(x)\right)}
+\]
+En dérivant une seconde fois~:
+\[
+  \left(f^{-1}\right)''(x) = -\frac{f''\left(f^{-1}(x)\right)\frac{1}{f'\left(f^{-1}(x)\right)}}{\left(f'\left(f^{-1}(x)\right)\right)^2}
+\]
+\[
+  \Leftrightarrow \left(f^{-1}\right)''(x) = -\frac{f''\left(f^{-1}(x)\right)}{\left(f'\left(f^{-1}(x)\right)\right)^3}
+\]
+
+La dérivée seconde de la fonction réciproque $f^{-1}(x)$ est définie tant que la dérivée première de $f$ est non nulle.\newline
+
+\bigskip
+
+\exercice Soit la fonction à valeurs réelles $f(x) = x^{-\log x}$. \question Cette fonction est définie pour les valeurs (strictement) positives de $x$. \question On a
+\[
+  \begin{split}
+    e^{-\left( \log x \right)^2} &= \left(e^{\log x}\right)^{-\log x}\\
+    &= x^{-\log x}
+  \end{split}
+\]
+\question En utilisant la seconde écriture de la fonction $f$, on a~:
+\[
+  \begin{split}
+    f'(x) &= -\left(\left(\log x\right)^2\right)'e^{-\left( \log x \right)^2}\\
+          &=-\frac{2\log x}{x}x^{-\log x}\\
+          &=-2e^{-\left( \log x \right)^2}\frac{\log x}{x}
+  \end{split}
+\]
+\question On a directement, toujours en utilisant la seconde écriture de la fonction, les limites suivantes~:
+\[
+\lim_{x\to 0} f(x) = 0
+\]
+\[
+\lim_{x\to \infty} f(x) = 0
+\]
+\question La dérivée est nulle si $x=1$, elle est positive si $x<1$ et négative si $x$ est plus grand. La fonction atteint donc un maximum global en $x=1$.
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

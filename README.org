@@ -13,7 +13,19 @@
 
 \\
 
- - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/1/td.pdf][Fiche de TD n°1]].  [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/1/correction.pdf][Éléments de correction]].
- - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/2/td.pdf][Fiche de TD n°2]].  [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/2/correction.pdf][Éléments de correction]].
- - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/3/td.pdf][Fiche de TD n°3]].  [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/3/correction.pdf][Éléments de correction]].
- - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/4/td.pdf][Fiche de TD n°4]].  [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/4/correction.pdf][Éléments de correction]].
+ - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/1/td.pdf][Fiche de TD n°1]]. [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/1/correction.pdf][Éléments de correction]].
+ - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/2/td.pdf][Fiche de TD n°2]]. [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/2/correction.pdf][Éléments de correction]].
+ - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/3/td.pdf][Fiche de TD n°3]]. [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/3/correction.pdf][Éléments de correction]].
+ - [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/4/td.pdf][Fiche de TD n°4]]. [[https://le-mans.adjemian.eu/calcul-%C3%A9conomique/td/4/correction.pdf][Éléments de correction]].
+
+\\
+
+ - [[https://le-mans.adjemian.eu/calcul-%c3%a9conomique/exam/2014-a/economic-calculus.pdf][Sujet 2014]]. [[https://le-mans.adjemian.eu/calcul-%c3%a9conomique/exam/2014-a/economic-calculus-correction.pdf][Éléments de correction]].
+ - [[https://le-mans.adjemian.eu/calcul-%c3%a9conomique/exam/2015-a/economic-calculus.pdf][Sujet 2015]]. [[https://le-mans.adjemian.eu/calcul-%c3%a9conomique/exam/2015-a/economic-calculus-correction.pdf][Éléments de correction]].
+ - [[https://le-mans.adjemian.eu/calcul-%c3%a9conomique/exam/2016-a/economic-calculus.pdf][Sujet 2016]]. [[https://le-mans.adjemian.eu/calcul-%c3%a9conomique/exam/2016-a/economic-calculus-correction.pdf][Éléments de correction]].
+ - [[https://le-mans.adjemian.eu/calcul-%c3%a9conomique/exam/2017-a/economic-calculus.pdf][Sujet 2017]]. [[https://le-mans.adjemian.eu/calcul-%c3%a9conomique/exam/2017-a/economic-calculus-correction.pdf][Éléments de correction]].
+ - [[https://le-mans.adjemian.eu/calcul-%c3%a9conomique/exam/2018-a/economic-calculus.pdf][Sujet 2018]]. [[https://le-mans.adjemian.eu/calcul-%c3%a9conomique/exam/2018-a/economic-calculus-correction.pdf][Éléments de correction]].
+ - [[https://le-mans.adjemian.eu/calcul-%c3%a9conomique/exam/2021-a/economic-calculus.pdf][Sujet 2021]].
+ - [[https://le-mans.adjemian.eu/calcul-%c3%a9conomique/exam/2022-a/economic-calculus.pdf][Sujet 2022]].
+ - [[https://le-mans.adjemian.eu/calcul-%c3%a9conomique/exam/2023-a/economic-calculus.pdf][Sujet 2023]].
+ - [[https://le-mans.adjemian.eu/calcul-%c3%a9conomique/exam/2024-a/economic-calculus.pdf][Sujet 2024]]. [[https://le-mans.adjemian.eu/calcul-%c3%a9conomique/exam/2024-a/economic-calculus-correction.pdf][Éléments de correction]].

@@ -1,11 +1,10 @@
-all: economic-calculus.pdf clean
+all: economic-calculus.pdf
 
-economic-calculus.pdf: economic-calculus.tex
-	rubber --pdf economic-calculus
+%.pdf: %.tex
+	rubber --pdf $^
+	rubber --clean $^
 
-clean:
-	rubber --clean economic-calculus
-	rm -rf auto
-
-clean-all: clean
+clean-all:
 	rm -f *.pdf
+
+.PHONY: clean-all all

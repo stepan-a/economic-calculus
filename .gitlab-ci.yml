@@ -23,6 +23,12 @@ cours:
     - rsync -avz exam/2017-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2017-b
     - rsync -avz exam/2018-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2018-a
     - rsync -avz exam/2018-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2018-b
+    - rsync -avz exam/2021-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2021-a
+    - rsync -avz exam/2022-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2022-a
+    - rsync -avz exam/2022-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2022-b
+    - rsync -avz exam/2023-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2023-a
+    - rsync -avz exam/2023-b/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2023-b
+    - rsync -avz exam/2024-a/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/exam/2024-a
     - rsync -avz td/1/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/1/
     - rsync -avz td/2/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/2/
     - rsync -avz td/3/*.pdf /home/www/le-mans.adjemian.eu/calcul-économique/td/3/

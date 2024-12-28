@@ -86,7 +86,6 @@
 \definecolor{gray}{gray}{0.9}
 \newcolumntype{g}{>{\columncolor{gray}}c}
 
-\setbeamertemplate{theorems}[numbered]
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Théorème}
@@ -101,15 +100,6 @@
 \newtheorem{corollary}{Corollaire}%[theorem]
 
 
-\setbeamertemplate{footline}{
-  {\hfill\vspace*{1pt}\href{http://creativecommons.org/licenses/by-sa/3.0/legalcode}{\ccbysa}\hspace{.1cm}
-    \raisebox{-.1cm}{\href{https://github.com/stepan-a/economic-calculus}{\includegraphics[scale=.015]{../img/git.png}}}\enspace
-    \href{https://github.com/stepan-a/economic-calculus/blob/\HEAD/cours/chapitre-4.tex}{\gitrevision}\enspace--\enspace\today\enspace
-  }}
-
-\setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{blocks}[rounded][shadow=true]
-\setbeamertemplate{caption}[numbered]
 
 \NewEnviron{notes}{\justifying\tiny\begin{spacing}{1.0}\BODY\vfill\pagebreak\end{spacing}}
 
@@ -126,6 +116,18 @@
   {\end{block}\egroup}
 
 \begin{document}
+
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{footline}{
+  {\hfill\vspace*{1pt}\href{http://creativecommons.org/licenses/by-sa/3.0/legalcode}{\ccbysa}\hspace{.1cm}
+    \raisebox{-.1cm}{\href{https://github.com/stepan-a/economic-calculus}{\includegraphics[scale=.015]{../img/git.png}}}\enspace
+    \href{https://github.com/stepan-a/economic-calculus/blob/\HEAD/cours/chapitre-4.tex}{\gitrevision}\enspace--\enspace\today\enspace
+  }}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{caption}[numbered]
+
 
 \title{Calcul Économique\\\small{IV. Dérivées}}
 \author[S. Adjemian]{Stéphane Adjemian}

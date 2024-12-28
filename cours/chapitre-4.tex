@@ -96,6 +96,7 @@
 \newtheorem{lemma}{Lemme}
 \newtheorem{property}[properties]{Propriété}
 \newtheorem{example}{Exemple}
+\newtheorem{prop}{Proposition}
 \newtheorem*{idea}{Éléments de preuve} % no numbered block
 \newtheorem{corollary}{Corollaire}%[theorem]
 
@@ -878,20 +879,109 @@
 
 \section{Dérivées de fonctions usuelles}
 
-
 \begin{frame}
   \frametitle{Fonctions exponentielle et logarithme, I}
   \hypertarget{slide_derivee_exp_log_1}{}
 
-  \begin{definition}
-    L'équation fonctionnelle $f'(x) = f(x)$ avec $f(0)=1$ admet une unique solution~:
+  \begin{definition}\label{def:exponentielle-comme-une-limite}
     \[
-      f(x) = e^x
+      e^x = \lim_{n\to\infty}\left( 1+\frac{x}{n} \right)^n
     \]
-    la fonction exponentielle.
   \end{definition}
 
-  \bigskip
+  \begin{prop}\label{prop:exponentielle-somme-produit}
+    La fonction exponentielle vérifie $e^{x+y}=e^xe^y$.
+  \end{prop}
+
+  \begin{prop}\label{prop:exponentielle-série-entière}
+    On peut écrire l'exponentielle sous la forme~: $e^x = \sum_{k=0}^{\infty}\frac{x^k}{k!}$
+  \end{prop}
+
+  \begin{theorem}\label{thm:exponentielle-dérivée}
+    La fonction exponentielle est identique à sa dérivée~: $\left(e^x\right)'=e^x$.
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{notes}
+
+  \textbf{Preuve de la proposition \hyperlink{slide_derivee_exp_log_1}{\ref{prop:exponentielle-somme-produit}}.} Par définition de l'exponentielle, on a~:
+  \[
+    e^xe^y = \lim_{n\to\infty}\left( 1+\frac{x}{n} \right)^n\lim_{n\to\infty}\left( 1+\frac{y}{n}\right)^n =
+    \lim_{n\to\infty}\underbrace{\left( 1+\frac{x}{n} \right)^n\left( 1+\frac{y}{n}\right)^n}_{\color{red}u_n}
+  \]
+  et
+  \[
+    e^{x+y} = \lim_{n\to\infty}\underbrace{\left( 1+\frac{x+y}{n} \right)^n }_{\color{red} v_n}
+  \]
+  Montrons que $\frac{u_n}{v_n}$ tend vers 1 lorsque $n$ tend vers l'infini, et donc que $e^{x+y}=e^xe^y$. On a~:
+  \[
+    \begin{split}
+      \frac{u_n}{v_n} &= \left[ \frac{\left(1+\frac{x}{n}\right)\left(1+\frac{y}{n}\right)}{\left(1+\frac{x+y}{n}\right)}\right]^n\\
+                      &= \left[ 1 + \frac{\left(1+\frac{x}{n}\right)\left(1+\frac{y}{n}\right)-\left(1+\frac{x+y}{n}\right)}{\left(1+\frac{x+y}{n}\right)}\right]^n\\
+                      &= \Biggl[ 1 + \underbrace{\frac{xy}{n^2+n(x+y)}}_{\color{red}\frac{w_n}{n}} \Biggr]^n
+    \end{split}
+  \]
+  On note que~:
+  \[
+    \lim_{n\to\infty}\frac{w_n}{n} = 0 \quad\text{ et }\quad \lim_{n\to\infty}w_n = 0
+  \]
+  Ainsi~:
+  \[
+    \frac{u_n}{v_n} = \left(1 + \frac{w_n}{n} \right)^n \sim_{\infty} e^{w_n}
+  \]
+  et donc~:
+  \[
+    \lim_{n\to\infty} \frac{u_n}{v_n} = \lim_{n\to\infty} e^{w_n} = e^0 = 1
+  \]
+  Les suites $u_n$ et $v_n$ ont le même comportement asymptotique et donc $e^{x+y}=e^xe^y$.\qed
+
+  \medskip
+
+  \textbf{Preuve de la proposition \hyperlink{slide_derivee_exp_log_1}{\ref{prop:exponentielle-série-entière}}.} Par la formule du binôme de Newton, on a~:
+  \[
+    \left( 1+ \frac{x}{n} \right)^n = \sum_{k=0}^n \binom{n}{k}\left(\frac{x}{n}\right)^k
+  \]
+  avec le coeffricient binomiale~:
+  \[
+    \binom{n}{k} = \frac{n!}{k!(n-k)!}
+  \]
+  Ainsi~:
+  \[
+    \begin{split}
+      \left( 1+ \frac{x}{n} \right)^n &= \sum_{k=0}^n \frac{n!}{n^k(n-k)!}\frac{x^k}{k!}\\
+      &= \sum_{k=0}^n \frac{n \times(n-1) \times (n-2) \times \dots \times (n-k+1)}{n^k}\frac{x^k}{k!}
+    \end{split}
+  \]
+  Au numérateur de la première fraction sous la somme nous avons $k$ facteurs, ainsi~:
+  \[
+    \lim_{n\to\infty} \frac{n \times(n-1) \times (n-2) \times \dots \times (n-k+1)}{n^k} = 1
+  \]
+  pour tout $k$. Nous avons donc~:
+  \[
+    \left( 1+ \frac{x}{n} \right)^n = \sum_{k=0}^n \underbrace{\frac{n!}{n^k(n-k)!}}_{\xrightarrow[n\to\infty]{}1}\frac{x^k}{k!} \xrightarrow[n\to\infty]{}\sum_{k=0}^\infty \frac{x^k}{k!} \quad\quad\quad\qed
+  \]
+
+  \medskip
+
+  \textbf{Preuve du théorème \hyperlink{slide_derivee_exp_log_1}{\ref{thm:exponentielle-dérivée}}.} En utilisant l'expression de l'exponentielle sous la forme d'une série entière, on a~:
+  \[
+    \begin{split}
+      \left( e^x \right)' &= \frac{\mathrm d}{\mathrm dx}\sum_{k=0}^\infty \frac{x^k}{k!}\\
+                          &= \frac{\mathrm d}{\mathrm dx}\left(1+\sum_{k=1}^\infty \frac{x^k}{k!}\right)\\
+                          &= \sum_{k=1}^\infty \frac{\mathrm d}{\mathrm dx}\frac{x^k}{k!}\\
+                          &= \sum_{k=1}^\infty \frac{x^{k-1}}{(k-1)!}\\
+                          &= \sum_{k=0}^\infty \frac{x^k}{k!} = e^x\\
+    \end{split}
+  \]
+\qed
+\end{notes}
+
+
+\begin{frame}
+  \frametitle{Fonctions exponentielle et logarithme, II}
+  \hypertarget{slide_derivee_exp_log_1}{}
 
   \begin{theorem}\label{thm:log_derivee_1}
     La dérivée de $f(x) = log(x)$, pour $x\in\mathbb R_+^*$ est $f'(x) = \frac{1}{x}$.
@@ -899,12 +989,13 @@
 
   \bigskip
 
-  \begin{theorem}\label{thm:log_derivee_2}
+  \begin{prop}\label{prop:log_derivee_2}
     Soit $f$ une fonction à valeurs dans $\mathbb R_+^{\star}$, alors~:
-    \[
-      \Bigl(\log f(x)\Bigr)' = \frac{f'(x)}{f(x)}
-    \]
-  \end{theorem}
+
+ \[
+    \Bigl(\log f(x)\Bigr)' = \frac{f'(x)}{f(x)}
+  \]
+  \end{prop}
 
 \end{frame}
 
@@ -938,13 +1029,13 @@
 
   \bigskip
 
-  \textbf{Preuve du théorème \hyperlink{slide_derivee_exp_log_1}{\ref{thm:log_derivee_2}}.} direct avec le théorème \hyperlink{slide_derivee_composition_1}{\ref{thm:composition}}.
+  \textbf{Preuve du théorème \hyperlink{slide_derivee_exp_log_1}{\ref{prop:log_derivee_2}}.} direct avec le théorème \hyperlink{slide_derivee_composition_1}{\ref{thm:composition}}.
 
 \end{notes}
 
 
 \begin{frame}
-  \frametitle{Fonctions exponentielle et logarithme, II}
+  \frametitle{Fonctions exponentielle et logarithme, III}
   \hypertarget{slide_derivee_exp_log_1}{}
 
   \bigskip

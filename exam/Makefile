@@ -1,6 +1,6 @@
 ROOT_PATH = .
 
-all: 2014-a 2014-b 2015-a 2015-b 2016-a 2016-b 2017-a 2017-b 2018-a 2018-b 2021-a 2022-a 2022-b 2023-a 2023-b 2024-a
+all: 2014-a 2014-b 2015-a 2015-b 2016-a 2016-b 2017-a 2017-b 2018-a 2018-b 2021-a 2022-a 2022-b 2023-a 2023-b 2024-a 2024-b
 
 2014-a:
 	$(MAKE) -C $(ROOT_PATH)/2014-a all
@@ -50,6 +50,9 @@ all: 2014-a 2014-b 2015-a 2015-b 2016-a 2016-b 2017-a 2017-b 2018-a 2018-b 2021-
 2024-a:
 	$(MAKE) -C $(ROOT_PATH)/2024-a all
 
+2024-b:
+	$(MAKE) -C $(ROOT_PATH)/2024-b all
+
 clean-all:
 	$(MAKE) -C $(ROOT_PATH)/2014-a clean-all
 	$(MAKE) -C $(ROOT_PATH)/2014-b clean-all
@@ -67,5 +70,6 @@ clean-all:
 	$(MAKE) -C $(ROOT_PATH)/2023-a clean-all
 	$(MAKE) -C $(ROOT_PATH)/2023-b clean-all
 	$(MAKE) -C $(ROOT_PATH)/2024-a clean-all
+	$(MAKE) -C $(ROOT_PATH)/2024-b clean-all
 
-.PHONY: 2014-a 2014-b 2015-a 2015-b 2016-a 2016-b 2017-a 2017-b 2018-a 2018-b 2021-a 2022-a 2022-b 2023-a 2023-b 2024-a clean-all
+.PHONY: 2014-a 2014-b 2015-a 2015-b 2016-a 2016-b 2017-a 2017-b 2018-a 2018-b 2021-a 2022-a 2022-b 2023-a 2023-b 2024-a 2024-b clean-all
